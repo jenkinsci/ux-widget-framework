@@ -1,0 +1,17 @@
+{
+  "name": "@jenkins-cd/ux-widget-framework",
+  "version": "0.0.1",
+  "main": "index.js",
+  "repository": "https://github.com/sophistifunk/ux-widget-framework.git",
+  "author": "Josh McDonald <josh@joshmcdonald.info>",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "@types/node": "^10.7.1",
+    "@types/react": "^16.4.11",
+    "gulp": "^3.9.1",
+    "gulp-cli": "^2.0.1",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "typescript": "^3.0.1"
+  }
+}
