@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./dist/lib"
+    },
+    "exclude": [
+        "src/distPackage.ts",
+        "src/fsPromises.ts",
+        "src/Reflector.ts",
+        "src/index.build.ts",
+    ]
+}

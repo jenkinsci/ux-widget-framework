@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "es6",
+        "declaration": true,
+        "outDir": "./build",
+        "preserveConstEnums": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "preserve",
+        "experimentalDecorators":true,
+        "strict": true,
+        "sourceMap": true,
+    },
+    "include": [
+        "src/**/*.ts"
+    ]
+}
