@@ -1,4 +1,4 @@
-import { Reflector, ClassMirror, TypeMirror, InterfaceMirror } from "./Reflector";
+import { Reflector, ClassMirror, TypeMirror, InterfaceMirror } from "./reflector/Reflector";
 import { WidgetDescription, CommonWidgetPropNames } from "./WidgetComponent";
 
 /**

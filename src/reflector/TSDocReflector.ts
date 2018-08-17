@@ -1,51 +1,9 @@
-import * as fs from './fsPromises';
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror } from "./Reflector";
 
-/**
- * Base reflector interface. 
- * 
- * This is not a meant to be a generic re-usable reflector, it's specific to the task of generating Widget Docs.
- */
-export interface Reflector {
-
-    describeClass(className: string): ClassMirror;
-    describeTypeById(id: number): TypeMirror;
-
-    debug(): string;
-};
-
-export interface Mirror {
-    getReflector(): Reflector;
-}
-
-export interface TypeMirror {
-    isComplex(): boolean;
-
-    getId(): number;
-    getName(): string;
-    getKindString(): string;
-
-    hasComment(): boolean;
-    getCommentShortText(): string;
-    getCommentLongText(): string;
-}
-
-export interface InterfaceMirror extends Mirror, TypeMirror {
-    describeProperty(propName: string): PropertyMirror;
-    propertyNames(): Array<string>;
-}
-
-export interface ClassMirror extends InterfaceMirror { }
-
-export interface PropertyMirror extends Mirror {
-    getTypeId(): number;
-}
-
-export function typedocReflector(filePath: string): Promise<Reflector> {
-    return fs.readFile(filePath, 'UTF8').then((fileString: string) => {
-        const reflector = new TypedocJSONReflector();
-        reflector.readJSON(JSON.parse(fileString));
-        return reflector as Reflector;
-    });
+export function typedocReflector(jsonObj: any): Reflector {
+    const reflector = new TypedocJSONReflector();
+    reflector.readJSON(jsonObj);
+    return reflector;
 }
 
 /**
@@ -119,15 +77,15 @@ class TypedocJSONInterfaceMirrorBase {
         return true;
     }
 
-    getId(): number {
+    get id(): number {
         return this.typeDesc.id;
     }
 
-    getName(): string {
+    get name(): string {
         return this.typeDesc.name;
     }
 
-    getKindString(): string {
+    get kindString(): string {
         return this.typeDesc.kindString;
     }
 
@@ -178,6 +136,18 @@ class TypedocJSONPropertyMirror implements PropertyMirror {
         }
 
         throw new Error(`getTypeId: do not understand typeDecl ${JSON.stringify(typeDecl)}`);
+    }
+
+    get id(): number {
+        return this.propDesc.id;
+    }
+
+    get name(): string {
+        return this.propDesc.name;
+    }
+
+    get kindString(): string {
+        return this.propDesc.kindString;
     }
 }
 
