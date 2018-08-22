@@ -1,0 +1,7899 @@
+{
+	"id": 0,
+	"name": "@jenkins-cd/ux-widget-framework",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 98,
+			"name": "\"DocGenerator\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/josh/cloudbees/ux-widget-framework/src/DocGenerator.ts",
+			"children": [
+				{
+					"id": 105,
+					"name": "BasicDocGenerator",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"comment": {
+						"shortText": "Shoddy implementation for PoC purposes. Spits out some basic documentation as MarkDown"
+					},
+					"children": [
+						{
+							"id": 111,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 112,
+									"name": "new BasicDocGenerator",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 113,
+											"name": "reflector",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Reflector",
+												"id": 2
+											}
+										},
+										{
+											"id": 114,
+											"name": "widgetDescription",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "WidgetDescription",
+												"id": 84
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "BasicDocGenerator",
+										"id": 105
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 33,
+									"character": 35
+								}
+							]
+						},
+						{
+							"id": 106,
+							"name": "reflector",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 28,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Reflector",
+								"id": 2
+							}
+						},
+						{
+							"id": 108,
+							"name": "warnings",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 30,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							},
+							"defaultValue": " []",
+							"implementationOf": {
+								"type": "reference",
+								"name": "DocGenerator.warnings",
+								"id": 100
+							}
+						},
+						{
+							"id": 109,
+							"name": "widgetClass",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 32,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ClassMirror",
+								"id": 52
+							}
+						},
+						{
+							"id": 107,
+							"name": "widgetDescription",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 29,
+									"character": 21
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "WidgetDescription",
+								"id": 84
+							}
+						},
+						{
+							"id": 110,
+							"name": "widgetPropNames",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 33,
+									"character": 19
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"defaultValue": " []"
+						},
+						{
+							"id": 138,
+							"name": "debug",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 139,
+									"name": "debug",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "DocGenerator.debug",
+										"id": 102
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 183,
+									"character": 9
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "DocGenerator.debug",
+								"id": 101
+							}
+						},
+						{
+							"id": 131,
+							"name": "genCommentBody",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true
+							},
+							"signatures": [
+								{
+									"id": 132,
+									"name": "genCommentBody",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 133,
+											"name": "comment",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 163,
+									"character": 26
+								}
+							]
+						},
+						{
+							"id": 128,
+							"name": "genCommentHeader",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true
+							},
+							"signatures": [
+								{
+									"id": 129,
+									"name": "genCommentHeader",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 130,
+											"name": "comment",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 159,
+									"character": 28
+								}
+							]
+						},
+						{
+							"id": 119,
+							"name": "genInterfaceSection",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true
+							},
+							"signatures": [
+								{
+									"id": 120,
+									"name": "genInterfaceSection",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 121,
+											"name": "mirror",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "InterfaceMirror",
+												"id": 38
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 132,
+									"character": 31
+								}
+							]
+						},
+						{
+							"id": 134,
+							"name": "genPropCategorySection",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 135,
+									"name": "genPropCategorySection",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 136,
+											"name": "categoryLabel",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 137,
+											"name": "propNames",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Array",
+												"typeArguments": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 167,
+									"character": 26
+								}
+							]
+						},
+						{
+							"id": 122,
+							"name": "genTypeAnchor",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true
+							},
+							"signatures": [
+								{
+									"id": 123,
+									"name": "genTypeAnchor",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 124,
+											"name": "mirror",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "TypeMirror",
+												"id": 28
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 151,
+									"character": 25
+								}
+							]
+						},
+						{
+							"id": 125,
+							"name": "genTypeHeader",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true
+							},
+							"signatures": [
+								{
+									"id": 126,
+									"name": "genTypeHeader",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 127,
+											"name": "mirror",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "TypeMirror",
+												"id": 28
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 155,
+									"character": 25
+								}
+							]
+						},
+						{
+							"id": 117,
+							"name": "generate",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 118,
+									"name": "generate",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "DocGenerator.generate",
+										"id": 104
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 103,
+									"character": 12
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "DocGenerator.generate",
+								"id": 103
+							}
+						},
+						{
+							"id": 115,
+							"name": "process",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 116,
+									"name": "process",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 40,
+									"character": 11
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								111
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								106,
+								108,
+								109,
+								107,
+								110
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								138,
+								131,
+								128,
+								119,
+								134,
+								122,
+								125,
+								117,
+								115
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "DocGenerator.ts",
+							"line": 27,
+							"character": 23
+						}
+					],
+					"implementedTypes": [
+						{
+							"type": "reference",
+							"name": "DocGenerator",
+							"id": 99
+						}
+					]
+				},
+				{
+					"id": 99,
+					"name": "DocGenerator",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Interface for widget documentation generation"
+					},
+					"children": [
+						{
+							"id": 100,
+							"name": "warnings",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 8,
+									"character": 21
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						},
+						{
+							"id": 101,
+							"name": "debug",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 102,
+									"name": "debug",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 10,
+									"character": 9
+								}
+							]
+						},
+						{
+							"id": 103,
+							"name": "generate",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 104,
+									"name": "generate",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Generate the whole document as a string"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "DocGenerator.ts",
+									"line": 15,
+									"character": 12
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								100
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								101,
+								103
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "DocGenerator.ts",
+							"line": 7,
+							"character": 29
+						}
+					],
+					"implementedBy": [
+						{
+							"type": "reference",
+							"name": "BasicDocGenerator",
+							"id": 105
+						}
+					]
+				},
+				{
+					"id": 140,
+					"name": "basicDocGenerator",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 141,
+							"name": "basicDocGenerator",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 142,
+									"name": "reflector",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									}
+								},
+								{
+									"id": 143,
+									"name": "widgetDescription",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "WidgetDescription",
+										"id": 84
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "DocGenerator",
+								"id": 99
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "DocGenerator.ts",
+							"line": 18,
+							"character": 33
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						105
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						99
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						140
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "DocGenerator.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 144,
+			"name": "\"HostEvents\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/josh/cloudbees/ux-widget-framework/src/HostEvents.ts",
+			"comment": {
+				"shortText": "Simple signals impl.",
+				"text": "TODO: We might want to use somebody else's, but they all seem a bit heavy-handed\nfor our use case.\n"
+			},
+			"children": [
+				{
+					"id": 165,
+					"name": "BasicSubscription",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"comment": {
+						"shortText": "Simple subscription implementation.",
+						"text": "TODO: Tests!\n"
+					},
+					"typeParameter": [
+						{
+							"id": 166,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"children": [
+						{
+							"id": 172,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 173,
+									"name": "new BasicSubscription",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 174,
+											"name": "unsubscribe",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 175,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 176,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "void"
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "HostEvents.ts",
+															"line": 77,
+															"character": 28
+														}
+													]
+												}
+											}
+										},
+										{
+											"id": 177,
+											"name": "handler",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Handler",
+												"id": 198,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "BasicSubscription",
+										"id": 165
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 75,
+									"character": 32
+								}
+							]
+						},
+						{
+							"id": 170,
+							"name": "handler",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 74,
+									"character": 19
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Handler",
+								"id": 198,
+								"typeArguments": [
+									{
+										"type": "typeParameter",
+										"name": "T"
+									}
+								]
+							}
+						},
+						{
+							"id": 171,
+							"name": "isSingleUse",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 75,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 167,
+							"name": "unsubscribe",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 73,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 168,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 169,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "HostEvents.ts",
+											"line": 73,
+											"character": 24
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 182,
+							"name": "_forward",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 183,
+									"name": "_forward",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Called by EventSource, not application code"
+									},
+									"parameters": [
+										{
+											"id": 184,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "HostEvent",
+												"id": 150,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 94,
+									"character": 12
+								}
+							]
+						},
+						{
+							"id": 178,
+							"name": "cancel",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 179,
+									"name": "cancel",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Subscription.cancel",
+										"id": 147
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 82,
+									"character": 10
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Subscription.cancel",
+								"id": 146
+							}
+						},
+						{
+							"id": 180,
+							"name": "once",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 181,
+									"name": "once",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Subscription.once",
+										"id": 149
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 86,
+									"character": 8
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Subscription.once",
+								"id": 148
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								172
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								170,
+								171,
+								167
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								182,
+								178,
+								180
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "HostEvents.ts",
+							"line": 71,
+							"character": 23
+						}
+					],
+					"implementedTypes": [
+						{
+							"type": "reference",
+							"name": "Subscription",
+							"id": 145
+						}
+					]
+				},
+				{
+					"id": 185,
+					"name": "EventSource",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Simple Emitter/Signal implementation.",
+						"text": "TODO: Needs tests, obvs.\n"
+					},
+					"typeParameter": [
+						{
+							"id": 186,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"children": [
+						{
+							"id": 189,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 190,
+									"name": "new EventSource",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 191,
+											"name": "type",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "EventSource",
+										"id": 185
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 115,
+									"character": 60
+								}
+							]
+						},
+						{
+							"id": 188,
+							"name": "subscriptions",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 115,
+									"character": 25
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "BasicSubscription",
+										"id": 165,
+										"typeArguments": [
+											{
+												"type": "typeParameter",
+												"name": "T"
+											}
+										]
+									}
+								]
+							},
+							"defaultValue": " []"
+						},
+						{
+							"id": 187,
+							"name": "type",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 113,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "Signal.type",
+								"id": 156
+							}
+						},
+						{
+							"id": 195,
+							"name": "add",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 196,
+									"name": "add",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 197,
+											"name": "handler",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Handler",
+												"id": 198,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Subscription",
+										"id": 145
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Signal.add",
+										"id": 158
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 139,
+									"character": 7
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Signal.add",
+								"id": 157
+							}
+						},
+						{
+							"id": 192,
+							"name": "dispatch",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 193,
+									"name": "dispatch",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 194,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "typeParameter",
+												"name": "T"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Emitter.dispatch",
+										"id": 163
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 122,
+									"character": 12
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Emitter.dispatch",
+								"id": 162
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								189
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								188,
+								187
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								195,
+								192
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "HostEvents.ts",
+							"line": 111,
+							"character": 24
+						}
+					],
+					"implementedTypes": [
+						{
+							"type": "reference",
+							"name": "Emitter",
+							"id": 160,
+							"typeArguments": [
+								{
+									"type": "typeParameter",
+									"name": "T"
+								}
+							]
+						},
+						{
+							"type": "reference",
+							"name": "Signal",
+							"id": 154,
+							"typeArguments": [
+								{
+									"type": "typeParameter",
+									"name": "T"
+								}
+							]
+						}
+					]
+				},
+				{
+					"id": 160,
+					"name": "Emitter",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "An Emitter represents the subscribers to the dispatcher"
+					},
+					"typeParameter": [
+						{
+							"id": 161,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"children": [
+						{
+							"id": 162,
+							"name": "dispatch",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 163,
+									"name": "dispatch",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 164,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "typeParameter",
+												"name": "T"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 63,
+									"character": 12
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								162
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "HostEvents.ts",
+							"line": 62,
+							"character": 24
+						}
+					],
+					"implementedBy": [
+						{
+							"type": "reference",
+							"name": "EventSource",
+							"id": 185
+						}
+					]
+				},
+				{
+					"id": 150,
+					"name": "HostEvent",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Basic event structure"
+					},
+					"typeParameter": [
+						{
+							"id": 151,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"children": [
+						{
+							"id": 152,
+							"name": "type",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "A string identifier for the event/signal."
+							},
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 30,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 153,
+							"name": "value",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Payload"
+							},
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 35,
+									"character": 18
+								}
+							],
+							"type": {
+								"type": "typeParameter",
+								"name": "T"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								152,
+								153
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "HostEvents.ts",
+							"line": 26,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 154,
+					"name": "Signal",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "A Signal represents the events to the consumer"
+					},
+					"typeParameter": [
+						{
+							"id": 155,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"children": [
+						{
+							"id": 156,
+							"name": "type",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Provides value for EventValue.type"
+							},
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 50,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 157,
+							"name": "add",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 158,
+									"name": "add",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {},
+									"parameters": [
+										{
+											"id": 159,
+											"name": "handler",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "event handler function\n"
+											},
+											"type": {
+												"type": "reference",
+												"name": "Handler",
+												"id": 198,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Subscription",
+										"id": 145
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 56,
+									"character": 7
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								156
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								157
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "HostEvents.ts",
+							"line": 46,
+							"character": 23
+						}
+					],
+					"implementedBy": [
+						{
+							"type": "reference",
+							"name": "EventSource",
+							"id": 185
+						}
+					]
+				},
+				{
+					"id": 145,
+					"name": "Subscription",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Represents a subscription to a particular signal"
+					},
+					"children": [
+						{
+							"id": 146,
+							"name": "cancel",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 147,
+									"name": "cancel",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Cancel the subscription, and remove any references to it so it can be collected"
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 15,
+									"character": 10
+								}
+							]
+						},
+						{
+							"id": 148,
+							"name": "once",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 149,
+									"name": "once",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Sets this subscription to be single-use. Returns self for easy assignment."
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "this"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 20,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								146,
+								148
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "HostEvents.ts",
+							"line": 11,
+							"character": 29
+						}
+					],
+					"implementedBy": [
+						{
+							"type": "reference",
+							"name": "BasicSubscription",
+							"id": 165
+						}
+					]
+				},
+				{
+					"id": 198,
+					"name": "Handler",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Shorthand type of an event handler"
+					},
+					"typeParameter": [
+						{
+							"id": 199,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "HostEvents.ts",
+							"line": 41,
+							"character": 19
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 200,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 201,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 202,
+											"name": "event",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "HostEvent",
+												"id": 150,
+												"typeArguments": [
+													{
+														"type": "typeParameter",
+														"name": "T"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "HostEvents.ts",
+									"line": 41,
+									"character": 24
+								}
+							]
+						}
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						165,
+						185
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						160,
+						150,
+						154,
+						145
+					]
+				},
+				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						198
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "HostEvents.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 77,
+			"name": "\"WidgetComponent\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/josh/cloudbees/ux-widget-framework/src/WidgetComponent.ts",
+			"children": [
+				{
+					"id": 81,
+					"name": "UXWidget",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"typeParameter": [
+						{
+							"id": 82,
+							"name": "T",
+							"kind": 131072,
+							"kindString": "Type parameter",
+							"flags": {},
+							"type": {
+								"type": "reference",
+								"name": "WidgetProps",
+								"id": 78
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 83,
+							"name": "props",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "WidgetComponent.ts",
+									"line": 16,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "typeParameter",
+								"name": "T",
+								"constraint": {
+									"type": "reference",
+									"name": "WidgetProps",
+									"id": 78
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								83
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "WidgetComponent.ts",
+							"line": 15,
+							"character": 25
+						}
+					]
+				},
+				{
+					"id": 84,
+					"name": "WidgetDescription",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 87,
+							"name": "hostEvents",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Names of the React properties for Host Events"
+							},
+							"sources": [
+								{
+									"fileName": "WidgetComponent.ts",
+									"line": 33,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						},
+						{
+							"id": 88,
+							"name": "models",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Names of the React properties for Data Model objects"
+							},
+							"sources": [
+								{
+									"fileName": "WidgetComponent.ts",
+									"line": 38,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						},
+						{
+							"id": 89,
+							"name": "services",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Names of the React properties for required Service objects"
+							},
+							"sources": [
+								{
+									"fileName": "WidgetComponent.ts",
+									"line": 43,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						},
+						{
+							"id": 85,
+							"name": "widgetClass",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "The name of the Widget's React Component class"
+							},
+							"sources": [
+								{
+									"fileName": "WidgetComponent.ts",
+									"line": 23,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 86,
+							"name": "widgetEvents",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Names of the React properties for Widget Events"
+							},
+							"sources": [
+								{
+									"fileName": "WidgetComponent.ts",
+									"line": 28,
+									"character": 16
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								87,
+								88,
+								89,
+								85,
+								86
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "WidgetComponent.ts",
+							"line": 19,
+							"character": 34
+						}
+					]
+				},
+				{
+					"id": 78,
+					"name": "WidgetProps",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 79,
+							"name": "assetURLBase",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "WidgetComponent.ts",
+									"line": 4,
+									"character": 16
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "undefined"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						},
+						{
+							"id": 80,
+							"name": "resourceBundle",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "WidgetComponent.ts",
+									"line": 5,
+									"character": 18
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								79,
+								80
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "WidgetComponent.ts",
+							"line": 2,
+							"character": 28
+						}
+					]
+				},
+				{
+					"id": 90,
+					"name": "CommonWidgetPropNames",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "WidgetComponent.ts",
+							"line": 8,
+							"character": 34
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Array",
+						"typeArguments": [
+							{
+								"type": "typeOperator",
+								"operator": "keyof",
+								"target": {
+									"type": "reference",
+									"name": "WidgetProps"
+								}
+							}
+						]
+					},
+					"defaultValue": " [\n    // IMPORTANT: Everything in WidgetProps needs to be in here!\n    // TODO: Cook up some unit tests or something to ensure this!\n    'assetURLBase',\n    'resourceBundle'\n]"
+				},
+				{
+					"id": 91,
+					"name": "ensureArray",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 92,
+							"name": "ensureArray",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"typeParameter": [
+								{
+									"id": 93,
+									"name": "T",
+									"kind": 131072,
+									"kindString": "Type parameter",
+									"flags": {}
+								}
+							],
+							"parameters": [
+								{
+									"id": 94,
+									"name": "input",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "typeParameter",
+										"name": "T"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "WidgetComponent.ts",
+							"line": 51,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 95,
+					"name": "parseWidgetDescription",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 96,
+							"name": "parseWidgetDescription",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Validate and coerce a JS object into a WidgetDescription, or throw"
+							},
+							"parameters": [
+								{
+									"id": 97,
+									"name": "input",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "WidgetDescription",
+								"id": 84
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "WidgetComponent.ts",
+							"line": 61,
+							"character": 38
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						81,
+						84,
+						78
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						90
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						91,
+						95
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "WidgetComponent.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 213,
+			"name": "\"distPackage\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/josh/cloudbees/ux-widget-framework/src/distPackage.ts",
+			"children": [
+				{
+					"id": 214,
+					"name": "createDistPackage",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 215,
+							"name": "createDistPackage",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 216,
+									"name": "sourceFilePath",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 217,
+									"name": "destFilePath",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Promise",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "distPackage.ts",
+							"line": 11,
+							"character": 33
+						}
+					]
+				},
+				{
+					"id": 218,
+					"name": "processPackage",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 219,
+							"name": "processPackage",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 220,
+									"name": "packageDetails",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "distPackage.ts",
+							"line": 19,
+							"character": 30
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						214,
+						218
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "distPackage.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 203,
+			"name": "\"fsPromises\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/josh/cloudbees/ux-widget-framework/src/fsPromises.ts",
+			"children": [
+				{
+					"id": 204,
+					"name": "readFile",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 205,
+							"name": "readFile",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 206,
+									"name": "sourceFilePath",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 207,
+									"name": "options",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Promise",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "fsPromises.ts",
+							"line": 7,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 208,
+					"name": "writeFile",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 209,
+							"name": "writeFile",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 210,
+									"name": "destFilePath",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 211,
+									"name": "data",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 212,
+									"name": "options",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Promise",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "fsPromises.ts",
+							"line": 20,
+							"character": 25
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						204,
+						208
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "fsPromises.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 1,
+			"name": "\"reflector/Reflector\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/josh/cloudbees/ux-widget-framework/src/reflector/Reflector.ts",
+			"children": [
+				{
+					"id": 52,
+					"name": "ClassMirror",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 65,
+							"name": "commentLongText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Doc comment details"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 56,
+									"character": 28
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.commentLongText",
+								"id": 27
+							}
+						},
+						{
+							"id": 64,
+							"name": "commentShortText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Doc comment heading"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 53,
+									"character": 29
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.commentShortText",
+								"id": 26
+							}
+						},
+						{
+							"id": 63,
+							"name": "hasComment",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Has doc comments?"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 50,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.hasComment",
+								"id": 25
+							}
+						},
+						{
+							"id": 60,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Id number within the typespace"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 35,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.id",
+								"id": 21
+							}
+						},
+						{
+							"id": 57,
+							"name": "isComplex",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Complex types would include classes, interfaces, enums"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 64,
+									"character": 22
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypeMirror.isComplex",
+								"id": 29
+							}
+						},
+						{
+							"id": 62,
+							"name": "kindString",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Kind as string"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 41,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.kindString",
+								"id": 23
+							}
+						},
+						{
+							"id": 61,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Declared name"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 38,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.name",
+								"id": 22
+							}
+						},
+						{
+							"id": 56,
+							"name": "propertyNames",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 72,
+									"character": 26
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "InterfaceMirror.propertyNames",
+								"id": 42
+							}
+						},
+						{
+							"id": 53,
+							"name": "describeProperty",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 54,
+									"name": "describeProperty",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 55,
+											"name": "propName",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "PropertyMirror",
+										"id": 66
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "InterfaceMirror.describeProperty",
+										"id": 39
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 71,
+									"character": 20
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "InterfaceMirror.describeProperty",
+								"id": 39
+							}
+						},
+						{
+							"id": 58,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 59,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "\"root\" typespace"
+									},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Mirror.getReflector",
+										"id": 19
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 32,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.getReflector",
+								"id": 19
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								65,
+								64,
+								63,
+								60,
+								57,
+								62,
+								61,
+								56
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								53,
+								58
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/Reflector.ts",
+							"line": 75,
+							"character": 28
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "InterfaceMirror",
+							"id": 38
+						}
+					],
+					"implementedBy": [
+						{
+							"type": "reference",
+							"name": "TypedocJSONClassMirror",
+							"id": 292
+						}
+					]
+				},
+				{
+					"id": 24,
+					"name": "DocComments",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"comment": {
+						"shortText": "Represents any declaration that can have doc comments. Not just types themselves, but also properties within a class / interface"
+					},
+					"children": [
+						{
+							"id": 27,
+							"name": "commentLongText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Doc comment details"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 56,
+									"character": 28
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 26,
+							"name": "commentShortText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Doc comment heading"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 53,
+									"character": 29
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 25,
+							"name": "hasComment",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"comment": {
+								"shortText": "Has doc comments?"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 50,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								27,
+								26,
+								25
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/Reflector.ts",
+							"line": 47,
+							"character": 21
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"name": "TypeMirror",
+							"id": 28
+						},
+						{
+							"type": "reference",
+							"name": "PropertyMirror",
+							"id": 66
+						}
+					]
+				},
+				{
+					"id": 38,
+					"name": "InterfaceMirror",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Represents an interface of class def, which has child properties"
+					},
+					"children": [
+						{
+							"id": 51,
+							"name": "commentLongText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Doc comment details"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 56,
+									"character": 28
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.commentLongText",
+								"id": 27
+							}
+						},
+						{
+							"id": 50,
+							"name": "commentShortText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Doc comment heading"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 53,
+									"character": 29
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.commentShortText",
+								"id": 26
+							}
+						},
+						{
+							"id": 49,
+							"name": "hasComment",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Has doc comments?"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 50,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.hasComment",
+								"id": 25
+							}
+						},
+						{
+							"id": 46,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Id number within the typespace"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 35,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.id",
+								"id": 21
+							}
+						},
+						{
+							"id": 43,
+							"name": "isComplex",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Complex types would include classes, interfaces, enums"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 64,
+									"character": 22
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypeMirror.isComplex",
+								"id": 29
+							}
+						},
+						{
+							"id": 48,
+							"name": "kindString",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Kind as string"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 41,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.kindString",
+								"id": 23
+							}
+						},
+						{
+							"id": 47,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Declared name"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 38,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.name",
+								"id": 22
+							}
+						},
+						{
+							"id": 42,
+							"name": "propertyNames",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 72,
+									"character": 26
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						},
+						{
+							"id": 39,
+							"name": "describeProperty",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 40,
+									"name": "describeProperty",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 41,
+											"name": "propName",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "PropertyMirror",
+										"id": 66
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 71,
+									"character": 20
+								}
+							]
+						},
+						{
+							"id": 44,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 45,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "\"root\" typespace"
+									},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Mirror.getReflector",
+										"id": 19
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 32,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.getReflector",
+								"id": 19
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								51,
+								50,
+								49,
+								46,
+								43,
+								48,
+								47,
+								42
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								39,
+								44
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/Reflector.ts",
+							"line": 70,
+							"character": 32
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "TypeMirror",
+							"id": 28
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"name": "ClassMirror",
+							"id": 52
+						}
+					],
+					"implementedBy": [
+						{
+							"type": "reference",
+							"name": "TypedocJSONInterfaceMirror",
+							"id": 264
+						}
+					]
+				},
+				{
+					"id": 18,
+					"name": "Mirror",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Common properties across all defs we're interested in"
+					},
+					"children": [
+						{
+							"id": 21,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Id number within the typespace"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 35,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 23,
+							"name": "kindString",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Kind as string"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 41,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 22,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Declared name"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 38,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 19,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 20,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "\"root\" typespace"
+									},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 32,
+									"character": 16
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								21,
+								23,
+								22
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								19
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/Reflector.ts",
+							"line": 30,
+							"character": 23
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"name": "TypeMirror",
+							"id": 28
+						},
+						{
+							"type": "reference",
+							"name": "PropertyMirror",
+							"id": 66
+						}
+					]
+				},
+				{
+					"id": 66,
+					"name": "PropertyMirror",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Represents a property definition within an interface, class, or module"
+					},
+					"children": [
+						{
+							"id": 76,
+							"name": "commentLongText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Doc comment details"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 56,
+									"character": 28
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.commentLongText",
+								"id": 27
+							}
+						},
+						{
+							"id": 75,
+							"name": "commentShortText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Doc comment heading"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 53,
+									"character": 29
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.commentShortText",
+								"id": 26
+							}
+						},
+						{
+							"id": 74,
+							"name": "hasComment",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Has doc comments?"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 50,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.hasComment",
+								"id": 25
+							}
+						},
+						{
+							"id": 71,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Id number within the typespace"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 35,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.id",
+								"id": 21
+							}
+						},
+						{
+							"id": 73,
+							"name": "kindString",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Kind as string"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 41,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.kindString",
+								"id": 23
+							}
+						},
+						{
+							"id": 72,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Declared name"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 38,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.name",
+								"id": 22
+							}
+						},
+						{
+							"id": 69,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 70,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "\"root\" typespace"
+									},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Mirror.getReflector",
+										"id": 19
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 32,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.getReflector",
+								"id": 19
+							}
+						},
+						{
+							"id": 67,
+							"name": "getTypeId",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 68,
+									"name": "getTypeId",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 81,
+									"character": 13
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								76,
+								75,
+								74,
+								71,
+								73,
+								72
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								69,
+								67
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/Reflector.ts",
+							"line": 80,
+							"character": 31
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "Mirror",
+							"id": 18
+						},
+						{
+							"type": "reference",
+							"name": "DocComments",
+							"id": 24
+						}
+					],
+					"implementedBy": [
+						{
+							"type": "reference",
+							"name": "TypedocJSONPropertyMirror",
+							"id": 320
+						}
+					]
+				},
+				{
+					"id": 2,
+					"name": "Reflector",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Base reflector interface, represents a \"typespace\"."
+					},
+					"children": [
+						{
+							"id": 9,
+							"name": "moduleNames",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "List of the external modules"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 19,
+									"character": 24
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						},
+						{
+							"id": 16,
+							"name": "debug",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 17,
+									"name": "debug",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 24,
+									"character": 9
+								}
+							]
+						},
+						{
+							"id": 6,
+							"name": "describeTypeById",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 7,
+									"name": "describeTypeById",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Lookup typedef by id"
+									},
+									"parameters": [
+										{
+											"id": 8,
+											"name": "id",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "TypeMirror",
+										"id": 28
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 16,
+									"character": 20
+								}
+							]
+						},
+						{
+							"id": 3,
+							"name": "findClassesByName",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 4,
+									"name": "findClassesByName",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "Find classes by name across all modules",
+										"returns": "an array of matching ids\n"
+									},
+									"parameters": [
+										{
+											"id": 5,
+											"name": "className",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"comment": {
+												"text": "class name"
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Array",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 13,
+									"character": 21
+								}
+							]
+						},
+						{
+							"id": 13,
+							"name": "isClass",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 14,
+									"name": "isClass",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 15,
+											"name": "mirror",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "TypeMirror",
+												"id": 28
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 22,
+									"character": 11
+								}
+							]
+						},
+						{
+							"id": 10,
+							"name": "isInterface",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 11,
+									"name": "isInterface",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 12,
+											"name": "mirror",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "TypeMirror",
+												"id": 28
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 21,
+									"character": 15
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								9
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								16,
+								6,
+								3,
+								13,
+								10
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/Reflector.ts",
+							"line": 5,
+							"character": 26
+						}
+					],
+					"implementedBy": [
+						{
+							"type": "reference",
+							"name": "TypedocJSONReflector",
+							"id": 346
+						}
+					]
+				},
+				{
+					"id": 28,
+					"name": "TypeMirror",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Represents a typedef, might be a Class or Interface, Enum, or just a type alias"
+					},
+					"children": [
+						{
+							"id": 37,
+							"name": "commentLongText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Doc comment details"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 56,
+									"character": 28
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.commentLongText",
+								"id": 27
+							}
+						},
+						{
+							"id": 36,
+							"name": "commentShortText",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Doc comment heading"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 53,
+									"character": 29
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.commentShortText",
+								"id": 26
+							}
+						},
+						{
+							"id": 35,
+							"name": "hasComment",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Has doc comments?"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 50,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "DocComments.hasComment",
+								"id": 25
+							}
+						},
+						{
+							"id": 32,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Id number within the typespace"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 35,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.id",
+								"id": 21
+							}
+						},
+						{
+							"id": 29,
+							"name": "isComplex",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Complex types would include classes, interfaces, enums"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 64,
+									"character": 22
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 34,
+							"name": "kindString",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Kind as string"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 41,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.kindString",
+								"id": 23
+							}
+						},
+						{
+							"id": 33,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "Declared name"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 38,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.name",
+								"id": 22
+							}
+						},
+						{
+							"id": 30,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 31,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "\"root\" typespace"
+									},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Mirror.getReflector",
+										"id": 19
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/Reflector.ts",
+									"line": 32,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Mirror.getReflector",
+								"id": 19
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								37,
+								36,
+								35,
+								32,
+								29,
+								34,
+								33
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								30
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/Reflector.ts",
+							"line": 62,
+							"character": 27
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "Mirror",
+							"id": 18
+						},
+						{
+							"type": "reference",
+							"name": "DocComments",
+							"id": 24
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"name": "InterfaceMirror",
+							"id": 38
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						52,
+						24,
+						38,
+						18,
+						66,
+						2,
+						28
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "reflector/Reflector.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 221,
+			"name": "\"reflector/TSDocReflector\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/josh/cloudbees/ux-widget-framework/src/reflector/TSDocReflector.ts",
+			"children": [
+				{
+					"id": 222,
+					"name": "KindString",
+					"kind": 4,
+					"kindString": "Enumeration",
+					"flags": {},
+					"comment": {
+						"shortText": "Known (interesting) KindStrings.",
+						"text": "The TypeScript kinds are a non-explicit enum, so the integer values may drift across TSC versions, we're stuck with\nusing the strings for now.\n\nTODO: Figure out where TypeDoc gets these from, and use them.\n"
+					},
+					"children": [
+						{
+							"id": 223,
+							"name": "Class",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 18,
+									"character": 9
+								}
+							],
+							"defaultValue": "\"Class\""
+						},
+						{
+							"id": 224,
+							"name": "Constructor",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 19,
+									"character": 15
+								}
+							],
+							"defaultValue": "\"Constructor\""
+						},
+						{
+							"id": 225,
+							"name": "Enumeration",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 20,
+									"character": 15
+								}
+							],
+							"defaultValue": "\"Enumeration\""
+						},
+						{
+							"id": 226,
+							"name": "EnumerationMember",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 21,
+									"character": 21
+								}
+							],
+							"defaultValue": "\"Enumeration member\""
+						},
+						{
+							"id": 227,
+							"name": "ExternalModule",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 22,
+									"character": 18
+								}
+							],
+							"defaultValue": "\"External module\""
+						},
+						{
+							"id": 228,
+							"name": "Function",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 23,
+									"character": 12
+								}
+							],
+							"defaultValue": "\"Function\""
+						},
+						{
+							"id": 229,
+							"name": "Interface",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 24,
+									"character": 13
+								}
+							],
+							"defaultValue": "\"Interface\""
+						},
+						{
+							"id": 230,
+							"name": "Method",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 25,
+									"character": 10
+								}
+							],
+							"defaultValue": "\"Method\""
+						},
+						{
+							"id": 231,
+							"name": "Module",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 26,
+									"character": 10
+								}
+							],
+							"defaultValue": "\"Module\""
+						},
+						{
+							"id": 232,
+							"name": "ObjectLiteral",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 27,
+									"character": 17
+								}
+							],
+							"defaultValue": "\"Object literal\""
+						},
+						{
+							"id": 233,
+							"name": "Property",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 28,
+									"character": 12
+								}
+							],
+							"defaultValue": "\"Property\""
+						},
+						{
+							"id": 234,
+							"name": "TypeAlias",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 29,
+									"character": 13
+								}
+							],
+							"defaultValue": "\"Type alias\""
+						},
+						{
+							"id": 235,
+							"name": "Variable",
+							"kind": 16,
+							"kindString": "Enumeration member",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 30,
+									"character": 12
+								}
+							],
+							"defaultValue": "\"Variable\""
+						}
+					],
+					"groups": [
+						{
+							"title": "Enumeration members",
+							"kind": 16,
+							"children": [
+								223,
+								224,
+								225,
+								226,
+								227,
+								228,
+								229,
+								230,
+								231,
+								232,
+								233,
+								234,
+								235
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 17,
+							"character": 15
+						}
+					]
+				},
+				{
+					"id": 292,
+					"name": "TypedocJSONClassMirror",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 295,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 296,
+									"name": "new TypedocJSONClassMirror",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 297,
+											"name": "reflector",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Reflector",
+												"id": 2
+											}
+										},
+										{
+											"id": 298,
+											"name": "typeDesc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "TypedocJSONClassMirror",
+										"id": 292
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "TypedocJSONInterfaceMirrorBase.__constructor",
+										"id": 239
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 55,
+									"character": 25
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.__constructor",
+								"id": 239
+							}
+						},
+						{
+							"id": 294,
+							"name": "reflector",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 55,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Reflector",
+								"id": 2
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.reflector",
+								"id": 238
+							}
+						},
+						{
+							"id": 293,
+							"name": "typeDesc",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 54,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.typeDesc",
+								"id": 237
+							}
+						},
+						{
+							"id": 316,
+							"name": "commentLongText",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 317,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.commentLongText",
+									"id": 260
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 108,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.commentLongText",
+								"id": 260
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.commentLongText",
+								"id": 65
+							}
+						},
+						{
+							"id": 314,
+							"name": "commentShortText",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 315,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.commentShortText",
+									"id": 258
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 103,
+									"character": 24
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.commentShortText",
+								"id": 258
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.commentShortText",
+								"id": 64
+							}
+						},
+						{
+							"id": 312,
+							"name": "hasComment",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 313,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "boolean"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.hasComment",
+									"id": 256
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 99,
+									"character": 18
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.hasComment",
+								"id": 256
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.hasComment",
+								"id": 63
+							}
+						},
+						{
+							"id": 306,
+							"name": "id",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 307,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "number"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.id",
+									"id": 250
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 87,
+									"character": 10
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.id",
+								"id": 250
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.id",
+								"id": 60
+							}
+						},
+						{
+							"id": 304,
+							"name": "isComplex",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 305,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "boolean"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.isComplex",
+									"id": 248
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 83,
+									"character": 17
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.isComplex",
+								"id": 248
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.isComplex",
+								"id": 57
+							}
+						},
+						{
+							"id": 310,
+							"name": "kindString",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 311,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.kindString",
+									"id": 254
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 95,
+									"character": 18
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.kindString",
+								"id": 254
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.kindString",
+								"id": 62
+							}
+						},
+						{
+							"id": 308,
+							"name": "name",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 309,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.name",
+									"id": 252
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 91,
+									"character": 12
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.name",
+								"id": 252
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.name",
+								"id": 61
+							}
+						},
+						{
+							"id": 318,
+							"name": "propertyNames",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 319,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "reference",
+									"name": "Array",
+									"typeArguments": [
+										{
+											"type": "intrinsic",
+											"name": "string"
+										}
+									]
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.propertyNames",
+									"id": 262
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 113,
+									"character": 21
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.propertyNames",
+								"id": 262
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.propertyNames",
+								"id": 56
+							}
+						},
+						{
+							"id": 299,
+							"name": "describeProperty",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 300,
+									"name": "describeProperty",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 301,
+											"name": "propName",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "PropertyMirror",
+										"id": 66
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "TypedocJSONInterfaceMirrorBase.describeProperty",
+										"id": 243
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "ClassMirror.describeProperty",
+										"id": 54
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 62,
+									"character": 20
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.describeProperty",
+								"id": 243
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.describeProperty",
+								"id": 53
+							}
+						},
+						{
+							"id": 302,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 303,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "TypedocJSONInterfaceMirrorBase.getReflector",
+										"id": 246
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "ClassMirror.getReflector",
+										"id": 59
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 79,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.getReflector",
+								"id": 246
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "ClassMirror.getReflector",
+								"id": 58
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								295
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								294,
+								293
+							]
+						},
+						{
+							"title": "Accessors",
+							"kind": 262144,
+							"children": [
+								316,
+								314,
+								312,
+								306,
+								304,
+								310,
+								308,
+								318
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								299,
+								302
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 122,
+							"character": 28
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "TypedocJSONInterfaceMirrorBase",
+							"id": 236
+						}
+					],
+					"implementedTypes": [
+						{
+							"type": "reference",
+							"name": "ClassMirror",
+							"id": 52
+						}
+					]
+				},
+				{
+					"id": 264,
+					"name": "TypedocJSONInterfaceMirror",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 267,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 268,
+									"name": "new TypedocJSONInterfaceMirror",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 269,
+											"name": "reflector",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Reflector",
+												"id": 2
+											}
+										},
+										{
+											"id": 270,
+											"name": "typeDesc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "TypedocJSONInterfaceMirror",
+										"id": 264
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "TypedocJSONInterfaceMirrorBase.__constructor",
+										"id": 239
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 55,
+									"character": 25
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.__constructor",
+								"id": 239
+							}
+						},
+						{
+							"id": 266,
+							"name": "reflector",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 55,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Reflector",
+								"id": 2
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.reflector",
+								"id": 238
+							}
+						},
+						{
+							"id": 265,
+							"name": "typeDesc",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 54,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.typeDesc",
+								"id": 237
+							}
+						},
+						{
+							"id": 288,
+							"name": "commentLongText",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 289,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.commentLongText",
+									"id": 260
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 108,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.commentLongText",
+								"id": 260
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.commentLongText",
+								"id": 51
+							}
+						},
+						{
+							"id": 286,
+							"name": "commentShortText",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 287,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.commentShortText",
+									"id": 258
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 103,
+									"character": 24
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.commentShortText",
+								"id": 258
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.commentShortText",
+								"id": 50
+							}
+						},
+						{
+							"id": 284,
+							"name": "hasComment",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 285,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "boolean"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.hasComment",
+									"id": 256
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 99,
+									"character": 18
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.hasComment",
+								"id": 256
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.hasComment",
+								"id": 49
+							}
+						},
+						{
+							"id": 278,
+							"name": "id",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 279,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "number"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.id",
+									"id": 250
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 87,
+									"character": 10
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.id",
+								"id": 250
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.id",
+								"id": 46
+							}
+						},
+						{
+							"id": 276,
+							"name": "isComplex",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 277,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "boolean"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.isComplex",
+									"id": 248
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 83,
+									"character": 17
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.isComplex",
+								"id": 248
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.isComplex",
+								"id": 43
+							}
+						},
+						{
+							"id": 282,
+							"name": "kindString",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 283,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.kindString",
+									"id": 254
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 95,
+									"character": 18
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.kindString",
+								"id": 254
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.kindString",
+								"id": 48
+							}
+						},
+						{
+							"id": 280,
+							"name": "name",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 281,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.name",
+									"id": 252
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 91,
+									"character": 12
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.name",
+								"id": 252
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.name",
+								"id": 47
+							}
+						},
+						{
+							"id": 290,
+							"name": "propertyNames",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 291,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "reference",
+									"name": "Array",
+									"typeArguments": [
+										{
+											"type": "intrinsic",
+											"name": "string"
+										}
+									]
+								},
+								"inheritedFrom": {
+									"type": "reference",
+									"name": "TypedocJSONInterfaceMirrorBase.propertyNames",
+									"id": 262
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 113,
+									"character": 21
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.propertyNames",
+								"id": 262
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.propertyNames",
+								"id": 42
+							}
+						},
+						{
+							"id": 271,
+							"name": "describeProperty",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 272,
+									"name": "describeProperty",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 273,
+											"name": "propName",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "PropertyMirror",
+										"id": 66
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "TypedocJSONInterfaceMirrorBase.describeProperty",
+										"id": 243
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "InterfaceMirror.describeProperty",
+										"id": 40
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 62,
+									"character": 20
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.describeProperty",
+								"id": 243
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.describeProperty",
+								"id": 39
+							}
+						},
+						{
+							"id": 274,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 275,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "TypedocJSONInterfaceMirrorBase.getReflector",
+										"id": 246
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "InterfaceMirror.getReflector",
+										"id": 45
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 79,
+									"character": 16
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "TypedocJSONInterfaceMirrorBase.getReflector",
+								"id": 246
+							},
+							"implementationOf": {
+								"type": "reference",
+								"name": "InterfaceMirror.getReflector",
+								"id": 44
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								267
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								266,
+								265
+							]
+						},
+						{
+							"title": "Accessors",
+							"kind": 262144,
+							"children": [
+								288,
+								286,
+								284,
+								278,
+								276,
+								282,
+								280,
+								290
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								271,
+								274
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 120,
+							"character": 32
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "TypedocJSONInterfaceMirrorBase",
+							"id": 236
+						}
+					],
+					"implementedTypes": [
+						{
+							"type": "reference",
+							"name": "InterfaceMirror",
+							"id": 38
+						}
+					]
+				},
+				{
+					"id": 236,
+					"name": "TypedocJSONInterfaceMirrorBase",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 239,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 240,
+									"name": "new TypedocJSONInterfaceMirrorBase",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 241,
+											"name": "reflector",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Reflector",
+												"id": 2
+											}
+										},
+										{
+											"id": 242,
+											"name": "typeDesc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "TypedocJSONInterfaceMirrorBase",
+										"id": 236
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 55,
+									"character": 25
+								}
+							]
+						},
+						{
+							"id": 238,
+							"name": "reflector",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 55,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Reflector",
+								"id": 2
+							}
+						},
+						{
+							"id": 237,
+							"name": "typeDesc",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 54,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 260,
+							"name": "commentLongText",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 261,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 108,
+									"character": 23
+								}
+							]
+						},
+						{
+							"id": 258,
+							"name": "commentShortText",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 259,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 103,
+									"character": 24
+								}
+							]
+						},
+						{
+							"id": 256,
+							"name": "hasComment",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 257,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "boolean"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 99,
+									"character": 18
+								}
+							]
+						},
+						{
+							"id": 250,
+							"name": "id",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 251,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "number"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 87,
+									"character": 10
+								}
+							]
+						},
+						{
+							"id": 248,
+							"name": "isComplex",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 249,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "boolean"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 83,
+									"character": 17
+								}
+							]
+						},
+						{
+							"id": 254,
+							"name": "kindString",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 255,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 95,
+									"character": 18
+								}
+							]
+						},
+						{
+							"id": 252,
+							"name": "name",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 253,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 91,
+									"character": 12
+								}
+							]
+						},
+						{
+							"id": 262,
+							"name": "propertyNames",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 263,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "reference",
+									"name": "Array",
+									"typeArguments": [
+										{
+											"type": "intrinsic",
+											"name": "string"
+										}
+									]
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 113,
+									"character": 21
+								}
+							]
+						},
+						{
+							"id": 243,
+							"name": "describeProperty",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 244,
+									"name": "describeProperty",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 245,
+											"name": "propName",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "PropertyMirror",
+										"id": 66
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 62,
+									"character": 20
+								}
+							]
+						},
+						{
+							"id": 246,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 247,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 79,
+									"character": 16
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								239
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								238,
+								237
+							]
+						},
+						{
+							"title": "Accessors",
+							"kind": 262144,
+							"children": [
+								260,
+								258,
+								256,
+								250,
+								248,
+								254,
+								252,
+								262
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								243,
+								246
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 52,
+							"character": 36
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"name": "TypedocJSONInterfaceMirror",
+							"id": 264
+						},
+						{
+							"type": "reference",
+							"name": "TypedocJSONClassMirror",
+							"id": 292
+						}
+					]
+				},
+				{
+					"id": 320,
+					"name": "TypedocJSONPropertyMirror",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 323,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 324,
+									"name": "new TypedocJSONPropertyMirror",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 325,
+											"name": "parent",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "ClassMirror",
+												"id": 52
+											}
+										},
+										{
+											"id": 326,
+											"name": "propDesc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "TypedocJSONPropertyMirror",
+										"id": 320
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 127,
+									"character": 18
+								}
+							]
+						},
+						{
+							"id": 321,
+							"name": "parent",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 126,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "ClassMirror",
+								"id": 52
+							}
+						},
+						{
+							"id": 322,
+							"name": "propDesc",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 127,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 341,
+							"name": "commentLongText",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 342,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 169,
+									"character": 23
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "PropertyMirror.commentLongText",
+								"id": 76
+							}
+						},
+						{
+							"id": 339,
+							"name": "commentShortText",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 340,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 164,
+									"character": 24
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "PropertyMirror.commentShortText",
+								"id": 75
+							}
+						},
+						{
+							"id": 337,
+							"name": "hasComment",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 338,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "boolean"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 160,
+									"character": 18
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "PropertyMirror.hasComment",
+								"id": 74
+							}
+						},
+						{
+							"id": 331,
+							"name": "id",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 332,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "number"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 148,
+									"character": 10
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "PropertyMirror.id",
+								"id": 71
+							}
+						},
+						{
+							"id": 335,
+							"name": "kindString",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 336,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 156,
+									"character": 18
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "PropertyMirror.kindString",
+								"id": 73
+							}
+						},
+						{
+							"id": 333,
+							"name": "name",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 334,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 152,
+									"character": 12
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "PropertyMirror.name",
+								"id": 72
+							}
+						},
+						{
+							"id": 327,
+							"name": "getReflector",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 328,
+									"name": "getReflector",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Reflector",
+										"id": 2
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "PropertyMirror.getReflector",
+										"id": 70
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 134,
+									"character": 16
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "PropertyMirror.getReflector",
+								"id": 69
+							}
+						},
+						{
+							"id": 329,
+							"name": "getTypeId",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 330,
+									"name": "getTypeId",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "PropertyMirror.getTypeId",
+										"id": 68
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 138,
+									"character": 13
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "PropertyMirror.getTypeId",
+								"id": 67
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								323
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								321,
+								322
+							]
+						},
+						{
+							"title": "Accessors",
+							"kind": 262144,
+							"children": [
+								341,
+								339,
+								337,
+								331,
+								335,
+								333
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								327,
+								329
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 124,
+							"character": 31
+						}
+					],
+					"implementedTypes": [
+						{
+							"type": "reference",
+							"name": "PropertyMirror",
+							"id": 66
+						}
+					]
+				},
+				{
+					"id": 346,
+					"name": "TypedocJSONReflector",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 351,
+							"name": "keys",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 183,
+									"character": 18
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 352,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"indexSignature": {
+										"id": 353,
+										"name": "__index",
+										"kind": 8192,
+										"kindString": "Index signature",
+										"flags": {},
+										"parameters": [
+											{
+												"id": 354,
+												"name": "k",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {},
+												"type": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										],
+										"type": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									},
+									"sources": [
+										{
+											"fileName": "reflector/TSDocReflector.ts",
+											"line": 183,
+											"character": 19
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 356,
+							"name": "kinds",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 185,
+									"character": 19
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							},
+							"defaultValue": " []"
+						},
+						{
+							"id": 355,
+							"name": "modules",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 184,
+									"character": 21
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Array",
+								"typeArguments": [
+									{
+										"type": "reference",
+										"name": "NameAndId",
+										"id": 343
+									}
+								]
+							},
+							"defaultValue": " []"
+						},
+						{
+							"id": 347,
+							"name": "shapes",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 182,
+									"character": 20
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 348,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"indexSignature": {
+										"id": 349,
+										"name": "__index",
+										"kind": 8192,
+										"kindString": "Index signature",
+										"flags": {},
+										"parameters": [
+											{
+												"id": 350,
+												"name": "k",
+												"kind": 32768,
+												"kindString": "Parameter",
+												"flags": {},
+												"type": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										],
+										"type": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									},
+									"sources": [
+										{
+											"fileName": "reflector/TSDocReflector.ts",
+											"line": 182,
+											"character": 21
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 358,
+							"name": "total",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 190,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"defaultValue": "0"
+						},
+						{
+							"id": 357,
+							"name": "typeDefById",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isProtected": true
+							},
+							"comment": {
+								"shortText": "Interesting types' definitions"
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 188,
+									"character": 25
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Map",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								]
+							},
+							"defaultValue": " new Map()"
+						},
+						{
+							"id": 371,
+							"name": "moduleNames",
+							"kind": 262144,
+							"kindString": "Accessor",
+							"flags": {},
+							"getSignature": {
+								"id": 372,
+								"name": "__get",
+								"kind": 524288,
+								"kindString": "Get signature",
+								"flags": {},
+								"type": {
+									"type": "reference",
+									"name": "Array",
+									"typeArguments": [
+										{
+											"type": "intrinsic",
+											"name": "string"
+										}
+									]
+								}
+							},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 276,
+									"character": 19
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Reflector.moduleNames",
+								"id": 9
+							}
+						},
+						{
+							"id": 379,
+							"name": "debug",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 380,
+									"name": "debug",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Reflector.debug",
+										"id": 17
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 288,
+									"character": 9
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Reflector.debug",
+								"id": 16
+							}
+						},
+						{
+							"id": 368,
+							"name": "describeTypeById",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 369,
+									"name": "describeTypeById",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 370,
+											"name": "id",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "TypeMirror",
+										"id": 28
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Reflector.describeTypeById",
+										"id": 7
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 258,
+									"character": 20
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Reflector.describeTypeById",
+								"id": 6
+							}
+						},
+						{
+							"id": 362,
+							"name": "explore",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isProtected": true
+							},
+							"signatures": [
+								{
+									"id": 363,
+									"name": "explore",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 364,
+											"name": "obj",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 196,
+									"character": 21
+								}
+							]
+						},
+						{
+							"id": 365,
+							"name": "findClassesByName",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 366,
+									"name": "findClassesByName",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 367,
+											"name": "className",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Array",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "number"
+											}
+										]
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Reflector.findClassesByName",
+										"id": 4
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 246,
+									"character": 21
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Reflector.findClassesByName",
+								"id": 3
+							}
+						},
+						{
+							"id": 376,
+							"name": "isClass",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 377,
+									"name": "isClass",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 378,
+											"name": "mirror",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "TypeMirror",
+												"id": 28
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Reflector.isClass",
+										"id": 14
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 284,
+									"character": 11
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Reflector.isClass",
+								"id": 13
+							}
+						},
+						{
+							"id": 373,
+							"name": "isInterface",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 374,
+									"name": "isInterface",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 375,
+											"name": "mirror",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "TypeMirror",
+												"id": 28
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"implementationOf": {
+										"type": "reference",
+										"name": "Reflector.isInterface",
+										"id": 11
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 280,
+									"character": 15
+								}
+							],
+							"implementationOf": {
+								"type": "reference",
+								"name": "Reflector.isInterface",
+								"id": 10
+							}
+						},
+						{
+							"id": 359,
+							"name": "readJSON",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 360,
+									"name": "readJSON",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 361,
+											"name": "obj",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 192,
+									"character": 12
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								351,
+								356,
+								355,
+								347,
+								358,
+								357
+							]
+						},
+						{
+							"title": "Accessors",
+							"kind": 262144,
+							"children": [
+								371
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								379,
+								368,
+								362,
+								365,
+								376,
+								373,
+								359
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 180,
+							"character": 26
+						}
+					],
+					"implementedTypes": [
+						{
+							"type": "reference",
+							"name": "Reflector",
+							"id": 2
+						}
+					]
+				},
+				{
+					"id": 343,
+					"name": "NameAndId",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 345,
+							"name": "id",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 177,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						},
+						{
+							"id": 344,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "reflector/TSDocReflector.ts",
+									"line": 176,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								345,
+								344
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 175,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 384,
+					"name": "typeKinds",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"shortText": "The subset of module-level kinds we're looking at for individual entries in the documentation"
+					},
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 36,
+							"character": 15
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "reference",
+							"name": "KindString",
+							"id": 222
+						}
+					},
+					"defaultValue": " [\n    KindString.Class,\n    KindString.Interface,\n    KindString.TypeAlias,\n    KindString.Enumeration,\n    KindString.ExternalModule\n]"
+				},
+				{
+					"id": 381,
+					"name": "typedocReflector",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 382,
+							"name": "typedocReflector",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 383,
+									"name": "jsonObj",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Reflector",
+								"id": 2
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "reflector/TSDocReflector.ts",
+							"line": 3,
+							"character": 32
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Enumerations",
+					"kind": 4,
+					"children": [
+						222
+					]
+				},
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						292,
+						264,
+						236,
+						320,
+						346
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						343
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						384
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						381
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "reflector/TSDocReflector.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "External modules",
+			"kind": 1,
+			"children": [
+				98,
+				144,
+				77,
+				213,
+				203,
+				1,
+				221
+			]
+		}
+	]
+}

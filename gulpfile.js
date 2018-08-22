@@ -37,8 +37,8 @@ gulp.task('make-dist-package', () => {
 gulp.task('build-all', ['ts-lib', 'ts-build']);
 
 // Main sequence for clean-building /dist ready for publish
-gulp.task('dist', done =>
-    runSequence('clean', 'build-all', 'make-dist-package', done)
+gulp.task('dist', () =>
+    runSequence('clean', 'build-all', 'make-dist-package')
 );
 
 // Run main dist, then watch sources

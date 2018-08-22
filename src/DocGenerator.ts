@@ -54,7 +54,7 @@ class BasicDocGenerator implements DocGenerator {
 
         const propsType = reflector.describeTypeById(props.getTypeId());
 
-        if (!propsType.isComplex()) {
+        if (!propsType.isComplex) {
             throw new Error(`Widget.props is not a complex (interface) type`);
         }
 
@@ -135,9 +135,9 @@ class BasicDocGenerator implements DocGenerator {
         sections.push(this.genTypeAnchor(mirror));
         sections.push(this.genTypeHeader(mirror));
 
-        if (mirror.hasComment()) {
-            const short = mirror.getCommentShortText();
-            const long = mirror.getCommentLongText();
+        if (mirror.hasComment) {
+            const short = mirror.commentShortText;
+            const long = mirror.commentLongText;
 
             sections.push(this.genCommentHeader(short));
             if (long.length) {
@@ -145,15 +145,15 @@ class BasicDocGenerator implements DocGenerator {
             }
         }
 
-        return sections.join('\n\n');
+        //return sections.join('\n\n');
     }
 
     private genTypeAnchor(mirror: TypeMirror):string {
-        return `<a name="${mirror.getName()}-${mirror.getId()}"></a>`;
+        return `<a name="${mirror.name}-${mirror.id}"></a>`;
     }
 
     private genTypeHeader(mirror: TypeMirror):string {
-        return `## ${mirror.getKindString()} ${mirror.getName()}`;
+        return `## ${mirror.kindString} ${mirror.name}`;
     }
 
     private genCommentHeader(comment:string):string {
