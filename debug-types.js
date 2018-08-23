@@ -17,61 +17,54 @@ const KindString = {
     Variable: 'Variable',
 };
 
-function dump(src) {
-    const kindCount = new Map(); // kindString -> count
-    const propKindCounts = new Map(); // propName -> (kindString -> count)
+const kindCount = new Map(); // kindString -> count
+const propKindCounts = new Map(); // propName -> (kindString -> count)
 
-    function simplify(node) {
+function explore(node) {
 
-        const r = {};
-        r.id = node.id;
-        r.name = node.name;
-        const kindString = node.kindString;
-        // r.kind = node.kind;
-        r.kindString = kindString;
+    const r = {};
+    r.id = node.id;
+    r.name = node.name;
+    const kindString = node.kindString;
+    // r.kind = node.kind;
+    r.kindString = kindString;
 
-        if (kindString) {
+    if (kindString) {
 
-            kindCount.set(kindString, (kindCount.get(kindString) || 0) + 1);
+        kindCount.set(kindString, (kindCount.get(kindString) || 0) + 1);
 
-            for (const propName in node) {
-                if (!propKindCounts.has(propName)) {
-                    propKindCounts.set(propName, new Map());
-                }
-                const kindCountsForThisProp = propKindCounts.get(propName);
-                kindCountsForThisProp.set(kindString, (kindCountsForThisProp.get(kindString) || 0) + 1);
+        for (const propName in node) {
+            if (!propKindCounts.has(propName)) {
+                propKindCounts.set(propName, new Map());
             }
+            const kindCountsForThisProp = propKindCounts.get(propName);
+            kindCountsForThisProp.set(kindString, (kindCountsForThisProp.get(kindString) || 0) + 1);
         }
-
-        let c = [];
-
-        for (const child of node.children || []) {
-            c.push(simplify(child));
-        }
-
-        if (kindString === KindString.Class ||
-            kindString === KindString.Interface ||
-            kindString === KindString.ObjectLiteral ||
-            kindString === KindString.Enumeration) {
-            c = [];
-        }
-
-        if (c.length) {
-            r.children = c;
-            return r;
-        }
-
-        return `${r.kindString} ${r.name}`;
     }
 
-    console.log();
-    console.log(`Dumping type info for ${src.name}`);
-    console.log('=============================================================');
+    let c = [];
 
-    const cleaned = simplify(src);
+    for (const child of node.children || []) {
+        c.push(explore(child));
+    }
 
-    // console.log(JSON.stringify(cleaned, null, 4));
+    // We don't retain all the children in the simplified tree, but we still want to explore them so we trim after
+    if (kindString === KindString.Class ||
+        kindString === KindString.Interface ||
+        kindString === KindString.ObjectLiteral ||
+        kindString === KindString.Enumeration) {
+        c = [];
+    }
 
+    if (c.length) {
+        r.children = c;
+        return r;
+    }
+
+    return `${r.kindString} ${r.name}`;
+}
+  
+function dumpTotals() {
     console.log();
     console.log('All Kinds:');
     for (const kind of kindCount.keys()) {
@@ -97,5 +90,8 @@ function dump(src) {
     console.table(propGrid);
 }
 
-dump(src1);
-dump(src2);
+const src1Details = explore(src1);
+const src2Details = explore(src2);
+
+dumpTotals();
+
