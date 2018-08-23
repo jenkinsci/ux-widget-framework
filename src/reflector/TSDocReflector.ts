@@ -82,6 +82,10 @@ namespace InputJSON {
         );
     }
 
+    export interface CanHazComment {
+        comment?: CommentDecl;
+    }
+
     export interface CommentDecl {
         shortText: string;
         text?: string;
@@ -96,7 +100,7 @@ namespace InputJSON {
 
     export type InterfaceChild = unknown | PropertyDecl;
 
-    export interface InterfaceDecl extends BaseDecl {
+    export interface InterfaceDecl extends BaseDecl, CanHazComment {
         readonly children?: Array<InterfaceChild>;
         readonly comment?: CommentDecl;
         // TODO: readonly groups: GroupsDecl;
@@ -247,7 +251,7 @@ class TypedocJSONReflector implements Reflector {
     protected kinds: Array<string> = [];
 
     /** Interesting types' definitions */
-    protected typeDefById: Map<number, any> = new Map();
+    protected typeDefById: Map<number, InputJSON.BaseDecl> = new Map();
 
     protected total = 0;
 
@@ -444,7 +448,7 @@ class JSONDefinitionBase {
     kindString: string;
     name: string;
 
-    constructor(reflector: Reflector, definition: any) {
+    constructor(reflector: Reflector, definition: InputJSON.BaseDecl) {
         this.definition = definition;
         this.reflector = reflector;
 
@@ -469,10 +473,10 @@ class JSONDefinitionDocCommentsBase extends JSONDefinitionBase {
     commentShortText: string;
     commentLongText: string;
 
-    constructor(reflector: Reflector, definition: any) {
+    constructor(reflector: Reflector, definition: InputJSON.BaseDecl & InputJSON.CanHazComment) {
         super(reflector, definition);
 
-        const comment = definition.comment;
+        const comment = definition.comment ;
 
         this.hasComment = !!comment;
         this.commentShortText = comment && comment.shortText || '';
@@ -498,14 +502,16 @@ abstract class TypedocJSONInterfaceMirrorBase extends JSONDefinitionTypeBase imp
     readonly isComplex = true;
     readonly isPrimitive = false;
 
-    propertyNames: Array<string>;
+    propertyNames: Array<string> = [];
 
     constructor(reflector: Reflector, definition: InputJSON.InterfaceDecl) {
         super(reflector, definition);
 
-        this.propertyNames = (definition.children || [])
-            .filter((child: any) => child.kindString === KindString.Property)
-            .map((child: any) => child.name);
+        if (definition.children) {
+            this.propertyNames = (definition.children
+                .filter(child => InputJSON.isPropertyDecl(child)) as Array<InputJSON.PropertyDecl>)
+                .map(child => child.name);
+        }
     }
 
     describeProperty(propName: string): PropertyMirror {
@@ -544,7 +550,7 @@ class TypedocJSONPropertyMirror extends JSONDefinitionDocCommentsBase implements
     definition!: InputJSON.PropertyDecl;
     parent: ClassMirror;
 
-    constructor(parent: InterfaceMirror, definition: any) {
+    constructor(parent: InterfaceMirror, definition: InputJSON.PropertyDecl) {
         super(parent.getReflector(), definition);
         this.parent = parent;
     }
