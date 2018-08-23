@@ -1,6 +1,8 @@
 
 /**
  * Base reflector interface, represents a "typespace". 
+ * 
+ * We separate these out from the TypeDoc-specific impls so that we can eventually build the same model talking directly to TSC and bypass it.
  */
 export interface Reflector {
 

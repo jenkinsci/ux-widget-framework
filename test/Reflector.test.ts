@@ -137,15 +137,15 @@ describe('TSDoc Reflector, PoC types', () => {
 
         testProp('layout');
 
-        // testProp('onNodeClick');
+        testProp('onNodeClick');
 
-        // testProp('resourceBundle');
+        testProp('resourceBundle');
 
         testProp('selectedStage');
 
         // testProp('stages');
 
-        //testProp('trafficStateChanged');
+        // testProp('trafficStateChanged');
 
     });
 

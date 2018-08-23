@@ -22,15 +22,23 @@ const propKindCounts = new Map(); // propName -> (kindString -> count)
 
 function explore(node) {
 
-    const r = {};
-    r.id = node.id;
-    r.name = node.name;
+    if (Array.isArray(node)) {
+        for (const el of node) {
+            if(typeof el === 'object') {
+                explore(el);
+            }
+        }
+        return;
+    }
+
+    if (typeof node !== 'object') {
+        return;
+    }
+
     const kindString = node.kindString;
-    // r.kind = node.kind;
-    r.kindString = kindString;
 
+    // Collect kinds, map kinds to props
     if (kindString) {
-
         kindCount.set(kindString, (kindCount.get(kindString) || 0) + 1);
 
         for (const propName in node) {
@@ -42,26 +50,12 @@ function explore(node) {
         }
     }
 
-    let c = [];
-
-    for (const child of node.children || []) {
-        c.push(explore(child));
+    // Recurse
+    for (const prop of Object.values(node)) {
+        if (typeof prop === 'object') {
+            explore(prop);
+        }
     }
-
-    // We don't retain all the children in the simplified tree, but we still want to explore them so we trim after
-    if (kindString === KindString.Class ||
-        kindString === KindString.Interface ||
-        kindString === KindString.ObjectLiteral ||
-        kindString === KindString.Enumeration) {
-        c = [];
-    }
-
-    if (c.length) {
-        r.children = c;
-        return r;
-    }
-
-    return `${r.kindString} ${r.name}`;
 }
   
 function dumpTotals() {
@@ -90,8 +84,8 @@ function dumpTotals() {
     console.table(propGrid);
 }
 
-const src1Details = explore(src1);
-const src2Details = explore(src2);
+explore(src1);
+explore(src2);
 
 dumpTotals();
 
