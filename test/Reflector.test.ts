@@ -2,7 +2,7 @@
 import * as fs from '../src/fsPromises';
 import * as assert from 'assert';
 import { typedocReflector } from '../src/reflector/TSDocReflector';
-import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror } from '../src/reflector/Reflector';
+import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector } from '../src/reflector/Reflector';
 
 describe('TSDoc Reflector, PoC types', () => {
 
@@ -76,6 +76,8 @@ describe('TSDoc Reflector, PoC types', () => {
         assert.equal(propertyNames.join(', '),
             'context, props, refs, state, subscriptions',
             'propertyNames');
+
+        // TODO: Add and test an "all children names" alongside "propertynames"
     });
 
     test('describe property PipelineGraph.props', () => {
@@ -90,7 +92,7 @@ describe('TSDoc Reflector, PoC types', () => {
     });
 
     describe('describe type of PipelineGraph.props', () => {
-        let reflector;
+        let reflector: Reflector;
         let interfaceMirror;
 
         beforeAll(() => {
@@ -112,6 +114,7 @@ describe('TSDoc Reflector, PoC types', () => {
             assert.equal(propertyNames.join(', '),
                 'assetURLBase, layout, onNodeClick, resourceBundle, selectedStage, stages, trafficStateChanged',
                 'propertyNames');
+            // TODO: Add and test an "all children names" alongside "propertynames"
         });
 
         function testProp(name: string, f?: (PropertyMirror, TypeMirror) => void) {
@@ -135,17 +138,63 @@ describe('TSDoc Reflector, PoC types', () => {
             assert.equal(typeMirror.isBuiltin, true, 'type is builtin?');
         });
 
-        testProp('layout');
+        testProp('layout', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
+            assert.equal(typeMirror.name, 'LayoutInfo', 'type name');
 
-        testProp('onNodeClick');
+            if (!reflector.isTypeAlias(typeMirror)) {
+                throw new Error('prop type should be type alias');
+            }
+
+            assert.equal(reflector.isTypeAlias(typeMirror), true, 'type is TypeAliasMirror');
+            assert.equal(typeMirror.isComplex, false, 'type is complex?');
+            assert.equal(typeMirror.isBuiltin, false, 'type is builtin?');
+
+            const targetType = typeMirror.targetDefinition;
+
+            if (!reflector.isInterfaceLiteral(targetType)) {
+                throw new Error('targetType should be InterfaceLiteralMirror')
+            }
+
+            assert.equal(targetType.id, 78, 'targetType id');
+            assert.equal(targetType.name, '__type', 'targetType should have anonymous name placeholder');
+
+            const expectedTargetProps = [
+                'connectorStrokeWidth',
+                'curveRadius',
+                'labelOffsetV',
+                'nodeRadius',
+                'nodeSpacingH',
+                'nodeSpacingV',
+                'parallelSpacingH',
+                'smallLabelOffsetV',
+                'terminalRadius',
+                'ypStart'
+            ];
+
+            const targetProps = targetType.propertyNames;
+            targetProps.sort();
+            assert.equal(targetProps.join(', '), expectedTargetProps.join(', '), 'target type children');
+
+            // Make sure we can at least construct reflectors for all these props
+            for (const propName of expectedTargetProps) {
+                const mirror = targetType.describeProperty(propName);
+                assert.equal(mirror.name, propName, 'target type prop mirror name');
+            }
+
+            // TODO: Add and test an "all children names" alongside "propertynames"
+
+
+        });
+
+        // testProp('onNodeClick');
 
         testProp('resourceBundle');
 
         testProp('selectedStage');
 
-        // testProp('stages');
+        testProp('stages');
 
-        // testProp('trafficStateChanged');
+        testProp('trafficStateChanged');
 
     });
 

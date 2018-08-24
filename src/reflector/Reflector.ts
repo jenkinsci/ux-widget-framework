@@ -25,6 +25,8 @@ export interface Reflector {
 
     isInterface(mirror: TypeMirror): mirror is InterfaceMirror;
     isClass(mirror: TypeMirror): mirror is ClassMirror;
+    isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;
+    isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror;
 
     debug(): string;
 };
@@ -94,19 +96,43 @@ export interface TypeAliasMirror extends TypeMirror {
 }
 
 /**
- * Represents an interface of class def, which has child properties
+ * Represents an interface/class/literal definition, which has child properties and methods
  */
-export interface InterfaceMirror extends TypeMirror {
+export interface InterfaceLike extends TypeMirror {
+    // TODO: Not sure if this can haz doc comments, maybe remove it from TypeMirror
+    
+    /**
+     * Describe a named property (everything except normal methods and constructor)
+     */
     describeProperty(propName: string): PropertyMirror;
+
+    /**
+     * Lists child properties. Includes variables, object properties, getters, setters
+     */
     readonly propertyNames: Array<string>;
 }
 
+/**
+ * Represents a type literal used in-place of a named type
+ */
+export interface InterfaceLiteralMirror extends InterfaceLike {}
+
+/**
+ * Represents a TS interface decl
+ */
+export interface InterfaceMirror extends InterfaceLike {
+    readonly isAbstract: boolean;
+}
+
+/**
+ * Represents a TS class
+ */
 export interface ClassMirror extends InterfaceMirror { 
     // TODO: readonly constructor: FunctionMirror
 }
 
 /**
- * Represents a property definition within an interface, class, or module
+ * Represents a property definition within an interface, class, interface literal or module
  */
 export interface PropertyMirror extends Mirror, SupportsDocComments {
     /**
