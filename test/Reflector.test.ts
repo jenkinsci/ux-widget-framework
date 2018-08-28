@@ -186,7 +186,9 @@ describe('TSDoc Reflector, PoC types', () => {
 
         });
 
-        // testProp('onNodeClick');
+        testProp('onNodeClick', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
+            assert.equal(typeMirror.name, 'nuts', 'prop type name');
+        });
 
         testProp('resourceBundle');
 

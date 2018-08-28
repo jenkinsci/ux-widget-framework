@@ -70,7 +70,7 @@ interface SupportsDocComments {
 /**
  * Represents a typedef, might be a Class or Interface, Enum, or just a type alias
  */
-export interface TypeMirror extends Mirror, SupportsDocComments {
+export interface TypeMirror extends Mirror {
     /** Complex types would include classes, interfaces, enums */
     readonly isComplex: boolean;
 
@@ -88,7 +88,7 @@ export interface TypeMirror extends Mirror, SupportsDocComments {
 /**
  * Represents a type alias
  */
-export interface TypeAliasMirror extends TypeMirror {
+export interface TypeAliasMirror extends TypeMirror, SupportsDocComments {
     /**
      * The definition (RHS) of this alias
      */
@@ -99,7 +99,6 @@ export interface TypeAliasMirror extends TypeMirror {
  * Represents an interface/class/literal definition, which has child properties and methods
  */
 export interface InterfaceLike extends TypeMirror {
-    // TODO: Not sure if this can haz doc comments, maybe remove it from TypeMirror
     
     /**
      * Describe a named property (everything except normal methods and constructor)
@@ -115,19 +114,19 @@ export interface InterfaceLike extends TypeMirror {
 /**
  * Represents a type literal used in-place of a named type
  */
-export interface InterfaceLiteralMirror extends InterfaceLike {}
+export interface InterfaceLiteralMirror extends InterfaceLike { }
 
 /**
  * Represents a TS interface decl
  */
-export interface InterfaceMirror extends InterfaceLike {
+export interface InterfaceMirror extends InterfaceLike, SupportsDocComments {
     readonly isAbstract: boolean;
 }
 
 /**
  * Represents a TS class
  */
-export interface ClassMirror extends InterfaceMirror { 
+export interface ClassMirror extends InterfaceMirror, SupportsDocComments {
     // TODO: readonly constructor: FunctionMirror
 }
 
@@ -139,6 +138,13 @@ export interface PropertyMirror extends Mirror, SupportsDocComments {
      * Reflect the type of this property
      */
     readonly typeMirror: TypeMirror;
+}
+
+/** 
+ * Represents a Union
+ */
+export interface UnionMirror extends TypeMirror {
+    readonly types: Array<TypeMirror>;
 }
 
 // TODO: Reflect functions for props

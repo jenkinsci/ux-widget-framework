@@ -42,6 +42,11 @@ function explore(node) {
         kindCount.set(kindString, (kindCount.get(kindString) || 0) + 1);
 
         for (const propName in node) {
+
+            if (propName  ==='signatures' && node[propName].length > 1) {
+                console.log('!!!!!', node.id, node.name, node.kindString);
+            }
+
             if (!propKindCounts.has(propName)) {
                 propKindCounts.set(propName, new Map());
             }
