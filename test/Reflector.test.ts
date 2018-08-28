@@ -118,7 +118,7 @@ describe('TSDoc Reflector, PoC types', () => {
 
         function testProp(name: string, f?: (PropertyMirror, TypeMirror) => void) {
             test(name, () => {
-                const propMirror:PropertyMirror = interfaceMirror.describeProperty(name);
+                const propMirror: PropertyMirror = interfaceMirror.describeProperty(name);
                 assert(propMirror, 'must get typeMirror');
                 assert.equal(propMirror.name, name, 'must report back correct name');
 
@@ -188,6 +188,12 @@ describe('TSDoc Reflector, PoC types', () => {
             if (!reflector.isUnion(typeMirror)) {
                 throw new Error('Expected a union');
             }
+
+            assert(typeMirror.types[0] === reflector.builtinUndefined, 'first branch should be undefined');
+
+            const otherdef = typeMirror.types[1];
+
+            // assert.equal(otherdef.name, 'blah', 'other def name');
         });
 
         testProp('resourceBundle');

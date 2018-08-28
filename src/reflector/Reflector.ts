@@ -23,6 +23,8 @@ export interface Reflector {
     /** List of the external modules */
     readonly moduleNames: Array<string>;
 
+    builtinUndefined: TypeMirror;
+
     isInterface(mirror: TypeMirror): mirror is InterfaceMirror;
     isClass(mirror: TypeMirror): mirror is ClassMirror;
     isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;

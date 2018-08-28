@@ -153,25 +153,42 @@ namespace InputJSON {
         signatures: Array<CallableSignatureDecl>;
     }
 
-    export function isFunctionInterfaceLiteralDecl(obj: any): obj is FunctionInterfaceLiteralDecl {
-        return (typeof obj === 'object'
-            && Array.isArray(obj.signatures)
-            && !('children' in obj)
-            && !('indexSignature' in obj)
-            && isBaseDecl(obj)
-        );
+    // export function isFunctionInterfaceLiteralDecl(obj: any): obj is FunctionInterfaceLiteralDecl {
+    //     return (typeof obj === 'object'
+    //         && Array.isArray(obj.signatures)
+    //         && !('children' in obj)
+    //         && !('indexSignature' in obj)
+    //         && isBaseDecl(obj)
+    //     );
+    // }
+
+    export interface Parameter extends BaseDecl {
+        type: TypeDetails;
     }
 
-    type Signature = unknown; // TODO: union
+    export interface Signature extends BaseDecl {
+        parameters: Array<Parameter>;
+        type: TypeDetails; // return type
+    }
 
     export interface SignaturesLiteralDecl extends BaseDecl {
         signatures: Array<Signature>;
+    }
+
+    export function isSignature(obj: any): obj is Signature {
+        return (typeof obj === 'object'
+            && (obj.kindString === KindString.CallSignature || obj.kindString === KindString.ConstructorSignature)
+            && (isArray(obj.parameters) || !('parameters' in obj))
+            && typeof obj.type === 'object'
+            && isBaseDecl(obj)
+        );
     }
 
     export function isSignaturesLiteralDecl(obj: any): obj is SignaturesLiteralDecl {
         return (typeof obj === 'object'
             && obj.kindString === KindString.TypeLiteral
             && (isArray(obj.signatures))
+            && obj.signatures.every((sig: any) => isSignature(sig))
             && !('children' in obj)
             && !('indexSignature' in obj)
             && isBaseDecl(obj)
@@ -279,10 +296,6 @@ class UnImplementedTypeMirror implements TypeMirror {
         this.name = `UnImplementedTypeMirror for ${message}`;
     }
 
-    getReflector(): Reflector {
-        throw new Error("Method not implemented.");
-    }
-
     id: number = 0;
     name: string;
     kindString: string = 'UnImplementedTypeMirror';
@@ -310,10 +323,13 @@ class TypedocJSONReflector implements Reflector {
 
     protected total = 0;
 
+    builtinUndefined: TypeMirror;
+
     constructor() {
+        this.builtinUndefined = new Primitive('undefined');
         this.builtins = [
             new Primitive('any'),
-            new Primitive('undefined'),
+            this.builtinUndefined,
             new Primitive('void'),
             new Primitive('string'),
             new Primitive('number'),
@@ -390,46 +406,35 @@ class TypedocJSONReflector implements Reflector {
         const td = this.typeDefById.get(id);
 
         if (td) {
-            return this.describeTypeForDefinition(td);
+            return this.describeTypeForTypeDetails(td);
         }
-
-        // TODO: return builtins based on their IDs
 
         throw new Error(`describeTypeById: type ${id} not found`);
     }
 
-    /**
-     * Given a definition (not a reference / intrinsic), will return a TypeMirror 
-     * 
-     * @param typeDef the JSON type def
-     */
-    describeTypeForDefinition(typeDef: InputJSON.ConcreteDefinition): TypeMirror {
+    describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
 
         // TODO: Break InputJSON.InterFaceDecl into separate types for class and interface, check kindstring in isFoo()
-        if (InputJSON.isInterfaceDecl(typeDef) && typeDef.kindString === KindString.Class) {
-            return new TypedocClassMirror(this, typeDef);
+        if (InputJSON.isInterfaceDecl(typeDetails) && typeDetails.kindString === KindString.Class) {
+            return new TypedocClassMirror(this, typeDetails);
         }
 
-        if (InputJSON.isInterfaceDecl(typeDef) && typeDef.kindString === KindString.Interface) {
-            return new TypedocInterfaceMirror(this, typeDef);
+        if (InputJSON.isInterfaceDecl(typeDetails) && typeDetails.kindString === KindString.Interface) {
+            return new TypedocInterfaceMirror(this, typeDetails);
         }
 
-        if (InputJSON.isTypeAliasDecl(typeDef)) {
-            return new TypedocAliasMirror(this, typeDef);
+        if (InputJSON.isTypeAliasDecl(typeDetails)) {
+            return new TypedocAliasMirror(this, typeDetails);
         }
 
-        if (InputJSON.isInterfaceLiteralDecl(typeDef)) {
-            return new TypedocInterfaceLiteralMirror(this, typeDef);
+        if (InputJSON.isInterfaceLiteralDecl(typeDetails)) {
+            return new TypedocInterfaceLiteralMirror(this, typeDetails);
         }
 
-        if (InputJSON.isFunctionInterfaceLiteralDecl(typeDef)) {
-            return new UnImplementedTypeMirror('FunctionInterfaceLiteralDecl');
+        if (InputJSON.isSignaturesLiteralDecl(typeDetails)) {
+            // TODO: return new TypedocCallableMirror(typeDetails.signatures);
+            return new UnImplementedTypeMirror('SignaturesLiteralDecl');
         }
-
-        throw new Error(`describeTypeForDefinition: no mirror for definition:\n"${JSON.stringify(typeDef, null, 4)}"`);
-    }
-
-    describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
 
         if (InputJSON.isInternalTypeReference(typeDetails)) {
             return this.describeTypeById(typeDetails.id);
@@ -449,7 +454,7 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isReflectionDecl(typeDetails)) {
-            return this.describeTypeForDefinition(typeDetails.declaration);
+            return this.describeTypeForTypeDetails(typeDetails.declaration);
         }
 
         throw new Error(`describeTypeForTypeDetails(): do not understand typeDetails:\n${JSON.stringify(typeDetails, null, 4)}`);
@@ -474,7 +479,7 @@ class TypedocJSONReflector implements Reflector {
     isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror {
         return mirror instanceof TypedocInterfaceLiteralMirror;
     }
-    
+
     isUnion(mirror: TypeMirror): mirror is UnionMirror {
         return mirror instanceof TypedocUnionMirror
     }
@@ -660,7 +665,7 @@ class TypedocJSONPropertyMirror extends JSONDefinitionDocCommentsBase implements
  * Type Mirror IMPL for primitive builtins, for which we don't have defs
  */
 class Primitive implements TypeMirror {
-    
+
     isComplex: boolean = false;
     isBuiltin: boolean = true;
     isPrimitive: boolean = true;
