@@ -27,30 +27,10 @@ export interface Reflector {
     isClass(mirror: TypeMirror): mirror is ClassMirror;
     isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;
     isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror;
+    isUnion(mirror: TypeMirror): mirror is UnionMirror;
 
     debug(): string;
 };
-
-/**
- * Common properties across all defs we're interested in
- */
-interface Mirror {
-    /** "root" typespace */
-    getReflector(): Reflector; // TODO: Do we need this in the public interface?
-
-    /** 
-     * Id Number 
-     * 
-     * Only valid within the root typespace 
-     */
-    readonly id: number;
-
-    /** Declared name */
-    readonly name: string;
-
-    /** Kind as string */
-    readonly kindString: string;
-}
 
 /** 
  * Represents any declaration that can have doc comments. Not just types themselves, but also properties within a class / interface
@@ -65,17 +45,19 @@ interface SupportsDocComments {
 
     /** Doc comment details */
     readonly commentLongText: string;
+
+    // TODO: Tags
 }
 
 /**
  * Represents a typedef, might be a Class or Interface, Enum, or just a type alias
  */
-export interface TypeMirror extends Mirror {
-    /** Complex types would include classes, interfaces, enums */
+export interface TypeMirror {
+    /** Complex types would include classes, interfaces, enums, unions */
     readonly isComplex: boolean;
 
     /**
-     * Is builtin (number, string, Date, etc)
+     * Is builtin. Could be vm objects (number, string, Date, etc) or things that exist only in the type system like Unions
      */
     readonly isBuiltin: boolean;
 
@@ -83,6 +65,11 @@ export interface TypeMirror extends Mirror {
      * Is primitive ( Boolean, Null, Undefined, Number, String, Symbol )
      */
     readonly isPrimitive: boolean;
+
+    /**
+     * Name of this type, if it has one.
+     */
+    readonly name?: string; 
 }
 
 /**
@@ -133,11 +120,17 @@ export interface ClassMirror extends InterfaceMirror, SupportsDocComments {
 /**
  * Represents a property definition within an interface, class, interface literal or module
  */
-export interface PropertyMirror extends Mirror, SupportsDocComments {
+export interface PropertyMirror extends SupportsDocComments {
+
+    /**
+     * Name of this property
+     */
+    readonly name: string;
+
     /**
      * Reflect the type of this property
      */
-    readonly typeMirror: TypeMirror;
+    readonly type: TypeMirror;
 }
 
 /** 

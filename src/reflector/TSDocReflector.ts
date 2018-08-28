@@ -44,8 +44,6 @@ enum KindString {
     TypeLiteral = 'Type literal',
     TypeParameter = 'Type parameter',
     Variable = 'Variable',
-
-    Builtin = 'Builtin', // TODO: I made this up, either remove `readonly kindString` from the TypeMirror API or move this enum into it
 }
 
 /**
@@ -298,14 +296,6 @@ interface NameAndId {
     id: number;
 }
 
-const ID_UNION = -10;
-const ID_ANY = -110;
-const ID_UNDEFINED = -120;
-const ID_VOID = -130;
-const ID_STRING = -1000;
-const ID_NUMBER = -1005;
-const ID_BOOLEAN = -1010;
-
 class TypedocJSONReflector implements Reflector {
 
     protected builtins: Array<TypeMirror>;
@@ -322,12 +312,12 @@ class TypedocJSONReflector implements Reflector {
 
     constructor() {
         this.builtins = [
-            new Primitive(this, 'any', ID_ANY),
-            new Primitive(this, 'undefined', ID_UNDEFINED),
-            new Primitive(this, 'void', ID_VOID),
-            new Primitive(this, 'string', ID_STRING),
-            new Primitive(this, 'number', ID_NUMBER),
-            new Primitive(this, 'boolean', ID_BOOLEAN),
+            new Primitive('any'),
+            new Primitive('undefined'),
+            new Primitive('void'),
+            new Primitive('string'),
+            new Primitive('number'),
+            new Primitive('boolean'),
         ];
     }
 
@@ -429,7 +419,7 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isInterfaceLiteralDecl(typeDef)) {
-            return new TypeDocInterfaceLiteralMirror(this, typeDef);
+            return new TypedocInterfaceLiteralMirror(this, typeDef);
         }
 
         if (InputJSON.isFunctionInterfaceLiteralDecl(typeDef)) {
@@ -482,7 +472,11 @@ class TypedocJSONReflector implements Reflector {
     }
 
     isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror {
-        return mirror instanceof TypeDocInterfaceLiteralMirror
+        return mirror instanceof TypedocInterfaceLiteralMirror;
+    }
+    
+    isUnion(mirror: TypeMirror): mirror is UnionMirror {
+        return mirror instanceof TypedocUnionMirror
     }
 
     describeBuiltin(name: string): TypeMirror {
@@ -611,7 +605,7 @@ abstract class TypedocInterfaceMirrorBase extends JSONDefinitionTypeBase impleme
             throw new Error(`describeProperty: could not find a property name '${propName}'`);
         }
 
-        return new TypedocJSONPropertyMirror(this, propDesc);
+        return new TypedocJSONPropertyMirror(this.reflector, this, propDesc);
     }
 }
 
@@ -620,7 +614,7 @@ class TypedocInterfaceMirror extends TypedocInterfaceMirrorBase implements Inter
     readonly isBuiltin = false;
 }
 
-class TypeDocInterfaceLiteralMirror extends TypedocInterfaceMirrorBase implements InterfaceLiteralMirror {
+class TypedocInterfaceLiteralMirror extends TypedocInterfaceMirrorBase implements InterfaceLiteralMirror {
     readonly isBuiltin = false;
 }
 
@@ -645,19 +639,19 @@ class TypedocJSONPropertyMirror extends JSONDefinitionDocCommentsBase implements
     definition!: InputJSON.PropertyDecl;
     parent: InterfaceLike;
 
-    constructor(parent: InterfaceLike, definition: InputJSON.PropertyDecl) {
+    constructor(reflector: TypedocJSONReflector, parent: InterfaceLike, definition: InputJSON.PropertyDecl) {
 
         if (propertyKindStrings.indexOf(definition.kindString) === -1) {
             throw new Error(`TypedocJSONPropertyMirror does not know about kind "${definition.kindString}"`);
         }
 
-        super(parent.getReflector() as TypedocJSONReflector, definition);
+        super(reflector, definition);
         this.parent = parent;
     }
 
-    get typeMirror(): TypeMirror {
+    get type(): TypeMirror {
         const typeDetails = this.definition.type;
-        const reflector = this.parent.getReflector() as TypedocJSONReflector;
+        const reflector = this.reflector as TypedocJSONReflector;
         return reflector.describeTypeForTypeDetails(typeDetails);
     }
 }
@@ -666,30 +660,16 @@ class TypedocJSONPropertyMirror extends JSONDefinitionDocCommentsBase implements
  * Type Mirror IMPL for primitive builtins, for which we don't have defs
  */
 class Primitive implements TypeMirror {
+    
+    isComplex: boolean = false;
+    isBuiltin: boolean = true;
+    isPrimitive: boolean = true;
 
     name: string;
-    id: number;
 
-    private reflector: TypedocJSONReflector;
-
-    constructor(reflector: TypedocJSONReflector, name: string, id: number) {
-        this.reflector = reflector;
+    constructor(name: string) {
         this.name = name;
-        this.id = id;
     }
-
-    get isComplex() { return false };
-    get isBuiltin() { return true };
-    get isPrimitive() { return true };
-
-    getReflector(): Reflector {
-        return this.reflector;
-    }
-
-    get kindString() { return KindString.Builtin; }
-    get hasComment() { return false; }
-    get commentShortText() { return ''; }
-    get commentLongText() { return ''; }
 }
 
 class TypedocAliasMirror extends JSONDefinitionTypeBase implements TypeAliasMirror {
@@ -709,16 +689,15 @@ class TypedocAliasMirror extends JSONDefinitionTypeBase implements TypeAliasMirr
 }
 
 class TypedocUnionMirror implements UnionMirror {
-
     isComplex: boolean = true;
     isBuiltin: boolean = true;
     isPrimitive: boolean = false;
-    id: number = ID_UNION;
-    name: string;
-    kindString: string = '';
-    
-    getReflector(): Reflector {
-        throw new Error("Method not implemented.");
+    types: Array<TypeMirror>;
+
+    protected reflector: TypedocJSONReflector;
+
+    constructor(reflector: TypedocJSONReflector, types: Array<TypeMirror>) {
+        this.reflector = reflector;
+        this.types = types;
     }
-    
 }

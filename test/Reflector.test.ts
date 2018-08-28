@@ -88,7 +88,6 @@ describe('TSDoc Reflector, PoC types', () => {
         assert(propMirror, 'prop mirror should exist');
 
         assert.equal(propMirror.name, 'props', 'name should be correct');
-        assert.equal(propMirror.typeMirror.id, 459, 'prop type id');
     });
 
     describe('describe type of PipelineGraph.props', () => {
@@ -119,11 +118,11 @@ describe('TSDoc Reflector, PoC types', () => {
 
         function testProp(name: string, f?: (PropertyMirror, TypeMirror) => void) {
             test(name, () => {
-                const propMirror = interfaceMirror.describeProperty(name);
+                const propMirror:PropertyMirror = interfaceMirror.describeProperty(name);
                 assert(propMirror, 'must get typeMirror');
                 assert.equal(propMirror.name, name, 'must report back correct name');
 
-                const typeMirror = propMirror.typeMirror;
+                const typeMirror = propMirror.type;
                 assert(typeMirror, 'should be able to find a type!');
 
                 if (f) {
@@ -155,7 +154,6 @@ describe('TSDoc Reflector, PoC types', () => {
                 throw new Error('targetType should be InterfaceLiteralMirror')
             }
 
-            assert.equal(targetType.id, 78, 'targetType id');
             assert.equal(targetType.name, '__type', 'targetType should have anonymous name placeholder');
 
             const expectedTargetProps = [
@@ -187,7 +185,9 @@ describe('TSDoc Reflector, PoC types', () => {
         });
 
         testProp('onNodeClick', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
-            assert.equal(typeMirror.name, 'nuts', 'prop type name');
+            if (!reflector.isUnion(typeMirror)) {
+                throw new Error('Expected a union');
+            }
         });
 
         testProp('resourceBundle');
