@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror } from "./Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter } from "./Reflector";
 import { isArray } from "util";
 
 // TODO: Replace all the `any`s with `unknown`s
@@ -147,19 +147,10 @@ namespace InputJSON {
         );
     }
 
-    export type CallableSignatureDecl = unknown;
+    // export type CallableSignatureDecl = unknown;
 
-    export interface FunctionInterfaceLiteralDecl extends BaseDecl {
-        signatures: Array<CallableSignatureDecl>;
-    }
-
-    // export function isFunctionInterfaceLiteralDecl(obj: any): obj is FunctionInterfaceLiteralDecl {
-    //     return (typeof obj === 'object'
-    //         && Array.isArray(obj.signatures)
-    //         && !('children' in obj)
-    //         && !('indexSignature' in obj)
-    //         && isBaseDecl(obj)
-    //     );
+    // export interface FunctionInterfaceLiteralDecl extends BaseDecl {
+    //     signatures: Array<CallableSignatureDecl>;
     // }
 
     export interface Parameter extends BaseDecl {
@@ -167,7 +158,7 @@ namespace InputJSON {
     }
 
     export interface Signature extends BaseDecl {
-        parameters: Array<Parameter>;
+        parameters?: Array<Parameter>;
         type: TypeDetails; // return type
     }
 
@@ -324,16 +315,25 @@ class TypedocJSONReflector implements Reflector {
     protected total = 0;
 
     builtinUndefined: TypeMirror;
+    builtinVoid: TypeMirror;
+    builtinString: TypeMirror;
+    builtinNumber: TypeMirror;
+    builtinBoolean: TypeMirror;
 
     constructor() {
         this.builtinUndefined = new Primitive('undefined');
+        this.builtinVoid = new Primitive('void');
+        this.builtinString = new Primitive('string');
+        this.builtinNumber = new Primitive('number');
+        this.builtinBoolean = new Primitive('boolean');
+
         this.builtins = [
             new Primitive('any'),
             this.builtinUndefined,
-            new Primitive('void'),
-            new Primitive('string'),
-            new Primitive('number'),
-            new Primitive('boolean'),
+            this.builtinVoid,
+            this.builtinString,
+            this.builtinNumber,
+            this.builtinBoolean,
         ];
     }
 
@@ -432,8 +432,7 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isSignaturesLiteralDecl(typeDetails)) {
-            // TODO: return new TypedocCallableMirror(typeDetails.signatures);
-            return new UnImplementedTypeMirror('SignaturesLiteralDecl');
+            return new TypedocCallableMirror(this, typeDetails);
         }
 
         if (InputJSON.isInternalTypeReference(typeDetails)) {
@@ -481,7 +480,11 @@ class TypedocJSONReflector implements Reflector {
     }
 
     isUnion(mirror: TypeMirror): mirror is UnionMirror {
-        return mirror instanceof TypedocUnionMirror
+        return mirror instanceof TypedocUnionMirror;
+    }
+
+    isCallable(mirror: TypeMirror): mirror is CallableMirror {
+        return mirror instanceof TypedocCallableMirror;
     }
 
     describeBuiltin(name: string): TypeMirror {
@@ -705,4 +708,51 @@ class TypedocUnionMirror implements UnionMirror {
         this.reflector = reflector;
         this.types = types;
     }
+}
+
+class TypedocCallableMirror implements CallableMirror {
+    isComplex: boolean = false;
+    isBuiltin: boolean = false;
+    isPrimitive: boolean = false;
+
+    name?: string;
+
+    signatures: Array<CallableSignature>;
+
+    protected reflector: TypedocJSONReflector;
+    protected definition: InputJSON.SignaturesLiteralDecl;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.SignaturesLiteralDecl) {
+        this.reflector = reflector;
+        this.definition = definition;
+        this.signatures = definition.signatures.map(sig => new TypedocCallableSignature(reflector, sig));
+    }
+}
+
+class TypedocCallableSignature extends JSONDefinitionDocCommentsBase implements CallableSignature {
+    readonly parameters: Array<Parameter>;
+    readonly returnType: TypeMirror;
+
+    protected readonly definition!: InputJSON.Signature;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.Signature) {
+        super(reflector, definition);
+
+        this.returnType = reflector.describeTypeForTypeDetails(definition.type);
+
+        const parameters: Array<Parameter> = [];
+
+        if (definition.parameters) {
+            for (const inputParam of definition.parameters) {
+                parameters.push({
+                    name: inputParam.name,
+                    type: reflector.describeTypeForTypeDetails(inputParam.type)
+                });
+            }
+        }
+
+        this.parameters = parameters;
+
+    }
+
 }

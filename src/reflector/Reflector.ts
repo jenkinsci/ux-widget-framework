@@ -23,13 +23,18 @@ export interface Reflector {
     /** List of the external modules */
     readonly moduleNames: Array<string>;
 
-    builtinUndefined: TypeMirror;
+    readonly builtinUndefined: TypeMirror;
+    readonly builtinVoid: TypeMirror;
+    readonly builtinString: TypeMirror;
+    readonly builtinNumber: TypeMirror;
+    readonly builtinBoolean: TypeMirror;
 
     isInterface(mirror: TypeMirror): mirror is InterfaceMirror;
     isClass(mirror: TypeMirror): mirror is ClassMirror;
     isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;
     isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror;
     isUnion(mirror: TypeMirror): mirror is UnionMirror;
+    isCallable(mirror: TypeMirror): mirror is CallableMirror;
 
     debug(): string;
 };
@@ -142,6 +147,39 @@ export interface UnionMirror extends TypeMirror {
     readonly types: Array<TypeMirror>;
 }
 
-// TODO: Reflect functions for props
+/**
+ * Represents a callable (function / method / constructor)
+ */
+export interface CallableMirror extends TypeMirror {
+    /**
+     * The set of possible signatures for this callable object
+     */
+    readonly signatures: Array<CallableSignature>;
+}
+
+/**
+ * Represents a parameter to a function / method / constructor call
+ */
+export interface Parameter {
+    /**
+     * Name of parameter, if specified
+     */
+    readonly name?: string;
+
+    /**
+     * Type of the param
+     */
+    readonly type: TypeMirror;
+}
+
+/**
+ * A single signature type
+ */
+export interface CallableSignature extends SupportsDocComments {
+    readonly parameters: Array<Parameter>;
+    readonly returnType: TypeMirror;
+}
+
+// TODO: Reflect modules
 // TODO: Reflect module-level functions
 // TODO: Reflect module-level vars

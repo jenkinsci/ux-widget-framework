@@ -189,11 +189,26 @@ describe('TSDoc Reflector, PoC types', () => {
                 throw new Error('Expected a union');
             }
 
-            assert(typeMirror.types[0] === reflector.builtinUndefined, 'first branch should be undefined');
+            assert.strictEqual(typeMirror.types[0], reflector.builtinUndefined, 'first branch should be undefined');
 
             const otherdef = typeMirror.types[1];
 
-            // assert.equal(otherdef.name, 'blah', 'other def name');
+            if (!reflector.isCallable(otherdef)) {
+                throw new Error('expecting a callable for otherdef');
+            }
+
+            assert.equal(otherdef.signatures.length, 1, 'should have single signature');
+
+            const sig = otherdef.signatures[0];
+
+            assert(sig.returnType === reflector.builtinVoid, 'otherdef returns void');
+
+            assert.equal(sig.parameters.length, 2, 'param count');
+            assert.equal(sig.parameters[0].name, 'nodeName', 'first param name');
+            assert.equal(sig.parameters[1].name, 'id', 'second param name');
+
+            assert.equal(sig.parameters[0].type, reflector.builtinString, 'first param type');
+            assert.equal(sig.parameters[1].type, reflector.builtinNumber, 'second param type');
         });
 
         testProp('resourceBundle');
