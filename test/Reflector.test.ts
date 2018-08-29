@@ -234,7 +234,9 @@ describe('TSDoc Reflector, PoC types', () => {
                 throw new Error('.children should be external ref');
             }
             assert.equal(propType.name, 'Array', '.children type name');
-            // TODO: inspect type args
+            assert.equal(propType.typeArguments.length, 1, '.children should have 1 type arg');
+            const arrayType = propType.typeArguments[0];
+            assert.equal(arrayType.name, 'StageInfo', '.children type arg name');
 
             propType = propTypes[1];
             assert.equal(propType, reflector.builtinNumber, '.completePercent is number');
@@ -276,8 +278,9 @@ describe('TSDoc Reflector, PoC types', () => {
 
         testProp('stages', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
             assert.equal(typeMirror.name, 'Array', 'stages should be Array');
-
-            // TODO: assert on type args
+            assert.equal(typeMirror.typeArguments.length, 1, 'stages should be have a type arg');
+            const arrayType = typeMirror.typeArguments[0];
+            assert.equal(arrayType.name, 'StageInfo', 'stages type arg name');
         });
 
         testProp('trafficStateChanged', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
@@ -286,7 +289,12 @@ describe('TSDoc Reflector, PoC types', () => {
                 throw new Error('trafficStateChanged should be external ref');
             }
 
-            // TODO: assert on type args
+            assert.equal(typeMirror.typeArguments.length, 1, 'trafficStateChanged should have a type arg');
+            const typeArg = typeMirror.typeArguments[0];
+            if (!reflector.isEnum(typeArg)) {
+                throw new Error('trafficStateChanged type arg should be enum')
+            }
+            assert.equal(typeArg.name, 'TrafficState', 'trafficStateChanged type arg')
         });
 
     });

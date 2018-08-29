@@ -79,7 +79,7 @@ export interface TypeMirror {
     /**
      * A list of any type arguments used in this declaration
      */
-    // readonly typeArguments: Array<TypeMirror>;
+    readonly typeArguments: Array<TypeMirror>;
 }
 
 /**

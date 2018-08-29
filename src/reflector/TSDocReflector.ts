@@ -84,6 +84,10 @@ namespace InputJSON {
         comment?: CommentDecl;
     }
 
+    interface CanHazTypeArgs {
+        typeArguments?: Array<TypeDetails>;
+    }
+
     export interface CommentDecl {
         shortText: string;
         text?: string;
@@ -102,7 +106,7 @@ namespace InputJSON {
         readonly children?: Array<BaseDecl>;
     }
 
-    export interface InterfaceDecl extends InterfaceLikeDecl, CanHazComment {
+    export interface InterfaceDecl extends InterfaceLikeDecl, CanHazComment, CanHazTypeArgs {
         // TODO: readonly groups: GroupsDecl;
         // TODO: readonly sources: SourcesDecl;
         // TODO: readonly extendedTypes?: ExtendedTypesDecl;
@@ -162,7 +166,7 @@ namespace InputJSON {
         type: TypeDetails; // return type
     }
 
-    export interface SignaturesLiteralDecl extends BaseDecl {
+    export interface SignaturesLiteralDecl extends BaseDecl, CanHazTypeArgs {
         signatures: Array<Signature>;
     }
 
@@ -200,7 +204,7 @@ namespace InputJSON {
         // TODO: Type params
     }
 
-    export interface ExternalTypeReference {
+    export interface ExternalTypeReference extends CanHazTypeArgs {
         type: 'reference';
         name: string;
         // TODO: Type params
@@ -295,17 +299,12 @@ class UnImplementedTypeMirror implements TypeMirror {
     isComplex: boolean = false;
     isBuiltin: boolean = false;
     isPrimitive: boolean = false;
+    typeArguments: Array<TypeMirror> = [];
+    name: string;
 
     constructor(message: string) {
         this.name = `UnImplementedTypeMirror for ${message}`;
     }
-
-    id: number = 0;
-    name: string;
-    kindString: string = 'UnImplementedTypeMirror';
-    hasComment: boolean = false;
-    commentShortText: string = '';
-    commentLongText: string = '';
 }
 
 interface NameAndId {
@@ -456,7 +455,7 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isExternalTypeReference(typeDetails)) {
-            return new TypedocExternalTypeReference(typeDetails);
+            return new TypedocExternalTypeReference(this, typeDetails);
         }
 
         if (InputJSON.isIntrinsicRef(typeDetails)) {
@@ -508,6 +507,15 @@ class TypedocJSONReflector implements Reflector {
 
     isExternalTypeReference(mirror: TypeMirror): mirror is ExternalTypeReference {
         return mirror instanceof TypedocExternalTypeReference;
+    }
+
+    decodeTypeArguments(typeArguments?: Array<InputJSON.TypeDetails>): Array<TypeMirror> {
+
+        if (!typeArguments || typeArguments.length === 0) {
+            return [];
+        }
+
+        return typeArguments.map(details => this.describeTypeForTypeDetails(details));
     }
 
     describeBuiltin(name: string): TypeMirror {
@@ -597,6 +605,7 @@ abstract class JSONDefinitionTypeBase extends JSONDefinitionDocCommentsBase impl
     abstract readonly isBuiltin: boolean;
     abstract readonly isPrimitive: boolean;
     abstract readonly isComplex: boolean;
+    abstract readonly typeArguments: Array<TypeMirror>;
 }
 
 /**
@@ -607,6 +616,7 @@ abstract class TypedocInterfaceMirrorBase extends JSONDefinitionTypeBase impleme
     readonly definition!: InputJSON.InterfaceDecl; // TODO: Use a "complex" base for Interface / Class / TypeLiteral?
     readonly isComplex = true;
     readonly isPrimitive = false;
+    readonly typeArguments: Array<TypeMirror>;
 
     propertyNames: Array<string> = [];
 
@@ -618,6 +628,8 @@ abstract class TypedocInterfaceMirrorBase extends JSONDefinitionTypeBase impleme
                 .filter(child => InputJSON.isPropertyDecl(child))
                 .map(child => child.name);
         }
+
+        this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
     }
 
     describeProperty(propName: string): PropertyMirror {
@@ -695,6 +707,7 @@ class Primitive implements TypeMirror {
     isComplex: boolean = false;
     isBuiltin: boolean = true;
     isPrimitive: boolean = true;
+    readonly typeArguments: Array<TypeMirror> = [];
 
     name: string;
 
@@ -709,6 +722,7 @@ class TypedocAliasMirror extends JSONDefinitionTypeBase implements TypeAliasMirr
     readonly isBuiltin = false;
     readonly isPrimitive = false;
     readonly isComplex = false;
+    readonly typeArguments: Array<TypeMirror> = [];
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.TypeAliasDecl) {
         super(reflector, definition);
@@ -724,6 +738,7 @@ class TypedocUnionMirror implements UnionMirror {
     isBuiltin: boolean = true;
     isPrimitive: boolean = false;
     types: Array<TypeMirror>;
+    readonly typeArguments: Array<TypeMirror> = [];
 
     protected reflector: TypedocJSONReflector;
 
@@ -734,13 +749,14 @@ class TypedocUnionMirror implements UnionMirror {
 }
 
 class TypedocCallableMirror implements CallableMirror {
-    isComplex: boolean = false;
-    isBuiltin: boolean = false;
-    isPrimitive: boolean = false;
+    readonly isComplex: boolean = false;
+    readonly isBuiltin: boolean = false;
+    readonly isPrimitive: boolean = false;
+    readonly typeArguments: Array<TypeMirror>;
 
-    name?: string;
+    readonly name?: string;
 
-    signatures: Array<CallableSignature>;
+    readonly signatures: Array<CallableSignature>;
 
     protected reflector: TypedocJSONReflector;
     protected definition: InputJSON.SignaturesLiteralDecl;
@@ -749,6 +765,8 @@ class TypedocCallableMirror implements CallableMirror {
         this.reflector = reflector;
         this.definition = definition;
         this.signatures = definition.signatures.map(sig => new TypedocCallableSignature(reflector, sig));
+
+        this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
     }
 }
 
@@ -781,24 +799,26 @@ class TypedocCallableSignature extends JSONDefinitionDocCommentsBase implements 
 }
 
 class TypedocExternalTypeReference implements ExternalTypeReference {
-    name: string;
-    isComplex: boolean = false; // We can't really know for sure, unfortunately
-    isBuiltin: boolean = false;
-    isPrimitive: boolean = false;
+    readonly name: string;
+    readonly isComplex: boolean = false; // We can't really know for sure, unfortunately
+    readonly isBuiltin: boolean = false;
+    readonly isPrimitive: boolean = false;
+    readonly typeArguments: Array<TypeMirror>;
     
-    constructor(definition: InputJSON.ExternalTypeReference) {
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.ExternalTypeReference) {
         this.name = definition.name;
-        // TODO: capture type params
+        this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
     }
 }
 
 class TypedocEnumMirror extends JSONDefinitionDocCommentsBase implements EnumMirror {
 
-    children: Array<EnumMember>;
+    readonly children: Array<EnumMember>;
 
-    isComplex: boolean = true;
-    isBuiltin: boolean = false;
-    isPrimitive: boolean = false;
+    readonly isComplex: boolean = true;
+    readonly isBuiltin: boolean = false;
+    readonly isPrimitive: boolean = false;
+    readonly typeArguments: Array<TypeMirror> = [];
 
     protected definition!: InputJSON.EnumDecl;
 
