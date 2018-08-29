@@ -405,26 +405,16 @@ class TypedocJSONReflector implements Reflector {
         }
     }
 
-    findClassesByName(className: string): Array<number> {
-        let results: Array<number> = [];
+    findClassesByName(className: string): Array<ClassMirror> {
+        let results: Array<ClassMirror> = [];
 
         for (const [key, value] of this.typeDefById) {
             if (value.kindString === KindString.Class && value.name === className) {
-                results.push(key);
+                results.push(this.describeTypeForTypeDetails(value) as ClassMirror);
             }
         }
 
         return results;
-    }
-
-    describeTypeById(id: number): TypeMirror {
-        const td = this.typeDefById.get(id);
-
-        if (td) {
-            return this.describeTypeForTypeDetails(td);
-        }
-
-        throw new Error(`describeTypeById: type ${id} not found`);
     }
 
     describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
@@ -455,7 +445,14 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isInternalTypeReference(typeDetails)) {
-            return this.describeTypeById(typeDetails.id);
+            const id = typeDetails.id;
+            const td = this.typeDefById.get(id);
+
+            if (td) {
+                return this.describeTypeForTypeDetails(td);
+            }
+    
+            throw new Error(`describeTypeForTypeDetails - internalTypeReference: type ${id} not found`);
         }
 
         if (InputJSON.isExternalTypeReference(typeDetails)) {

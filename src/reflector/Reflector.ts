@@ -8,14 +8,8 @@ export interface Reflector {
 
     /**
      * Find classes by name across all modules
-     * 
-     * @param className class name
-     * @return an array of matching ids
      */
-    findClassesByName(className: string): Array<number>;
-
-    /** Lookup typedef by id */
-    describeTypeById(id: number): TypeMirror;
+    findClassesByName(className: string): Array<ClassMirror>;
 
     /** Describe a built-in type */
     describeBuiltin(name: string): TypeMirror; // TODO: Replace this with separate methods instead of stringly-typed name lookup in public interface
@@ -81,6 +75,11 @@ export interface TypeMirror {
      * Name of this type, if it has one.
      */
     readonly name?: string; 
+
+    /**
+     * A list of any type arguments used in this declaration
+     */
+    // readonly typeArguments: Array<TypeMirror>;
 }
 
 /**

@@ -45,11 +45,11 @@ describe('TSDoc Reflector, PoC types', () => {
 
         matches = reflector.findClassesByName('PipelineGraph');
         assert.equal(matches.length, 1, 'One match for PipelineGraph');
-        assert.equal(matches[0], 486, 'Correct id for PipelineGraph');
+        assert.equal(matches[0].name, 'PipelineGraph', 'Correct name for PipelineGraph');
 
         matches = reflector.findClassesByName('TruncatingLabel');
         assert.equal(matches.length, 1, 'One match for TruncatingLabel');
-        assert.equal(matches[0], 340, 'Correct id for TruncatingLabel');
+        assert.equal(matches[0].name, 'TruncatingLabel', 'Correct name for TruncatingLabel');
 
         matches = reflector.findClassesByName('RenderState');
         assert.equal(matches.length, 0, 'No matches for RenderState'); // RenderState is an enum
@@ -57,7 +57,7 @@ describe('TSDoc Reflector, PoC types', () => {
 
     test('describe class PipelineGraph', () => {
         const reflector = typedocReflector(jsonObj);
-        const mirror = reflector.describeTypeById(486);
+        const mirror:TypeMirror = reflector.findClassesByName('PipelineGraph')[0];
 
         assert(mirror, 'PipelineGraph Mirror should be defined');
         assert(mirror.isComplex, 'PipelineGraph Mirror should be complex');
@@ -82,7 +82,7 @@ describe('TSDoc Reflector, PoC types', () => {
 
     test('describe property PipelineGraph.props', () => {
         const reflector = typedocReflector(jsonObj);
-        const classMirror = reflector.describeTypeById(486) as ClassMirror;
+        const classMirror = reflector.findClassesByName('PipelineGraph')[0];
         const propMirror = classMirror.describeProperty('props');
 
         assert(propMirror, 'prop mirror should exist');
@@ -96,7 +96,7 @@ describe('TSDoc Reflector, PoC types', () => {
 
         beforeAll(() => {
             reflector = typedocReflector(jsonObj);
-            interfaceMirror = reflector.describeTypeById(459);
+            interfaceMirror = reflector.findClassesByName('PipelineGraph')[0].describeProperty('props').type;
         });
 
         test('Props type mirror', () => {
@@ -234,7 +234,7 @@ describe('TSDoc Reflector, PoC types', () => {
                 throw new Error('.children should be external ref');
             }
             assert.equal(propType.name, 'Array', '.children type name');
-            // TODO: inspect type params
+            // TODO: inspect type args
 
             propType = propTypes[1];
             assert.equal(propType, reflector.builtinNumber, '.completePercent is number');
@@ -277,7 +277,7 @@ describe('TSDoc Reflector, PoC types', () => {
         testProp('stages', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
             assert.equal(typeMirror.name, 'Array', 'stages should be Array');
 
-            // TODO: assert on type params
+            // TODO: assert on type args
         });
 
         testProp('trafficStateChanged', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
@@ -286,7 +286,7 @@ describe('TSDoc Reflector, PoC types', () => {
                 throw new Error('trafficStateChanged should be external ref');
             }
 
-            // TODO: assert on type params
+            // TODO: assert on type args
         });
 
     });
