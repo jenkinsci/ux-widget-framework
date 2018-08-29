@@ -211,9 +211,65 @@ describe('TSDoc Reflector, PoC types', () => {
             assert.equal(sig.parameters[1].type, reflector.builtinNumber, 'second param type');
         });
 
-        testProp('resourceBundle');
+        testProp('resourceBundle', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
+            assert.equal(typeMirror, reflector.builtinAny, 'prop type');
+        });
 
-        testProp('selectedStage');
+        testProp('selectedStage', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
+            if (!reflector.isInterface(typeMirror)) {
+                throw new Error('type should be interface');
+            }
+
+            assert.equal(typeMirror.name, 'StageInfo', 'type name');
+            
+            const foundProps = typeMirror.propertyNames;
+            foundProps.sort();
+
+            assert.equal(foundProps.join(', '), 'children, completePercent, id, name, nextSibling, state, title, type', 'Prop names');
+
+            const propTypes = foundProps.map(propName => typeMirror.describeProperty(propName).type);
+
+            let propType = propTypes[0];
+            assert.equal(propType.name, 'Array', '.children type name');
+            // TODO: inspect type params
+
+            propType = propTypes[1];
+            assert.equal(propType, reflector.builtinNumber, '.completePercent is number');
+
+            propType = propTypes[2];
+            assert.equal(propType, reflector.builtinNumber, '.id is number');
+
+            propType = propTypes[3];
+            assert.equal(propType, reflector.builtinString, '.name is string');
+
+            propType = propTypes[4];
+            assert.equal(propType.name, 'StageInfo', '.nextSibling type name');
+
+            propType = propTypes[5];
+            assert.equal(propType.name, 'Result', '.state type name');
+            if (!reflector.isEnum(propType)) {
+                throw new Error('.state should be enum');
+            }
+            const enumChildren = propType.children;
+            assert.equal(enumChildren.length, 10, 'Result value count');
+            assert.equal(enumChildren.map(member => member.name).join(', '), 
+                'aborted, failure, not_built, paused, queued, running, skipped, success, unknown, unstable', 
+                'enum child names');
+            assert.equal(enumChildren.map(member => member.defaultValue).join(', '), 
+                '"aborted", "failure", "not_built", "paused", "queued", "running", "skipped", "success", "unknown", "unstable"', 
+                'enum child values');
+
+                propType = propTypes[6];
+                assert.equal(propType, reflector.builtinString, '.title is string');
+
+                propType = propTypes[7];
+                assert.equal(propType.name, 'StageType', '.type type name');
+                if (!reflector.isTypeAlias(propType)) {
+                    throw new Error('.type should be alias');
+                }
+                propType = propType.targetDefinition;
+                assert.equal(propType, reflector.builtinString, '.type aliased type should be string');
+        });
 
         testProp('stages');
 

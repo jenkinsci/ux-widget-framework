@@ -23,6 +23,7 @@ export interface Reflector {
     /** List of the external modules */
     readonly moduleNames: Array<string>;
 
+    readonly builtinAny: TypeMirror;
     readonly builtinUndefined: TypeMirror;
     readonly builtinVoid: TypeMirror;
     readonly builtinString: TypeMirror;
@@ -35,6 +36,7 @@ export interface Reflector {
     isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror;
     isUnion(mirror: TypeMirror): mirror is UnionMirror;
     isCallable(mirror: TypeMirror): mirror is CallableMirror;
+    isEnum(mirror: TypeMirror): mirror is EnumMirror;
 
     debug(): string;
 };
@@ -178,6 +180,29 @@ export interface Parameter {
 export interface CallableSignature extends SupportsDocComments {
     readonly parameters: Array<Parameter>;
     readonly returnType: TypeMirror;
+}
+
+/**
+ * Represents an Enum type
+ */
+export interface EnumMirror extends TypeMirror {
+    children: Array<EnumMember>;
+}
+
+/** 
+ * An enum member
+ */
+export interface EnumMember {
+    readonly name: string;
+    readonly defaultValue: string;
+}
+
+/**
+ * Represents a named reference to a type external to the source base represented by the Reflector (such as code in node_modules)
+ */
+export interface ExternalTypeReference extends TypeMirror {
+    readonly name: string;
+    // TODO: type params
 }
 
 // TODO: Reflect modules

@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter } from "./Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember } from "./Reflector";
 import { isArray } from "util";
 
 // TODO: Replace all the `any`s with `unknown`s
@@ -274,7 +274,20 @@ namespace InputJSON {
         );
     }
 
+    export interface EnumDecl extends BaseDecl {
+        children: Array<EnumMemberDecl>;
+    }
 
+    export interface EnumMemberDecl extends BaseDecl {
+        defaultValue: string;
+    }
+
+    export function isEnumDecl(obj: any): obj is EnumDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.Enumeration
+            && isArray(obj.children)
+        );
+    }
 }
 
 class UnImplementedTypeMirror implements TypeMirror {
@@ -314,6 +327,7 @@ class TypedocJSONReflector implements Reflector {
 
     protected total = 0;
 
+    builtinAny: TypeMirror;
     builtinUndefined: TypeMirror;
     builtinVoid: TypeMirror;
     builtinString: TypeMirror;
@@ -321,6 +335,7 @@ class TypedocJSONReflector implements Reflector {
     builtinBoolean: TypeMirror;
 
     constructor() {
+        this.builtinAny = new Primitive('any');
         this.builtinUndefined = new Primitive('undefined');
         this.builtinVoid = new Primitive('void');
         this.builtinString = new Primitive('string');
@@ -328,7 +343,7 @@ class TypedocJSONReflector implements Reflector {
         this.builtinBoolean = new Primitive('boolean');
 
         this.builtins = [
-            new Primitive('any'),
+            this.builtinAny,
             this.builtinUndefined,
             this.builtinVoid,
             this.builtinString,
@@ -427,6 +442,10 @@ class TypedocJSONReflector implements Reflector {
             return new TypedocAliasMirror(this, typeDetails);
         }
 
+        if (InputJSON.isEnumDecl(typeDetails)) {
+            return new TypedocEnumMirror(this, typeDetails);
+        }
+
         if (InputJSON.isInterfaceLiteralDecl(typeDetails)) {
             return new TypedocInterfaceLiteralMirror(this, typeDetails);
         }
@@ -440,8 +459,7 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isExternalTypeReference(typeDetails)) {
-            // TODO: Implement external reference TypeMirror
-            return new UnImplementedTypeMirror('ExternalTypeReference');
+            return new TypedocExternalTypeReference(typeDetails);
         }
 
         if (InputJSON.isIntrinsicRef(typeDetails)) {
@@ -485,6 +503,10 @@ class TypedocJSONReflector implements Reflector {
 
     isCallable(mirror: TypeMirror): mirror is CallableMirror {
         return mirror instanceof TypedocCallableMirror;
+    }
+
+    isEnum(mirror: TypeMirror): mirror is EnumMirror {
+        return mirror instanceof TypedocEnumMirror;
     }
 
     describeBuiltin(name: string): TypeMirror {
@@ -755,4 +777,38 @@ class TypedocCallableSignature extends JSONDefinitionDocCommentsBase implements 
 
     }
 
+}
+
+class TypedocExternalTypeReference implements ExternalTypeReference {
+    name: string;
+    isComplex: boolean = false; // We can't really know for sure, unfortunately
+    isBuiltin: boolean = false;
+    isPrimitive: boolean = false;
+    
+    constructor(definition: InputJSON.ExternalTypeReference) {
+        this.name = definition.name;
+        // TODO: capture type params
+    }
+}
+
+class TypedocEnumMirror extends JSONDefinitionDocCommentsBase implements EnumMirror {
+
+    children: Array<EnumMember>;
+
+    isComplex: boolean = true;
+    isBuiltin: boolean = false;
+    isPrimitive: boolean = false;
+
+    protected definition!: InputJSON.EnumDecl;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.EnumDecl) {
+        super(reflector, definition);
+
+        this.children = definition.children.map(memberDecl => this.createChild(memberDecl));
+    }
+
+    protected createChild(memberDecl: InputJSON.EnumMemberDecl): EnumMember {
+        const {name, defaultValue} = memberDecl;
+        return {name, defaultValue};
+    }
 }
