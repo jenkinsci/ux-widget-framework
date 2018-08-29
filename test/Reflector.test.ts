@@ -221,7 +221,7 @@ describe('TSDoc Reflector, PoC types', () => {
             }
 
             assert.equal(typeMirror.name, 'StageInfo', 'type name');
-            
+
             const foundProps = typeMirror.propertyNames;
             foundProps.sort();
 
@@ -230,6 +230,9 @@ describe('TSDoc Reflector, PoC types', () => {
             const propTypes = foundProps.map(propName => typeMirror.describeProperty(propName).type);
 
             let propType = propTypes[0];
+            if (!reflector.isExternalTypeReference(propType)) {
+                throw new Error('.children should be external ref');
+            }
             assert.equal(propType.name, 'Array', '.children type name');
             // TODO: inspect type params
 
@@ -252,30 +255,41 @@ describe('TSDoc Reflector, PoC types', () => {
             }
             const enumChildren = propType.children;
             assert.equal(enumChildren.length, 10, 'Result value count');
-            assert.equal(enumChildren.map(member => member.name).join(', '), 
-                'aborted, failure, not_built, paused, queued, running, skipped, success, unknown, unstable', 
+            assert.equal(enumChildren.map(member => member.name).join(', '),
+                'aborted, failure, not_built, paused, queued, running, skipped, success, unknown, unstable',
                 'enum child names');
-            assert.equal(enumChildren.map(member => member.defaultValue).join(', '), 
-                '"aborted", "failure", "not_built", "paused", "queued", "running", "skipped", "success", "unknown", "unstable"', 
+            assert.equal(enumChildren.map(member => member.defaultValue).join(', '),
+                '"aborted", "failure", "not_built", "paused", "queued", "running", "skipped", "success", "unknown", "unstable"',
                 'enum child values');
 
-                propType = propTypes[6];
-                assert.equal(propType, reflector.builtinString, '.title is string');
+            propType = propTypes[6];
+            assert.equal(propType, reflector.builtinString, '.title is string');
 
-                propType = propTypes[7];
-                assert.equal(propType.name, 'StageType', '.type type name');
-                if (!reflector.isTypeAlias(propType)) {
-                    throw new Error('.type should be alias');
-                }
-                propType = propType.targetDefinition;
-                assert.equal(propType, reflector.builtinString, '.type aliased type should be string');
+            propType = propTypes[7];
+            assert.equal(propType.name, 'StageType', '.type type name');
+            if (!reflector.isTypeAlias(propType)) {
+                throw new Error('.type should be alias');
+            }
+            propType = propType.targetDefinition;
+            assert.equal(propType, reflector.builtinString, '.type aliased type should be string');
         });
 
-        testProp('stages');
+        testProp('stages', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
+            assert.equal(typeMirror.name, 'Array', 'stages should be Array');
 
-        testProp('trafficStateChanged');
+            // TODO: assert on type params
+        });
+
+        testProp('trafficStateChanged', (propMirror: PropertyMirror, typeMirror: TypeMirror) => {
+            assert.equal(typeMirror.name, 'Signal', 'trafficStateChanged type name');
+            if (!reflector.isExternalTypeReference(typeMirror)) {
+                throw new Error('trafficStateChanged should be external ref');
+            }
+
+            // TODO: assert on type params
+        });
 
     });
 
-    // TODO: Tests to make sure you can get all the builtins via their hardcoded IDs
+
 });

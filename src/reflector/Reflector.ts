@@ -30,13 +30,15 @@ export interface Reflector {
     readonly builtinNumber: TypeMirror;
     readonly builtinBoolean: TypeMirror;
 
-    isInterface(mirror: TypeMirror): mirror is InterfaceMirror;
-    isClass(mirror: TypeMirror): mirror is ClassMirror;
-    isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;
-    isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror;
-    isUnion(mirror: TypeMirror): mirror is UnionMirror;
     isCallable(mirror: TypeMirror): mirror is CallableMirror;
+    isClass(mirror: TypeMirror): mirror is ClassMirror;
     isEnum(mirror: TypeMirror): mirror is EnumMirror;
+    isExternalTypeReference(mirror: TypeMirror): mirror is ExternalTypeReference;
+    isInterface(mirror: TypeMirror): mirror is InterfaceMirror;
+    isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror;
+    isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;
+    isUnion(mirror: TypeMirror): mirror is UnionMirror;
+    
 
     debug(): string;
 };

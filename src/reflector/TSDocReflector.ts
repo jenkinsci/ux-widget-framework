@@ -509,6 +509,10 @@ class TypedocJSONReflector implements Reflector {
         return mirror instanceof TypedocEnumMirror;
     }
 
+    isExternalTypeReference(mirror: TypeMirror): mirror is ExternalTypeReference {
+        return mirror instanceof TypedocExternalTypeReference;
+    }
+
     describeBuiltin(name: string): TypeMirror {
         for (const mirror of this.builtins) {
             if (mirror.name === name) {
