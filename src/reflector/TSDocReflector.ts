@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember } from "./Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror } from "./Reflector";
 import { isArray } from "util";
 
 // TODO: Replace all the `any`s with `unknown`s
@@ -292,6 +292,18 @@ namespace InputJSON {
             && isArray(obj.children)
         );
     }
+
+    export interface ModuleDecl extends BaseDecl {
+        originalName: string;
+    }
+
+    export function isModuleDecl(obj:any): obj is ModuleDecl {
+        return (typeof obj === 'object'
+            && typeof obj.originalName === 'string'
+            && obj.kindString === KindString.ExternalModule
+            && isBaseDecl(obj)
+        );
+    }
 }
 
 class UnImplementedTypeMirror implements TypeMirror {
@@ -450,7 +462,7 @@ class TypedocJSONReflector implements Reflector {
             if (td) {
                 return this.describeTypeForTypeDetails(td);
             }
-    
+
             throw new Error(`describeTypeForTypeDetails - internalTypeReference: type ${id} not found`);
         }
 
@@ -509,6 +521,10 @@ class TypedocJSONReflector implements Reflector {
         return mirror instanceof TypedocExternalTypeReference;
     }
 
+    isModule(mirror: any): mirror is ModuleMirror {
+        return mirror instanceof TypedocModuleMirror;
+    }
+
     decodeTypeArguments(typeArguments?: Array<InputJSON.TypeDetails>): Array<TypeMirror> {
 
         if (!typeArguments || typeArguments.length === 0) {
@@ -516,6 +532,21 @@ class TypedocJSONReflector implements Reflector {
         }
 
         return typeArguments.map(details => this.describeTypeForTypeDetails(details));
+    }
+
+    describeModule(moduleName: string): ModuleMirror {
+        const foundEntry = this.modules.find(entry => entry.name === moduleName);
+        if (!foundEntry) {
+            throw new Error(`describeModule - could not find module named ${moduleName}`);
+        }
+
+        const definition = this.typeDefById.get(foundEntry.id);
+
+        if (!InputJSON.isModuleDecl(definition)) {
+            throw new Error(`describeModule - got bad definition:\n${JSON.stringify(definition, null, 4)}`);
+        }
+
+        return new TypedocModuleMirror(this, definition);
     }
 
     describeBuiltin(name: string): TypeMirror {
@@ -804,7 +835,7 @@ class TypedocExternalTypeReference implements ExternalTypeReference {
     readonly isBuiltin: boolean = false;
     readonly isPrimitive: boolean = false;
     readonly typeArguments: Array<TypeMirror>;
-    
+
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.ExternalTypeReference) {
         this.name = definition.name;
         this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
@@ -829,7 +860,22 @@ class TypedocEnumMirror extends JSONDefinitionDocCommentsBase implements EnumMir
     }
 
     protected createChild(memberDecl: InputJSON.EnumMemberDecl): EnumMember {
-        const {name, defaultValue} = memberDecl;
-        return {name, defaultValue};
+        const { name, defaultValue } = memberDecl;
+        return { name, defaultValue };
+    }
+}
+
+class TypedocModuleMirror implements ModuleMirror {
+    readonly name: string;
+    readonly originalName: string;
+
+    protected reflector: TypedocJSONReflector;
+    protected definition: InputJSON.ModuleDecl;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.ModuleDecl) {
+        this.reflector = reflector;
+        this.definition = definition;
+        this.name = definition.name.replace(/^"(.*?)"$/, '$1');
+        this.originalName = definition.originalName;
     }
 }

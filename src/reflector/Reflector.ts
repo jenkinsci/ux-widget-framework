@@ -2,7 +2,7 @@
 /**
  * Base reflector interface, represents a "typespace". 
  * 
- * We separate these out from the TypeDoc-specific impls so that we can eventually build the same model talking directly to TSC and bypass it.
+ * We separate these out from the TypeDoc-specific impls so that we can eventually build the same model talking directly to TSC / JS parsers and bypass it.
  */
 export interface Reflector {
 
@@ -11,11 +11,14 @@ export interface Reflector {
      */
     findClassesByName(className: string): Array<ClassMirror>;
 
-    /** Describe a built-in type */
-    describeBuiltin(name: string): TypeMirror; // TODO: Replace this with separate methods instead of stringly-typed name lookup in public interface
-
     /** List of the external modules */
     readonly moduleNames: Array<string>;
+
+    /**
+     * Reflect on the named module
+     * @param moduleName a valid name from the list returned from this.moduleNames
+     */
+    describeModule(moduleName: string): ModuleMirror;
 
     readonly builtinAny: TypeMirror;
     readonly builtinUndefined: TypeMirror;
@@ -32,7 +35,8 @@ export interface Reflector {
     isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror;
     isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;
     isUnion(mirror: TypeMirror): mirror is UnionMirror;
-    
+    isModule(mirror: any): mirror is ModuleMirror;
+   
 
     debug(): string;
 };
@@ -80,6 +84,21 @@ export interface TypeMirror {
      * A list of any type arguments used in this declaration
      */
     readonly typeArguments: Array<TypeMirror>;
+}
+
+/**
+ * Represents an external module (a TypeScript source file, basically)
+ */
+export interface ModuleMirror {
+    /**
+     * The local name of the module
+     */
+    readonly name: string;
+
+    /**
+     * The "original name" of the module, refers to the parsed source file
+     */
+    readonly originalName: string;
 }
 
 /**

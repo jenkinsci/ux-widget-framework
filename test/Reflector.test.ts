@@ -2,12 +2,25 @@
 import * as fs from '../src/fsPromises';
 import * as assert from 'assert';
 import { typedocReflector } from '../src/reflector/TSDocReflector';
-import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector } from '../src/reflector/Reflector';
+import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror } from '../src/reflector/Reflector';
 
 describe('TSDoc Reflector, PoC types', () => {
 
     let jsonSource = '';
     let jsonObj: any = {};
+
+    const allModules = [
+        'Extensions',
+        'PipelineGraph',
+        'PipelineGraphLayout',
+        'PipelineGraphModel',
+        'index',
+        'support/SVG',
+        'support/StatusIndicator',
+        'support/SvgSpinner',
+        'support/SvgStatus',
+        'support/TruncatingLabel',
+    ];
 
     beforeAll(async () => {
         return fs.readFile(__dirname + '/types-sample.json', 'UTF8')
@@ -31,10 +44,14 @@ describe('TSDoc Reflector, PoC types', () => {
 
         assert(Array.isArray(moduleNames), 'moduleNames is array');
         assert.equal(moduleNames.length, 10, 'number of modules');
-        assert.equal(moduleNames.join(', '),
-            'Extensions, PipelineGraph, PipelineGraphLayout, PipelineGraphModel, ' +
-            'index, support/SVG, support/StatusIndicator, support/SvgSpinner, ' +
-            'support/SvgStatus, support/TruncatingLabel', 'Modules listed');
+        assert.equal(moduleNames.join(', '), allModules.join(', '), 'Modules listed');
+
+        for (const name of moduleNames) {
+            const mirror = reflector.describeModule(name);
+            assert(mirror, `can construct mirror for "${name}"`);
+            assert.equal(mirror.name, name, `mirror for "${name}" has correct name`);
+            assert(reflector.isModule(mirror), `mirror for "${name}" must be module`);
+        }
     });
 
     test('findClassByName', () => {
@@ -57,7 +74,7 @@ describe('TSDoc Reflector, PoC types', () => {
 
     test('describe class PipelineGraph', () => {
         const reflector = typedocReflector(jsonObj);
-        const mirror:TypeMirror = reflector.findClassesByName('PipelineGraph')[0];
+        const mirror: TypeMirror = reflector.findClassesByName('PipelineGraph')[0];
 
         assert(mirror, 'PipelineGraph Mirror should be defined');
         assert(mirror.isComplex, 'PipelineGraph Mirror should be complex');
@@ -292,12 +309,64 @@ describe('TSDoc Reflector, PoC types', () => {
             assert.equal(typeMirror.typeArguments.length, 1, 'trafficStateChanged should have a type arg');
             const typeArg = typeMirror.typeArguments[0];
             if (!reflector.isEnum(typeArg)) {
-                throw new Error('trafficStateChanged type arg should be enum')
+                throw new Error('trafficStateChanged type arg should be enum');
             }
-            assert.equal(typeArg.name, 'TrafficState', 'trafficStateChanged type arg')
+            assert.equal(typeArg.name, 'TrafficState', 'trafficStateChanged type arg');
         });
 
     });
 
+    describe('module details', () => {
 
+        let reflector: Reflector;
+
+        beforeAll(() => {
+            reflector = typedocReflector(jsonObj);
+        })
+
+        function testModule(name: string, tests: { [k: string]: (mirror: ModuleMirror) => void }) {
+            describe(name, () => {
+                let mirror;
+
+                beforeAll(() => {
+                    mirror = reflector.describeModule(name);
+                });
+
+                for (const testName of Object.keys(tests)) {
+                    test(testName,() => {
+                        tests[testName](mirror);
+                    });
+                }
+            });
+        }
+
+        testModule('Extensions', {
+            'originalName': mirror => {
+                assert.equal(mirror.originalName, '/Users/josh/cloudbees/modular-ux-poc/example-widget/src/main/Extensions.ts', 'original name');
+            },
+            // TODO: Test for namespace
+        });
+
+        // TODO: describe('PipelineGraph',() => {});
+        // TODO: describe('PipelineGraphLayout',() => {});
+        // TODO: describe('PipelineGraphModel',() => {});
+        // TODO: describe('index',() => {});
+        // TODO: describe('support/SVG',() => {});
+        // TODO: describe('support/StatusIndicator',() => {});
+        // TODO: describe('support/SvgSpinner',() => {});
+        // TODO: describe('support/SvgStatus',() => {});
+        // TODO: describe('support/TruncatingLabel',() => {});
+
+    });
+
+    // TODO: Flags
+    // TODO: Module mirror
+    // TODO: Readable / writeable flags on props
+    // TODO: Reflect on constructor for classes
+    // TODO: Reflect on methods for interfacelikes
+    // TODO: Reflect module-level funcs
+    // TODO: Walk all the modules, make sure we can construct every def
+
+    // TODO: Repeat for the self-types def, and inspect some interesting cases
+    // TODO: When reflecting on self, make sure we can detect which class members are protected / private. Must work for methods and props
 });
