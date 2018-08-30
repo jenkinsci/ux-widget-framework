@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror } from "./Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror } from "./Reflector";
 import { isArray } from "util";
 
 // TODO: Replace all the `any`s with `unknown`s
@@ -107,8 +107,7 @@ namespace InputJSON {
     }
 
     export interface InterfaceDecl extends InterfaceLikeDecl, CanHazComment, CanHazTypeArgs {
-        // TODO: readonly groups: GroupsDecl;
-        // TODO: readonly sources: SourcesDecl;
+       
         // TODO: readonly extendedTypes?: ExtendedTypesDecl;
         // TODO: readonly typeParameter?: TypeParamDecl;
         // TODO: readonly extendedBy?: ExtendedByDecl;
@@ -293,14 +292,30 @@ namespace InputJSON {
         );
     }
 
+    type NamespaceChild = unknown; // TODO: replace this with a union of things we expect to find inside namespaces / modules
+
     export interface ModuleDecl extends BaseDecl {
         originalName: string;
+        children?: Array<NamespaceChild>
     }
 
     export function isModuleDecl(obj:any): obj is ModuleDecl {
         return (typeof obj === 'object'
             && typeof obj.originalName === 'string'
             && obj.kindString === KindString.ExternalModule
+            && (!('children' in obj) || Array.isArray(obj.children))
+            && isBaseDecl(obj)
+        );
+    }
+
+    export interface NamespaceDecl extends BaseDecl {
+        children?: Array<NamespaceChild>
+    }
+
+    export function isNamespaceDecl(obj:any): obj is NamespaceDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.Module
+            && (!('children' in obj) || Array.isArray(obj.children))
             && isBaseDecl(obj)
         );
     }
@@ -428,6 +443,10 @@ class TypedocJSONReflector implements Reflector {
         return results;
     }
 
+    describeNamespaceForDecl(decl: InputJSON.NamespaceDecl): NamespaceMirror {
+        return new TypedocNamespaceMirror(this, decl);
+    }
+
     describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
 
         // TODO: Break InputJSON.InterFaceDecl into separate types for class and interface, check kindstring in isFoo()
@@ -523,6 +542,10 @@ class TypedocJSONReflector implements Reflector {
 
     isModule(mirror: any): mirror is ModuleMirror {
         return mirror instanceof TypedocModuleMirror;
+    }
+
+    isNamespace(mirror: any): mirror is NamespaceMirror {
+        return mirror instanceof TypedocNamespaceMirror;
     }
 
     decodeTypeArguments(typeArguments?: Array<InputJSON.TypeDetails>): Array<TypeMirror> {
@@ -865,6 +888,35 @@ class TypedocEnumMirror extends JSONDefinitionDocCommentsBase implements EnumMir
     }
 }
 
+function getNamespacesFromChildren(reflector: TypedocJSONReflector, children: Array<unknown> = []) {
+    let result:Array<NamespaceMirror> = [];
+
+    for (const decl of children) {
+        if (InputJSON.isNamespaceDecl(decl)) {
+            result.push(reflector.describeNamespaceForDecl(decl));
+        }
+    }
+
+    return result;
+}
+
+class TypedocNamespaceMirror implements NamespaceMirror {
+    readonly name: string;
+   
+    protected reflector: TypedocJSONReflector;
+    protected definition: InputJSON.NamespaceDecl;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.NamespaceDecl) {
+        this.reflector = reflector;
+        this.definition = definition;
+        this.name = definition.name;
+    }
+
+    get namespaces():Array<NamespaceMirror> {
+        return getNamespacesFromChildren(this.reflector, this.definition.children);
+    } 
+}
+
 class TypedocModuleMirror implements ModuleMirror {
     readonly name: string;
     readonly originalName: string;
@@ -877,5 +929,9 @@ class TypedocModuleMirror implements ModuleMirror {
         this.definition = definition;
         this.name = definition.name.replace(/^"(.*?)"$/, '$1');
         this.originalName = definition.originalName;
+    }
+
+    get namespaces():Array<NamespaceMirror> {
+        return getNamespacesFromChildren(this.reflector, this.definition.children);
     }
 }

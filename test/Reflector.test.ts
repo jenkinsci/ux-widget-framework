@@ -344,7 +344,13 @@ describe('TSDoc Reflector, PoC types', () => {
             'originalName': mirror => {
                 assert.equal(mirror.originalName, '/Users/josh/cloudbees/modular-ux-poc/example-widget/src/main/Extensions.ts', 'original name');
             },
-            // TODO: Test for namespace
+            'namespaces': mirror => {
+                const namespaces = mirror.namespaces;
+                assert(namespaces, 'namespaces should never be null');
+                assert.equal(namespaces.length, 1, 'should have one contained ns');
+
+                // TODO: assert on the children of the namespace
+            }
         });
 
         // TODO: describe('PipelineGraph',() => {});

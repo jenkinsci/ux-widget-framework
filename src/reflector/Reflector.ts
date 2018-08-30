@@ -36,6 +36,7 @@ export interface Reflector {
     isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;
     isUnion(mirror: TypeMirror): mirror is UnionMirror;
     isModule(mirror: any): mirror is ModuleMirror;
+    isNamespace(mirror: any): mirror is NamespaceMirror;
    
 
     debug(): string;
@@ -87,14 +88,31 @@ export interface TypeMirror {
 }
 
 /**
- * Represents an external module (a TypeScript source file, basically)
+ * Common members shared by external modules (source files) and TS namespaces
  */
-export interface ModuleMirror {
+interface NamespaceBase {
     /**
-     * The local name of the module
+     * The local name of the module / namespace
      */
     readonly name: string;
 
+    /**
+     * The child namespaces contained in this namespace / module
+     */
+    readonly namespaces: Array<NamespaceMirror>;
+}
+
+/**
+ * Represents TS namespaces
+ */
+export interface NamespaceMirror extends NamespaceBase {
+
+}
+
+/**
+ * Represents an external module (a TypeScript source file, basically)
+ */
+export interface ModuleMirror extends NamespaceBase {
     /**
      * The "original name" of the module, refers to the parsed source file
      */
@@ -225,6 +243,5 @@ export interface ExternalTypeReference extends TypeMirror {
     // TODO: type params
 }
 
-// TODO: Reflect modules
 // TODO: Reflect module-level functions
 // TODO: Reflect module-level vars
