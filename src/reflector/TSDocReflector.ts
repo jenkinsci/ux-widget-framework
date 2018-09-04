@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror } from "./Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember } from "./Reflector";
 import { isArray } from "util";
 
 // TODO: Replace all the `any`s with `unknown`s
@@ -58,6 +58,15 @@ const typeDefKinds = [
 ];
 
 /**
+ * KindStrings that make up "properties"
+ */
+const propertyKindStrings = [
+    KindString.Property,
+    KindString.Variable
+    // TODO: Getters / setters
+]
+
+/**
  * Strong types for the input format (ie the JSON output of TypeDoc)
  */
 namespace InputJSON {
@@ -66,7 +75,7 @@ namespace InputJSON {
         readonly id: number;
         readonly name: string;
         readonly kind: number;
-        readonly kindString: string;
+        readonly kindString: KindString;
         // TODO: readonly flags: Flags;
     }
 
@@ -106,8 +115,8 @@ namespace InputJSON {
         readonly children?: Array<BaseDecl>;
     }
 
-    export interface InterfaceDecl extends InterfaceLikeDecl, CanHazComment, CanHazTypeArgs {
-       
+    interface InterfaceOrClassDecl extends InterfaceLikeDecl, CanHazComment, CanHazTypeArgs {
+
         // TODO: readonly extendedTypes?: ExtendedTypesDecl;
         // TODO: readonly typeParameter?: TypeParamDecl;
         // TODO: readonly extendedBy?: ExtendedByDecl;
@@ -115,15 +124,29 @@ namespace InputJSON {
 
     }
 
+    export interface InterfaceDecl extends InterfaceOrClassDecl { }
+
     export function isInterfaceDecl(obj: any): obj is InterfaceDecl {
         return (typeof obj === 'object'
             && (Array.isArray(obj.children) || !('children' in obj))
             && (!('comment' in obj) || isCommentDecl(obj.comment))
+            && obj.kindString === KindString.Interface
             && isBaseDecl(obj)
         );
     }
 
-    export type ConcreteDefinition = unknown | InterfaceDecl;
+    export interface ClassDecl extends InterfaceOrClassDecl { }
+
+    export function isClassDecl(obj: any): obj is ClassDecl {
+        return (typeof obj === 'object'
+            && (Array.isArray(obj.children) || !('children' in obj))
+            && (!('comment' in obj) || isCommentDecl(obj.comment))
+            && obj.kindString === KindString.Class
+            && isBaseDecl(obj)
+        );
+    }
+
+    // export type ConcreteDefinition = unknown | InterfaceDecl;
 
     export interface TypeAliasDecl extends BaseDecl {
         type: TypeDetails;
@@ -149,12 +172,6 @@ namespace InputJSON {
             && isBaseDecl(obj)
         );
     }
-
-    // export type CallableSignatureDecl = unknown;
-
-    // export interface FunctionInterfaceLiteralDecl extends BaseDecl {
-    //     signatures: Array<CallableSignatureDecl>;
-    // }
 
     export interface Parameter extends BaseDecl {
         type: TypeDetails;
@@ -250,21 +267,30 @@ namespace InputJSON {
 
     export interface ReflectionDecl {
         type: 'reflection';
-        declaration: InterfaceDecl;
+        declaration: BaseDecl;
     }
 
     export function isReflectionDecl(obj: any): obj is ReflectionDecl {
         return (typeof obj === 'object'
             && obj.type === 'reflection'
-            && isInterfaceDecl(obj.declaration)
+            && isBaseDecl(obj.declaration)
         );
+    }
+
+    interface FlagsObj {
+        isConst?: boolean,
+        isExported?: boolean,
+        isExternal?: boolean,
+        isOptional?: boolean,
+        isPrivate?: boolean,
+        isStatic?: boolean,
     }
 
     export interface PropertyDecl extends BaseDecl {
         readonly type: TypeDetails;
-        // TODO: readonly sources: SourcesDecl;
+        readonly flags?: FlagsObj;
         // TODO: readonly inheritedFrom?: InheritedFromDecl;
-        // TODO: readonly defaultValue?: DefaultValueDecl;
+        readonly defaultValue?: string;
         // TODO: readonly overwrites?: OverwritesDecl;
         // TODO: readonly implementationOf?: ImplementationOfDecl;
     }
@@ -273,7 +299,7 @@ namespace InputJSON {
         return (typeof obj === 'object'
             && typeof obj.type === 'object'
             && isBaseDecl(obj)
-            // TODO: filter by kindString     && obj.kindString === KindString.Property
+            && propertyKindStrings.indexOf(obj.kindString) !== -1
         );
     }
 
@@ -299,7 +325,7 @@ namespace InputJSON {
         children?: Array<NamespaceChild>
     }
 
-    export function isModuleDecl(obj:any): obj is ModuleDecl {
+    export function isModuleDecl(obj: any): obj is ModuleDecl {
         return (typeof obj === 'object'
             && typeof obj.originalName === 'string'
             && obj.kindString === KindString.ExternalModule
@@ -312,7 +338,7 @@ namespace InputJSON {
         children?: Array<NamespaceChild>
     }
 
-    export function isNamespaceDecl(obj:any): obj is NamespaceDecl {
+    export function isNamespaceDecl(obj: any): obj is NamespaceDecl {
         return (typeof obj === 'object'
             && obj.kindString === KindString.Module
             && (!('children' in obj) || Array.isArray(obj.children))
@@ -449,12 +475,11 @@ class TypedocJSONReflector implements Reflector {
 
     describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
 
-        // TODO: Break InputJSON.InterFaceDecl into separate types for class and interface, check kindstring in isFoo()
-        if (InputJSON.isInterfaceDecl(typeDetails) && typeDetails.kindString === KindString.Class) {
+        if (InputJSON.isClassDecl(typeDetails)) {
             return new TypedocClassMirror(this, typeDetails);
         }
 
-        if (InputJSON.isInterfaceDecl(typeDetails) && typeDetails.kindString === KindString.Interface) {
+        if (InputJSON.isInterfaceDecl(typeDetails)) {
             return new TypedocInterfaceMirror(this, typeDetails);
         }
 
@@ -508,35 +533,35 @@ class TypedocJSONReflector implements Reflector {
         return this.modules.map(nameAndId => nameAndId.name);
     }
 
-    isInterface(mirror: TypeMirror): mirror is InterfaceMirror {
+    isInterface(mirror: any): mirror is InterfaceMirror {
         return mirror instanceof TypedocInterfaceMirror || mirror instanceof TypedocClassMirror;
     }
 
-    isClass(mirror: TypeMirror): mirror is ClassMirror {
+    isClass(mirror: any): mirror is ClassMirror {
         return mirror instanceof TypedocClassMirror;
     }
 
-    isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror {
+    isTypeAlias(mirror: any): mirror is TypeAliasMirror {
         return mirror instanceof TypedocAliasMirror;
     }
 
-    isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror {
+    isInterfaceLiteral(mirror: any): mirror is InterfaceLiteralMirror {
         return mirror instanceof TypedocInterfaceLiteralMirror;
     }
 
-    isUnion(mirror: TypeMirror): mirror is UnionMirror {
+    isUnion(mirror: any): mirror is UnionMirror {
         return mirror instanceof TypedocUnionMirror;
     }
 
-    isCallable(mirror: TypeMirror): mirror is CallableMirror {
+    isCallable(mirror: any): mirror is CallableMirror {
         return mirror instanceof TypedocCallableMirror;
     }
 
-    isEnum(mirror: TypeMirror): mirror is EnumMirror {
+    isEnum(mirror: any): mirror is EnumMirror {
         return mirror instanceof TypedocEnumMirror;
     }
 
-    isExternalTypeReference(mirror: TypeMirror): mirror is ExternalTypeReference {
+    isExternalTypeReference(mirror: any): mirror is ExternalTypeReference {
         return mirror instanceof TypedocExternalTypeReference;
     }
 
@@ -546,6 +571,10 @@ class TypedocJSONReflector implements Reflector {
 
     isNamespace(mirror: any): mirror is NamespaceMirror {
         return mirror instanceof TypedocNamespaceMirror;
+    }
+
+    isProperty(mirror: any): mirror is PropertyMirror {
+        return mirror instanceof TypedocPropertyMirror;
     }
 
     decodeTypeArguments(typeArguments?: Array<InputJSON.TypeDetails>): Array<TypeMirror> {
@@ -702,7 +731,7 @@ abstract class TypedocInterfaceMirrorBase extends JSONDefinitionTypeBase impleme
             throw new Error(`describeProperty: could not find a property name '${propName}'`);
         }
 
-        return new TypedocJSONPropertyMirror(this.reflector, this, propDesc);
+        return new TypedocPropertyMirror(this.reflector, propDesc);
     }
 }
 
@@ -726,30 +755,41 @@ class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirr
     }
 }
 
-const propertyKindStrings = [
-    KindString.Property as string,
-    KindString.Variable as string
-]
 
-class TypedocJSONPropertyMirror extends JSONDefinitionDocCommentsBase implements PropertyMirror {
+
+class TypedocPropertyMirror extends JSONDefinitionDocCommentsBase implements PropertyMirror {
 
     definition!: InputJSON.PropertyDecl;
-    parent: InterfaceLike;
+    readonly readable: boolean;
+    readonly writeable: boolean;
 
-    constructor(reflector: TypedocJSONReflector, parent: InterfaceLike, definition: InputJSON.PropertyDecl) {
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.PropertyDecl) {
 
         if (propertyKindStrings.indexOf(definition.kindString) === -1) {
             throw new Error(`TypedocJSONPropertyMirror does not know about kind "${definition.kindString}"`);
         }
 
         super(reflector, definition);
-        this.parent = parent;
+
+        if (definition.kindString === KindString.Property || definition.kindString === KindString.Variable) {
+            this.readable = true;
+            this.writeable = !(definition.flags && definition.flags.isConst);
+        } else {
+            throw new Error(`TODO: calculate readable and writeable for kind ${definition.kindString}`);
+        }
     }
 
     get type(): TypeMirror {
         const typeDetails = this.definition.type;
         const reflector = this.reflector as TypedocJSONReflector;
         return reflector.describeTypeForTypeDetails(typeDetails);
+    }
+
+    get defaultValue(): string | undefined {
+        if (typeof this.definition.defaultValue === 'string') {
+            return this.definition.defaultValue.trim();
+        }
+        return undefined;
     }
 }
 
@@ -888,50 +928,101 @@ class TypedocEnumMirror extends JSONDefinitionDocCommentsBase implements EnumMir
     }
 }
 
-function getNamespacesFromChildren(reflector: TypedocJSONReflector, children: Array<unknown> = []) {
-    let result:Array<NamespaceMirror> = [];
+// function getNamespacesFromChildren(reflector: TypedocJSONReflector, children: Array<unknown> = []): Array<NamespaceMirror> {
+//     let result: Array<NamespaceMirror> = [];
+
+//     for (const decl of children) {
+//         if (InputJSON.isNamespaceDecl(decl)) {
+//             result.push(reflector.describeNamespaceForDecl(decl));
+//         }
+//     }
+
+//     return result;
+// }
+
+// function getPropertiesFromChildren(reflector: TypedocJSONReflector, children: Array<unknown> = []): Array<PropertyMirror> {
+//     let result: Array<PropertyMirror> = [];
+
+//     for (const decl of children) {
+//         if (InputJSON.isPropertyDecl(decl)) {
+//             result.push(new TypedocPropertyMirror(reflector, decl));
+//         }
+//     }
+
+//     return result;
+// }
+
+function getNamespaceMembersFromChildren(reflector: TypedocJSONReflector, children: Array<unknown> = []): Array<NamespaceMember> {
+    let result: Array<NamespaceMember> = [];
 
     for (const decl of children) {
-        if (InputJSON.isNamespaceDecl(decl)) {
-            result.push(reflector.describeNamespaceForDecl(decl));
+        if (InputJSON.isPropertyDecl(decl)) {
+            result.push(new TypedocPropertyMirror(reflector, decl));
+        }
+        else if (InputJSON.isPropertyDecl(decl)) {
+            result.push(new TypedocPropertyMirror(reflector, decl));
+        }
+        else if (InputJSON.isInterfaceDecl(decl)) {
+            result.push(new TypedocInterfaceMirror(reflector, decl));
+        }
+        else if (InputJSON.isNamespaceDecl(decl)) {
+            result.push(new TypedocNamespaceMirror(reflector, decl));
+        }
+        else if (typeof (decl as any).kindString === 'string') {
+            throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child with kindString ${(decl as any).kindString}`);
+        }
+        else {
+            throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child decl ${JSON.stringify(decl, null, 4)}`);
         }
     }
 
     return result;
 }
 
-class TypedocNamespaceMirror implements NamespaceMirror {
-    readonly name: string;
-   
-    protected reflector: TypedocJSONReflector;
-    protected definition: InputJSON.NamespaceDecl;
+abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.NamespaceDecl> {
 
-    constructor(reflector: TypedocJSONReflector, definition: InputJSON.NamespaceDecl) {
+    protected reflector: TypedocJSONReflector;
+    protected definition: D;
+
+    constructor(reflector: TypedocJSONReflector, definition: D) {
         this.reflector = reflector;
         this.definition = definition;
-        this.name = definition.name;
     }
 
-    get namespaces():Array<NamespaceMirror> {
-        return getNamespacesFromChildren(this.reflector, this.definition.children);
-    } 
+    get members(): Array<NamespaceMember> {
+        return getNamespaceMembersFromChildren(this.reflector, this.definition.children);
+    }
+
+    get namespaces(): Array<NamespaceMirror> {
+        const reflector = this.reflector;
+        return this.members.filter(member => reflector.isNamespace(member)) as Array<NamespaceMirror>;
+    }
+
+    get properties(): Array<PropertyMirror> {
+        return this.members.filter(member => this.reflector.isProperty(member)) as Array<PropertyMirror>;
+    }
+
+    get interfaces(): Array<InterfaceMirror> {
+        return this.members.filter(member => this.reflector.isInterface(member)) as Array<InterfaceMirror>;
+    }
 }
 
-class TypedocModuleMirror implements ModuleMirror {
+class TypedocNamespaceMirror extends TypedocNamespaceBase<InputJSON.NamespaceDecl> implements NamespaceMirror {
+    readonly name: string;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.NamespaceDecl) {
+        super(reflector, definition);
+        this.name = definition.name;
+    }
+}
+
+class TypedocModuleMirror extends TypedocNamespaceBase<InputJSON.ModuleDecl> implements ModuleMirror {
     readonly name: string;
     readonly originalName: string;
 
-    protected reflector: TypedocJSONReflector;
-    protected definition: InputJSON.ModuleDecl;
-
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.ModuleDecl) {
-        this.reflector = reflector;
-        this.definition = definition;
+        super(reflector, definition);
         this.name = definition.name.replace(/^"(.*?)"$/, '$1');
         this.originalName = definition.originalName;
-    }
-
-    get namespaces():Array<NamespaceMirror> {
-        return getNamespacesFromChildren(this.reflector, this.definition.children);
     }
 }

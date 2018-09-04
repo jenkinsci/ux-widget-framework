@@ -333,7 +333,7 @@ describe('TSDoc Reflector, PoC types', () => {
                 });
 
                 for (const testName of Object.keys(tests)) {
-                    test(testName,() => {
+                    test(testName, () => {
                         tests[testName](mirror);
                     });
                 }
@@ -345,11 +345,56 @@ describe('TSDoc Reflector, PoC types', () => {
                 assert.equal(mirror.originalName, '/Users/josh/cloudbees/modular-ux-poc/example-widget/src/main/Extensions.ts', 'original name');
             },
             'namespaces': mirror => {
+
+                const mirrorMembers = mirror.members;
+                assert(mirrorMembers, 'mirror members');
+                assert.equal(mirrorMembers.length, 1, 'mirror members count');
+
+                if (!reflector.isNamespace(mirrorMembers[0])) {
+                    throw new Error(`Expected a namespace child, got ${mirrorMembers[0].constructor.name}`);
+                }
+
                 const namespaces = mirror.namespaces;
                 assert(namespaces, 'namespaces should never be null');
-                assert.equal(namespaces.length, 1, 'should have one contained ns');
+                assert.equal(namespaces.length, 1, 'mirror should have one contained ns');
 
-                // TODO: assert on the children of the namespace
+                const nsMirror = namespaces[0];
+
+                if (!reflector.isNamespace(nsMirror)) {
+                    throw new Error(`Expected namespace`);
+                }
+
+                assert.equal(nsMirror.name, 'Extensions', 'namespace name');
+
+                const members = nsMirror.members;
+                assert(members, 'members list');
+                assert.equal(members.length, 1, 'members count');
+
+                if (!reflector.isNamespace(members[0])) {
+                    throw new Error(`Expected namespace, got a ${members[0].constructor.name}`);
+                }
+
+                const innerNamespaces = nsMirror.namespaces;
+                assert.equal(innerNamespaces.length, 1, 'Extensions should have one contained ns');
+
+                const innerNs = innerNamespaces[0];
+                assert.equal(innerNs.name, 'Welcome', 'inner namespace name');
+
+                const innerMembers = innerNs.members;
+                assert(innerMembers, 'inner members list');
+                assert.equal(innerMembers.length, 2, 'inner members count');
+
+                const props = innerNs.properties;
+                assert.equal(props.length, 1, 'one prop');
+                assert.equal(props[0].name, 'extensionPointId', 'prop name');
+                assert.equal(props[0].defaultValue, '"example.widget.greeter"', 'default value');
+                assert.equal(props[0].readable, true, 'prop is readable');
+                assert.equal(props[0].writeable, false, 'prop is writeable');
+                
+                const interfaces = innerNs.interfaces;
+                assert(interfaces, 'inner module interfaces');
+                assert.equal(interfaces.length, 1, 'number of interfaces');
+                assert.equal(interfaces[0].name, 'Context', 'interface name');
             }
         });
 
@@ -365,7 +410,9 @@ describe('TSDoc Reflector, PoC types', () => {
 
     });
 
-    // TODO: Flags
+    // TODO: Flags?
+    // TODO: find and test usage of flags.isOptional
+    // TODO: find and test usage of flags.isStatic
     // TODO: Module mirror
     // TODO: Readable / writeable flags on props
     // TODO: Reflect on constructor for classes

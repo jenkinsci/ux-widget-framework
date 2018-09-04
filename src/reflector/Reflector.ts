@@ -27,18 +27,18 @@ export interface Reflector {
     readonly builtinNumber: TypeMirror;
     readonly builtinBoolean: TypeMirror;
 
-    isCallable(mirror: TypeMirror): mirror is CallableMirror;
-    isClass(mirror: TypeMirror): mirror is ClassMirror;
-    isEnum(mirror: TypeMirror): mirror is EnumMirror;
-    isExternalTypeReference(mirror: TypeMirror): mirror is ExternalTypeReference;
-    isInterface(mirror: TypeMirror): mirror is InterfaceMirror;
-    isInterfaceLiteral(mirror: TypeMirror): mirror is InterfaceLiteralMirror;
-    isTypeAlias(mirror: TypeMirror): mirror is TypeAliasMirror;
-    isUnion(mirror: TypeMirror): mirror is UnionMirror;
+    isCallable(mirror: any): mirror is CallableMirror;
+    isClass(mirror: any): mirror is ClassMirror;
+    isEnum(mirror: any): mirror is EnumMirror;
+    isExternalTypeReference(mirror: any): mirror is ExternalTypeReference;
+    isInterface(mirror: any): mirror is InterfaceMirror;
+    isInterfaceLiteral(mirror: any): mirror is InterfaceLiteralMirror;
     isModule(mirror: any): mirror is ModuleMirror;
     isNamespace(mirror: any): mirror is NamespaceMirror;
+    isProperty(mirror: any): mirror is PropertyMirror;
+    isTypeAlias(mirror: any): mirror is TypeAliasMirror;
+    isUnion(mirror: any): mirror is UnionMirror;
    
-
     debug(): string;
 };
 
@@ -87,6 +87,9 @@ export interface TypeMirror {
     readonly typeArguments: Array<TypeMirror>;
 }
 
+export type NamespaceMember = PropertyMirror | EnumMirror | ClassMirror | InterfaceMirror | NamespaceMirror | TypeAliasMirror;
+// TODO: Add top-level functions!
+
 /**
  * Common members shared by external modules (source files) and TS namespaces
  */
@@ -97,9 +100,25 @@ interface NamespaceBase {
     readonly name: string;
 
     /**
+     * All child members of this namespace / module
+     */
+    readonly members: Array<NamespaceMember>;
+
+    /**
      * The child namespaces contained in this namespace / module
      */
     readonly namespaces: Array<NamespaceMirror>;
+
+    /**
+     * Properties / variables / consts contained in this namespace / module
+     */
+    readonly properties: Array<PropertyMirror>;
+
+    /**
+     * Interfaces contained in this namespace / module
+     */
+    readonly interfaces: Array<InterfaceMirror>;
+    
 }
 
 /**
@@ -143,6 +162,8 @@ export interface InterfaceLike extends TypeMirror {
      * Lists child properties. Includes variables, object properties, getters, setters
      */
     readonly propertyNames: Array<string>;
+
+    // TODO: readonly members: Array<InterfaceMember>
 }
 
 /**
@@ -165,7 +186,7 @@ export interface ClassMirror extends InterfaceMirror, SupportsDocComments {
 }
 
 /**
- * Represents a property definition within an interface, class, interface literal or module
+ * Represents a property, const, getter/setter definition within an interface, class, interface literal or module
  */
 export interface PropertyMirror extends SupportsDocComments {
 
@@ -178,6 +199,14 @@ export interface PropertyMirror extends SupportsDocComments {
      * Reflect the type of this property
      */
     readonly type: TypeMirror;
+
+    /**
+     * Default value - returns a JS expression in string form, or undefined if none exists
+     */
+    readonly defaultValue?: string;
+
+    readonly readable: boolean;
+    readonly writeable: boolean;
 }
 
 /** 
