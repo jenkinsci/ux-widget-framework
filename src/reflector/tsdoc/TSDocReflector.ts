@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -227,7 +227,7 @@ class TypedocJSONReflector implements Reflector {
     }
 
     isInterface(mirror: any): mirror is InterfaceMirror {
-        return mirror instanceof TypedocInterfaceMirror || mirror instanceof TypedocClassMirror;
+        return mirror instanceof TypedocInterfaceMirror;
     }
 
     isClass(mirror: any): mirror is ClassMirror {
@@ -240,6 +240,12 @@ class TypedocJSONReflector implements Reflector {
 
     isInterfaceLiteral(mirror: any): mirror is InterfaceLiteralMirror {
         return mirror instanceof TypedocInterfaceLiteralMirror;
+    }
+
+    isInterfaceLike(mirror: any): mirror is InterfaceLike {
+        return mirror instanceof TypedocInterfaceMirror ||
+            mirror instanceof TypedocClassMirror ||
+            mirror instanceof TypedocInterfaceLiteralMirror;
     }
 
     isUnion(mirror: any): mirror is UnionMirror {
@@ -268,6 +274,10 @@ class TypedocJSONReflector implements Reflector {
 
     isProperty(mirror: any): mirror is PropertyMirror {
         return mirror instanceof TypedocPropertyMirror;
+    }
+
+    isObjectLiteral(mirror: any): mirror is ObjectLiteralMirror {
+        return mirror instanceof TypedocObjectLiteralMirror;
     }
 
     decodeTypeArguments(typeArguments?: Array<InputJSON.TypeDetails>): Array<TypeMirror> {
@@ -338,10 +348,6 @@ class JSONDefinitionBase {
         this.name = definition.name;
 
         // TODO: Assert all these fields exist
-    }
-
-    getReflector(): Reflector {
-        return this.reflector;
     }
 }
 
@@ -419,6 +425,41 @@ abstract class TypedocInterfaceMirrorBase extends JSONDefinitionTypeBase impleme
     }
 }
 
+class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
+
+    readonly isComplex: boolean = true;
+    readonly isPrimitive: boolean = false;
+    readonly name: string
+    readonly typeArguments: TypeMirror[] = [];
+    readonly isAbstract = true;
+    readonly isBuiltin = false;
+
+    protected reflector: TypedocJSONReflector;
+    protected definition: InputJSON.ObjectLiteralDecl;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.ObjectLiteralDecl) {
+        this.reflector = reflector;
+        this.definition = definition;
+        this.name = definition.name;
+    }
+
+    get properties(): Array<PropertyMirror> {
+        const result: Array<PropertyMirror> = [];
+
+        if (this.definition.children) {
+            for (const decl of this.definition.children) {
+                const child = this.reflector.describeTypeForTypeDetails(decl);
+                if (!this.reflector.isProperty(child)) {
+                    throw new Error(`Object literal - expecting only property children but got ${child.constructor.name}`);
+                }
+                result.push(child);
+            }
+        }
+
+        return result;
+    }
+}
+
 class TypedocInterfaceMirror extends TypedocInterfaceMirrorBase implements InterfaceMirror {
     readonly isAbstract = true;
     readonly isBuiltin = false;
@@ -492,7 +533,7 @@ class Primitive implements TypeMirror {
 
 /** String literal (as type) mirror */
 class TypedocStringLiteral implements StringLiteralMirror {
-    
+
     isBuiltin: boolean = true;
     isComplex: boolean = false;
     isPrimitive: boolean = true;
@@ -511,11 +552,11 @@ class TypedocStringLiteral implements StringLiteralMirror {
  * Does not use the definition, because TS can use either ("reference" + "typeArguments", or "array" + "elementType") defs :(
  */
 class TypedocArrayMirror implements TypeMirror {
-    isComplex: boolean = false;    
+    isComplex: boolean = false;
     isBuiltin: boolean = true;
     isPrimitive: boolean = false;
     name = 'Array';
-    
+
     typeArguments: TypeMirror[];
 
     constructor(typeArgument: TypeMirror) {
@@ -669,9 +710,12 @@ function getNamespaceMembersFromChildren(reflector: TypedocJSONReflector, childr
         }
         else if (InputJSON.isTypeAliasDecl(decl)) {
             result.push(new TypedocAliasMirror(reflector, decl));
-        } 
+        }
         else if (InputJSON.isFunctionDecl(decl)) {
             result.push(new TypedocCallableMirror(reflector, decl));
+        }
+        else if (InputJSON.isObjectLiteralDecl(decl)) {
+            result.push(new TypedocObjectLiteralMirror(reflector, decl));
         }
         else if (typeof (decl as any).kindString === 'string') {
             const declany = decl as any;
@@ -690,14 +734,19 @@ abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.N
     protected reflector: TypedocJSONReflector;
     protected definition: D;
 
+    protected _members?: Array<NamespaceMember>
+
     constructor(reflector: TypedocJSONReflector, definition: D) {
         this.reflector = reflector;
         this.definition = definition;
     }
 
     get members(): Array<NamespaceMember> {
-        // TODO: cache this
-        return getNamespaceMembersFromChildren(this.reflector, this.definition.children);
+        if (!this._members) {
+            this._members = getNamespaceMembersFromChildren(this.reflector, this.definition.children);
+        }
+
+        return this._members;
     }
 
     get namespaces(): Array<NamespaceMirror> {
@@ -727,6 +776,10 @@ abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.N
 
     get functions(): Array<CallableMirror> {
         return this.members.filter(member => this.reflector.isCallable(member)) as Array<CallableMirror>;
+    }
+
+    get objectLiterals(): Array<ObjectLiteralMirror> {
+        return this.members.filter(member => this.reflector.isObjectLiteral(member)) as Array<ObjectLiteralMirror>;
     }
 }
 

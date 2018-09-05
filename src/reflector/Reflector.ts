@@ -33,9 +33,11 @@ export interface Reflector {
     isEnum(mirror: any): mirror is EnumMirror;
     isExternalTypeReference(mirror: any): mirror is ExternalTypeReference;
     isInterface(mirror: any): mirror is InterfaceMirror;
+    isInterfaceLike(mirror: any): mirror is InterfaceLike;
     isInterfaceLiteral(mirror: any): mirror is InterfaceLiteralMirror;
     isModule(mirror: any): mirror is ModuleMirror;
     isNamespace(mirror: any): mirror is NamespaceMirror;
+    isObjectLiteral(mirror: any): mirror is ObjectLiteralMirror;
     isProperty(mirror: any): mirror is PropertyMirror;
     isTypeAlias(mirror: any): mirror is TypeAliasMirror;
     isUnion(mirror: any): mirror is UnionMirror;
@@ -94,13 +96,16 @@ export interface StringLiteralMirror extends TypeMirror {
     readonly value: string;
 }
 
-export type NamespaceMember = PropertyMirror 
-    | EnumMirror 
+export type NamespaceMember = 
+    | CallableMirror
     | ClassMirror 
+    | EnumMirror 
     | InterfaceMirror 
     | NamespaceMirror 
+    | ObjectLiteralMirror
+    | PropertyMirror 
     | TypeAliasMirror
-    | CallableMirror;
+    ;
 
 
 /**
@@ -151,6 +156,11 @@ interface NamespaceBase {
      * Functions contained in this namespace / module
      */
     readonly functions: Array<CallableMirror>;
+
+    /**
+     * Object literals contained in this namespace / module
+     */
+    readonly objectLiterals: Array<ObjectLiteralMirror>;
 }
 
 /**
@@ -181,6 +191,18 @@ export interface TypeAliasMirror extends TypeMirror, SupportsDocComments {
 }
 
 /**
+ * Represents an object literal type
+ * 
+ * This is a single-instance type, which differentiates it from an interface literal type, which is an anonymous interface.
+ */
+export interface ObjectLiteralMirror extends TypeMirror {
+    /**
+     * Properties / variables / consts contained in this namespace / module
+     */
+    readonly properties: Array<PropertyMirror>;
+}
+
+/**
  * Represents an interface/class/literal definition, which has child properties and methods
  */
 export interface InterfaceLike extends TypeMirror {
@@ -207,13 +229,13 @@ export interface InterfaceLiteralMirror extends InterfaceLike { }
  * Represents a TS interface decl
  */
 export interface InterfaceMirror extends InterfaceLike, SupportsDocComments {
-    readonly isAbstract: boolean;
 }
 
 /**
  * Represents a TS class
  */
-export interface ClassMirror extends InterfaceMirror, SupportsDocComments {
+export interface ClassMirror extends InterfaceLike, SupportsDocComments {
+    readonly isAbstract: boolean;
     // TODO: readonly constructor: FunctionMirror
 }
 

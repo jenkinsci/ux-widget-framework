@@ -314,4 +314,14 @@ export namespace InputJSON {
             && typeof obj.value === 'string'
         );
     }
+
+    export interface ObjectLiteralDecl extends InterfaceLikeDecl { }
+
+    export function isObjectLiteralDecl(obj: any): obj is ObjectLiteralDecl {
+        return (typeof obj === 'object'
+            && (Array.isArray(obj.children) || !('children' in obj))
+            && obj.kindString === KindString.ObjectLiteral
+            && isBaseDecl(obj)
+        );
+    }
 }

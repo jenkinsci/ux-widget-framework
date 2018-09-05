@@ -79,12 +79,16 @@ describe('TSDoc Reflector, PoC types', () => {
         assert(mirror, 'PipelineGraph Mirror should be defined');
         assert(mirror.isComplex, 'PipelineGraph Mirror should be complex');
 
-        if (!reflector.isInterface(mirror)) {
-            throw new Error("PipelineGraph Mirror should be InterfaceMirror");
+        if (reflector.isInterface(mirror)) {
+            throw new Error("PipelineGraph Mirror should not be InterfaceMirror");
         }
 
         if (!reflector.isClass(mirror)) {
             throw new Error("PipelineGraph Mirror should be ClassMirror");
+        }
+
+        if (!reflector.isInterfaceLike(mirror)) {
+            throw new Error("PipelineGraph Mirror should be InterfaceLike");
         }
 
         const propertyNames = mirror.propertyNames;
@@ -343,8 +347,16 @@ describe('TSDoc Reflector, PoC types', () => {
                     count += mirror.interfaces.length;
                     count += mirror.properties.length;
                     count += mirror.namespaces.length;
+                    count += mirror.typeAliases.length;
+                    count += mirror.objectLiterals.length;
 
-                    assert.equal(count, members.length, 'individual member accessor totals should sum to members total');
+                    if (count !== members.length) {
+                        const membersDetails = members.map(member => JSON.stringify({
+                            name: member.name,
+                            type: member.constructor.name
+                        }, null, 4)).join('\n');
+                        assert.equal(count, members.length, `individual member accessor totals should sum to members total. Members: ${membersDetails}`);
+                    }
                 })
 
                 for (const testName of Object.keys(tests)) {
@@ -408,8 +420,8 @@ describe('TSDoc Reflector, PoC types', () => {
                 const propType = props[0].type;
                 assert(propType, 'can get type');
                 assert.equal(propType.name, 'string', 'should be type string');
-                
-                
+
+
                 const interfaces = innerNs.interfaces;
                 assert(interfaces, 'inner module interfaces');
                 assert.equal(interfaces.length, 1, 'number of interfaces');
@@ -469,7 +481,7 @@ describe('TSDoc Reflector, PoC types', () => {
                 const list = mirror.classes;
                 assert(list, 'list exists');
                 assert.equal(list.length, 1, 'list count');
-                
+
                 const names = list.map(x => x.name).sort();
                 assert.equal(names.join(', '), 'PipelineGraph', 'names');
             },
@@ -477,7 +489,7 @@ describe('TSDoc Reflector, PoC types', () => {
                 const list = mirror.enums;
                 assert(list, 'list exists');
                 assert.equal(list.length, 1, 'list count');
-                
+
                 const names = list.map(x => x.name).sort();
                 assert.equal(names.join(', '), 'TrafficState', 'names');
             },
@@ -485,7 +497,7 @@ describe('TSDoc Reflector, PoC types', () => {
                 const list = mirror.typeAliases;
                 assert(list, 'list exists');
                 assert.equal(list.length, 1, 'list count');
-                
+
                 const names = list.map(x => x.name).sort();
                 assert.equal(names.join(', '), 'SVGChildren', 'names');
             },
@@ -493,15 +505,24 @@ describe('TSDoc Reflector, PoC types', () => {
                 const list = mirror.functions;
                 assert(list, 'list exists');
                 assert.equal(list.length, 1, 'list count');
-                
+
                 const names = list.map(x => x.name).sort();
                 assert.equal(names.join(', '), 'connectorKey', 'names');
             },
         });
 
-        testModule('PipelineGraphLayout',{});
+        testModule('PipelineGraphLayout', {});
 
-        // testModule('PipelineGraphModel',{});
+        testModule('PipelineGraphModel', {
+            'objectLiterals': mirror => {
+                const list = mirror.objectLiterals;
+                assert(list, 'list exists');
+                assert.equal(list.length, 1, 'list count');
+
+                const names = list.map(x => x.name).sort();
+                assert.equal(names.join(', '), 'defaultLayout', 'names');
+            }
+        });
 
         // TODO: testModule('index',{});
         // TODO: testModule('support/SVG',{});
