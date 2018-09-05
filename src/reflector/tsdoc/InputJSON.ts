@@ -290,4 +290,16 @@ export namespace InputJSON {
             && isBaseDecl(obj)
         );
     }
+
+    export interface ArrayDecl {
+        type: 'array';
+        elementType: TypeDetails
+    }
+
+    export function isArrayDecl(obj:any):obj is ArrayDecl {
+        return (typeof obj === 'object'
+            && obj.type === 'array'
+            && typeof obj.elementType === 'object'
+        );
+    }
 }

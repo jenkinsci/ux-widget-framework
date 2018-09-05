@@ -193,6 +193,11 @@ class TypedocJSONReflector implements Reflector {
             return new TypedocExternalTypeReference(this, typeDetails);
         }
 
+        if (InputJSON.isArrayDecl(typeDetails)) {
+            const typeArgument = this.describeTypeForTypeDetails(typeDetails.elementType);
+            return new TypedocArrayMirror(typeArgument);
+        }
+
         if (InputJSON.isIntrinsicRef(typeDetails)) {
             return this.describeBuiltin(typeDetails.name);
         }

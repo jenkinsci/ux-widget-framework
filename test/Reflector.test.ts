@@ -495,7 +495,7 @@ describe('TSDoc Reflector, PoC types', () => {
             },
         });
 
-        // testModule('PipelineGraphLayout',{});
+        testModule('PipelineGraphLayout',{});
 
         // TODO: testModule('PipelineGraphModel',{});
         // TODO: testModule('index',{});
