@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -180,6 +180,16 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isExternalTypeReference(typeDetails)) {
+
+            // Special case for Array which sometimes appears as an external reference, sometimes not. NFI why.
+            if (typeDetails.name === 'Array') {
+                let typeArgument = this.builtinAny;
+                if (Array.isArray(typeDetails.typeArguments) && typeDetails.typeArguments.length === 1) {
+                    typeArgument = this.describeTypeForTypeDetails(typeDetails.typeArguments[0]);
+                }
+                return new TypedocArrayMirror(typeArgument);
+            }
+
             return new TypedocExternalTypeReference(this, typeDetails);
         }
 
@@ -200,6 +210,10 @@ class TypedocJSONReflector implements Reflector {
 
     get moduleNames(): Array<string> {
         return this.modules.map(nameAndId => nameAndId.name);
+    }
+
+    isArray(mirror: any): mirror is ArrayMirror {
+        return mirror instanceof TypedocArrayMirror;
     }
 
     isInterface(mirror: any): mirror is InterfaceMirror {
@@ -424,8 +438,6 @@ class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirr
     }
 }
 
-
-
 class TypedocPropertyMirror extends JSONDefinitionDocCommentsBase implements PropertyMirror {
 
     definition!: InputJSON.PropertyDecl;
@@ -476,6 +488,24 @@ class Primitive implements TypeMirror {
 
     constructor(name: string) {
         this.name = name;
+    }
+}
+
+/**
+ * Mirror for arrays. 
+ * 
+ * Does not use the definition, because TS can use either ("reference" + "typeArguments", or "array" + "elementType") defs :(
+ */
+class TypedocArrayMirror implements TypeMirror {
+    isComplex: boolean = false;    
+    isBuiltin: boolean = true;
+    isPrimitive: boolean = false;
+    name = 'Array';
+    
+    typeArguments: TypeMirror[];
+
+    constructor(typeArgument: TypeMirror) {
+        this.typeArguments = [typeArgument];
     }
 }
 

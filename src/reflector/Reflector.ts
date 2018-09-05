@@ -27,6 +27,7 @@ export interface Reflector {
     readonly builtinNumber: TypeMirror;
     readonly builtinBoolean: TypeMirror;
 
+    isArray(mirror: any): mirror is ArrayMirror;
     isCallable(mirror: any): mirror is CallableMirror;
     isClass(mirror: any): mirror is ClassMirror;
     isEnum(mirror: any): mirror is EnumMirror;
@@ -86,6 +87,8 @@ export interface TypeMirror {
      */
     readonly typeArguments: Array<TypeMirror>;
 }
+
+export interface ArrayMirror extends TypeMirror {}
 
 export type NamespaceMember = PropertyMirror 
     | EnumMirror 

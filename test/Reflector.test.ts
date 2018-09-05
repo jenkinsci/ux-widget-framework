@@ -247,8 +247,8 @@ describe('TSDoc Reflector, PoC types', () => {
             const propTypes = foundProps.map(propName => typeMirror.describeProperty(propName).type);
 
             let propType = propTypes[0];
-            if (!reflector.isExternalTypeReference(propType)) {
-                throw new Error('.children should be external ref');
+            if (!reflector.isArray(propType)) {
+                throw new Error('.children should be Array');
             }
             assert.equal(propType.name, 'Array', '.children type name');
             assert.equal(propType.typeArguments.length, 1, '.children should have 1 type arg');
@@ -441,7 +441,7 @@ describe('TSDoc Reflector, PoC types', () => {
                 if (!reflector.isTypeAlias(member)) {
                     throw new Error(`Expected type alias, got ${member.constructor.name}`);
                 }
-                assert(reflector.isExternalTypeReference(member.targetDefinition), 'aliased type');
+                assert(reflector.isArray(member.targetDefinition), 'aliased type');
 
                 member = members[3];
                 assert.equal(member.name, 'State', 'member name');
