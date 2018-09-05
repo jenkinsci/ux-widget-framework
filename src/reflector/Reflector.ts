@@ -90,6 +90,10 @@ export interface TypeMirror {
 
 export interface ArrayMirror extends TypeMirror {}
 
+export interface StringLiteralMirror extends TypeMirror {
+    readonly value: string;
+}
+
 export type NamespaceMember = PropertyMirror 
     | EnumMirror 
     | ClassMirror 

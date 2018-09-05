@@ -405,6 +405,10 @@ describe('TSDoc Reflector, PoC types', () => {
                 assert.equal(props[0].defaultValue, '"example.widget.greeter"', 'default value');
                 assert.equal(props[0].readable, true, 'prop is readable');
                 assert.equal(props[0].writeable, false, 'prop is writeable');
+                const propType = props[0].type;
+                assert(propType, 'can get type');
+                assert.equal(propType.name, 'string', 'should be type string');
+                
                 
                 const interfaces = innerNs.interfaces;
                 assert(interfaces, 'inner module interfaces');
@@ -497,7 +501,8 @@ describe('TSDoc Reflector, PoC types', () => {
 
         testModule('PipelineGraphLayout',{});
 
-        // TODO: testModule('PipelineGraphModel',{});
+        // testModule('PipelineGraphModel',{});
+
         // TODO: testModule('index',{});
         // TODO: testModule('support/SVG',{});
         // TODO: testModule('support/StatusIndicator',{});

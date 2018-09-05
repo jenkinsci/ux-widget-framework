@@ -296,10 +296,22 @@ export namespace InputJSON {
         elementType: TypeDetails
     }
 
-    export function isArrayDecl(obj:any):obj is ArrayDecl {
+    export function isArrayDecl(obj: any): obj is ArrayDecl {
         return (typeof obj === 'object'
             && obj.type === 'array'
             && typeof obj.elementType === 'object'
+        );
+    }
+
+    export interface StringLiteralDecl {
+        type: 'stringLiteral';
+        value: string;
+    }
+
+    export function isStringLiteral(obj: any): obj is StringLiteralDecl {
+        return (typeof obj === 'object'
+            && obj.type === 'stringLiteral'
+            && typeof obj.value === 'string'
         );
     }
 }

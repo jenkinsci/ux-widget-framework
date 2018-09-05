@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -203,7 +203,12 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isUnionDecl(typeDetails)) {
-            return this.describeTypeForUnionDecl(typeDetails);
+            const types: Array<TypeMirror> = typeDetails.types.map(branchDetails => this.describeTypeForTypeDetails(branchDetails));
+            return new TypedocUnionMirror(this, types);
+        }
+
+        if (InputJSON.isStringLiteral(typeDetails)) {
+            return new TypedocStringLiteral(typeDetails.value);
         }
 
         if (InputJSON.isReflectionDecl(typeDetails)) {
@@ -297,15 +302,6 @@ class TypedocJSONReflector implements Reflector {
         }
 
         throw new Error(`describeBuiltin() - do not know about builtin named "${name}"`);
-    }
-
-    describeTypeForUnionDecl(decl: InputJSON.UnionDecl): TypeMirror {
-        const types: Array<TypeMirror> = decl.types.map(branchDetails => this.describeTypeForTypeDetails(branchDetails));
-
-        // TODO: if any type is undefined, return an optional single type if only one other branch, or an optional union without undefined
-
-        // TODO: Impl!
-        return new TypedocUnionMirror(this, types);
     }
 
     debug(): string {
@@ -466,9 +462,7 @@ class TypedocPropertyMirror extends JSONDefinitionDocCommentsBase implements Pro
     }
 
     get type(): TypeMirror {
-        const typeDetails = this.definition.type;
-        const reflector = this.reflector as TypedocJSONReflector;
-        return reflector.describeTypeForTypeDetails(typeDetails);
+        return this.reflector.describeTypeForTypeDetails(this.definition.type);
     }
 
     get defaultValue(): string | undefined {
@@ -493,6 +487,21 @@ class Primitive implements TypeMirror {
 
     constructor(name: string) {
         this.name = name;
+    }
+}
+
+/** String literal (as type) mirror */
+class TypedocStringLiteral implements StringLiteralMirror {
+    
+    isBuiltin: boolean = true;
+    isComplex: boolean = false;
+    isPrimitive: boolean = true;
+    readonly typeArguments: Array<TypeMirror> = [];
+    value: string;
+    name = 'string';
+
+    constructor(value: string) {
+        this.value = value;
     }
 }
 
@@ -665,7 +674,8 @@ function getNamespaceMembersFromChildren(reflector: TypedocJSONReflector, childr
             result.push(new TypedocCallableMirror(reflector, decl));
         }
         else if (typeof (decl as any).kindString === 'string') {
-            throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child with kindString ${(decl as any).kindString}`);
+            const declany = decl as any;
+            throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child (${declany.id}, ${declany.name}) with kindString ${declany.kindString}`);
         }
         else {
             throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child decl ${JSON.stringify(decl, null, 4)}`);
