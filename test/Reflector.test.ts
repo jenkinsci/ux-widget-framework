@@ -332,6 +332,10 @@ describe('TSDoc Reflector, PoC types', () => {
                     mirror = reflector.describeModule(name);
                 });
 
+                test('can get members', () => {
+                    assert(mirror.members, 'members is not null');
+                })
+
                 for (const testName of Object.keys(tests)) {
                     test(testName, () => {
                         tests[testName](mirror);
@@ -398,15 +402,16 @@ describe('TSDoc Reflector, PoC types', () => {
             }
         });
 
-        // TODO: describe('PipelineGraph',() => {});
-        // TODO: describe('PipelineGraphLayout',() => {});
-        // TODO: describe('PipelineGraphModel',() => {});
-        // TODO: describe('index',() => {});
-        // TODO: describe('support/SVG',() => {});
-        // TODO: describe('support/StatusIndicator',() => {});
-        // TODO: describe('support/SvgSpinner',() => {});
-        // TODO: describe('support/SvgStatus',() => {});
-        // TODO: describe('support/TruncatingLabel',() => {});
+        testModule('PipelineGraph',{});
+
+        // TODO: testModule('PipelineGraphLayout',{});
+        // TODO: testModule('PipelineGraphModel',{});
+        // TODO: testModule('index',{});
+        // TODO: testModule('support/SVG',{});
+        // TODO: testModule('support/StatusIndicator',{});
+        // TODO: testModule('support/SvgSpinner',{});
+        // TODO: testModule('support/SvgStatus',{});
+        // TODO: testModule('support/TruncatingLabel',{});
 
     });
 

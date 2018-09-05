@@ -955,6 +955,8 @@ class TypedocEnumMirror extends JSONDefinitionDocCommentsBase implements EnumMir
 function getNamespaceMembersFromChildren(reflector: TypedocJSONReflector, children: Array<unknown> = []): Array<NamespaceMember> {
     let result: Array<NamespaceMember> = [];
 
+    // TODO: There's gotta be a way to merge this with the very similar code inside the reflector
+
     for (const decl of children) {
         if (InputJSON.isPropertyDecl(decl)) {
             result.push(new TypedocPropertyMirror(reflector, decl));
@@ -965,8 +967,17 @@ function getNamespaceMembersFromChildren(reflector: TypedocJSONReflector, childr
         else if (InputJSON.isInterfaceDecl(decl)) {
             result.push(new TypedocInterfaceMirror(reflector, decl));
         }
+        else if (InputJSON.isClassDecl(decl)) {
+            result.push(new TypedocClassMirror(reflector, decl));
+        }
         else if (InputJSON.isNamespaceDecl(decl)) {
             result.push(new TypedocNamespaceMirror(reflector, decl));
+        }
+        else if (InputJSON.isEnumDecl(decl)) {
+            result.push(new TypedocEnumMirror(reflector, decl));
+        }
+        else if (InputJSON.isTypeAliasDecl(decl)) {
+            result.push(new TypedocAliasMirror(reflector, decl));
         }
         else if (typeof (decl as any).kindString === 'string') {
             throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child with kindString ${(decl as any).kindString}`);
@@ -990,6 +1001,7 @@ abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.N
     }
 
     get members(): Array<NamespaceMember> {
+        // TODO: cache this
         return getNamespaceMembersFromChildren(this.reflector, this.definition.children);
     }
 
