@@ -524,12 +524,12 @@ describe('TSDoc Reflector, PoC types', () => {
             }
         });
 
-        // TODO: testModule('index',{});
-        // TODO: testModule('support/SVG',{});
-        // TODO: testModule('support/StatusIndicator',{});
-        // TODO: testModule('support/SvgSpinner',{});
-        // TODO: testModule('support/SvgStatus',{});
-        // TODO: testModule('support/TruncatingLabel',{});
+        testModule('index', {});
+        testModule('support/SVG', {});
+        testModule('support/StatusIndicator', {});
+        testModule('support/SvgSpinner', {});
+        testModule('support/SvgStatus', {});
+        testModule('support/TruncatingLabel', {});
 
     });
 
