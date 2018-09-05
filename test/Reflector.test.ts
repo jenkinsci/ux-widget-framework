@@ -326,14 +326,25 @@ describe('TSDoc Reflector, PoC types', () => {
 
         function testModule(name: string, tests: { [k: string]: (mirror: ModuleMirror) => void }) {
             describe(name, () => {
-                let mirror;
+                let mirror: ModuleMirror;
 
                 beforeAll(() => {
                     mirror = reflector.describeModule(name);
                 });
 
                 test('can get members', () => {
-                    assert(mirror.members, 'members is not null');
+                    const members = mirror.members;
+                    assert(members, 'members is not null');
+
+                    let count = 0;
+                    count += mirror.classes.length;
+                    count += mirror.enums.length;
+                    count += mirror.functions.length;
+                    count += mirror.interfaces.length;
+                    count += mirror.properties.length;
+                    count += mirror.namespaces.length;
+
+                    assert.equal(count, members.length, 'individual member accessor totals should sum to members total');
                 })
 
                 for (const testName of Object.keys(tests)) {
@@ -402,9 +413,90 @@ describe('TSDoc Reflector, PoC types', () => {
             }
         });
 
-        // testModule('PipelineGraph',{});
+        testModule('PipelineGraph', {
+            'members': mirror => {
+                const members = mirror.members;
+                assert.equal(members.length, 6, 'all members count');
 
-        // TODO: testModule('PipelineGraphLayout',{});
+                members.sort((a, b) => {
+                    if (a.name < b.name) {
+                        return -1;
+                    }
+                    if (a.name > b.name) {
+                        return 1;
+                    }
+                    return 0;
+                });
+
+                let member = members[0];
+                assert.equal(member.name, 'PipelineGraph', 'member name');
+                assert(reflector.isClass(member), 'member is class');
+
+                member = members[1];
+                assert.equal(member.name, 'Props', 'member name');
+                assert(reflector.isInterface(member), 'member is interface');
+
+                member = members[2];
+                assert.equal(member.name, 'SVGChildren', 'member name');
+                if (!reflector.isTypeAlias(member)) {
+                    throw new Error(`Expected type alias, got ${member.constructor.name}`);
+                }
+                assert(reflector.isExternalTypeReference(member.targetDefinition), 'aliased type');
+
+                member = members[3];
+                assert.equal(member.name, 'State', 'member name');
+                if (!reflector.isInterface(member)) {
+                    throw new Error(`Expected interface, got ${member.constructor.name}`);
+                }
+
+                member = members[4];
+                assert.equal(member.name, 'TrafficState', 'member name');
+                if (!reflector.isEnum(member)) {
+                    throw new Error(`Expected enum, got ${member.constructor.name}`);
+                }
+
+                member = members[5];
+                assert.equal(member.name, 'connectorKey', 'member name');
+                if (!reflector.isCallable(member)) {
+                    throw new Error(`Expected Callable, got ${member.constructor.name}`);
+                }
+            },
+            'classes': mirror => {
+                const list = mirror.classes;
+                assert(list, 'list exists');
+                assert.equal(list.length, 1, 'list count');
+                
+                const names = list.map(x => x.name).sort();
+                assert.equal(names.join(', '), 'PipelineGraph', 'names');
+            },
+            'enums': mirror => {
+                const list = mirror.enums;
+                assert(list, 'list exists');
+                assert.equal(list.length, 1, 'list count');
+                
+                const names = list.map(x => x.name).sort();
+                assert.equal(names.join(', '), 'TrafficState', 'names');
+            },
+            'typeAliases': mirror => {
+                const list = mirror.typeAliases;
+                assert(list, 'list exists');
+                assert.equal(list.length, 1, 'list count');
+                
+                const names = list.map(x => x.name).sort();
+                assert.equal(names.join(', '), 'SVGChildren', 'names');
+            },
+            'functions': mirror => {
+                const list = mirror.functions;
+                assert(list, 'list exists');
+                assert.equal(list.length, 1, 'list count');
+                
+                const names = list.map(x => x.name).sort();
+                assert.equal(names.join(', '), 'connectorKey', 'names');
+            },
+        });
+
+        // testModule('PipelineGraphLayout',{});
+
         // TODO: testModule('PipelineGraphModel',{});
         // TODO: testModule('index',{});
         // TODO: testModule('support/SVG',{});

@@ -87,8 +87,14 @@ export interface TypeMirror {
     readonly typeArguments: Array<TypeMirror>;
 }
 
-export type NamespaceMember = PropertyMirror | EnumMirror | ClassMirror | InterfaceMirror | NamespaceMirror | TypeAliasMirror;
-// TODO: Add top-level functions!
+export type NamespaceMember = PropertyMirror 
+    | EnumMirror 
+    | ClassMirror 
+    | InterfaceMirror 
+    | NamespaceMirror 
+    | TypeAliasMirror
+    | CallableMirror;
+
 
 /**
  * Common members shared by external modules (source files) and TS namespaces
@@ -118,7 +124,26 @@ interface NamespaceBase {
      * Interfaces contained in this namespace / module
      */
     readonly interfaces: Array<InterfaceMirror>;
-    
+  
+    /**
+     * Classes contained in this namespace / module
+     */
+    readonly classes: Array<ClassMirror>;
+  
+    /**
+     * Enums contained in this namespace / module
+     */
+    readonly enums: Array<EnumMirror>;
+  
+    /**
+     * Type Aliases contained in this namespace / module
+     */
+    readonly typeAliases: Array<TypeAliasMirror>;
+  
+    /**
+     * Functions contained in this namespace / module
+     */
+    readonly functions: Array<CallableMirror>;
 }
 
 /**

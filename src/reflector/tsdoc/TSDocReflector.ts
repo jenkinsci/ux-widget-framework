@@ -528,7 +528,9 @@ class TypedocCallableMirror implements CallableMirror {
         this.reflector = reflector;
         this.definition = definition;
         this.signatures = definition.signatures.map(sig => new TypedocCallableSignature(reflector, sig));
-
+        if (typeof definition.name === 'string') {
+            this.name = definition.name;
+        }
         this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
     }
 }
@@ -623,6 +625,9 @@ function getNamespaceMembersFromChildren(reflector: TypedocJSONReflector, childr
         }
         else if (InputJSON.isTypeAliasDecl(decl)) {
             result.push(new TypedocAliasMirror(reflector, decl));
+        } 
+        else if (InputJSON.isFunctionDecl(decl)) {
+            result.push(new TypedocCallableMirror(reflector, decl));
         }
         else if (typeof (decl as any).kindString === 'string') {
             throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child with kindString ${(decl as any).kindString}`);
@@ -661,6 +666,22 @@ abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.N
 
     get interfaces(): Array<InterfaceMirror> {
         return this.members.filter(member => this.reflector.isInterface(member)) as Array<InterfaceMirror>;
+    }
+
+    get classes(): Array<ClassMirror> {
+        return this.members.filter(member => this.reflector.isClass(member)) as Array<ClassMirror>;
+    }
+
+    get enums(): Array<EnumMirror> {
+        return this.members.filter(member => this.reflector.isEnum(member)) as Array<EnumMirror>;
+    }
+
+    get typeAliases(): Array<TypeAliasMirror> {
+        return this.members.filter(member => this.reflector.isTypeAlias(member)) as Array<TypeAliasMirror>;
+    }
+
+    get functions(): Array<CallableMirror> {
+        return this.members.filter(member => this.reflector.isCallable(member)) as Array<CallableMirror>;
     }
 }
 

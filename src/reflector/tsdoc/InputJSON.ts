@@ -80,8 +80,6 @@ export namespace InputJSON {
         );
     }
 
-    // export type ConcreteDefinition = unknown | InterfaceDecl;
-
     export interface TypeAliasDecl extends BaseDecl {
         type: TypeDetails;
     }
@@ -132,6 +130,19 @@ export namespace InputJSON {
     export function isSignaturesLiteralDecl(obj: any): obj is SignaturesLiteralDecl {
         return (typeof obj === 'object'
             && obj.kindString === KindString.TypeLiteral
+            && (Array.isArray(obj.signatures))
+            && obj.signatures.every((sig: any) => isSignature(sig))
+            && !('children' in obj)
+            && !('indexSignature' in obj)
+            && isBaseDecl(obj)
+        );
+    }
+
+    export interface FunctionDecl extends SignaturesLiteralDecl { }
+
+    export function isFunctionDecl(obj: any): obj is FunctionDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.Function
             && (Array.isArray(obj.signatures))
             && obj.signatures.every((sig: any) => isSignature(sig))
             && !('children' in obj)
