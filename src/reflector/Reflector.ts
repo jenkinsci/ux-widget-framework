@@ -202,6 +202,10 @@ export interface ObjectLiteralMirror extends TypeMirror {
     readonly properties: Array<PropertyMirror>;
 }
 
+export type InterfaceMember =
+    | PropertyMirror
+    ;
+
 /**
  * Represents an interface/class/literal definition, which has child properties and methods
  */
@@ -217,7 +221,10 @@ export interface InterfaceLike extends TypeMirror {
      */
     readonly propertyNames: Array<string>;
 
-    // TODO: readonly members: Array<InterfaceMember>
+    /**
+     * All members of the interface/class
+     */
+    readonly members: Array<InterfaceMember>;
 }
 
 /**

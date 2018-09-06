@@ -533,14 +533,11 @@ describe('TSDoc Reflector, PoC types', () => {
 
     });
 
-    // TODO: Flags?
+    // TODO: add members to interfacelike
     // TODO: find and test usage of flags.isOptional
     // TODO: find and test usage of flags.isStatic
-    // TODO: Module mirror
-    // TODO: Readable / writeable flags on props
     // TODO: Reflect on constructor for classes
     // TODO: Reflect on methods for interfacelikes
-    // TODO: Reflect module-level funcs
     // TODO: Walk all the modules, make sure we can construct every def
 
     // TODO: Repeat for the self-types def, and inspect some interesting cases

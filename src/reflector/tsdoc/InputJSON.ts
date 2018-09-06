@@ -23,10 +23,6 @@ export namespace InputJSON {
         );
     }
 
-    export interface CanHazComment {
-        comment?: CommentDecl;
-    }
-
     interface CanHazTypeArgs {
         typeArguments?: Array<TypeDetails>;
     }
@@ -40,6 +36,16 @@ export namespace InputJSON {
         return (typeof obj === 'object'
             && typeof obj.shortText === 'string'
             && (!('text' in obj) || typeof obj.text === 'string')
+        );
+    }
+
+    export interface CanHazComment {
+        comment?: CommentDecl;
+    }
+
+    export function isCanHazComment(obj: any): obj is CanHazComment {
+        return (typeof obj === 'object'
+            && (!('comment' in obj) || isCommentDecl(obj.comment))
         );
     }
 

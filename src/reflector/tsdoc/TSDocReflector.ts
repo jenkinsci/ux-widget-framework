@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceMember } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -329,69 +329,116 @@ class TypedocJSONReflector implements Reflector {
     }
 }
 
-/** Base for anything using the common definition fields */
-class JSONDefinitionBase {
+// /** Base for anything using the common definition fields */
+// class JSONDefinitionBase {
 
-    protected definition: InputJSON.BaseDecl;
+//     protected definition: InputJSON.BaseDecl;
+//     protected reflector: TypedocJSONReflector;
+
+//     id: number;
+//     kindString: string;
+//     name: string;
+
+//     constructor(reflector: TypedocJSONReflector, definition: InputJSON.BaseDecl) {
+//         this.definition = definition;
+//         this.reflector = reflector;
+
+//         this.id = definition.id;
+//         this.kindString = definition.kindString;
+//         this.name = definition.name;
+
+//         // TODO: Assert all these fields exist
+//     }
+// }
+
+// /**
+//  * Base for implementing docstring - used by prop defs and typedefs 
+//  */
+// class JSONDefinitionDocCommentsBase extends JSONDefinitionBase {
+
+//     hasComment: boolean;
+//     commentShortText: string;
+//     commentLongText: string;
+
+//     constructor(reflector: TypedocJSONReflector, definition: InputJSON.BaseDecl & InputJSON.CanHazComment) {
+//         super(reflector, definition);
+
+//         const comment = definition.comment;
+
+//         this.hasComment = !!comment;
+//         this.commentShortText = comment && comment.shortText || '';
+//         this.commentLongText = comment && comment.text || '';
+//     }
+// }
+
+/**
+ * A base class to implement a lot of common functionality.
+ * 
+ * Should be a mixin rather than a base class but there's no nice way to do that RN.
+ */
+abstract class TypeMirrorBase<D> {
+    // TODO:   ^^^^^^^^^^^^^^ rename this
+
+    // Basic stuff common by all
+
+    protected definition: D;
     protected reflector: TypedocJSONReflector;
 
     id: number;
-    kindString: string;
-    name: string;
+    kindString?: string;
+    name?: string;
 
-    constructor(reflector: TypedocJSONReflector, definition: InputJSON.BaseDecl) {
-        this.definition = definition;
-        this.reflector = reflector;
-
-        this.id = definition.id;
-        this.kindString = definition.kindString;
-        this.name = definition.name;
-
-        // TODO: Assert all these fields exist
-    }
-}
-
-/**
- * Base for implementing docstring - used by prop defs and typedefs 
- */
-class JSONDefinitionDocCommentsBase extends JSONDefinitionBase {
+    // CanHazComments - not used by all impls
 
     hasComment: boolean;
     commentShortText: string;
     commentLongText: string;
 
-    constructor(reflector: TypedocJSONReflector, definition: InputJSON.BaseDecl & InputJSON.CanHazComment) {
-        super(reflector, definition);
+    // Constructor
 
-        const comment = definition.comment;
+    constructor(reflector: TypedocJSONReflector, definition: D) {
+        // Set up common stuff
+        this.reflector = reflector;
+        this.definition = definition;
 
-        this.hasComment = !!comment;
-        this.commentShortText = comment && comment.shortText || '';
-        this.commentLongText = comment && comment.text || '';
+        if (InputJSON.isBaseDecl(definition)) {
+            this.id = definition.id;
+            this.kindString = definition.kindString;
+            this.name = definition.name;
+        }
+        else {
+            this.id = -1;
+        }
+
+        // Set up doc comments if available
+        if (InputJSON.isCanHazComment(definition)) {
+            const comment = (definition as InputJSON.CanHazComment).comment;
+            // TODO: shouldn't need     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+            this.hasComment = !!comment;
+            this.commentShortText = comment && comment.shortText || '';
+            this.commentLongText = comment && comment.text || '';
+        } else {
+            this.hasComment = false;
+            this.commentShortText = '';
+            this.commentLongText = '';
+        }
     }
-}
-
-/** 
- * Base for TypeMirror based on common json def 
- */
-abstract class JSONDefinitionTypeBase extends JSONDefinitionDocCommentsBase implements TypeMirror {
-    abstract readonly isBuiltin: boolean;
-    abstract readonly isPrimitive: boolean;
-    abstract readonly isComplex: boolean;
-    abstract readonly typeArguments: Array<TypeMirror>;
 }
 
 /**
  * Base for class and interface impls
  */
-abstract class TypedocInterfaceMirrorBase extends JSONDefinitionTypeBase implements InterfaceLike {
+abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.InterfaceDecl> implements InterfaceLike {
 
-    readonly definition!: InputJSON.InterfaceDecl; // TODO: Use a "complex" base for Interface / Class / TypeLiteral?
     readonly isComplex = true;
     readonly isPrimitive = false;
     readonly typeArguments: Array<TypeMirror>;
+    abstract readonly isBuiltin: boolean;
 
     propertyNames: Array<string> = [];
+
+    readonly members: Array<InterfaceMember> = []; // TODO: impl
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.InterfaceDecl) {
         super(reflector, definition);
@@ -480,11 +527,11 @@ class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirr
     }
 }
 
-class TypedocPropertyMirror extends JSONDefinitionDocCommentsBase implements PropertyMirror {
+class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> implements PropertyMirror {
 
-    definition!: InputJSON.PropertyDecl;
     readonly readable: boolean;
     readonly writeable: boolean;
+    readonly name!:string; // All properties have a name, but is set by super constructor
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.PropertyDecl) {
 
@@ -564,9 +611,8 @@ class TypedocArrayMirror implements TypeMirror {
     }
 }
 
-class TypedocAliasMirror extends JSONDefinitionTypeBase implements TypeAliasMirror {
+class TypedocAliasMirror extends TypeMirrorBase<InputJSON.TypeAliasDecl> implements TypeAliasMirror {
 
-    readonly definition!: InputJSON.TypeAliasDecl;
     readonly isBuiltin = false;
     readonly isPrimitive = false;
     readonly isComplex = false;
@@ -596,22 +642,16 @@ class TypedocUnionMirror implements UnionMirror {
     }
 }
 
-class TypedocCallableMirror implements CallableMirror {
+class TypedocCallableMirror extends TypeMirrorBase<InputJSON.SignaturesLiteralDecl> implements CallableMirror {
     readonly isComplex: boolean = false;
     readonly isBuiltin: boolean = false;
     readonly isPrimitive: boolean = false;
     readonly typeArguments: Array<TypeMirror>;
 
-    readonly name?: string;
-
     readonly signatures: Array<CallableSignature>;
 
-    protected reflector: TypedocJSONReflector;
-    protected definition: InputJSON.SignaturesLiteralDecl;
-
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.SignaturesLiteralDecl) {
-        this.reflector = reflector;
-        this.definition = definition;
+        super(reflector, definition);
         this.signatures = definition.signatures.map(sig => new TypedocCallableSignature(reflector, sig));
         if (typeof definition.name === 'string') {
             this.name = definition.name;
@@ -620,11 +660,9 @@ class TypedocCallableMirror implements CallableMirror {
     }
 }
 
-class TypedocCallableSignature extends JSONDefinitionDocCommentsBase implements CallableSignature {
+class TypedocCallableSignature extends TypeMirrorBase<InputJSON.Signature> implements CallableSignature {
     readonly parameters: Array<Parameter>;
     readonly returnType: TypeMirror;
-
-    protected readonly definition!: InputJSON.Signature;
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.Signature) {
         super(reflector, definition);
@@ -643,9 +681,7 @@ class TypedocCallableSignature extends JSONDefinitionDocCommentsBase implements 
         }
 
         this.parameters = parameters;
-
     }
-
 }
 
 class TypedocExternalTypeReference implements ExternalTypeReference {
@@ -661,7 +697,7 @@ class TypedocExternalTypeReference implements ExternalTypeReference {
     }
 }
 
-class TypedocEnumMirror extends JSONDefinitionDocCommentsBase implements EnumMirror {
+class TypedocEnumMirror extends TypeMirrorBase<InputJSON.EnumDecl> implements EnumMirror {
 
     readonly children: Array<EnumMember>;
 
@@ -669,8 +705,6 @@ class TypedocEnumMirror extends JSONDefinitionDocCommentsBase implements EnumMir
     readonly isBuiltin: boolean = false;
     readonly isPrimitive: boolean = false;
     readonly typeArguments: Array<TypeMirror> = [];
-
-    protected definition!: InputJSON.EnumDecl;
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.EnumDecl) {
         super(reflector, definition);
@@ -729,16 +763,14 @@ function getNamespaceMembersFromChildren(reflector: TypedocJSONReflector, childr
     return result;
 }
 
-abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.NamespaceDecl> {
-
-    protected reflector: TypedocJSONReflector;
-    protected definition: D;
+abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.NamespaceDecl> extends TypeMirrorBase<D> {
 
     protected _members?: Array<NamespaceMember>
 
     constructor(reflector: TypedocJSONReflector, definition: D) {
-        this.reflector = reflector;
-        this.definition = definition;
+        super(reflector, definition);
+        // this.reflector = reflector;
+        // this.definition = definition;
     }
 
     get members(): Array<NamespaceMember> {
