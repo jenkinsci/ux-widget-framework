@@ -210,9 +210,9 @@ describe('TSDoc Reflector, PoC types', () => {
                 throw new Error('Expected a union');
             }
 
-            assert.strictEqual(typeMirror.types[0], reflector.builtinUndefined, 'first branch should be undefined');
+            assert.strictEqual(typeMirror.members[0], reflector.builtinUndefined, 'first branch should be undefined');
 
-            const otherdef = typeMirror.types[1];
+            const otherdef = typeMirror.members[1];
 
             if (!reflector.isCallable(otherdef)) {
                 throw new Error('expecting a callable for otherdef');

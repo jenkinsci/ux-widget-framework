@@ -107,10 +107,10 @@ export type NamespaceMember =
     | TypeAliasMirror
     ;
 
-export type InterfaceMember =
+export type InterfaceLikeMember =
     | PropertyMirror
     ;
-
+    // TODO: add to this!
 
 
 /**
@@ -225,7 +225,7 @@ export interface InterfaceLike extends TypeMirror {
     /**
      * All members of the interface/class
      */
-    readonly members: Array<InterfaceMember>;
+    readonly members: Array<InterfaceLikeMember>;
 }
 
 /**
@@ -275,7 +275,7 @@ export interface PropertyMirror extends SupportsDocComments {
  * Represents a Union
  */
 export interface UnionMirror extends TypeMirror {
-    readonly types: Array<TypeMirror>;
+    readonly members: Array<TypeMirror>;
 }
 
 /**
@@ -331,8 +331,4 @@ export interface EnumMember {
  */
 export interface ExternalTypeReference extends TypeMirror {
     readonly name: string;
-    // TODO: type params
 }
-
-// TODO: Reflect module-level functions
-// TODO: Reflect module-level vars

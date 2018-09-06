@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceMember } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -437,7 +437,7 @@ abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.Inter
 
     propertyNames: Array<string> = [];
 
-    readonly members: Array<InterfaceMember> = []; // TODO: impl
+    readonly members: Array<InterfaceLikeMember> = []; // TODO: impl
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.InterfaceDecl) {
         super(reflector, definition);
@@ -631,14 +631,14 @@ class TypedocUnionMirror implements UnionMirror {
     isComplex: boolean = true;
     isBuiltin: boolean = true;
     isPrimitive: boolean = false;
-    types: Array<TypeMirror>;
+    members: Array<TypeMirror>;
     readonly typeArguments: Array<TypeMirror> = [];
 
     protected reflector: TypedocJSONReflector;
 
     constructor(reflector: TypedocJSONReflector, types: Array<TypeMirror>) {
         this.reflector = reflector;
-        this.types = types;
+        this.members = types;
     }
 }
 
