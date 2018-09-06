@@ -157,6 +157,32 @@ export namespace InputJSON {
         );
     }
 
+    export interface ConstructorDecl extends SignaturesLiteralDecl { }
+
+    export function isConstructorLiteralDecl(obj: any): obj is ConstructorDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.Constructor
+            && (Array.isArray(obj.signatures))
+            && obj.signatures.every((sig: any) => isSignature(sig))
+            && !('children' in obj)
+            && !('indexSignature' in obj)
+            && isBaseDecl(obj)
+        );
+    }
+
+    export interface MethodDecl extends SignaturesLiteralDecl { }
+
+    export function isMethodDecl(obj: any): obj is MethodDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.Method
+            && (Array.isArray(obj.signatures))
+            && obj.signatures.every((sig: any) => isSignature(sig))
+            && !('children' in obj)
+            && !('indexSignature' in obj)
+            && isBaseDecl(obj)
+        );
+    }
+
     export type TypeDetails =
         | IntrinsicRef
         | InternalTypeReference
@@ -268,7 +294,7 @@ export namespace InputJSON {
         );
     }
 
-    export type NamespaceChildDecl = 
+    export type NamespaceChildDecl =
         | SignaturesLiteralDecl // CallableMirror
         | PropertyDecl // PropertyMirror
         | NamespaceDecl // NamespaceMirror
@@ -336,6 +362,30 @@ export namespace InputJSON {
             && (Array.isArray(obj.children) || !('children' in obj))
             && obj.kindString === KindString.ObjectLiteral
             && isBaseDecl(obj)
+        );
+    }
+
+    export interface UnknownTypeReference {
+        type: 'unknown';
+        name: string;
+    }
+
+    export function isUnknownTypeReference(obj: any): obj is UnknownTypeReference {
+        return (typeof obj === 'object'
+            && obj.type === 'unknown'
+            && typeof obj.name === 'string'
+        );
+    }
+
+    export interface TypeParamDecl {
+        type: 'typeParameter';
+        name: string;
+    }
+
+    export function isTypeParamDecl(obj: any): obj is TypeParamDecl {
+        return (typeof obj === 'object'
+            && obj.type === 'typeParameter'
+            && typeof obj.name === 'string'
         );
     }
 }

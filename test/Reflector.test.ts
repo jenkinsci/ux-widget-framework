@@ -554,18 +554,51 @@ describe('TSDoc Reflector, PoC types', () => {
         testModule('support/SvgSpinner', {});
         testModule('support/SvgStatus', {});
         testModule('support/TruncatingLabel', {});
-        
     });
+
+    describe('InterfaceLike.members', () => {
+        let reflector: Reflector;
+
+        beforeAll(() => {
+            reflector = typedocReflector(jsonObj);
+        });
+
+        function testClass(name: string) {
+            test(name, () => {
+                const mirror = reflector.findClassesByName(name)[0];
+
+                const members = mirror.members;
+                assert(members, 'must be able to get members');
+                assert(members.length > 0, 'must have at least one member');
+                
+                let collectedNames = [];
     
-    // TODO: add members to interfacelike
+                if (mirror.constructorMirror) {
+                    collectedNames.push(mirror.constructorMirror.name);
+                }
+                
+                const props = mirror.properties;
+                assert(props,'must be able to get properties');
+                collectedNames = collectedNames.concat(props.map(child => child.name));
+    
+                const methods = mirror.methods;
+                assert(methods,'must be able to get methods');           
+                collectedNames = collectedNames.concat(methods.map(child => child.name));
+        
+                const memberNames = members.map(member => member.name).sort().join(', ');
+                assert.equal(collectedNames.sort().join(', '), memberNames, 'All members should be available in sub-lists');
+            });
+        }
+
+        testClass('PipelineGraph');
+        testClass('SvgSpinner');
+        testClass('SvgStatus');
+        testClass('TruncatingLabel');
+    });
+   
     // TODO: find and test usage of flags.isOptional
     // TODO: find and test usage of flags.isStatic
-    // TODO: Reflect on constructor for classes
-    // TODO: Reflect on methods for interfacelikes
     // TODO: Walk all the modules, make sure we can construct every def
-
-    // TODO: make a circular type (like a linked list or tree), export that as JSON and make sure we can reflect on it
-
     // TODO: Repeat for the self-types def, and inspect some interesting cases
-    // TODO: When reflecting on self, make sure we can detect which class members are protected / private. Must work for methods and props
+    // TODO: make a circular type (like a linked list or tree), export that as JSON and make sure we can reflect on it
 });

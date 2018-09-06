@@ -41,8 +41,6 @@ export interface Reflector {
     isProperty(mirror: any): mirror is PropertyMirror;
     isTypeAlias(mirror: any): mirror is TypeAliasMirror;
     isUnion(mirror: any): mirror is UnionMirror;
-   
-    debug(): string;
 };
 
 /** 
@@ -109,6 +107,7 @@ export type NamespaceMember =
 
 export type InterfaceLikeMember =
     | PropertyMirror
+    | CallableMirror
     ;
     // TODO: add to this!
 
@@ -171,9 +170,7 @@ interface NamespaceBase {
 /**
  * Represents TS namespaces
  */
-export interface NamespaceMirror extends NamespaceBase {
-
-}
+export interface NamespaceMirror extends NamespaceBase {}
 
 /**
  * Represents an external module (a TypeScript source file, basically)
@@ -202,7 +199,7 @@ export interface TypeAliasMirror extends TypeMirror, SupportsDocComments {
  */
 export interface ObjectLiteralMirror extends TypeMirror {
     /**
-     * Properties / variables / consts contained in this namespace / module
+     * Properties of this literal
      */
     readonly properties: Array<PropertyMirror>;
 }
@@ -226,6 +223,16 @@ export interface InterfaceLike extends TypeMirror {
      * All members of the interface/class
      */
     readonly members: Array<InterfaceLikeMember>;
+
+    /**
+     * Properties / variables / consts 
+     */
+    readonly properties: Array<PropertyMirror>;
+
+    /**
+     * Methods 
+     */
+    readonly methods: Array<CallableMirror>;
 }
 
 /**
@@ -244,7 +251,7 @@ export interface InterfaceMirror extends InterfaceLike, SupportsDocComments {
  */
 export interface ClassMirror extends InterfaceLike, SupportsDocComments {
     readonly isAbstract: boolean;
-    // TODO: readonly constructor: FunctionMirror
+    readonly constructorMirror?: CallableMirror;
 }
 
 /**
@@ -286,6 +293,10 @@ export interface CallableMirror extends TypeMirror {
      * The set of possible signatures for this callable object
      */
     readonly signatures: Array<CallableSignature>;
+
+    readonly isMethod: boolean;
+    readonly isConstructor: boolean;
+    // TODO: isStaticMethod: boolean;
 }
 
 /**
@@ -330,5 +341,12 @@ export interface EnumMember {
  * Represents a named reference to a type external to the source base represented by the Reflector (such as code in node_modules)
  */
 export interface ExternalTypeReference extends TypeMirror {
+    readonly name: string;
+}
+
+/**
+ * Represents a type param from a surrounding generic definition
+ */
+export interface TypeParameter extends TypeMirror {
     readonly name: string;
 }

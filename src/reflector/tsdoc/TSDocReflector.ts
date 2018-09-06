@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember, TypeParameter } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -36,17 +36,11 @@ interface NameAndId {
 
 class TypedocJSONReflector implements Reflector {
 
-    protected builtins: Array<TypeMirror>;
-
-    protected shapes: { [k: string]: number } = {};
-    protected keys: { [k: string]: number } = {};
-    protected modules: Array<NameAndId> = [];
-    protected kinds: Array<string> = [];
+    protected _builtins: Array<TypeMirror>;
+    protected _modules: Array<NameAndId> = [];
 
     /** Interesting types' definitions */
-    protected typeDefById: Map<number, InputJSON.BaseDecl> = new Map();
-
-    protected total = 0;
+    protected _typeDefById: Map<number, InputJSON.BaseDecl> = new Map();
 
     builtinAny: TypeMirror;
     builtinUndefined: TypeMirror;
@@ -54,6 +48,7 @@ class TypedocJSONReflector implements Reflector {
     builtinString: TypeMirror;
     builtinNumber: TypeMirror;
     builtinBoolean: TypeMirror;
+    builtinNull: TypeMirror;
 
     constructor() {
         this.builtinAny = new Primitive('any');
@@ -62,14 +57,16 @@ class TypedocJSONReflector implements Reflector {
         this.builtinString = new Primitive('string');
         this.builtinNumber = new Primitive('number');
         this.builtinBoolean = new Primitive('boolean');
+        this.builtinNull = new Primitive('null');
 
-        this.builtins = [
+        this._builtins = [
             this.builtinAny,
             this.builtinUndefined,
             this.builtinVoid,
             this.builtinString,
             this.builtinNumber,
             this.builtinBoolean,
+            this.builtinNull,
         ];
     }
 
@@ -79,11 +76,9 @@ class TypedocJSONReflector implements Reflector {
 
     protected explore(obj: any) {
 
-        this.total++;
-
         // Index any interesting typedefs
         if (obj.id && obj.name && obj.kindString && typeDefKinds.indexOf(obj.kindString) >= 0) {
-            this.typeDefById.set(obj.id, obj);
+            this._typeDefById.set(obj.id, obj);
         }
 
         if (obj.kindString === KindString.ExternalModule) {
@@ -91,32 +86,9 @@ class TypedocJSONReflector implements Reflector {
             const name = obj.name.replace(/^"(.*?)"$/, '$1');
             const id: number = obj.id;
 
-            this.modules.push({ name, id });
+            this._modules.push({ name, id });
         }
-
-        // Kinds
-        if (obj.kind) {
-            let kind = `${obj.kind} : ${obj.kindString || 'unknown'}`;
-            if (this.kinds.indexOf(kind) === -1) {
-                this.kinds.push(kind);
-            }
-        }
-
-        // Build shapes index
-        let keys = Object.keys(obj);
-        keys.sort();
-        let shape = keys.join(', ');
-
-        let count = this.shapes[shape] || 0;
-        count++;
-        this.shapes[shape] = count;
-
-        for (const key of keys) {
-            count = this.keys[key] || 0;
-            count++;
-            this.keys[key] = count;
-        }
-
+       
         // Recurse
 
         if (obj.children && Array.isArray(obj.children)) {
@@ -129,7 +101,7 @@ class TypedocJSONReflector implements Reflector {
     findClassesByName(className: string): Array<ClassMirror> {
         let results: Array<ClassMirror> = [];
 
-        for (const [key, value] of this.typeDefById) {
+        for (const [key, value] of this._typeDefById) {
             if (value.kindString === KindString.Class && value.name === className) {
                 results.push(this.describeTypeForDecl(value) as ClassMirror);
             }
@@ -150,6 +122,14 @@ class TypedocJSONReflector implements Reflector {
 
         if (InputJSON.isObjectLiteralDecl(child)) {
             return new TypedocObjectLiteralMirror(this, child);
+        }
+
+        if (InputJSON.isConstructorLiteralDecl(child)) {
+            return new TypedocCallableMirror(this, child);
+        }
+
+        if (InputJSON.isMethodDecl(child)) {
+            return new TypedocCallableMirror(this, child);
         }
 
         if (InputJSON.isBaseDecl(child)) {
@@ -209,15 +189,35 @@ class TypedocJSONReflector implements Reflector {
 
     describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
 
+        if (InputJSON.isUnknownTypeReference(typeDetails)) {
+            // Known unknowns
+            return new TypedocUnknownTypeMirror(typeDetails.name);
+        }
+
+        if (InputJSON.isTypeParamDecl(typeDetails)) {
+            return new TypedocTypeParameter(typeDetails);
+        }
+
         if (InputJSON.isInternalTypeReference(typeDetails)) {
             const id = typeDetails.id;
-            const td = this.typeDefById.get(id);
+            const td = this._typeDefById.get(id);
 
             if (td) {
                 return this.describeTypeForDecl(td);
             }
 
-            throw new Error(`describeTypeForTypeDetails - internalTypeReference: type ${id} not found`);
+            // Unknown unknowns - We get here sometimes, so we'll try our best
+
+            let name;
+
+            if ((typeDetails as any).name) {
+                name = (typeDetails as any).name;
+            } 
+            else {
+                name = `(unknown #${id})`;
+            }
+
+            return new TypedocUnknownTypeMirror(name);
         }
 
         if (InputJSON.isExternalTypeReference(typeDetails)) {
@@ -260,7 +260,7 @@ class TypedocJSONReflector implements Reflector {
     }
 
     get moduleNames(): Array<string> {
-        return this.modules.map(nameAndId => nameAndId.name);
+        return this._modules.map(nameAndId => nameAndId.name);
     }
 
     isArray(mirror: any): mirror is ArrayMirror {
@@ -331,12 +331,12 @@ class TypedocJSONReflector implements Reflector {
     }
 
     describeModule(moduleName: string): ModuleMirror {
-        const foundEntry = this.modules.find(entry => entry.name === moduleName);
+        const foundEntry = this._modules.find(entry => entry.name === moduleName);
         if (!foundEntry) {
             throw new Error(`describeModule - could not find module named ${moduleName}`);
         }
 
-        const definition = this.typeDefById.get(foundEntry.id);
+        const definition = this._typeDefById.get(foundEntry.id);
 
         if (!InputJSON.isModuleDecl(definition)) {
             throw new Error(`describeModule - got bad definition:\n${JSON.stringify(definition, null, 4)}`);
@@ -346,27 +346,13 @@ class TypedocJSONReflector implements Reflector {
     }
 
     describeBuiltin(name: string): TypeMirror {
-        for (const mirror of this.builtins) {
+        for (const mirror of this._builtins) {
             if (mirror.name === name) {
                 return mirror;
             }
         }
 
         throw new Error(`describeBuiltin() - do not know about builtin named "${name}"`);
-    }
-
-    debug(): string {
-        let result = '';
-
-        result += 'Interesting Types:\n';
-        for (const td of this.typeDefById.values()) {
-            result += `  * ${td.name} : ${td.kindString} id:${td.id}\n`;
-        }
-        result += '\n';
-
-        result += `${this.total} total defs.\n`;
-
-        return result;
     }
 }
 
@@ -437,8 +423,6 @@ abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.Inter
 
     propertyNames: Array<string> = [];
 
-    readonly members: Array<InterfaceLikeMember> = []; // TODO: impl
-
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.InterfaceDecl) {
         super(reflector, definition);
 
@@ -468,6 +452,66 @@ abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.Inter
         }
 
         return new TypedocPropertyMirror(this.reflector, propDesc);
+    }
+
+    protected _members?: Array<InterfaceLikeMember>;
+
+    get members(): Array<InterfaceLikeMember> {
+        if (!this._members) {
+            this._members = [];
+            const { reflector } = this;
+            if (this.definition.children) {
+                const all = this.definition.children.map(decl => reflector.describeChild(decl));
+                for (const member of all) {
+                    if (reflector.isNamespace(member)
+                        || reflector.isClass(member)
+                        || reflector.isObjectLiteral(member)
+                        || reflector.isTypeAlias(member)
+                        || reflector.isInterface(member)
+                        || reflector.isEnum(member)) {
+                        throw new Error(`Not expecting member of kind "${member.constructor.name}" in InterfaceLike`);
+                    }
+
+                    this._members.push(member);
+                }
+            }
+        }
+
+        return this._members;
+    }
+
+    get properties(): Array<PropertyMirror> {
+        return this.members.filter(member => this.reflector.isProperty(member)) as Array<PropertyMirror>;
+    }
+
+    get methods(): Array<CallableMirror> {
+        const callables = this.members.filter(member => this.reflector.isCallable(member)) as Array<CallableMirror>;
+        return callables.filter(callable => callable.isMethod);
+    }
+    
+    get constructorMirror(): CallableMirror | undefined {
+        const callables = this.members.filter(member => this.reflector.isCallable(member)) as Array<CallableMirror>;
+        return callables.find(callable => callable.isConstructor);
+    }
+}
+
+class TypedocInterfaceMirror extends TypedocInterfaceMirrorBase implements InterfaceMirror {
+    readonly isAbstract = true;
+    readonly isBuiltin = false;
+}
+
+class TypedocInterfaceLiteralMirror extends TypedocInterfaceMirrorBase implements InterfaceLiteralMirror {
+    readonly isBuiltin = false;
+}
+
+class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirror {
+    get isBuiltin() {
+        // TODO: Separate this for builtins that are also classes, like Date?
+        return false;
+    }
+
+    get isAbstract(): boolean {
+        throw new Error('Implement isAbstract on TypedocJSONClassMirror');
     }
 }
 
@@ -504,26 +548,6 @@ class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
         }
 
         return result;
-    }
-}
-
-class TypedocInterfaceMirror extends TypedocInterfaceMirrorBase implements InterfaceMirror {
-    readonly isAbstract = true;
-    readonly isBuiltin = false;
-}
-
-class TypedocInterfaceLiteralMirror extends TypedocInterfaceMirrorBase implements InterfaceLiteralMirror {
-    readonly isBuiltin = false;
-}
-
-class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirror {
-    get isBuiltin() {
-        // TODO: Separate this for builtins that are also classes, like Date?
-        return false;
-    }
-
-    get isAbstract(): boolean {
-        throw new Error('Implement isAbstract on TypedocJSONClassMirror');
     }
 }
 
@@ -647,8 +671,10 @@ class TypedocCallableMirror extends TypeMirrorBase<InputJSON.SignaturesLiteralDe
     readonly isBuiltin: boolean = false;
     readonly isPrimitive: boolean = false;
     readonly typeArguments: Array<TypeMirror>;
-
     readonly signatures: Array<CallableSignature>;
+    
+    readonly isMethod: boolean;
+    readonly isConstructor: boolean;
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.SignaturesLiteralDecl) {
         super(reflector, definition);
@@ -657,6 +683,8 @@ class TypedocCallableMirror extends TypeMirrorBase<InputJSON.SignaturesLiteralDe
             this.name = definition.name;
         }
         this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
+        this.isMethod = definition.kindString === KindString.Method;
+        this.isConstructor = definition.kindString === KindString.Constructor;
     }
 }
 
@@ -721,6 +749,7 @@ class TypedocEnumMirror extends TypeMirrorBase<InputJSON.EnumDecl> implements En
 abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.NamespaceDecl> extends TypeMirrorBase<D> {
 
     protected _members?: Array<NamespaceMember>
+    name!: string; // All namespaces have names
 
     constructor(reflector: TypedocJSONReflector, definition: D) {
         super(reflector, definition);
@@ -774,22 +803,41 @@ abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.N
     }
 }
 
-class TypedocNamespaceMirror extends TypedocNamespaceBase<InputJSON.NamespaceDecl> implements NamespaceMirror {
-    readonly name: string;
-
-    constructor(reflector: TypedocJSONReflector, definition: InputJSON.NamespaceDecl) {
-        super(reflector, definition);
-        this.name = definition.name;
-    }
-}
+class TypedocNamespaceMirror extends TypedocNamespaceBase<InputJSON.NamespaceDecl> implements NamespaceMirror { }
 
 class TypedocModuleMirror extends TypedocNamespaceBase<InputJSON.ModuleDecl> implements ModuleMirror {
-    readonly name: string;
     readonly originalName: string;
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.ModuleDecl) {
         super(reflector, definition);
         this.name = definition.name.replace(/^"(.*?)"$/, '$1');
         this.originalName = definition.originalName;
+    }
+}
+
+/**
+ * Represents anything that just doesn't make any flaming sense at all
+ */
+class TypedocUnknownTypeMirror implements TypeMirror {
+    isComplex: boolean = false;    
+    isBuiltin: boolean = false;
+    isPrimitive: boolean = false;
+    name: string 
+    typeArguments: TypeMirror[] = [];
+
+    constructor(name:string) {
+        this.name = name;
+    }
+}
+
+class TypedocTypeParameter implements TypeParameter {
+    isComplex: boolean = false;    
+    isBuiltin: boolean = false;
+    isPrimitive: boolean = false;
+    name: string 
+    typeArguments: TypeMirror[] = [];
+
+    constructor(definition: InputJSON.TypeParamDecl) {
+        this.name = definition.name;
     }
 }
