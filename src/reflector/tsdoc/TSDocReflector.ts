@@ -131,18 +131,26 @@ class TypedocJSONReflector implements Reflector {
 
         for (const [key, value] of this.typeDefById) {
             if (value.kindString === KindString.Class && value.name === className) {
-                results.push(this.describeTypeForTypeDetails(value) as ClassMirror);
+                results.push(this.describeTypeForDecl(value) as ClassMirror);
             }
         }
 
         return results;
     }
 
-    describeNamespaceForDecl(decl: InputJSON.NamespaceDecl): NamespaceMirror {
-        return new TypedocNamespaceMirror(this, decl);
+    describeChild(child: unknown): any {
+        return null; //this.describeTypeForTypeDetailsXXX(child);
+    }
+
+    describeTypeForDecl(decl: InputJSON.BaseDecl): TypeMirror {
+        return this.describeTypeForTypeDetailsXXX(decl);
     }
 
     describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
+        return this.describeTypeForTypeDetailsXXX(typeDetails);
+    }
+
+    describeTypeForTypeDetailsXXX(typeDetails: any): TypeMirror {
 
         if (InputJSON.isClassDecl(typeDetails)) {
             return new TypedocClassMirror(this, typeDetails);
@@ -173,7 +181,7 @@ class TypedocJSONReflector implements Reflector {
             const td = this.typeDefById.get(id);
 
             if (td) {
-                return this.describeTypeForTypeDetails(td);
+                return this.describeTypeForDecl(td);
             }
 
             throw new Error(`describeTypeForTypeDetails - internalTypeReference: type ${id} not found`);
@@ -212,7 +220,7 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (InputJSON.isReflectionDecl(typeDetails)) {
-            return this.describeTypeForTypeDetails(typeDetails.declaration);
+            return this.describeTypeForDecl(typeDetails.declaration);
         }
 
         throw new Error(`describeTypeForTypeDetails(): do not understand typeDetails:\n${JSON.stringify(typeDetails, null, 4)}`);
@@ -328,48 +336,6 @@ class TypedocJSONReflector implements Reflector {
         return result;
     }
 }
-
-// /** Base for anything using the common definition fields */
-// class JSONDefinitionBase {
-
-//     protected definition: InputJSON.BaseDecl;
-//     protected reflector: TypedocJSONReflector;
-
-//     id: number;
-//     kindString: string;
-//     name: string;
-
-//     constructor(reflector: TypedocJSONReflector, definition: InputJSON.BaseDecl) {
-//         this.definition = definition;
-//         this.reflector = reflector;
-
-//         this.id = definition.id;
-//         this.kindString = definition.kindString;
-//         this.name = definition.name;
-
-//         // TODO: Assert all these fields exist
-//     }
-// }
-
-// /**
-//  * Base for implementing docstring - used by prop defs and typedefs 
-//  */
-// class JSONDefinitionDocCommentsBase extends JSONDefinitionBase {
-
-//     hasComment: boolean;
-//     commentShortText: string;
-//     commentLongText: string;
-
-//     constructor(reflector: TypedocJSONReflector, definition: InputJSON.BaseDecl & InputJSON.CanHazComment) {
-//         super(reflector, definition);
-
-//         const comment = definition.comment;
-
-//         this.hasComment = !!comment;
-//         this.commentShortText = comment && comment.shortText || '';
-//         this.commentLongText = comment && comment.text || '';
-//     }
-// }
 
 /**
  * A base class to implement a lot of common functionality.
@@ -493,9 +459,10 @@ class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
     get properties(): Array<PropertyMirror> {
         const result: Array<PropertyMirror> = [];
 
+        // TODO: Switch this to use a common getChildren base
         if (this.definition.children) {
             for (const decl of this.definition.children) {
-                const child = this.reflector.describeTypeForTypeDetails(decl);
+                const child = this.reflector.describeChild(decl);
                 if (!this.reflector.isProperty(child)) {
                     throw new Error(`Object literal - expecting only property children but got ${child.constructor.name}`);
                 }
@@ -531,7 +498,7 @@ class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> imple
 
     readonly readable: boolean;
     readonly writeable: boolean;
-    readonly name!:string; // All properties have a name, but is set by super constructor
+    readonly name!: string; // All properties have a name, but is set by super constructor
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.PropertyDecl) {
 

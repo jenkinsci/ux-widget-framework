@@ -158,7 +158,6 @@ export namespace InputJSON {
     }
 
     export type TypeDetails =
-        unknown
         | IntrinsicRef
         | InternalTypeReference
         | ExternalTypeReference

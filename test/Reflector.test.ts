@@ -523,16 +523,17 @@ describe('TSDoc Reflector, PoC types', () => {
                 assert.equal(names.join(', '), 'defaultLayout', 'names');
             }
         });
-
+        
         testModule('index', {});
         testModule('support/SVG', {});
         testModule('support/StatusIndicator', {});
         testModule('support/SvgSpinner', {});
         testModule('support/SvgStatus', {});
         testModule('support/TruncatingLabel', {});
-
+        
     });
-
+    
+    // TODO: Test children of objectliterals!
     // TODO: add members to interfacelike
     // TODO: find and test usage of flags.isOptional
     // TODO: find and test usage of flags.isStatic
