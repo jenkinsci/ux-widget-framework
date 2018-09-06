@@ -315,7 +315,7 @@ export interface CallableSignature extends SupportsDocComments {
  * Represents an Enum type
  */
 export interface EnumMirror extends TypeMirror {
-    children: Array<EnumMember>;
+    members: Array<EnumMember>;
 }
 
 /** 

@@ -276,7 +276,7 @@ describe('TSDoc Reflector, PoC types', () => {
             if (!reflector.isEnum(propType)) {
                 throw new Error('.state should be enum');
             }
-            const enumChildren = propType.children;
+            const enumChildren = propType.members;
             assert.equal(enumChildren.length, 10, 'Result value count');
             assert.equal(enumChildren.map(member => member.name).join(', '),
                 'aborted, failure, not_built, paused, queued, running, skipped, success, unknown, unstable',

@@ -699,7 +699,7 @@ class TypedocExternalTypeReference implements ExternalTypeReference {
 
 class TypedocEnumMirror extends TypeMirrorBase<InputJSON.EnumDecl> implements EnumMirror {
 
-    readonly children: Array<EnumMember>;
+    readonly members: Array<EnumMember>;
 
     readonly isComplex: boolean = true;
     readonly isBuiltin: boolean = false;
@@ -709,7 +709,7 @@ class TypedocEnumMirror extends TypeMirrorBase<InputJSON.EnumDecl> implements En
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.EnumDecl) {
         super(reflector, definition);
 
-        this.children = definition.children.map(memberDecl => this.createChild(memberDecl));
+        this.members = definition.children.map(memberDecl => this.createChild(memberDecl));
     }
 
     protected createChild(memberDecl: InputJSON.EnumMemberDecl): EnumMember {
