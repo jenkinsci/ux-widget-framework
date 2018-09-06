@@ -144,11 +144,42 @@ class TypedocJSONReflector implements Reflector {
             return new TypedocPropertyMirror(this, child);
         }
 
+        if (InputJSON.isNamespaceDecl(child)) {
+            return new TypedocNamespaceMirror(this, child);
+        }
+
+        if (InputJSON.isObjectLiteralDecl(child)) {
+            return new TypedocObjectLiteralMirror(this, child);
+        }
+
+        if (InputJSON.isBaseDecl(child)) {
+            let maybe: unknown;
+
+            try {
+                maybe = this.describeTypeForDecl(child);
+            } catch (e) { } // Ignore so we get describeChild-specific error later
+
+            if (this.isCallable(maybe)) { return maybe; }
+            if (this.isClass(maybe)) { return maybe; }
+            if (this.isEnum(maybe)) { return maybe; }
+            if (this.isInterface(maybe)) { return maybe; }
+            if (this.isProperty(maybe)) { return maybe; }
+            if (this.isTypeAlias(maybe)) { return maybe; }
+        }
+
+        if (child.kindString) {
+            throw new Error(`describeChild(): do not understand child of kind "${child.kindString}"`);
+        }
+
         throw new Error(`describeChild(): do not understand child:\n${JSON.stringify(child, null, 4)}`);
     }
 
     describeTypeForDecl(decl: InputJSON.BaseDecl): TypeMirror {
-       
+
+        if (InputJSON.isFunctionDecl(decl)) {
+            return new TypedocCallableMirror(this, decl);
+        }
+
         if (InputJSON.isClassDecl(decl)) {
             return new TypedocClassMirror(this, decl);
         }
@@ -687,64 +718,23 @@ class TypedocEnumMirror extends TypeMirrorBase<InputJSON.EnumDecl> implements En
     }
 }
 
-function getNamespaceMembersFromChildren(reflector: TypedocJSONReflector, children: Array<unknown> = []): Array<NamespaceMember> {
-    let result: Array<NamespaceMember> = [];
-
-    // TODO: There's gotta be a way to merge this with the very similar code inside the reflector
-
-    for (const decl of children) {
-        if (InputJSON.isPropertyDecl(decl)) {
-            result.push(new TypedocPropertyMirror(reflector, decl));
-        }
-        else if (InputJSON.isPropertyDecl(decl)) {
-            result.push(new TypedocPropertyMirror(reflector, decl));
-        }
-        else if (InputJSON.isInterfaceDecl(decl)) {
-            result.push(new TypedocInterfaceMirror(reflector, decl));
-        }
-        else if (InputJSON.isClassDecl(decl)) {
-            result.push(new TypedocClassMirror(reflector, decl));
-        }
-        else if (InputJSON.isNamespaceDecl(decl)) {
-            result.push(new TypedocNamespaceMirror(reflector, decl));
-        }
-        else if (InputJSON.isEnumDecl(decl)) {
-            result.push(new TypedocEnumMirror(reflector, decl));
-        }
-        else if (InputJSON.isTypeAliasDecl(decl)) {
-            result.push(new TypedocAliasMirror(reflector, decl));
-        }
-        else if (InputJSON.isFunctionDecl(decl)) {
-            result.push(new TypedocCallableMirror(reflector, decl));
-        }
-        else if (InputJSON.isObjectLiteralDecl(decl)) {
-            result.push(new TypedocObjectLiteralMirror(reflector, decl));
-        }
-        else if (typeof (decl as any).kindString === 'string') {
-            const declany = decl as any;
-            throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child (${declany.id}, ${declany.name}) with kindString ${declany.kindString}`);
-        }
-        else {
-            throw new Error(`getNamespaceMembersFromChildren - Unexpected namespace child decl ${JSON.stringify(decl, null, 4)}`);
-        }
-    }
-
-    return result;
-}
-
 abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.NamespaceDecl> extends TypeMirrorBase<D> {
 
     protected _members?: Array<NamespaceMember>
 
     constructor(reflector: TypedocJSONReflector, definition: D) {
         super(reflector, definition);
-        // this.reflector = reflector;
-        // this.definition = definition;
     }
 
     get members(): Array<NamespaceMember> {
+
         if (!this._members) {
-            this._members = getNamespaceMembersFromChildren(this.reflector, this.definition.children);
+            if (this.definition.children) {
+                this._members = this.definition.children.map(decl => this.reflector.describeChild(decl));
+            }
+            else {
+                this._members = [];
+            }
         }
 
         return this._members;
