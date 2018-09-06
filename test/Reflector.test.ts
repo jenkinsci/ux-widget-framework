@@ -521,6 +521,30 @@ describe('TSDoc Reflector, PoC types', () => {
 
                 const names = list.map(x => x.name).sort();
                 assert.equal(names.join(', '), 'defaultLayout', 'names');
+
+                const literalMirror = list[0];
+                const props = literalMirror.properties;
+                assert(props, 'should be able to get props of object literal');
+                assert.equal(props.length, 10, 'props count');
+
+                props.sort((a, b) => {
+                    if (a.name < b.name) {
+                        return -1;
+                    }
+                    if (a.name > b.name) {
+                        return 1;
+                    }
+                    return 0;
+                });
+
+                const propNames = props.map(p => p.name).join(', ');
+                assert.equal(propNames, 
+                    'connectorStrokeWidth, curveRadius, labelOffsetV, nodeRadius, nodeSpacingH, nodeSpacingV, parallelSpacingH, smallLabelOffsetV, terminalRadius, ypStart', 
+                    'prop names');
+
+                for (const prop of props) {
+                    assert(prop.type, `prop "${prop.name}" should have a type`);
+                }
             }
         });
         

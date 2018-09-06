@@ -138,11 +138,19 @@ class TypedocJSONReflector implements Reflector {
         return results;
     }
 
-    describeChild(child: unknown): any {
-        return null; //this.describeTypeForTypeDetailsXXX(child);
+    describeChild(child: InputJSON.NamespaceChildDecl): NamespaceMember {
+
+        if (InputJSON.isPropertyDecl(child)) {
+            return new TypedocPropertyMirror(this, child);
+        }
+
+        return this.describeTypeForTypeDetailsXXX(child);
     }
 
     describeTypeForDecl(decl: InputJSON.BaseDecl): TypeMirror {
+
+       
+
         return this.describeTypeForTypeDetailsXXX(decl);
     }
 
@@ -150,7 +158,7 @@ class TypedocJSONReflector implements Reflector {
         return this.describeTypeForTypeDetailsXXX(typeDetails);
     }
 
-    describeTypeForTypeDetailsXXX(typeDetails: any): TypeMirror {
+    describeTypeForTypeDetailsXXX(typeDetails: any): any {
 
         if (InputJSON.isClassDecl(typeDetails)) {
             return new TypedocClassMirror(this, typeDetails);

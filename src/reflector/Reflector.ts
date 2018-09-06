@@ -107,6 +107,11 @@ export type NamespaceMember =
     | TypeAliasMirror
     ;
 
+export type InterfaceMember =
+    | PropertyMirror
+    ;
+
+
 
 /**
  * Common members shared by external modules (source files) and TS namespaces
@@ -201,10 +206,6 @@ export interface ObjectLiteralMirror extends TypeMirror {
      */
     readonly properties: Array<PropertyMirror>;
 }
-
-export type InterfaceMember =
-    | PropertyMirror
-    ;
 
 /**
  * Represents an interface/class/literal definition, which has child properties and methods

@@ -268,11 +268,20 @@ export namespace InputJSON {
         );
     }
 
-    type NamespaceChild = unknown; // TODO: replace this with a union of things we expect to find inside namespaces / modules
+    export type NamespaceChildDecl = 
+        | SignaturesLiteralDecl // CallableMirror
+        | PropertyDecl // PropertyMirror
+        | NamespaceDecl // NamespaceMirror
+        | ClassDecl // ClassMirror 
+        | EnumDecl // EnumMirror 
+        | InterfaceDecl // InterfaceMirror
+        | ObjectLiteralDecl // ObjectLiteralMirror
+        | TypeAliasDecl // TypeAliasMirror
+        ;
 
     export interface ModuleDecl extends BaseDecl {
         originalName: string;
-        children?: Array<NamespaceChild>
+        children?: Array<NamespaceChildDecl>
     }
 
     export function isModuleDecl(obj: any): obj is ModuleDecl {
@@ -285,7 +294,7 @@ export namespace InputJSON {
     }
 
     export interface NamespaceDecl extends BaseDecl {
-        children?: Array<NamespaceChild>
+        children?: Array<NamespaceChildDecl>
     }
 
     export function isNamespaceDecl(obj: any): obj is NamespaceDecl {
