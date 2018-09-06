@@ -557,7 +557,6 @@ describe('TSDoc Reflector, PoC types', () => {
         
     });
     
-    // TODO: Test children of objectliterals!
     // TODO: add members to interfacelike
     // TODO: find and test usage of flags.isOptional
     // TODO: find and test usage of flags.isStatic
