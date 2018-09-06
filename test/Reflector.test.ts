@@ -564,6 +564,8 @@ describe('TSDoc Reflector, PoC types', () => {
     // TODO: Reflect on methods for interfacelikes
     // TODO: Walk all the modules, make sure we can construct every def
 
+    // TODO: make a circular type (like a linked list or tree), export that as JSON and make sure we can reflect on it
+
     // TODO: Repeat for the self-types def, and inspect some interesting cases
     // TODO: When reflecting on self, make sure we can detect which class members are protected / private. Must work for methods and props
 });

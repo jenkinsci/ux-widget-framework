@@ -144,45 +144,39 @@ class TypedocJSONReflector implements Reflector {
             return new TypedocPropertyMirror(this, child);
         }
 
-        return this.describeTypeForTypeDetailsXXX(child);
+        throw new Error(`describeChild(): do not understand child:\n${JSON.stringify(child, null, 4)}`);
     }
 
     describeTypeForDecl(decl: InputJSON.BaseDecl): TypeMirror {
-
        
+        if (InputJSON.isClassDecl(decl)) {
+            return new TypedocClassMirror(this, decl);
+        }
 
-        return this.describeTypeForTypeDetailsXXX(decl);
+        if (InputJSON.isInterfaceDecl(decl)) {
+            return new TypedocInterfaceMirror(this, decl);
+        }
+
+        if (InputJSON.isTypeAliasDecl(decl)) {
+            return new TypedocAliasMirror(this, decl);
+        }
+
+        if (InputJSON.isEnumDecl(decl)) {
+            return new TypedocEnumMirror(this, decl);
+        }
+
+        if (InputJSON.isInterfaceLiteralDecl(decl)) {
+            return new TypedocInterfaceLiteralMirror(this, decl);
+        }
+
+        if (InputJSON.isSignaturesLiteralDecl(decl)) {
+            return new TypedocCallableMirror(this, decl);
+        }
+
+        throw new Error(`describeTypeForDecl(): do not understand decl:\n${JSON.stringify(decl, null, 4)}`);
     }
 
     describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
-        return this.describeTypeForTypeDetailsXXX(typeDetails);
-    }
-
-    describeTypeForTypeDetailsXXX(typeDetails: any): any {
-
-        if (InputJSON.isClassDecl(typeDetails)) {
-            return new TypedocClassMirror(this, typeDetails);
-        }
-
-        if (InputJSON.isInterfaceDecl(typeDetails)) {
-            return new TypedocInterfaceMirror(this, typeDetails);
-        }
-
-        if (InputJSON.isTypeAliasDecl(typeDetails)) {
-            return new TypedocAliasMirror(this, typeDetails);
-        }
-
-        if (InputJSON.isEnumDecl(typeDetails)) {
-            return new TypedocEnumMirror(this, typeDetails);
-        }
-
-        if (InputJSON.isInterfaceLiteralDecl(typeDetails)) {
-            return new TypedocInterfaceLiteralMirror(this, typeDetails);
-        }
-
-        if (InputJSON.isSignaturesLiteralDecl(typeDetails)) {
-            return new TypedocCallableMirror(this, typeDetails);
-        }
 
         if (InputJSON.isInternalTypeReference(typeDetails)) {
             const id = typeDetails.id;
