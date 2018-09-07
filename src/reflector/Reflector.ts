@@ -20,6 +20,11 @@ export interface Reflector {
      */
     describeModule(moduleName: string): ModuleMirror;
 
+    /**
+     * All modules in this univers
+     */
+    readonly modules: Array<ModuleMirror>;
+
     readonly builtinAny: TypeMirror;
     readonly builtinUndefined: TypeMirror;
     readonly builtinVoid: TypeMirror;
@@ -88,7 +93,8 @@ export interface TypeMirror {
     readonly typeArguments: Array<TypeMirror>;
 }
 
-export interface ArrayMirror extends TypeMirror {}
+export interface ArrayMirror extends TypeMirror {
+}
 
 export interface StringLiteralMirror extends TypeMirror {
     readonly value: string;

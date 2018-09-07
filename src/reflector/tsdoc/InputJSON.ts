@@ -388,4 +388,23 @@ export namespace InputJSON {
             && typeof obj.name === 'string'
         );
     }
+
+    export interface TypeOperatorDecl {
+        type: 'typeOperator';
+        operator: string;
+        target: {
+            type:string;
+            name:string;
+        };
+    }
+
+    export function isTypeOperatorDecl(obj: any): obj is TypeOperatorDecl {
+        return (typeof obj === 'object'
+            && obj.type === 'typeOperator'
+            && typeof obj.operator === 'string'
+            && typeof obj.target === 'object'
+            && typeof obj.target.type === 'string'
+            && typeof obj.target.name === 'string'
+        );
+    }
 }

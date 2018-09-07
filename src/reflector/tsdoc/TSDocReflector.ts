@@ -67,6 +67,9 @@ class TypedocJSONReflector implements Reflector {
             this.builtinNumber,
             this.builtinBoolean,
             this.builtinNull,
+            new Primitive('false'),
+            new Primitive('true'),
+            new Primitive('this'),
         ];
     }
 
@@ -189,6 +192,10 @@ class TypedocJSONReflector implements Reflector {
 
     describeTypeForTypeDetails(typeDetails: InputJSON.TypeDetails): TypeMirror {
 
+        if (InputJSON.isTypeOperatorDecl(typeDetails)) {
+            return new TypedocTypeOperator(typeDetails);
+        }
+
         if (InputJSON.isUnknownTypeReference(typeDetails)) {
             // Known unknowns
             return new TypedocUnknownTypeMirror(typeDetails.name);
@@ -261,6 +268,10 @@ class TypedocJSONReflector implements Reflector {
 
     get moduleNames(): Array<string> {
         return this._modules.map(nameAndId => nameAndId.name);
+    }
+
+    get modules(): Array<ModuleMirror> {
+        return this.moduleNames.map(name => this.describeModule(name));
     }
 
     isArray(mirror: any): mirror is ArrayMirror {
@@ -520,7 +531,7 @@ class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
     readonly isComplex: boolean = true;
     readonly isPrimitive: boolean = false;
     readonly name: string
-    readonly typeArguments: TypeMirror[] = [];
+    readonly typeArguments: Array<TypeMirror> = [];
     readonly isAbstract = true;
     readonly isBuiltin = false;
 
@@ -628,7 +639,7 @@ class TypedocArrayMirror implements TypeMirror {
     isPrimitive: boolean = false;
     name = 'Array';
 
-    typeArguments: TypeMirror[];
+    typeArguments: Array<TypeMirror>;
 
     constructor(typeArgument: TypeMirror) {
         this.typeArguments = [typeArgument];
@@ -823,7 +834,7 @@ class TypedocUnknownTypeMirror implements TypeMirror {
     isBuiltin: boolean = false;
     isPrimitive: boolean = false;
     name: string 
-    typeArguments: TypeMirror[] = [];
+    typeArguments: Array<TypeMirror> = [];
 
     constructor(name:string) {
         this.name = name;
@@ -835,9 +846,21 @@ class TypedocTypeParameter implements TypeParameter {
     isBuiltin: boolean = false;
     isPrimitive: boolean = false;
     name: string 
-    typeArguments: TypeMirror[] = [];
+    typeArguments: Array<TypeMirror> = [];
 
     constructor(definition: InputJSON.TypeParamDecl) {
         this.name = definition.name;
+    }
+}
+
+class TypedocTypeOperator implements TypeMirror {
+    isComplex: boolean = false;
+    isBuiltin: boolean = true;
+    isPrimitive: boolean = false;
+    name: string;
+    typeArguments: Array<TypeMirror> = [];
+
+    constructor(definition: InputJSON.TypeOperatorDecl) {
+        this.name = `${definition.operator} ${definition.target.name}`;
     }
 }
