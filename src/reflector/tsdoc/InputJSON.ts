@@ -393,8 +393,8 @@ export namespace InputJSON {
         type: 'typeOperator';
         operator: string;
         target: {
-            type:string;
-            name:string;
+            type: string;
+            name: string;
         };
     }
 
@@ -429,6 +429,36 @@ export namespace InputJSON {
             && obj.kindString === KindString.Accessor
             && (typeof obj.getSignature === 'object' || typeof obj.setSignature === 'object')
             && isBaseDecl(obj)
+        );
+    }
+
+    export interface IndexSignatureLiteralDecl extends BaseDecl {
+        kindString: KindString.TypeLiteral;
+        indexSignature: IndexSignatureDecl;
+    }
+
+    interface IndexSignatureDecl {
+        kindString: KindString.IndexSignature;
+        parameters: Array<Parameter>; // Len 1, LHS index, type = string or number (for now)
+        type: TypeDetails; // RHS
+    }
+
+    function isIndexSignatureDecl(obj: any): obj is IndexSignatureDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.IndexSignature
+            && Array.isArray(obj.parameters)
+            && obj.parameters.length === 1
+            && typeof obj.parameters[0].name === 'string'
+            && typeof obj.type === 'object'
+        );
+    }
+
+    export function isIndexSignatureLiteralDecl(obj: any): obj is IndexSignatureLiteralDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.TypeLiteral
+            && !('children' in obj)
+            && !('signatures' in obj)
+            && isIndexSignatureDecl(obj.indexSignature)
         );
     }
 }

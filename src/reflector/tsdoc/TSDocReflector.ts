@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember, TypeParameter, MirrorKind } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember, TypeParameter, MirrorKind, IndexSignature } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -71,6 +71,7 @@ class TypedocJSONReflector implements Reflector {
             new Primitive('false'),
             new Primitive('true'),
             new Primitive('this'),
+            new Primitive('never'),
         ];
     }
 
@@ -140,6 +141,10 @@ class TypedocJSONReflector implements Reflector {
             return new TypedocCallableMirror(this, child);
         }
 
+        if (InputJSON.isFunctionDecl(child)) {
+            return new TypedocCallableMirror(this, child);
+        }
+
         if (InputJSON.isBaseDecl(child)) {
             let maybe: unknown;
 
@@ -156,6 +161,7 @@ class TypedocJSONReflector implements Reflector {
         }
 
         if (child.kindString) {
+            console.error(child);
             throw new Error(`describeChild(): do not understand child of kind "${child.kindString}"`);
         }
 
@@ -190,6 +196,10 @@ class TypedocJSONReflector implements Reflector {
 
         if (InputJSON.isSignaturesLiteralDecl(decl)) {
             return new TypedocCallableMirror(this, decl);
+        }
+
+        if (InputJSON.isIndexSignatureLiteralDecl(decl)) {
+            return new TypedocIndexSignatureMirror(this, decl);
         }
 
         throw new Error(`describeTypeForDecl(): do not understand decl:\n${JSON.stringify(decl, null, 4)}`);
@@ -557,21 +567,34 @@ class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
         this.name = definition.name;
     }
 
-    get properties(): Array<PropertyMirror> {
-        const result: Array<PropertyMirror> = [];
+    protected _members?: Array<InterfaceLikeMember>;
 
-        // TODO: Switch this to use a common getChildren base
-        if (this.definition.children) {
-            for (const decl of this.definition.children) {
-                const child = this.reflector.describeChild(decl);
-                if (!this.reflector.isProperty(child)) {
-                    throw new Error(`Object literal - expecting only property children but got ${child.constructor.name}`);
+    get members(): Array<InterfaceLikeMember> {
+        if (!this._members) {
+            this._members = [];
+            const { reflector } = this;
+            if (this.definition.children) {
+                const all = this.definition.children.map(decl => reflector.describeChild(decl));
+                for (const member of all) {
+                    if (reflector.isNamespace(member)
+                        || reflector.isClass(member)
+                        || reflector.isObjectLiteral(member)
+                        || reflector.isTypeAlias(member)
+                        || reflector.isInterface(member)
+                        || reflector.isEnum(member)) {
+                        throw new Error(`Not expecting member of kind "${member.constructor.name}" in InterfaceLike`);
+                    }
+
+                    this._members.push(member);
                 }
-                result.push(child);
             }
         }
 
-        return result;
+        return this._members;
+    }
+
+    get properties(): Array<PropertyMirror> {
+        return this.members.filter(member => this.reflector.isProperty(member)) as Array<PropertyMirror>;
     }
 }
 
@@ -932,5 +955,23 @@ class TypedocTypeOperator implements TypeMirror {
 
     constructor(definition: InputJSON.TypeOperatorDecl) {
         this.name = `${definition.operator} ${definition.target.name}`;
+    }
+}
+
+class TypedocIndexSignatureMirror implements IndexSignature {
+    readonly isComplex = true;
+    readonly isBuiltin = false;
+    readonly isPrimitive = false;
+    readonly name = undefined;
+    readonly typeArguments: Array<TypeMirror> = [];
+
+    readonly mirrorKind: MirrorKind.IndexSignature = MirrorKind.IndexSignature;
+
+    readonly indexType: TypeMirror;
+    readonly valueType: TypeMirror;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.IndexSignatureLiteralDecl) {
+        this.indexType = reflector.describeTypeForTypeDetails(definition.indexSignature.parameters[0].type);
+        this.valueType = reflector.describeTypeForTypeDetails(definition.indexSignature.type);
     }
 }

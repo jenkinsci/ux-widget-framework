@@ -2,14 +2,14 @@
 import * as fs from '../../src/fsPromises';
 import * as assert from 'assert';
 import { typedocReflector } from '../../src/reflector/tsdoc/TSDocReflector';
-import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror, NamespaceMirror, EnumMirror, InterfaceLike } from '../../src/reflector/Reflector';
+import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror, NamespaceMirror, EnumMirror, InterfaceLike, ObjectLiteralMirror, CallableMirror } from '../../src/reflector/Reflector';
 
 const MAX_DEPTH = 50;
 
 describe('TSDoc Reflector, tree walk', () => {
     walkReflector('PoC', 'types-sample.json');
-    // walkReflector('Self', 'self-types.json');
-    // walkReflector('Self - test', 'self-test-types.json');
+    walkReflector('Self', 'self-types.json');
+    walkReflector('Self - test', 'self-test-types.json');
 });
 
 function walkReflector(name: string, filepath: string) {
@@ -67,10 +67,7 @@ function walkNS(reflector: Reflector, ns: ModuleMirror | NamespaceMirror, depth:
             walkNS(reflector, member, depth + 1);
         }
         else if (reflector.isArray(member)) {
-            for (const arg of member.typeArguments) {
-                assert(arg, 'type args should exist');
-                assertTypeBasics(reflector, arg, depth + 1);
-            }
+            assertTypeBasics(reflector, member, depth + 1);
         }
         else if (reflector.isProperty(member)) {
             walkProperty(reflector, member, depth + 1);
@@ -83,12 +80,19 @@ function walkNS(reflector: Reflector, ns: ModuleMirror | NamespaceMirror, depth:
         }
         else if (reflector.isClass(member)) {
             walkInterfaceLike(reflector, member, depth + 1);
-            
+            if (member.constructorMirror) {
+                walkCallable(reflector, member.constructorMirror, depth + 1);
+            }
         }
-        else if (reflector.isTypeAlias(member)) { /* TODO: explore */ }
-        else if (reflector.isCallable(member)) { /* TODO: explore */ }
-        else if (reflector.isObjectLiteral(member)) { /* TODO: explore */ }
-        // else if (reflector.isXXXX(member)) { /* TODO: explore */ }
+        else if (reflector.isTypeAlias(member)) {
+            assertTypeBasics(reflector, member.targetDefinition, depth + 1);
+        }
+        else if (reflector.isCallable(member)) {
+            walkCallable(reflector, member, depth + 1);
+        }
+        else if (reflector.isObjectLiteral(member)) {
+            walkInterfaceLike(reflector, member, depth + 1);
+        }
         else {
             assertNever(member, 'walkNS');
         }
@@ -97,6 +101,12 @@ function walkNS(reflector: Reflector, ns: ModuleMirror | NamespaceMirror, depth:
 
 function assertTypeBasics(reflector, mirror: TypeMirror, depth: number) {
     assertDepth(depth);
+
+    for (const arg of mirror.typeArguments) {
+        assert(arg, 'type args should exist');
+        assertTypeBasics(reflector, arg, depth + 1);
+    }
+
     // TODO: If type is a literal, explore it some
 }
 
@@ -107,24 +117,26 @@ function walkProperty(reflector: Reflector, property: PropertyMirror, depth: num
     assertTypeBasics(reflector, property.type, depth + 1);
 }
 
-function walkInterfaceLike(reflector: Reflector, mirror: InterfaceLike, depth: number) {
+function walkInterfaceLike(reflector: Reflector, mirror: InterfaceLike | ObjectLiteralMirror, depth: number) {
     assertDepth(depth);
 
+    assert(mirror.members, 'must have members array');
+    
     for (const member of mirror.members) {
         assert(member, 'no missing members');
 
-        if (reflector.isProperty(member)) { /* TODO: explore */ }
-        else if (reflector.isCallable(member)) { /* TODO: explore */ }
-        // else if (reflector.isXXXX(member)) { /* TODO: explore */ }
-        // else if (reflector.isXXXX(member)) { /* TODO: explore */ }
-        // else if (reflector.isXXXX(member)) { /* TODO: explore */ }
-        // else if (reflector.isXXXX(member)) { /* TODO: explore */ }
-        // else if (reflector.isXXXX(member)) { /* TODO: explore */ }
-        // else if (reflector.isXXXX(member)) { /* TODO: explore */ }
+        if (reflector.isProperty(member)) {
+            walkProperty(reflector, member, depth + 1);
+        }
+        else if (reflector.isCallable(member)) {
+            walkCallable(reflector, member, depth + 1);
+        }
         else {
             assertNever(member, 'walkInterfaceLike');
         }
     }
+
+    // TODO: Compare members count to cumulative sub-lists count
 }
 
 function walkEnum(reflector: Reflector, mirror: EnumMirror, depth: number) {
@@ -135,6 +147,17 @@ function walkEnum(reflector: Reflector, mirror: EnumMirror, depth: number) {
         assert(member.name, 'enum members must have names');
         if (typeof member.defaultValue !== 'undefined') {
             assert.equal(typeof member.defaultValue, 'string', 'enum members should only have JS strings for defaultValue');
+        }
+    }
+}
+
+function walkCallable(reflector: Reflector, mirror: CallableMirror, depth: number) {
+    assertDepth(depth);
+
+    for (const sig of mirror.signatures) {
+        assertTypeBasics(reflector, sig.returnType, depth + 1);
+        for (const param of sig.parameters) {
+            assertTypeBasics(reflector, param.type, depth + 1);
         }
     }
 }

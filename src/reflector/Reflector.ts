@@ -56,6 +56,7 @@ export enum MirrorKind {
     Enum = 'Enum',
     ExternalTypeReference = 'ExternalTypeReference',
     Function = 'Function',
+    IndexSignature = 'IndexSignature',
     Interface = 'Interface',
     InterfaceLiteral = 'InterfaceLiteral',
     Method = 'Method',
@@ -112,7 +113,7 @@ export interface TypeMirror {
     /**
      * Name of this type, if it has one.
      */
-    readonly name?: string; 
+    readonly name?: string;
 
     /**
      * A list of any type arguments used in this declaration
@@ -128,14 +129,14 @@ export interface StringLiteralMirror extends TypeMirror {
     readonly value: string;
 }
 
-export type NamespaceMember = 
+export type NamespaceMember =
     | CallableMirror
-    | ClassMirror 
-    | EnumMirror 
-    | InterfaceMirror 
-    | NamespaceMirror 
+    | ClassMirror
+    | EnumMirror
+    | InterfaceMirror
+    | NamespaceMirror
     | ObjectLiteralMirror
-    | PropertyMirror 
+    | PropertyMirror
     | TypeAliasMirror
     ;
 
@@ -143,14 +144,14 @@ export type InterfaceLikeMember =
     | PropertyMirror
     | CallableMirror
     ;
-    // TODO: add to this!
+// TODO: add to this!
 
 
 /**
  * Common members shared by external modules (source files) and TS namespaces
  */
 interface NamespaceBase {
-    
+
     readonly mirrorKind: MirrorKind;
 
     /**
@@ -177,22 +178,22 @@ interface NamespaceBase {
      * Interfaces contained in this namespace / module
      */
     readonly interfaces: Array<InterfaceMirror>;
-  
+
     /**
      * Classes contained in this namespace / module
      */
     readonly classes: Array<ClassMirror>;
-  
+
     /**
      * Enums contained in this namespace / module
      */
     readonly enums: Array<EnumMirror>;
-  
+
     /**
      * Type Aliases contained in this namespace / module
      */
     readonly typeAliases: Array<TypeAliasMirror>;
-  
+
     /**
      * Functions contained in this namespace / module
      */
@@ -242,7 +243,12 @@ export interface TypeAliasMirror extends TypeMirror, SupportsDocComments {
  */
 export interface ObjectLiteralMirror extends TypeMirror {
     mirrorKind: MirrorKind.ObjectLiteral;
-    
+
+    /**
+     * All members of this literal
+     */
+    readonly members: Array<InterfaceLikeMember>;
+
     /**
      * Properties of this literal
      */
@@ -253,7 +259,7 @@ export interface ObjectLiteralMirror extends TypeMirror {
  * Represents an interface/class/literal definition, which has child properties and methods
  */
 export interface InterfaceLike extends TypeMirror {
-    
+
     /**
      * Describe a named property (everything except normal methods and constructor)
      */
@@ -285,13 +291,13 @@ export interface InterfaceLike extends TypeMirror {
  */
 export interface InterfaceLiteralMirror extends InterfaceLike {
     mirrorKind: MirrorKind.InterfaceLiteral;
-     }
+}
 
 /**
  * Represents a TS interface decl
  */
 export interface InterfaceMirror extends InterfaceLike, SupportsDocComments {
-    mirrorKind: MirrorKind.Interface;    
+    mirrorKind: MirrorKind.Interface;
 }
 
 /**
@@ -299,7 +305,7 @@ export interface InterfaceMirror extends InterfaceLike, SupportsDocComments {
  */
 export interface ClassMirror extends InterfaceLike, SupportsDocComments {
     mirrorKind: MirrorKind.Class;
-    
+
     readonly isAbstract: boolean;
     readonly constructorMirror?: CallableMirror;
 }
@@ -334,7 +340,7 @@ export interface PropertyMirror extends SupportsDocComments {
  */
 export interface UnionMirror extends TypeMirror {
     mirrorKind: MirrorKind.Union;
-    
+
     readonly members: Array<TypeMirror>;
 }
 
@@ -380,7 +386,7 @@ export interface CallableSignature extends SupportsDocComments {
  */
 export interface EnumMirror extends TypeMirror {
     mirrorKind: MirrorKind.Enum;
-    
+
     members: Array<EnumMember>;
 }
 
@@ -397,7 +403,7 @@ export interface EnumMember {
  */
 export interface ExternalTypeReference extends TypeMirror {
     mirrorKind: MirrorKind.ExternalTypeReference;
-    
+
     readonly name: string;
 }
 
@@ -406,6 +412,18 @@ export interface ExternalTypeReference extends TypeMirror {
  */
 export interface TypeParameter extends TypeMirror {
     mirrorKind: MirrorKind.TypeParameter;
-    
+
     readonly name: string;
+}
+
+/**
+ * Represents an index signature for an interface
+ * 
+ * Index signatures take the form of `{[k: IndexType]: ValueType}` where IndexType is string or number (as of TS3), and ValueType is anything
+ */
+export interface IndexSignature extends TypeMirror {
+    mirrorKind: MirrorKind.IndexSignature;
+
+    readonly indexType: TypeMirror;
+    readonly valueType: TypeMirror;
 }

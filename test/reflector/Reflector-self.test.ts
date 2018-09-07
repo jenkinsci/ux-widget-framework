@@ -88,6 +88,10 @@ describe('TSDoc Reflector, Test types', () => {
             assert(prop.type, 'must have a type');
         });
     });
+
+    // TODO: Tests for IndexSignature as a literal
+    // TODO: Tests for IndexSignature as part of an interface
+    // TODO: Tests for Intersection
 });
 
 /**
