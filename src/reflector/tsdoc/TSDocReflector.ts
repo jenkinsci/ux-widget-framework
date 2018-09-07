@@ -120,6 +120,10 @@ class TypedocJSONReflector implements Reflector {
             return new TypedocPropertyMirror(this, child);
         }
 
+        if (InputJSON.isAccessorDecl(child)) {
+            return new TypedocAccessorMirror(this, child);
+        }
+
         if (InputJSON.isNamespaceDecl(child)) {
             return new TypedocNamespaceMirror(this, child);
         }
@@ -326,7 +330,7 @@ class TypedocJSONReflector implements Reflector {
     }
 
     isProperty(mirror: any): mirror is PropertyMirror {
-        return mirror instanceof TypedocPropertyMirror;
+        return mirror instanceof TypedocPropertyMirror || mirror instanceof TypedocAccessorMirror;
     }
 
     isObjectLiteral(mirror: any): mirror is ObjectLiteralMirror {
@@ -509,20 +513,20 @@ abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.Inter
 }
 
 class TypedocInterfaceMirror extends TypedocInterfaceMirrorBase implements InterfaceMirror {
-    mirrorKind:MirrorKind.Interface = MirrorKind.Interface;
+    mirrorKind: MirrorKind.Interface = MirrorKind.Interface;
 
     readonly isAbstract = true;
     readonly isBuiltin = false;
 }
 
 class TypedocInterfaceLiteralMirror extends TypedocInterfaceMirrorBase implements InterfaceLiteralMirror {
-    mirrorKind:MirrorKind.InterfaceLiteral = MirrorKind.InterfaceLiteral;
-    
+    mirrorKind: MirrorKind.InterfaceLiteral = MirrorKind.InterfaceLiteral;
+
     readonly isBuiltin = false;
 }
 
 class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirror {
-    mirrorKind:MirrorKind.Class = MirrorKind.Class;
+    mirrorKind: MirrorKind.Class = MirrorKind.Class;
 
     get isBuiltin() {
         // TODO: Separate this for builtins that are also classes, like Date?
@@ -535,7 +539,7 @@ class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirr
 }
 
 class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
-    mirrorKind:MirrorKind.ObjectLiteral = MirrorKind.ObjectLiteral;
+    mirrorKind: MirrorKind.ObjectLiteral = MirrorKind.ObjectLiteral;
 
     readonly isComplex: boolean = true;
     readonly isPrimitive: boolean = false;
@@ -572,7 +576,7 @@ class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
 }
 
 class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> implements PropertyMirror {
-    mirrorKind:MirrorKind.Property = MirrorKind.Property;
+    mirrorKind = MirrorKind.Property;
 
     readonly readable: boolean;
     readonly writeable: boolean;
@@ -606,11 +610,38 @@ class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> imple
     }
 }
 
+class TypedocAccessorMirror extends TypeMirrorBase<InputJSON.AccessorDecl> implements PropertyMirror {
+    mirrorKind = MirrorKind.Accessor;
+
+    name!: string; // All props have name
+
+    defaultValue = undefined;
+    readable: boolean;
+    writeable: boolean;
+
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.AccessorDecl) {
+        super(reflector, definition);
+        this.readable = !!definition.getSignature;
+        this.writeable = !!definition.setSignature;
+    }
+
+    get type(): TypeMirror {
+        if (this.definition.getSignature) {
+            return this.reflector.describeTypeForTypeDetails(this.definition.getSignature.type);
+        }
+        if (this.definition.setSignature) {
+            return this.reflector.describeTypeForTypeDetails(this.definition.setSignature.parameters[0].type);
+        }
+
+        throw new Error("TypedocAccessorMirror - no signatures, this shouldn't happen");
+    }
+}
+
 /**
  * Type Mirror IMPL for primitive builtins, for which we don't have defs
  */
 class Primitive implements TypeMirror {
-    mirrorKind= MirrorKind.Primitive;
+    mirrorKind = MirrorKind.Primitive;
 
     isComplex: boolean = false;
     isBuiltin: boolean = true;
@@ -626,7 +657,7 @@ class Primitive implements TypeMirror {
 
 /** String literal (as type) mirror */
 class TypedocStringLiteral implements StringLiteralMirror {
-    mirrorKind= MirrorKind.StringLiteral;
+    mirrorKind = MirrorKind.StringLiteral;
 
     isBuiltin: boolean = true;
     isComplex: boolean = false;

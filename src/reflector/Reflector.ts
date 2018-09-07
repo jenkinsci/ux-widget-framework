@@ -49,10 +49,7 @@ export interface Reflector {
 };
 
 export enum MirrorKind {
-    Primitive = 'Primitive',
-    StringLiteral = 'StringLiteral',
-    Unknown = 'Unknown',
-    TypeOperator = 'TypeOperator',
+    Accessor = 'Accessor',
     Array = 'Array',
     Class = 'Class',
     Constructor = 'Constructor',
@@ -65,10 +62,14 @@ export enum MirrorKind {
     Module = 'Module',
     Namespace = 'Namespace',
     ObjectLiteral = 'ObjectLiteral',
+    Primitive = 'Primitive',
     Property = 'Property',
+    StringLiteral = 'StringLiteral',
     TypeAlias = 'TypeAlias',
-    Union = 'Union',
+    TypeOperator = 'TypeOperator',
     TypeParameter = 'TypeParameter',
+    Union = 'Union',
+    Unknown = 'Unknown',
 }
 
 /** 
@@ -307,7 +308,7 @@ export interface ClassMirror extends InterfaceLike, SupportsDocComments {
  * Represents a property, const, getter/setter definition within an interface, class, interface literal or module
  */
 export interface PropertyMirror extends SupportsDocComments {
-    mirrorKind: MirrorKind.Property;
+    mirrorKind: MirrorKind;
 
     /**
      * Name of this property

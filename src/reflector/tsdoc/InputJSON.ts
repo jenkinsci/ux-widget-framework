@@ -407,4 +407,28 @@ export namespace InputJSON {
             && typeof obj.target.name === 'string'
         );
     }
+
+    export interface GetSignatureDecl extends BaseDecl {
+        kindString: KindString.GetSignature;
+        type: TypeDetails;
+    }
+
+    export interface SetSignatureDecl extends BaseDecl {
+        kindString: KindString.SetSignature;
+        parameters: Array<Parameter>;
+    }
+
+    export interface AccessorDecl extends BaseDecl {
+        kindString: KindString.Accessor;
+        getSignature?: GetSignatureDecl;
+        setSignature?: SetSignatureDecl;
+    }
+
+    export function isAccessorDecl(obj: any): obj is AccessorDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.Accessor
+            && (typeof obj.getSignature === 'object' || typeof obj.setSignature === 'object')
+            && isBaseDecl(obj)
+        );
+    }
 }

@@ -8,7 +8,8 @@ const MAX_DEPTH = 50;
 
 describe('TSDoc Reflector, tree walk', () => {
     walkReflector('PoC', 'types-sample.json');
-    walkReflector('Self', 'self-types.json');
+    // walkReflector('Self', 'self-types.json');
+    // walkReflector('Self - test', 'self-test-types.json');
 });
 
 function walkReflector(name: string, filepath: string) {

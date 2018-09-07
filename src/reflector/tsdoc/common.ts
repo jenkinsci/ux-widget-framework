@@ -25,6 +25,7 @@ export enum KindString {
     ObjectLiteral = 'Object literal',
     Parameter = 'Parameter',
     Property = 'Property',
+    SetSignature = 'Set signature',
     TypeAlias = 'Type alias',
     TypeLiteral = 'Type literal',
     TypeParameter = 'Type parameter',
