@@ -1,8 +1,8 @@
 
-import * as fs from '../src/fsPromises';
+import * as fs from '../../src/fsPromises';
 import * as assert from 'assert';
-import { typedocReflector } from '../src/reflector/tsdoc/TSDocReflector';
-import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror, NamespaceMirror, EnumMirror, InterfaceLike } from '../src/reflector/Reflector';
+import { typedocReflector } from '../../src/reflector/tsdoc/TSDocReflector';
+import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror, NamespaceMirror, EnumMirror, InterfaceLike } from '../../src/reflector/Reflector';
 
 const MAX_DEPTH = 50;
 
