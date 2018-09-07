@@ -60,6 +60,7 @@ function walkNS(reflector: Reflector, ns: ModuleMirror | NamespaceMirror, depth:
 
     for (const member of ns.members) {
         assert(member, 'no missing members');
+        assert.equal(typeof member.mirrorKind, 'string', 'Must have a mirrorKind');
 
         if (reflector.isNamespace(member)) {
             walkNS(reflector, member, depth + 1);

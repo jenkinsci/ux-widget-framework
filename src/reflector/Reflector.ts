@@ -48,6 +48,29 @@ export interface Reflector {
     isUnion(mirror: any): mirror is UnionMirror;
 };
 
+export enum MirrorKind {
+    Primitive = 'Primitive',
+    StringLiteral = 'StringLiteral',
+    Unknown = 'Unknown',
+    TypeOperator = 'TypeOperator',
+    Array = 'Array',
+    Class = 'Class',
+    Constructor = 'Constructor',
+    Enum = 'Enum',
+    ExternalTypeReference = 'ExternalTypeReference',
+    Function = 'Function',
+    Interface = 'Interface',
+    InterfaceLiteral = 'InterfaceLiteral',
+    Method = 'Method',
+    Module = 'Module',
+    Namespace = 'Namespace',
+    ObjectLiteral = 'ObjectLiteral',
+    Property = 'Property',
+    TypeAlias = 'TypeAlias',
+    Union = 'Union',
+    TypeParameter = 'TypeParameter',
+}
+
 /** 
  * Represents any declaration that can have doc comments. Not just types themselves, but also properties within a class / interface
  */
@@ -69,6 +92,9 @@ interface SupportsDocComments {
  * Represents a typedef, might be a Class or Interface, Enum, or just a type alias
  */
 export interface TypeMirror {
+
+    readonly mirrorKind: MirrorKind;
+
     /** Complex types would include classes, interfaces, enums, unions */
     readonly isComplex: boolean;
 
@@ -94,6 +120,7 @@ export interface TypeMirror {
 }
 
 export interface ArrayMirror extends TypeMirror {
+    mirrorKind: MirrorKind.Array;
 }
 
 export interface StringLiteralMirror extends TypeMirror {
@@ -122,6 +149,9 @@ export type InterfaceLikeMember =
  * Common members shared by external modules (source files) and TS namespaces
  */
 interface NamespaceBase {
+    
+    readonly mirrorKind: MirrorKind;
+
     /**
      * The local name of the module / namespace
      */
@@ -176,12 +206,16 @@ interface NamespaceBase {
 /**
  * Represents TS namespaces
  */
-export interface NamespaceMirror extends NamespaceBase {}
+export interface NamespaceMirror extends NamespaceBase {
+    mirrorKind: MirrorKind.Namespace;
+}
 
 /**
  * Represents an external module (a TypeScript source file, basically)
  */
 export interface ModuleMirror extends NamespaceBase {
+    mirrorKind: MirrorKind.Module;
+
     /**
      * The "original name" of the module, refers to the parsed source file
      */
@@ -192,6 +226,8 @@ export interface ModuleMirror extends NamespaceBase {
  * Represents a type alias
  */
 export interface TypeAliasMirror extends TypeMirror, SupportsDocComments {
+    mirrorKind: MirrorKind.TypeAlias;
+
     /**
      * The definition (RHS) of this alias
      */
@@ -204,6 +240,8 @@ export interface TypeAliasMirror extends TypeMirror, SupportsDocComments {
  * This is a single-instance type, which differentiates it from an interface literal type, which is an anonymous interface.
  */
 export interface ObjectLiteralMirror extends TypeMirror {
+    mirrorKind: MirrorKind.ObjectLiteral;
+    
     /**
      * Properties of this literal
      */
@@ -244,18 +282,23 @@ export interface InterfaceLike extends TypeMirror {
 /**
  * Represents a type literal used in-place of a named type
  */
-export interface InterfaceLiteralMirror extends InterfaceLike { }
+export interface InterfaceLiteralMirror extends InterfaceLike {
+    mirrorKind: MirrorKind.InterfaceLiteral;
+     }
 
 /**
  * Represents a TS interface decl
  */
 export interface InterfaceMirror extends InterfaceLike, SupportsDocComments {
+    mirrorKind: MirrorKind.Interface;    
 }
 
 /**
  * Represents a TS class
  */
 export interface ClassMirror extends InterfaceLike, SupportsDocComments {
+    mirrorKind: MirrorKind.Class;
+    
     readonly isAbstract: boolean;
     readonly constructorMirror?: CallableMirror;
 }
@@ -264,6 +307,7 @@ export interface ClassMirror extends InterfaceLike, SupportsDocComments {
  * Represents a property, const, getter/setter definition within an interface, class, interface literal or module
  */
 export interface PropertyMirror extends SupportsDocComments {
+    mirrorKind: MirrorKind.Property;
 
     /**
      * Name of this property
@@ -288,6 +332,8 @@ export interface PropertyMirror extends SupportsDocComments {
  * Represents a Union
  */
 export interface UnionMirror extends TypeMirror {
+    mirrorKind: MirrorKind.Union;
+    
     readonly members: Array<TypeMirror>;
 }
 
@@ -332,6 +378,8 @@ export interface CallableSignature extends SupportsDocComments {
  * Represents an Enum type
  */
 export interface EnumMirror extends TypeMirror {
+    mirrorKind: MirrorKind.Enum;
+    
     members: Array<EnumMember>;
 }
 
@@ -347,6 +395,8 @@ export interface EnumMember {
  * Represents a named reference to a type external to the source base represented by the Reflector (such as code in node_modules)
  */
 export interface ExternalTypeReference extends TypeMirror {
+    mirrorKind: MirrorKind.ExternalTypeReference;
+    
     readonly name: string;
 }
 
@@ -354,5 +404,7 @@ export interface ExternalTypeReference extends TypeMirror {
  * Represents a type param from a surrounding generic definition
  */
 export interface TypeParameter extends TypeMirror {
+    mirrorKind: MirrorKind.TypeParameter;
+    
     readonly name: string;
 }

@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember, TypeParameter } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember, TypeParameter, MirrorKind } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -16,8 +16,9 @@ export function typedocReflector(jsonObj: any): Reflector {
     return reflector;
 }
 
+// TODO: Remove this, it's just to help flesh things out and develop the tests
 class UnImplementedTypeMirror implements TypeMirror {
-    // TODO: Remove this, it's just to help flesh things out and develop the tests
+    mirrorKind = MirrorKind.Unknown;
     isComplex: boolean = false;
     isBuiltin: boolean = false;
     isPrimitive: boolean = false;
@@ -91,7 +92,7 @@ class TypedocJSONReflector implements Reflector {
 
             this._modules.push({ name, id });
         }
-       
+
         // Recurse
 
         if (obj.children && Array.isArray(obj.children)) {
@@ -219,7 +220,7 @@ class TypedocJSONReflector implements Reflector {
 
             if ((typeDetails as any).name) {
                 name = (typeDetails as any).name;
-            } 
+            }
             else {
                 name = `(unknown #${id})`;
             }
@@ -368,7 +369,7 @@ class TypedocJSONReflector implements Reflector {
 }
 
 /**
- * A base class to implement a lot of common functionality.
+ * A base class to implement some common functionality.
  * 
  * Should be a mixin rather than a base class but there's no nice way to do that RN.
  */
@@ -380,8 +381,8 @@ abstract class TypeMirrorBase<D> {
     protected definition: D;
     protected reflector: TypedocJSONReflector;
 
-    id: number;
-    kindString?: string;
+    _id: number;
+    _kindString?: string;
     name?: string;
 
     // CanHazComments - not used by all impls
@@ -398,12 +399,12 @@ abstract class TypeMirrorBase<D> {
         this.definition = definition;
 
         if (InputJSON.isBaseDecl(definition)) {
-            this.id = definition.id;
-            this.kindString = definition.kindString;
+            this._id = definition.id;
+            this._kindString = definition.kindString;
             this.name = definition.name;
         }
         else {
-            this.id = -1;
+            this._id = -1;
         }
 
         // Set up doc comments if available
@@ -431,6 +432,7 @@ abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.Inter
     readonly isPrimitive = false;
     readonly typeArguments: Array<TypeMirror>;
     abstract readonly isBuiltin: boolean;
+    abstract readonly mirrorKind: MirrorKind;
 
     propertyNames: Array<string> = [];
 
@@ -499,7 +501,7 @@ abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.Inter
         const callables = this.members.filter(member => this.reflector.isCallable(member)) as Array<CallableMirror>;
         return callables.filter(callable => callable.isMethod);
     }
-    
+
     get constructorMirror(): CallableMirror | undefined {
         const callables = this.members.filter(member => this.reflector.isCallable(member)) as Array<CallableMirror>;
         return callables.find(callable => callable.isConstructor);
@@ -507,15 +509,21 @@ abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.Inter
 }
 
 class TypedocInterfaceMirror extends TypedocInterfaceMirrorBase implements InterfaceMirror {
+    mirrorKind:MirrorKind.Interface = MirrorKind.Interface;
+
     readonly isAbstract = true;
     readonly isBuiltin = false;
 }
 
 class TypedocInterfaceLiteralMirror extends TypedocInterfaceMirrorBase implements InterfaceLiteralMirror {
+    mirrorKind:MirrorKind.InterfaceLiteral = MirrorKind.InterfaceLiteral;
+    
     readonly isBuiltin = false;
 }
 
 class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirror {
+    mirrorKind:MirrorKind.Class = MirrorKind.Class;
+
     get isBuiltin() {
         // TODO: Separate this for builtins that are also classes, like Date?
         return false;
@@ -527,6 +535,7 @@ class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirr
 }
 
 class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
+    mirrorKind:MirrorKind.ObjectLiteral = MirrorKind.ObjectLiteral;
 
     readonly isComplex: boolean = true;
     readonly isPrimitive: boolean = false;
@@ -563,18 +572,19 @@ class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
 }
 
 class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> implements PropertyMirror {
+    mirrorKind:MirrorKind.Property = MirrorKind.Property;
 
     readonly readable: boolean;
     readonly writeable: boolean;
     readonly name!: string; // All properties have a name, but is set by super constructor
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.PropertyDecl) {
+        super(reflector, definition);
 
         if (propertyKindStrings.indexOf(definition.kindString) === -1) {
             throw new Error(`TypedocJSONPropertyMirror does not know about kind "${definition.kindString}"`);
         }
 
-        super(reflector, definition);
 
         if (definition.kindString === KindString.Property || definition.kindString === KindString.Variable) {
             this.readable = true;
@@ -600,6 +610,7 @@ class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> imple
  * Type Mirror IMPL for primitive builtins, for which we don't have defs
  */
 class Primitive implements TypeMirror {
+    mirrorKind= MirrorKind.Primitive;
 
     isComplex: boolean = false;
     isBuiltin: boolean = true;
@@ -615,6 +626,7 @@ class Primitive implements TypeMirror {
 
 /** String literal (as type) mirror */
 class TypedocStringLiteral implements StringLiteralMirror {
+    mirrorKind= MirrorKind.StringLiteral;
 
     isBuiltin: boolean = true;
     isComplex: boolean = false;
@@ -634,6 +646,7 @@ class TypedocStringLiteral implements StringLiteralMirror {
  * Does not use the definition, because TS can use either ("reference" + "typeArguments", or "array" + "elementType") defs :(
  */
 class TypedocArrayMirror implements TypeMirror {
+    mirrorKind = MirrorKind.Array;
     isComplex: boolean = false;
     isBuiltin: boolean = true;
     isPrimitive: boolean = false;
@@ -647,7 +660,7 @@ class TypedocArrayMirror implements TypeMirror {
 }
 
 class TypedocAliasMirror extends TypeMirrorBase<InputJSON.TypeAliasDecl> implements TypeAliasMirror {
-
+    mirrorKind: MirrorKind.TypeAlias = MirrorKind.TypeAlias;
     readonly isBuiltin = false;
     readonly isPrimitive = false;
     readonly isComplex = false;
@@ -663,6 +676,7 @@ class TypedocAliasMirror extends TypeMirrorBase<InputJSON.TypeAliasDecl> impleme
 }
 
 class TypedocUnionMirror implements UnionMirror {
+    mirrorKind: MirrorKind.Union = MirrorKind.Union;
     isComplex: boolean = true;
     isBuiltin: boolean = true;
     isPrimitive: boolean = false;
@@ -678,12 +692,13 @@ class TypedocUnionMirror implements UnionMirror {
 }
 
 class TypedocCallableMirror extends TypeMirrorBase<InputJSON.SignaturesLiteralDecl> implements CallableMirror {
+    readonly mirrorKind: MirrorKind;
     readonly isComplex: boolean = false;
     readonly isBuiltin: boolean = false;
     readonly isPrimitive: boolean = false;
     readonly typeArguments: Array<TypeMirror>;
     readonly signatures: Array<CallableSignature>;
-    
+
     readonly isMethod: boolean;
     readonly isConstructor: boolean;
 
@@ -694,8 +709,24 @@ class TypedocCallableMirror extends TypeMirrorBase<InputJSON.SignaturesLiteralDe
             this.name = definition.name;
         }
         this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
-        this.isMethod = definition.kindString === KindString.Method;
-        this.isConstructor = definition.kindString === KindString.Constructor;
+
+        if (definition.kindString === KindString.Method) {
+            this.mirrorKind = MirrorKind.Method;
+            this.isMethod = true;
+            this.isConstructor = false;
+        }
+        else if (definition.kindString === KindString.Constructor) {
+            this.mirrorKind = MirrorKind.Constructor;
+            this.isMethod = false;
+            this.isConstructor = true;
+        }
+        else if (definition.kindString === KindString.Function || definition.kindString === KindString.TypeLiteral) {
+            this.mirrorKind = MirrorKind.Function;
+            this.isMethod = false;
+            this.isConstructor = false;
+        } else {
+            throw new Error(`TypedocCallableMirror - unexpected input kind "${definition.kindString}"`);
+        }
     }
 }
 
@@ -724,6 +755,7 @@ class TypedocCallableSignature extends TypeMirrorBase<InputJSON.Signature> imple
 }
 
 class TypedocExternalTypeReference implements ExternalTypeReference {
+    mirrorKind: MirrorKind.ExternalTypeReference = MirrorKind.ExternalTypeReference;
     readonly name: string;
     readonly isComplex: boolean = false; // We can't really know for sure, unfortunately
     readonly isBuiltin: boolean = false;
@@ -737,6 +769,7 @@ class TypedocExternalTypeReference implements ExternalTypeReference {
 }
 
 class TypedocEnumMirror extends TypeMirrorBase<InputJSON.EnumDecl> implements EnumMirror {
+    mirrorKind: MirrorKind.Enum = MirrorKind.Enum;
 
     readonly members: Array<EnumMember>;
 
@@ -814,9 +847,12 @@ abstract class TypedocNamespaceBase<D extends InputJSON.ModuleDecl | InputJSON.N
     }
 }
 
-class TypedocNamespaceMirror extends TypedocNamespaceBase<InputJSON.NamespaceDecl> implements NamespaceMirror { }
+class TypedocNamespaceMirror extends TypedocNamespaceBase<InputJSON.NamespaceDecl> implements NamespaceMirror {
+    mirrorKind: MirrorKind.Namespace = MirrorKind.Namespace;
+}
 
 class TypedocModuleMirror extends TypedocNamespaceBase<InputJSON.ModuleDecl> implements ModuleMirror {
+    mirrorKind: MirrorKind.Module = MirrorKind.Module;
     readonly originalName: string;
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.ModuleDecl) {
@@ -830,22 +866,24 @@ class TypedocModuleMirror extends TypedocNamespaceBase<InputJSON.ModuleDecl> imp
  * Represents anything that just doesn't make any flaming sense at all
  */
 class TypedocUnknownTypeMirror implements TypeMirror {
-    isComplex: boolean = false;    
+    mirrorKind = MirrorKind.Unknown;
+    isComplex: boolean = false;
     isBuiltin: boolean = false;
     isPrimitive: boolean = false;
-    name: string 
+    name: string
     typeArguments: Array<TypeMirror> = [];
 
-    constructor(name:string) {
+    constructor(name: string) {
         this.name = name;
     }
 }
 
 class TypedocTypeParameter implements TypeParameter {
-    isComplex: boolean = false;    
+    mirrorKind: MirrorKind.TypeParameter = MirrorKind.TypeParameter;
+    isComplex: boolean = false;
     isBuiltin: boolean = false;
     isPrimitive: boolean = false;
-    name: string 
+    name: string
     typeArguments: Array<TypeMirror> = [];
 
     constructor(definition: InputJSON.TypeParamDecl) {
@@ -854,6 +892,7 @@ class TypedocTypeParameter implements TypeParameter {
 }
 
 class TypedocTypeOperator implements TypeMirror {
+    mirrorKind = MirrorKind.TypeOperator;
     isComplex: boolean = false;
     isBuiltin: boolean = true;
     isPrimitive: boolean = false;
