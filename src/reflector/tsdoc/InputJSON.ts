@@ -49,20 +49,30 @@ export namespace InputJSON {
         );
     }
 
-    export interface InterfaceLikeDecl extends BaseDecl {
+    export interface IndexSignatureDecl {
+        kindString: KindString.IndexSignature;
+        parameters: Array<Parameter>; // Len 1, LHS index, type = string or number (for now)
+        type: TypeDetails; // RHS
+    }
+
+    export function isIndexSignatureDecl(obj: any): obj is IndexSignatureDecl {
+        return (typeof obj === 'object'
+            && obj.kindString === KindString.IndexSignature
+            && Array.isArray(obj.parameters)
+            && obj.parameters.length === 1
+            && typeof obj.parameters[0].name === 'string'
+            && typeof obj.type === 'object'
+        );
+    }
+
+    export interface InterfaceLikeDecl extends BaseDecl, CanHazComment, CanHazTypeArgs {
         readonly children?: Array<BaseDecl>;
+        readonly indexSignature?: IndexSignatureDecl;
     }
 
-    interface InterfaceOrClassDecl extends InterfaceLikeDecl, CanHazComment, CanHazTypeArgs {
-
-        // TODO: readonly extendedTypes?: ExtendedTypesDecl;
-        // TODO: readonly typeParameter?: TypeParamDecl;
-        // TODO: readonly extendedBy?: ExtendedByDecl;
-        // TODO: readonly implementedBy?: ImplementedByDecl;
-
+    export interface InterfaceDecl extends InterfaceLikeDecl {
+        _InterfaceDecl: never;
     }
-
-    export interface InterfaceDecl extends InterfaceOrClassDecl { }
 
     export function isInterfaceDecl(obj: any): obj is InterfaceDecl {
         return (typeof obj === 'object'
@@ -73,7 +83,9 @@ export namespace InputJSON {
         );
     }
 
-    export interface ClassDecl extends InterfaceOrClassDecl { }
+    export interface ClassDecl extends InterfaceLikeDecl {
+        _ClassDecl: never;
+    }
 
     export function isClassDecl(obj: any): obj is ClassDecl {
         return (typeof obj === 'object'
@@ -97,6 +109,7 @@ export namespace InputJSON {
     }
 
     export interface InterfaceLiteralDecl extends InterfaceLikeDecl {
+        _InterfaceLiteralDecl: never; // Avoid structural typing
     }
 
     export function isInterfaceLiteralDecl(obj: any): obj is InterfaceLiteralDecl {
@@ -104,7 +117,6 @@ export namespace InputJSON {
             && obj.kindString === KindString.TypeLiteral
             && (Array.isArray(obj.children) || !('children' in obj))
             && !('signatures' in obj)
-            && !('indexSignature' in obj)
             && isBaseDecl(obj)
         );
     }
@@ -244,7 +256,7 @@ export namespace InputJSON {
         types: Array<TypeDetails>;
     }
 
-    export function isIntersectionDecl(obj:any):obj is IntersectionDecl {
+    export function isIntersectionDecl(obj: any): obj is IntersectionDecl {
         return (typeof obj === 'object'
             && obj.type === 'intersection'
             && Array.isArray(obj.types)
@@ -439,36 +451,6 @@ export namespace InputJSON {
             && obj.kindString === KindString.Accessor
             && (typeof obj.getSignature === 'object' || typeof obj.setSignature === 'object')
             && isBaseDecl(obj)
-        );
-    }
-
-    export interface IndexSignatureLiteralDecl extends BaseDecl {
-        kindString: KindString.TypeLiteral;
-        indexSignature: IndexSignatureDecl;
-    }
-
-    interface IndexSignatureDecl {
-        kindString: KindString.IndexSignature;
-        parameters: Array<Parameter>; // Len 1, LHS index, type = string or number (for now)
-        type: TypeDetails; // RHS
-    }
-
-    function isIndexSignatureDecl(obj: any): obj is IndexSignatureDecl {
-        return (typeof obj === 'object'
-            && obj.kindString === KindString.IndexSignature
-            && Array.isArray(obj.parameters)
-            && obj.parameters.length === 1
-            && typeof obj.parameters[0].name === 'string'
-            && typeof obj.type === 'object'
-        );
-    }
-
-    export function isIndexSignatureLiteralDecl(obj: any): obj is IndexSignatureLiteralDecl {
-        return (typeof obj === 'object'
-            && obj.kindString === KindString.TypeLiteral
-            && !('children' in obj)
-            && !('signatures' in obj)
-            && isIndexSignatureDecl(obj.indexSignature)
         );
     }
 }

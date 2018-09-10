@@ -19,7 +19,7 @@ describe('TSDoc Reflector, Test types', () => {
     let jsonSource = '';
     let jsonObj: any = {};
     let reflector: Reflector;
-
+    let thisModule: ModuleMirror;
     beforeAll(async () => {
         return fs.readFile(__dirname + '/self-test-types.json', 'UTF8')
             .then(contents => { jsonSource = contents });
@@ -28,7 +28,14 @@ describe('TSDoc Reflector, Test types', () => {
     beforeEach(() => {
         jsonObj = JSON.parse(jsonSource);
         reflector = typedocReflector(jsonObj);
+        thisModule = reflector.modules.find(member => member.originalName.indexOf(__filename) >= 0);
     });
+
+    test('thismodule member names', () => {
+        const names = thisModule.members.map(member => member.name).sort();
+
+        assert.equal(names.join(', '), 'Fragment1, Fragment2, IndexSig1, IndexSig2, IndexSig3, TestClass1, TestIntersection, indexSig4, nameComparator', 'member names');
+    })
 
     describe('TestClass1', () => {
 
@@ -96,13 +103,13 @@ describe('TSDoc Reflector, Test types', () => {
             assert.equal(prop.readable, true, 'readable?');
             assert.equal(prop.writeable, true, 'writeable?');
             assert(prop.type, 'must have a type');
-            
+
             let aType = prop.type;
 
             if (!reflector.isTypeAlias(aType)) {
                 throw new Error(`should be alias, got ${aType.constructor.name}`);
             }
-          
+
             assert.equal(aType.mirrorKind, MirrorKind.TypeAlias, 'mirrorKind should be type alias');
 
             aType = aType.targetDefinition;
@@ -118,11 +125,8 @@ describe('TSDoc Reflector, Test types', () => {
     describe('TestIntersection', () => {
 
         let mirror: IntersectionMirror;
-        let thisModule: ModuleMirror;
 
         beforeEach(() => {
-            const modules = reflector.modules;
-            thisModule = modules.find(member => member.originalName.indexOf(__filename) >= 0);
             const namedType = thisModule && thisModule.members.find(member => member.name === 'TestIntersection');
             mirror = reflector.isTypeAlias(namedType) ? namedType.targetDefinition as any : undefined;
         })
@@ -153,8 +157,112 @@ describe('TSDoc Reflector, Test types', () => {
         });
     });
 
-    // TODO: Tests for IndexSignature as a literal
-    // TODO: Tests for IndexSignature as part of an interface
+    describe('Index Signatures', () => {
+
+        let sig1;
+        let sig2;
+        let sig3;
+        let sig4;
+
+        beforeEach(() => {
+            const members = thisModule.members;
+            sig1 = members.find(m => m.name === 'IndexSig1');
+            sig2 = members.find(m => m.name === 'IndexSig2');
+            sig3 = members.find(m => m.name === 'IndexSig3');
+            sig4 = members.find(m => m.name === 'indexSig4');
+        });
+
+        test('sig1', () => {
+            assert(sig1, 'found sig1');
+            if (!reflector.isInterface(sig1)) {
+                throw new Error(`expected interface, got ${sig1.constructor.name}`);
+            }
+
+            const members = sig1.members;
+            assert.equal(members.length, 0, 'should have no members');
+
+            const indexSig = sig1.indexSignature;
+            assert(indexSig, 'should have index signature');
+
+            const indexType = indexSig.indexType;
+            const valueType = indexSig.valueType;
+
+            assert(indexType, 'should have index type');
+            assert(valueType, 'should have value type');
+
+            assert.equal(indexType.isBuiltin, true, 'index type builtin?');
+            assert.equal(indexType.name, 'string', 'index type name');
+
+            assert.equal(valueType.isBuiltin, true, 'index type builtin?');
+            assert.equal(valueType.name, 'any', 'index type name');
+        });
+
+        test('sig2', () => {
+            assert(sig2, 'found sig2');
+            if (!reflector.isInterface(sig2)) {
+                throw new Error(`expected interface, got ${sig2.constructor.name}`);
+            }
+
+            const members = sig2.members;
+            assert.equal(members.length, 1, 'should have 1 member');
+
+            const prop = sig2.properties[0];
+            assert(prop, 'should have a prop');
+            assert.equal(prop.name, 'foo', 'prop name');
+            assert.equal(prop.type.name, 'string', 'prop type');
+
+            const indexSig = sig2.indexSignature;
+            assert(indexSig, 'should have index signature');
+
+            const indexType = indexSig.indexType;
+            const valueType = indexSig.valueType;
+
+            assert(indexType, 'should have index type');
+            assert(valueType, 'should have value type');
+
+            assert.equal(indexType.isBuiltin, true, 'index type builtin?');
+            assert.equal(indexType.name, 'string', 'index type name');
+
+            assert.equal(valueType.isBuiltin, true, 'index type builtin?');
+            assert.equal(valueType.name, 'any', 'index type name');
+        });
+
+        test('sig3', () => {
+            assert(sig3, 'found sig 3');
+
+            if (!reflector.isTypeAlias(sig3)) {
+                throw new Error(`expected type alias, found a ${sig3.constructor.name}`);
+            }
+
+            const iface = sig3.targetDefinition;
+
+            if (!reflector.isInterfaceLiteral(iface)) {
+                throw new Error(`Expected interface literal, got a ${iface.constructor.name}`);
+            }
+
+            assert.equal(iface.members.length, 1, 'should have one normal member');
+            assert(iface.indexSignature, 'should have an index signature');
+        });
+
+        test('sig4', () => {
+            assert(sig4, 'found sig 4');
+
+            if (!reflector.isProperty(sig4)) {
+                throw new Error(`expected property, found a ${sig4.constructor.name}`);
+            }
+
+            const type = sig4.type;
+
+            if (!reflector.isInterfaceLiteral(type)) {
+                throw new Error(`Expected interface literal got ${type.constructor.name}`);
+            }
+
+            assert.equal(type.members.length, 0, 'should have no normal members');
+            assert(type.indexSignature, 'should have index sig');
+        });
+
+    });
+
     // TODO: find and test usage of flags.isOptional
     // TODO: find and test usage of flags.isStatic
     // TODO: make a circular type (like a linked list or tree), export that as JSON and make sure we can reflect on it
@@ -175,6 +283,7 @@ class TestClass1 {
 
     set prop3(aDate: Date) {
         console.log('set date', aDate);
+        console.log('indexSig4 is', indexSig4);
     }
 
     get prop4(): string {
@@ -197,3 +306,17 @@ interface Fragment2 {
 }
 
 type TestIntersection = Fragment1 & Fragment2;
+
+interface IndexSig1 { [k: string]: any };
+
+interface IndexSig2 {
+    foo: string;
+    [k: string]: any;
+};
+
+type IndexSig3 = {
+    bar: number;
+    [k: string]: any;
+}
+
+export let indexSig4: { [k: string]: any } = {};

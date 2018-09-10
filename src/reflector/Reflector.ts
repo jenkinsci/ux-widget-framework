@@ -255,6 +255,13 @@ export interface ObjectLiteralMirror extends TypeMirror {
      * Properties of this literal
      */
     readonly properties: Array<PropertyMirror>;
+
+    /** 
+     * Index Signature, if present
+     */
+    readonly indexSignature?: IndexSignature;
+
+    // TODO: Methods
 }
 
 /**
@@ -286,6 +293,11 @@ export interface InterfaceLike extends TypeMirror {
      * Methods 
      */
     readonly methods: Array<CallableMirror>;
+
+    /** 
+     * Index Signature, if present
+     */
+    readonly indexSignature?: IndexSignature;
 }
 
 /**
@@ -428,11 +440,11 @@ export interface TypeParameter extends TypeMirror {
 }
 
 /**
- * Represents an index signature for an interface
+ * Represents an index signature on an interface
  * 
- * Index signatures take the form of `{[k: IndexType]: ValueType}` where IndexType is string or number (as of TS3), and ValueType is anything
+ * Index signatures take the form of `[k: IndexType]: ValueType` where IndexType is string or number (as of TS3), and ValueType is anything
  */
-export interface IndexSignature extends TypeMirror {
+export interface IndexSignature {
     mirrorKind: MirrorKind.IndexSignature;
 
     readonly indexType: TypeMirror;

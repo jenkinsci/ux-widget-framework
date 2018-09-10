@@ -198,10 +198,6 @@ class TypedocJSONReflector implements Reflector {
             return new TypedocCallableMirror(this, decl);
         }
 
-        if (InputJSON.isIndexSignatureLiteralDecl(decl)) {
-            return new TypedocIndexSignatureMirror(this, decl);
-        }
-
         throw new Error(`describeTypeForDecl(): do not understand decl:\n${JSON.stringify(decl, null, 4)}`);
     }
 
@@ -449,23 +445,28 @@ abstract class TypeMirrorBase<D> {
 /**
  * Base for class and interface impls
  */
-abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.InterfaceDecl> implements InterfaceLike {
+abstract class TypedocInterfaceMirrorBase<D extends InputJSON.InterfaceLikeDecl> extends TypeMirrorBase<D> implements InterfaceLike {
 
     readonly isComplex = true;
     readonly isPrimitive = false;
     readonly typeArguments: Array<TypeMirror>;
+    readonly indexSignature?: IndexSignature;
     abstract readonly isBuiltin: boolean;
     abstract readonly mirrorKind: MirrorKind;
 
     propertyNames: Array<string> = [];
 
-    constructor(reflector: TypedocJSONReflector, definition: InputJSON.InterfaceDecl) {
+    constructor(reflector: TypedocJSONReflector, definition: D) {
         super(reflector, definition);
 
         if (definition.children) {
             this.propertyNames = definition.children
                 .filter(child => InputJSON.isPropertyDecl(child))
                 .map(child => child.name);
+        }
+
+        if (definition.indexSignature) {
+            this.indexSignature = new TypedocIndexSignatureMirror(reflector, definition.indexSignature);
         }
 
         this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
@@ -531,20 +532,20 @@ abstract class TypedocInterfaceMirrorBase extends TypeMirrorBase<InputJSON.Inter
     }
 }
 
-class TypedocInterfaceMirror extends TypedocInterfaceMirrorBase implements InterfaceMirror {
+class TypedocInterfaceMirror extends TypedocInterfaceMirrorBase<InputJSON.InterfaceDecl> implements InterfaceMirror {
     mirrorKind: MirrorKind.Interface = MirrorKind.Interface;
 
     readonly isAbstract = true;
     readonly isBuiltin = false;
 }
 
-class TypedocInterfaceLiteralMirror extends TypedocInterfaceMirrorBase implements InterfaceLiteralMirror {
+class TypedocInterfaceLiteralMirror extends TypedocInterfaceMirrorBase<InputJSON.InterfaceLiteralDecl> implements InterfaceLiteralMirror {
     mirrorKind: MirrorKind.InterfaceLiteral = MirrorKind.InterfaceLiteral;
 
     readonly isBuiltin = false;
 }
 
-class TypedocClassMirror extends TypedocInterfaceMirrorBase implements ClassMirror {
+class TypedocClassMirror extends TypedocInterfaceMirrorBase<InputJSON.ClassDecl> implements ClassMirror {
     mirrorKind: MirrorKind.Class = MirrorKind.Class;
 
     get isBuiltin() {
@@ -984,19 +985,13 @@ class TypedocTypeOperator implements TypeMirror {
 }
 
 class TypedocIndexSignatureMirror implements IndexSignature {
-    readonly isComplex = true;
-    readonly isBuiltin = false;
-    readonly isPrimitive = false;
-    readonly name = undefined;
-    readonly typeArguments: Array<TypeMirror> = [];
-
     readonly mirrorKind: MirrorKind.IndexSignature = MirrorKind.IndexSignature;
 
     readonly indexType: TypeMirror;
     readonly valueType: TypeMirror;
 
-    constructor(reflector: TypedocJSONReflector, definition: InputJSON.IndexSignatureLiteralDecl) {
-        this.indexType = reflector.describeTypeForTypeDetails(definition.indexSignature.parameters[0].type);
-        this.valueType = reflector.describeTypeForTypeDetails(definition.indexSignature.type);
+    constructor(reflector: TypedocJSONReflector, definition: InputJSON.IndexSignatureDecl) {
+        this.indexType = reflector.describeTypeForTypeDetails(definition.parameters[0].type);
+        this.valueType = reflector.describeTypeForTypeDetails(definition.type);
     }
 }
