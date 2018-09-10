@@ -40,6 +40,7 @@ export interface Reflector {
     isInterface(mirror: any): mirror is InterfaceMirror;
     isInterfaceLike(mirror: any): mirror is InterfaceLike;
     isInterfaceLiteral(mirror: any): mirror is InterfaceLiteralMirror;
+    isIntersection(mirror: any): mirror is IntersectionMirror;
     isModule(mirror: any): mirror is ModuleMirror;
     isNamespace(mirror: any): mirror is NamespaceMirror;
     isObjectLiteral(mirror: any): mirror is ObjectLiteralMirror;
@@ -59,6 +60,7 @@ export enum MirrorKind {
     IndexSignature = 'IndexSignature',
     Interface = 'Interface',
     InterfaceLiteral = 'InterfaceLiteral',
+    Intersection = 'Intersection',
     Method = 'Method',
     Module = 'Module',
     Namespace = 'Namespace',
@@ -340,6 +342,15 @@ export interface PropertyMirror extends SupportsDocComments {
  */
 export interface UnionMirror extends TypeMirror {
     mirrorKind: MirrorKind.Union;
+
+    readonly members: Array<TypeMirror>;
+}
+
+/** 
+ * Represents a Union
+ */
+export interface IntersectionMirror extends TypeMirror {
+    mirrorKind: MirrorKind.Intersection;
 
     readonly members: Array<TypeMirror>;
 }

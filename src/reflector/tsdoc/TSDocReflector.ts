@@ -1,4 +1,4 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember, TypeParameter, MirrorKind, IndexSignature } from "../Reflector";
+import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember, TypeParameter, MirrorKind, IndexSignature, IntersectionMirror } from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
@@ -270,6 +270,11 @@ class TypedocJSONReflector implements Reflector {
             return new TypedocUnionMirror(this, types);
         }
 
+        if (InputJSON.isIntersectionDecl(typeDetails)) {
+            const types: Array<TypeMirror> = typeDetails.types.map(branchDetails => this.describeTypeForTypeDetails(branchDetails));
+            return new TypedocIntersectionMirror(this, types);
+        }
+
         if (InputJSON.isStringLiteral(typeDetails)) {
             return new TypedocStringLiteral(typeDetails.value);
         }
@@ -317,6 +322,10 @@ class TypedocJSONReflector implements Reflector {
 
     isUnion(mirror: any): mirror is UnionMirror {
         return mirror instanceof TypedocUnionMirror;
+    }
+
+    isIntersection(mirror: any): mirror is IntersectionMirror {
+        return mirror instanceof TypedocIntersectionMirror;
     }
 
     isCallable(mirror: any): mirror is CallableMirror {
@@ -731,6 +740,22 @@ class TypedocAliasMirror extends TypeMirrorBase<InputJSON.TypeAliasDecl> impleme
 
 class TypedocUnionMirror implements UnionMirror {
     mirrorKind: MirrorKind.Union = MirrorKind.Union;
+    isComplex: boolean = true;
+    isBuiltin: boolean = true;
+    isPrimitive: boolean = false;
+    members: Array<TypeMirror>;
+    readonly typeArguments: Array<TypeMirror> = [];
+
+    protected reflector: TypedocJSONReflector;
+
+    constructor(reflector: TypedocJSONReflector, types: Array<TypeMirror>) {
+        this.reflector = reflector;
+        this.members = types;
+    }
+}
+
+class TypedocIntersectionMirror implements IntersectionMirror {
+    mirrorKind: MirrorKind.Intersection = MirrorKind.Intersection;
     isComplex: boolean = true;
     isBuiltin: boolean = true;
     isPrimitive: boolean = false;

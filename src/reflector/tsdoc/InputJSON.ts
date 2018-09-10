@@ -49,8 +49,6 @@ export namespace InputJSON {
         );
     }
 
-    // export type InterfaceChild = PropertyDecl; // TODO: Add method / constructor to union
-
     export interface InterfaceLikeDecl extends BaseDecl {
         readonly children?: Array<BaseDecl>;
     }
@@ -183,23 +181,23 @@ export namespace InputJSON {
         );
     }
 
+    // TODO: Keep this up to date!
     export type TypeDetails =
         | IntrinsicRef
         | InternalTypeReference
         | ExternalTypeReference
         | UnionDecl
+        | IntersectionDecl
         | ReflectionDecl;
 
     export interface InternalTypeReference {
         type: 'reference';
         id: number;
-        // TODO: Type params
     }
 
     export interface ExternalTypeReference extends CanHazTypeArgs {
         type: 'reference';
         name: string;
-        // TODO: Type params
     }
 
     export function isInternalTypeReference(obj: any): obj is InternalTypeReference {
@@ -237,6 +235,18 @@ export namespace InputJSON {
     export function isUnionDecl(obj: any): obj is UnionDecl {
         return (typeof obj === 'object'
             && obj.type === 'union'
+            && Array.isArray(obj.types)
+        );
+    }
+
+    export interface IntersectionDecl {
+        type: 'intersection';
+        types: Array<TypeDetails>;
+    }
+
+    export function isIntersectionDecl(obj:any):obj is IntersectionDecl {
+        return (typeof obj === 'object'
+            && obj.type === 'intersection'
             && Array.isArray(obj.types)
         );
     }
