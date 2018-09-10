@@ -32225,7 +32225,7 @@
 							"sources": [
 								{
 									"fileName": "test/reflector/Reflector-self.test.ts",
-									"line": 103,
+									"line": 170,
 									"character": 9
 								}
 							],
@@ -32234,6 +32234,25 @@
 								"name": "string"
 							},
 							"defaultValue": "\"prop1 default value\""
+						},
+						{
+							"id": 1260,
+							"name": "prop5",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "test/reflector/Reflector-self.test.ts",
+									"line": 188,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "TestIntersection",
+								"id": 1269
+							}
 						},
 						{
 							"id": 1251,
@@ -32255,7 +32274,7 @@
 							"sources": [
 								{
 									"fileName": "test/reflector/Reflector-self.test.ts",
-									"line": 105,
+									"line": 172,
 									"character": 13
 								}
 							]
@@ -32293,7 +32312,7 @@
 							"sources": [
 								{
 									"fileName": "test/reflector/Reflector-self.test.ts",
-									"line": 109,
+									"line": 176,
 									"character": 13
 								}
 							]
@@ -32342,12 +32361,12 @@
 							"sources": [
 								{
 									"fileName": "test/reflector/Reflector-self.test.ts",
-									"line": 113,
+									"line": 180,
 									"character": 13
 								},
 								{
 									"fileName": "test/reflector/Reflector-self.test.ts",
-									"line": 117,
+									"line": 184,
 									"character": 13
 								}
 							]
@@ -32358,7 +32377,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								1250
+								1250,
+								1260
 							]
 						},
 						{
@@ -32374,8 +32394,189 @@
 					"sources": [
 						{
 							"fileName": "test/reflector/Reflector-self.test.ts",
-							"line": 102,
+							"line": 169,
 							"character": 16
+						}
+					]
+				},
+				{
+					"id": 1261,
+					"name": "Fragment1",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 1262,
+							"name": "foo",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "test/reflector/Reflector-self.test.ts",
+									"line": 192,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								1262
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "test/reflector/Reflector-self.test.ts",
+							"line": 191,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 1263,
+					"name": "Fragment2",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 1264,
+							"name": "bar",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "test/reflector/Reflector-self.test.ts",
+									"line": 196,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								1264
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "test/reflector/Reflector-self.test.ts",
+							"line": 195,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 1269,
+					"name": "TestIntersection",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "test/reflector/Reflector-self.test.ts",
+							"line": 199,
+							"character": 21
+						}
+					],
+					"type": {
+						"type": "intersection",
+						"types": [
+							{
+								"type": "reference",
+								"name": "Fragment1",
+								"id": 1261
+							},
+							{
+								"type": "reference",
+								"name": "Fragment2",
+								"id": 1263
+							}
+						]
+					}
+				},
+				{
+					"id": 1265,
+					"name": "nameComparator",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isConst": true
+					},
+					"signatures": [
+						{
+							"id": 1266,
+							"name": "nameComparator",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 1267,
+									"name": "a",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								},
+								{
+									"id": 1268,
+									"name": "b",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "unknown",
+										"name": "1"
+									},
+									{
+										"type": "unknown",
+										"name": "-1"
+									},
+									{
+										"type": "unknown",
+										"name": "0"
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "test/reflector/Reflector-self.test.ts",
+							"line": 7,
+							"character": 20
 						}
 					]
 				}
@@ -32386,6 +32587,28 @@
 					"kind": 128,
 					"children": [
 						1249
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						1261,
+						1263
+					]
+				},
+				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						1269
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						1265
 					]
 				}
 			],
@@ -32398,7 +32621,7 @@
 			]
 		},
 		{
-			"id": 1260,
+			"id": 1270,
 			"name": "\"test/reflector/Reflector-walk.test\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -32408,7 +32631,7 @@
 			"originalName": "/Users/josh/cloudbees/ux-widget-framework/test/reflector/Reflector-walk.test.ts",
 			"children": [
 				{
-					"id": 1261,
+					"id": 1271,
 					"name": "MAX_DEPTH",
 					"kind": 32,
 					"kindString": "Variable",
@@ -32429,21 +32652,21 @@
 					"defaultValue": "50"
 				},
 				{
-					"id": 1270,
+					"id": 1280,
 					"name": "assertDepth",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1271,
+							"id": 1281,
 							"name": "assertDepth",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1272,
+									"id": 1282,
 									"name": "depth",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32469,21 +32692,21 @@
 					]
 				},
 				{
-					"id": 1266,
+					"id": 1276,
 					"name": "assertNever",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1267,
+							"id": 1277,
 							"name": "assertNever",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1268,
+									"id": 1278,
 									"name": "x",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32494,7 +32717,7 @@
 									}
 								},
 								{
-									"id": 1269,
+									"id": 1279,
 									"name": "sender",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32520,21 +32743,21 @@
 					]
 				},
 				{
-					"id": 1279,
+					"id": 1289,
 					"name": "assertTypeBasics",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1280,
+							"id": 1290,
 							"name": "assertTypeBasics",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1281,
+									"id": 1291,
 									"name": "reflector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32546,7 +32769,7 @@
 									}
 								},
 								{
-									"id": 1282,
+									"id": 1292,
 									"name": "mirror",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32558,7 +32781,7 @@
 									}
 								},
 								{
-									"id": 1283,
+									"id": 1293,
 									"name": "depth",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32569,7 +32792,7 @@
 									}
 								},
 								{
-									"id": 1284,
+									"id": 1294,
 									"name": "path",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32589,27 +32812,27 @@
 					"sources": [
 						{
 							"fileName": "test/reflector/Reflector-walk.test.ts",
-							"line": 103,
+							"line": 104,
 							"character": 25
 						}
 					]
 				},
 				{
-					"id": 1303,
+					"id": 1313,
 					"name": "walkCallable",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1304,
+							"id": 1314,
 							"name": "walkCallable",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1305,
+									"id": 1315,
 									"name": "reflector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32621,7 +32844,7 @@
 									}
 								},
 								{
-									"id": 1306,
+									"id": 1316,
 									"name": "mirror",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32633,7 +32856,7 @@
 									}
 								},
 								{
-									"id": 1307,
+									"id": 1317,
 									"name": "depth",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32644,7 +32867,7 @@
 									}
 								},
 								{
-									"id": 1308,
+									"id": 1318,
 									"name": "path",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32664,27 +32887,27 @@
 					"sources": [
 						{
 							"fileName": "test/reflector/Reflector-walk.test.ts",
-							"line": 177,
+							"line": 187,
 							"character": 21
 						}
 					]
 				},
 				{
-					"id": 1297,
+					"id": 1307,
 					"name": "walkEnum",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1298,
+							"id": 1308,
 							"name": "walkEnum",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1299,
+									"id": 1309,
 									"name": "reflector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32696,7 +32919,7 @@
 									}
 								},
 								{
-									"id": 1300,
+									"id": 1310,
 									"name": "mirror",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32708,7 +32931,7 @@
 									}
 								},
 								{
-									"id": 1301,
+									"id": 1311,
 									"name": "depth",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32719,7 +32942,7 @@
 									}
 								},
 								{
-									"id": 1302,
+									"id": 1312,
 									"name": "path",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32739,27 +32962,27 @@
 					"sources": [
 						{
 							"fileName": "test/reflector/Reflector-walk.test.ts",
-							"line": 164,
+							"line": 174,
 							"character": 17
 						}
 					]
 				},
 				{
-					"id": 1291,
+					"id": 1301,
 					"name": "walkInterfaceLike",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1292,
+							"id": 1302,
 							"name": "walkInterfaceLike",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1293,
+									"id": 1303,
 									"name": "reflector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32771,7 +32994,7 @@
 									}
 								},
 								{
-									"id": 1294,
+									"id": 1304,
 									"name": "mirror",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32793,7 +33016,7 @@
 									}
 								},
 								{
-									"id": 1295,
+									"id": 1305,
 									"name": "depth",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32804,7 +33027,7 @@
 									}
 								},
 								{
-									"id": 1296,
+									"id": 1306,
 									"name": "path",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32824,27 +33047,27 @@
 					"sources": [
 						{
 							"fileName": "test/reflector/Reflector-walk.test.ts",
-							"line": 127,
+							"line": 137,
 							"character": 26
 						}
 					]
 				},
 				{
-					"id": 1273,
+					"id": 1283,
 					"name": "walkNS",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1274,
+							"id": 1284,
 							"name": "walkNS",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1275,
+									"id": 1285,
 									"name": "reflector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32856,7 +33079,7 @@
 									}
 								},
 								{
-									"id": 1276,
+									"id": 1286,
 									"name": "ns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32878,7 +33101,7 @@
 									}
 								},
 								{
-									"id": 1277,
+									"id": 1287,
 									"name": "depth",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32889,7 +33112,7 @@
 									}
 								},
 								{
-									"id": 1278,
+									"id": 1288,
 									"name": "path",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32915,21 +33138,21 @@
 					]
 				},
 				{
-					"id": 1285,
+					"id": 1295,
 					"name": "walkProperty",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1286,
+							"id": 1296,
 							"name": "walkProperty",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1287,
+									"id": 1297,
 									"name": "reflector",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32941,7 +33164,7 @@
 									}
 								},
 								{
-									"id": 1288,
+									"id": 1298,
 									"name": "mirror",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32953,7 +33176,7 @@
 									}
 								},
 								{
-									"id": 1289,
+									"id": 1299,
 									"name": "depth",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32964,7 +33187,7 @@
 									}
 								},
 								{
-									"id": 1290,
+									"id": 1300,
 									"name": "path",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -32984,27 +33207,27 @@
 					"sources": [
 						{
 							"fileName": "test/reflector/Reflector-walk.test.ts",
-							"line": 118,
+							"line": 128,
 							"character": 21
 						}
 					]
 				},
 				{
-					"id": 1262,
+					"id": 1272,
 					"name": "walkReflector",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 1263,
+							"id": 1273,
 							"name": "walkReflector",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 1264,
+									"id": 1274,
 									"name": "name",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -33015,7 +33238,7 @@
 									}
 								},
 								{
-									"id": 1265,
+									"id": 1275,
 									"name": "filepath",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -33046,22 +33269,22 @@
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						1261
+						1271
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						1270,
-						1266,
-						1279,
-						1303,
-						1297,
-						1291,
-						1273,
-						1285,
-						1262
+						1280,
+						1276,
+						1289,
+						1313,
+						1307,
+						1301,
+						1283,
+						1295,
+						1272
 					]
 				}
 			],
@@ -33074,7 +33297,7 @@
 			]
 		},
 		{
-			"id": 1309,
+			"id": 1319,
 			"name": "\"test/reflector/Reflector.test\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -33102,8 +33325,8 @@
 				655,
 				324,
 				1248,
-				1260,
-				1309
+				1270,
+				1319
 			]
 		}
 	]

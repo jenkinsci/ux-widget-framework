@@ -595,12 +595,4 @@ describe('TSDoc Reflector, PoC types', () => {
         testClass('SvgStatus');
         testClass('TruncatingLabel');
     });
-   
-    // TODO: Find an example getter in self-types, make sure we can reflect it as a property
-
-    // TODO: find and test usage of flags.isOptional
-    // TODO: find and test usage of flags.isStatic
-    // TODO: Walk all the modules, make sure we can construct every def
-    // TODO: Repeat for the self-types def, and inspect some interesting cases
-    // TODO: make a circular type (like a linked list or tree), export that as JSON and make sure we can reflect on it
 });

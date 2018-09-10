@@ -2,7 +2,7 @@
 import * as fs from '../../src/fsPromises';
 import * as assert from 'assert';
 import { typedocReflector } from '../../src/reflector/tsdoc/TSDocReflector';
-import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror, NamespaceMirror, EnumMirror, InterfaceLike, ObjectLiteralMirror, CallableMirror } from '../../src/reflector/Reflector';
+import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror, NamespaceMirror, EnumMirror, InterfaceLike, ObjectLiteralMirror, CallableMirror, MirrorKind } from '../../src/reflector/Reflector';
 
 const MAX_DEPTH = 50;
 
@@ -60,6 +60,7 @@ function walkNS(reflector: Reflector, ns: ModuleMirror | NamespaceMirror, depth:
     assertDepth(depth);
     const currentPath = `${path} ${ns.name}`;
 
+    // TODO: extract a "walk members" function that we can also call from typebasics?
     for (const member of ns.members) {
         assert(member, 'no missing members');
         assert.equal(typeof member.mirrorKind, 'string', 'Must have a mirrorKind');
@@ -104,6 +105,9 @@ function assertTypeBasics(reflector: Reflector, mirror: TypeMirror, depth: numbe
     assertDepth(depth);
     const currentPath = `${path} ${mirror.name}`;
 
+    if ('members' in mirror) {
+        assert((mirror as any).members, `${currentPath} - no missing members arrays`);
+    }
 
     for (const arg of mirror.typeArguments) {
         assert(arg, 'type args should exist');
@@ -112,6 +116,12 @@ function assertTypeBasics(reflector: Reflector, mirror: TypeMirror, depth: numbe
 
     if (reflector.isInterfaceLiteral(mirror)) {
         walkInterfaceLike(reflector, mirror, depth + 1, currentPath);
+    }
+
+    if (reflector.isUnion(mirror) || reflector.isIntersection(mirror)) {
+        for (const type of mirror.members) {
+            assertTypeBasics(reflector, type, depth + 1, currentPath);
+        }
     }
 }
 
