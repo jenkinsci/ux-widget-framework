@@ -118,3 +118,13 @@ class TestClass1 {
         console.log('set prop4', aNewValue);
     }
 }
+
+interface Fragment1 {
+    foo: string;
+}
+
+interface Fragment2 {
+    bar: number;
+}
+
+type TestIntersection = Fragment1 & Fragment2;
