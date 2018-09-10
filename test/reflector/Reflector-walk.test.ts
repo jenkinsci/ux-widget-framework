@@ -100,7 +100,7 @@ function walkNS(reflector: Reflector, ns: ModuleMirror | NamespaceMirror, depth:
     }
 }
 
-function assertTypeBasics(reflector, mirror: TypeMirror, depth: number, path:string) {
+function assertTypeBasics(reflector: Reflector, mirror: TypeMirror, depth: number, path:string) {
     assertDepth(depth);
     const currentPath = `${path} ${mirror.name}`;
 
@@ -110,7 +110,9 @@ function assertTypeBasics(reflector, mirror: TypeMirror, depth: number, path:str
         assertTypeBasics(reflector, arg, depth + 1, currentPath);
     }
 
-    // TODO: If type is a literal, explore it some
+    if (reflector.isInterfaceLiteral(mirror)) {
+        walkInterfaceLike(reflector, mirror, depth + 1, currentPath);
+    }
 }
 
 function walkProperty(reflector: Reflector, mirror: PropertyMirror, depth: number, path: string) {
