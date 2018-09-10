@@ -785,6 +785,7 @@ class TypedocCallableMirror extends TypeMirrorBase<InputJSON.SignaturesLiteralDe
 
     readonly isMethod: boolean;
     readonly isConstructor: boolean;
+    readonly isStatic: boolean;
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.SignaturesLiteralDecl) {
         super(reflector, definition);
@@ -793,6 +794,7 @@ class TypedocCallableMirror extends TypeMirrorBase<InputJSON.SignaturesLiteralDe
             this.name = definition.name;
         }
         this.typeArguments = reflector.decodeTypeArguments(definition.typeArguments);
+        this.isStatic = definition.flags && definition.flags.isStatic || false;
 
         if (definition.kindString === KindString.Method) {
             this.mirrorKind = MirrorKind.Method;

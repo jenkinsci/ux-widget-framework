@@ -139,6 +139,14 @@ describe('TSDoc Reflector, Test types', () => {
             assert.equal(prop.mirrorKind, MirrorKind.Accessor, 'mirrorKind');
             assert.equal(prop.isStatic, true, 'static?');
         });
+
+        test('method.isStatic', () => {
+            const methods = mirror.methods.sort(nameComparator);
+            assert.equal(methods.length, 2, 'methods count');
+
+            assert.equal(methods[0].isStatic, false, 'method 0 static?');
+            assert.equal(methods[1].isStatic, true, 'method 1 static?');
+        })
     });
 
     describe('TestIntersection', () => {

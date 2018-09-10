@@ -379,7 +379,13 @@ export interface CallableMirror extends TypeMirror {
 
     readonly isMethod: boolean;
     readonly isConstructor: boolean;
-    // TODO: isStaticMethod: boolean;
+
+    /**
+     * Is a static member on a class?
+     * 
+     * Meaningless for constructors / functions / methods on literals
+     */
+    readonly isStatic: boolean;
 }
 
 /**
