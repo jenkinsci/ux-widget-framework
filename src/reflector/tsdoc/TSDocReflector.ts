@@ -614,6 +614,7 @@ class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> imple
     readonly readable: boolean;
     readonly writeable: boolean;
     readonly name!: string; // All properties have a name, but is set by super constructor
+    readonly isStatic: boolean;
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.PropertyDecl) {
         super(reflector, definition);
@@ -622,13 +623,14 @@ class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> imple
             throw new Error(`TypedocJSONPropertyMirror does not know about kind "${definition.kindString}"`);
         }
 
-
         if (definition.kindString === KindString.Property || definition.kindString === KindString.Variable) {
             this.readable = true;
             this.writeable = !(definition.flags && definition.flags.isConst);
         } else {
             throw new Error(`TODO: calculate readable and writeable for kind ${definition.kindString}`);
         }
+
+        this.isStatic = definition.flags && definition.flags.isStatic || false;
     }
 
     get type(): TypeMirror {
@@ -651,11 +653,13 @@ class TypedocAccessorMirror extends TypeMirrorBase<InputJSON.AccessorDecl> imple
     defaultValue = undefined;
     readable: boolean;
     writeable: boolean;
+    isStatic: boolean;
 
     constructor(reflector: TypedocJSONReflector, definition: InputJSON.AccessorDecl) {
         super(reflector, definition);
         this.readable = !!definition.getSignature;
         this.writeable = !!definition.setSignature;
+        this.isStatic = definition.flags && definition.flags.isStatic || false;
     }
 
     get type(): TypeMirror {

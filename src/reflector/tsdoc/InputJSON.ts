@@ -10,7 +10,11 @@ export namespace InputJSON {
         readonly name: string;
         readonly kind: number;
         readonly kindString: KindString;
-        // TODO: readonly flags: Flags;
+        readonly flags?: Flags;
+    }
+
+    interface Flags {
+        [k: string]: boolean;
     }
 
     export function isBaseDecl(obj: any): obj is BaseDecl {
@@ -19,7 +23,6 @@ export namespace InputJSON {
             && typeof obj.name === 'string'
             && typeof obj.kind === 'number'
             && typeof obj.kindString === 'string'
-            //TODO: && isFlags(obj.flags)
         );
     }
 

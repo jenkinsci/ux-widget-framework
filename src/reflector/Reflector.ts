@@ -347,6 +347,7 @@ export interface PropertyMirror extends SupportsDocComments {
 
     readonly readable: boolean;
     readonly writeable: boolean;
+    readonly isStatic: boolean;
 }
 
 /** 

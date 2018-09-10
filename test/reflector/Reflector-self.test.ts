@@ -62,7 +62,7 @@ describe('TSDoc Reflector, Test types', () => {
         test('properties', () => {
             const props = mirror.properties.sort(nameComparator);
 
-            assert.equal(props.length, 5, 'props count');
+            assert.equal(props.length, 7, 'props count');
 
             let prop = props[0];
             assert.equal(reflector.isProperty(prop), true, 'is property');
@@ -70,6 +70,7 @@ describe('TSDoc Reflector, Test types', () => {
             assert.equal(prop.name, 'prop1', 'name');
             assert.equal(prop.readable, true, 'readable?');
             assert.equal(prop.writeable, true, 'writeable?');
+            assert.equal(prop.isStatic, false, 'static?');
             assert(prop.type, 'must have a type');
 
             prop = props[1];
@@ -78,6 +79,7 @@ describe('TSDoc Reflector, Test types', () => {
             assert.equal(prop.name, 'prop2', 'name');
             assert.equal(prop.readable, true, 'readable?');
             assert.equal(prop.writeable, false, 'writeable?');
+            assert.equal(prop.isStatic, false, 'static?');
             assert(prop.type, 'must have a type');
 
             prop = props[2];
@@ -86,6 +88,7 @@ describe('TSDoc Reflector, Test types', () => {
             assert.equal(prop.name, 'prop3', 'name');
             assert.equal(prop.readable, false, 'readable?');
             assert.equal(prop.writeable, true, 'writeable?');
+            assert.equal(prop.isStatic, false, 'static?');
             assert(prop.type, 'must have a type');
 
             prop = props[3];
@@ -94,6 +97,7 @@ describe('TSDoc Reflector, Test types', () => {
             assert.equal(prop.name, 'prop4', 'name');
             assert.equal(prop.readable, true, 'readable?');
             assert.equal(prop.writeable, true, 'writeable?');
+            assert.equal(prop.isStatic, false, 'static?');
             assert(prop.type, 'must have a type');
 
             prop = props[4];
@@ -102,6 +106,7 @@ describe('TSDoc Reflector, Test types', () => {
             assert.equal(prop.name, 'prop5', 'name');
             assert.equal(prop.readable, true, 'readable?');
             assert.equal(prop.writeable, true, 'writeable?');
+            assert.equal(prop.isStatic, false, 'static?');
             assert(prop.type, 'must have a type');
 
             let aType = prop.type;
@@ -119,6 +124,20 @@ describe('TSDoc Reflector, Test types', () => {
             }
 
             assert.equal(aType.mirrorKind, MirrorKind.Intersection, 'mirrorKind should be intersection');
+
+            prop = props[5];
+            assert.equal(reflector.isProperty(prop), true, 'is property');
+            assert.equal(prop.mirrorKind, MirrorKind.Property, 'mirrorKind')
+            assert.equal(prop.name, 'prop6', 'name');
+            assert.equal(prop.readable, true, 'readable?');
+            assert.equal(prop.writeable, true, 'writeable?');
+            assert.equal(prop.isStatic, true, 'static?');
+
+            prop = props[6];
+            
+            assert.equal(reflector.isProperty(prop), true, 'is property');
+            assert.equal(prop.mirrorKind, MirrorKind.Accessor, 'mirrorKind');
+            assert.equal(prop.isStatic, true, 'static?');
         });
     });
 
@@ -264,7 +283,7 @@ describe('TSDoc Reflector, Test types', () => {
     });
 
     // TODO: find and test usage of flags.isOptional
-    // TODO: find and test usage of flags.isStatic
+    // TODO: find and test usage of flags.isStatic on method
     // TODO: make a circular type (like a linked list or tree), export that as JSON and make sure we can reflect on it
 
 });
@@ -295,6 +314,20 @@ class TestClass1 {
     }
 
     prop5: TestIntersection;
+
+    static prop6: string = 'nuts';
+
+    static get prop7(): string {
+        return 'foo';
+    }
+
+    meth1(input: any) {
+        console.log('meth1', input);
+    }
+
+    static meth2(input:any) {
+        console.log('meth2', input);
+    }
 }
 
 interface Fragment1 {
