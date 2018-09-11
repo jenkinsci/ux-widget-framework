@@ -1,9 +1,34 @@
-import { Reflector, PropertyMirror, InterfaceMirror, ClassMirror, TypeMirror, TypeAliasMirror, InterfaceLike, InterfaceLiteralMirror, UnionMirror, CallableMirror, CallableSignature, Parameter, ExternalTypeReference, EnumMirror, EnumMember, ModuleMirror, NamespaceMirror, NamespaceMember, ArrayMirror, StringLiteralMirror, ObjectLiteralMirror, InterfaceLikeMember, TypeParameter, MirrorKind, IndexSignature, IntersectionMirror } from "../Reflector";
+import {
+    Reflector,
+    PropertyMirror,
+    InterfaceMirror,
+    ClassMirror,
+    TypeMirror,
+    TypeAliasMirror,
+    InterfaceLike,
+    InterfaceLiteralMirror,
+    UnionMirror,
+    CallableMirror,
+    CallableSignature,
+    Parameter,
+    ExternalTypeReference,
+    EnumMirror,
+    EnumMember,
+    ModuleMirror,
+    NamespaceMirror,
+    NamespaceMember,
+    ArrayMirror,
+    StringLiteralMirror,
+    ObjectLiteralMirror,
+    InterfaceLikeMember,
+    TypeParameter,
+    MirrorKind,
+    IndexSignature,
+    IntersectionMirror
+} from "../Reflector";
 
 import { KindString, propertyKindStrings, typeDefKinds } from "./common";
 import { InputJSON } from "./InputJSON";
-
-// TODO: Replace all the `any`s with `unknown`s
 
 /**
  * Constructs a concrete Reflector impl based on the output from `TypeDoc --json` 
@@ -14,20 +39,6 @@ export function typedocReflector(jsonObj: any): Reflector {
     const reflector = new TypedocJSONReflector();
     reflector.readJSON(jsonObj);
     return reflector;
-}
-
-// TODO: Remove this, it's just to help flesh things out and develop the tests
-class UnImplementedTypeMirror implements TypeMirror {
-    mirrorKind = MirrorKind.Unknown;
-    isComplex: boolean = false;
-    isBuiltin: boolean = false;
-    isPrimitive: boolean = false;
-    typeArguments: Array<TypeMirror> = [];
-    name: string;
-
-    constructor(message: string) {
-        this.name = `UnImplementedTypeMirror for ${message}`;
-    }
 }
 
 interface NameAndId {
@@ -393,7 +404,6 @@ class TypedocJSONReflector implements Reflector {
  * Should be a mixin rather than a base class but there's no nice way to do that RN.
  */
 abstract class TypeMirrorBase<D> {
-    // TODO:   ^^^^^^^^^^^^^^ rename this
 
     // Basic stuff common by all
 
@@ -428,8 +438,7 @@ abstract class TypeMirrorBase<D> {
 
         // Set up doc comments if available
         if (InputJSON.isCanHazComment(definition)) {
-            const comment = (definition as InputJSON.CanHazComment).comment;
-            // TODO: shouldn't need     ^^^^^^^^^^^^^^^^^^^^^^^^^^
+            const comment = definition.comment;
 
             this.hasComment = !!comment;
             this.commentShortText = comment && comment.shortText || '';
@@ -631,7 +640,8 @@ class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> imple
             this.readable = true;
             this.writeable = !(definition.flags && definition.flags.isConst);
         } else {
-            throw new Error(`TODO: calculate readable and writeable for kind ${definition.kindString}`);
+            // Shouldn't get here
+            throw new Error(`Can't calculate readable and writeable for kind ${definition.kindString}`);
         }
 
         this.isStatic = definition.flags && definition.flags.isStatic || false;

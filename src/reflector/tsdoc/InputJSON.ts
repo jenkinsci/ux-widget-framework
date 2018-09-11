@@ -14,7 +14,12 @@ export namespace InputJSON {
     }
 
     interface Flags {
-        [k: string]: boolean;
+        isConst?: boolean,
+        isExported?: boolean,
+        isExternal?: boolean,
+        isOptional?: boolean,
+        isPrivate?: boolean,
+        isStatic?: boolean,
     }
 
     export function isBaseDecl(obj: any): obj is BaseDecl {
@@ -43,6 +48,7 @@ export namespace InputJSON {
     }
 
     export interface CanHazComment {
+        _CanHazComment: never;
         comment?: CommentDecl;
     }
 
@@ -196,7 +202,6 @@ export namespace InputJSON {
         );
     }
 
-    // TODO: Keep this up to date!
     export type TypeDetails =
         | IntrinsicRef
         | InternalTypeReference
@@ -278,22 +283,9 @@ export namespace InputJSON {
         );
     }
 
-    interface FlagsObj {
-        isConst?: boolean,
-        isExported?: boolean,
-        isExternal?: boolean,
-        isOptional?: boolean,
-        isPrivate?: boolean,
-        isStatic?: boolean,
-    }
-
     export interface PropertyDecl extends BaseDecl {
         readonly type: TypeDetails;
-        readonly flags?: FlagsObj;
-        // TODO: readonly inheritedFrom?: InheritedFromDecl;
         readonly defaultValue?: string;
-        // TODO: readonly overwrites?: OverwritesDecl;
-        // TODO: readonly implementationOf?: ImplementationOfDecl;
     }
 
     export function isPropertyDecl(obj: any): obj is PropertyDecl {
