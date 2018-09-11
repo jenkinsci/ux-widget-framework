@@ -146,8 +146,6 @@ export type InterfaceLikeMember =
     | PropertyMirror
     | CallableMirror
     ;
-// TODO: add to this!
-
 
 /**
  * Common members shared by external modules (source files) and TS namespaces
@@ -261,7 +259,10 @@ export interface ObjectLiteralMirror extends TypeMirror {
      */
     readonly indexSignature?: IndexSignature;
 
-    // TODO: Methods
+    /**
+     * Methods 
+     */
+    readonly methods: Array<CallableMirror>;
 }
 
 /**

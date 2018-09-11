@@ -606,6 +606,10 @@ class TypedocObjectLiteralMirror implements ObjectLiteralMirror {
     get properties(): Array<PropertyMirror> {
         return this.members.filter(member => this.reflector.isProperty(member)) as Array<PropertyMirror>;
     }
+
+    get methods(): Array<CallableMirror> {
+        return this.members.filter(member => this.reflector.isCallable(member)) as Array<CallableMirror>;
+    }
 }
 
 class TypedocPropertyMirror extends TypeMirrorBase<InputJSON.PropertyDecl> implements PropertyMirror {

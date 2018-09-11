@@ -34,7 +34,10 @@ describe('TSDoc Reflector, Test types', () => {
     test('thismodule member names', () => {
         const names = thisModule.members.map(member => member.name).sort();
 
-        assert.equal(names.join(', '), 'Fragment1, Fragment2, IndexSig1, IndexSig2, IndexSig3, TestClass1, TestIntersection, indexSig4, nameComparator', 'member names');
+        assert.equal(
+            names.join(', '), 
+            'Fragment1, Fragment2, IndexSig1, IndexSig2, IndexSig3, LinkedList, TestClass1, TestIntersection, indexSig4, nameComparator, objectLiteralProp', 
+            'member names');
     })
 
     describe('TestClass1', () => {
@@ -290,14 +293,35 @@ describe('TSDoc Reflector, Test types', () => {
 
     });
 
-    // TODO: find and test usage of flags.isOptional
-    // TODO: find and test usage of flags.isStatic on method
-    // TODO: make a circular type (like a linked list or tree), export that as JSON and make sure we can reflect on it
+    describe('objectLiteralProp', () => {
 
+        let mirror;
+
+        beforeEach(() => {
+            const members = thisModule.members;
+            mirror = members.find(m => m.name === 'objectLiteralProp');
+        });
+
+        test('get methods on object literals', () => {
+            assert(mirror, 'mirror found');
+
+            if (!reflector.isObjectLiteral(mirror)) {
+                throw new Error(`Expected object literal, found ${mirror.constructor.name}`);
+            }
+
+            const methods = mirror.methods;
+
+            assert(methods, 'found methods array');
+            assert.equal(methods.length, 1, 'method count');
+
+            const method = methods[0];
+            assert.equal(method.name, 'crystal', 'method name');
+        });
+    });
 });
 
 /**
- * This class isn't used directly, it's just here to be reflected on.
+ * The following decls aren't used directly, it's just here to be reflected on.
  * 
  * NB: run /generate-test-data.sh to update the stored json if you change this!
  */
@@ -361,3 +385,18 @@ type IndexSig3 = {
 }
 
 export let indexSig4: { [k: string]: any } = {};
+
+export interface LinkedList {
+    data: any;
+    head: LinkedList;
+    next?: LinkedList;
+}
+
+export const objectLiteralProp = {
+    prop0: 7,
+    prop1: "hello",
+
+    crystal(foo: string) {
+        console.log('foo was', foo);
+    }
+}

@@ -97,8 +97,6 @@ describe('TSDoc Reflector, PoC types', () => {
         assert.equal(propertyNames.join(', '),
             'context, props, refs, state, subscriptions',
             'propertyNames');
-
-        // TODO: Add and test an "all children names" alongside "propertynames"
     });
 
     test('describe property PipelineGraph.props', () => {
@@ -134,7 +132,6 @@ describe('TSDoc Reflector, PoC types', () => {
             assert.equal(propertyNames.join(', '),
                 'assetURLBase, layout, onNodeClick, resourceBundle, selectedStage, stages, trafficStateChanged',
                 'propertyNames');
-            // TODO: Add and test an "all children names" alongside "propertynames"
         });
 
         function testProp(name: string, f?: (PropertyMirror, TypeMirror) => void) {

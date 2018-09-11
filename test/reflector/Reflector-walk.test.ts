@@ -1,4 +1,10 @@
 
+/**
+ * This test suite basically just ensures we can walk the tree of definitions from all the included JSON files. 
+ * 
+ * Hopefully it should provide a safety net to catch anything glaring that's not specically tested for.
+ */
+
 import * as fs from '../../src/fsPromises';
 import * as assert from 'assert';
 import { typedocReflector } from '../../src/reflector/tsdoc/TSDocReflector';
@@ -59,8 +65,7 @@ function assertDepth(depth) {
 function walkNS(reflector: Reflector, ns: ModuleMirror | NamespaceMirror, depth: number, path: string) {
     assertDepth(depth);
     const currentPath = `${path} ${ns.name}`;
-
-    // TODO: extract a "walk members" function that we can also call from typebasics?
+    
     for (const member of ns.members) {
         assert(member, 'no missing members');
         assert.equal(typeof member.mirrorKind, 'string', 'Must have a mirrorKind');
@@ -123,6 +128,10 @@ function assertTypeBasics(reflector: Reflector, mirror: TypeMirror, depth: numbe
             assertTypeBasics(reflector, type, depth + 1, currentPath);
         }
     }
+
+    if (reflector.isObjectLiteral(mirror)) {
+        walkInterfaceLike(reflector, mirror, depth + 1, currentPath);
+    }
 }
 
 function walkProperty(reflector: Reflector, mirror: PropertyMirror, depth: number, path: string) {
@@ -158,7 +167,7 @@ function walkInterfaceLike(reflector: Reflector, mirror: InterfaceLike | ObjectL
     let count = 0;
     count = count + mirror.properties.length;
 
-    if (reflector.isInterfaceLike(mirror)) {
+    if (reflector.isInterfaceLike(mirror) || reflector.isObjectLiteral(mirror)) {
         count += mirror.methods.length;
     }
 
