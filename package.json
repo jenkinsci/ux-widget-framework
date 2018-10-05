@@ -1,7 +1,7 @@
 {
   "name": "@jenkins-cd/ux-widget-framework",
   "version": "0.0.1",
-  "main": "index.js",
+  "main": "lib/index.js",
   "repository": "https://github.com/jenkinsci/ux-widget-framework.git",
   "author": "Josh McDonald <josh@joshmcdonald.info>",
   "license": "MIT",
