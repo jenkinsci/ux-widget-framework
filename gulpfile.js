@@ -30,7 +30,7 @@ gulp.task('ts-build', () =>
 // Create the inner package.json within /dist for publishing
 gulp.task('make-dist-package', () => {
     const { createDistPackage } = require('./dist/build/distPackage');
-    return createDistPackage('./package.json', './dist/package.json')
+    return createDistPackage('./package.json', './dist/package.json', {scripts: 'blockPublish'})
 });
 
 // All the tasks we can do in parallel after clean, before make-dist-package

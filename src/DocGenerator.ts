@@ -47,18 +47,22 @@ class BasicDocGenerator implements DocGenerator {
         //--------------------------------------
 
         const widgetClassName = widgetDescription.widgetClass;
-        const widgetClass = reflector.describeClass(widgetClassName);
+        const matchingClasses = reflector.findClassesByName(widgetClassName);
+        if (matchingClasses.length !== 1) {
+            throw new Error(`Expecting a single Widget class named "${widgetClassName}" but found ${matchingClasses.length}`);
+        }
+        const widgetClass = matchingClasses[0];
         this.widgetClass = widgetClass;
 
         const props = widgetClass.describeProperty('props');
 
-        const propsType = reflector.describeTypeById(props.getTypeId());
+        const propsType = props.type;
 
-        if (!propsType.isComplex) {
-            throw new Error(`Widget.props is not a complex (interface) type`);
+        if (!reflector.isInterfaceLike(propsType)) {
+            throw new Error(`Expecting Widget.props to be InterfaceLike, but is a ${propsType.constructor.name}.`);
         }
 
-        const widgetPropNames = (propsType as InterfaceMirror).propertyNames();
+        const widgetPropNames = propsType.propertyNames;
         this.widgetPropNames = widgetPropNames;
 
         //--------------------------------------
@@ -129,7 +133,7 @@ class BasicDocGenerator implements DocGenerator {
         return sections.join('\n\n');
     }
 
-    private genInterfaceSection(mirror: InterfaceMirror):string {
+    private genInterfaceSection(mirror: ClassMirror):string {
         let sections: Array<string> = [];
 
         sections.push(this.genTypeAnchor(mirror));
@@ -145,15 +149,16 @@ class BasicDocGenerator implements DocGenerator {
             }
         }
 
-        //return sections.join('\n\n');
+        return sections.join('\n\n');
     }
 
     private genTypeAnchor(mirror: TypeMirror):string {
-        return `<a name="${mirror.name}-${mirror.id}"></a>`;
+        // TODO: needs to inherit a base name from owner type
+        return `<a name="${mirror.name}"></a>`;
     }
 
     private genTypeHeader(mirror: TypeMirror):string {
-        return `## ${mirror.kindString} ${mirror.name}`;
+        return `## ${mirror.name}`;
     }
 
     private genCommentHeader(comment:string):string {

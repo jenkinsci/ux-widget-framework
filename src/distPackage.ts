@@ -1,42 +1,70 @@
 /**
  * Propagates widget dev package.json into widget dist package.json
  * 
- * TODO: Should live in the framework module, should be a gulp plugin
+ * We want to be publishing widgets from `/dist` rather than the root, so we can keep published 
+ * modules as minimal as possible.
+ * 
+ * TODO: Should be a gulp plugin
  */
 
 import * as fs from './fsPromises';
 
+export interface Options {
+    scripts: 'none' | 'blockPublish'
+}
+
+export const defaultOptions: Options = {
+   scripts: 'none'
+};
+
 // TODO: Clean up the types up in this mofo
 
-export function createDistPackage(sourceFilePath: string, destFilePath: string) {
+export function createDistPackage(sourceFilePath: string, destFilePath: string, options?:Options) {
+    const finalOptions = {...defaultOptions, ...options};
     return fs.readFile(sourceFilePath, 'utf8')
         .then((src: string) => JSON.parse(src))
-        .then((packageDetails: any) => processPackage(packageDetails))
+        .then((packageDetails: any) => processPackage(packageDetails, finalOptions))
         .then((obj: any) => JSON.stringify(obj, null, 2))
         .then((src: string) => fs.writeFile(destFilePath, src, 'utf8'));
 }
 
-export function processPackage(packageDetails:any) {
+function processPackage(packageDetailsXX:any, options:Options) {
+
+    const newPackageDetails = {...packageDetailsXX};
+
     // Delete some things unneeded for the distributed artefact
-    delete packageDetails.devDependencies;
-    delete packageDetails.scripts;
+    delete newPackageDetails.devDependencies;
+
+    switch (options.scripts) {
+        case "none":
+            delete newPackageDetails.scripts;
+            break;
+        case "blockPublish":
+            newPackageDetails.scripts = {
+                prepublishOnly: 'echo "Publish currently blocked by build" && exit 1'
+            };
+            break;
+        default:
+            // Compile error if inexhaustive
+            const ignored:never = options.scripts;
+    }
 
     // Tweak some settings
-    if (packageDetails.main) {
-        packageDetails.main = packageDetails.main.replace('dist/','');
+    if (newPackageDetails.main) {
+        newPackageDetails.main = newPackageDetails.main.replace('dist/','');
     }
-    if (packageDetails.types) {
-        packageDetails.types = packageDetails.types.replace('dist/','');
+    if (newPackageDetails.types) {
+        newPackageDetails.types = newPackageDetails.types.replace('dist/','');
     }
 
     // Tweak relative local deps 
-    for (const key in packageDetails.dependencies) {
+    for (const key in newPackageDetails.dependencies) {
         // TODO: This is awful, I need a better solution than this :'(
-        let value = packageDetails.dependencies[key];
+        let value = newPackageDetails.dependencies[key];
         value = value.replace(/^file:\.\.\//, 'file:../../');
-        packageDetails.dependencies[key] = value;
+        newPackageDetails.dependencies[key] = value;
     }
 
-    return packageDetails;
+    return newPackageDetails;
 }
 
