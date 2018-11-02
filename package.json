@@ -1,12 +1,14 @@
 {
   "name": "@jenkins-cd/ux-widget-framework",
   "version": "0.0.1",
-  "main": "lib/index.js",
+  "main": "dist/lib/index.js",
   "repository": "https://github.com/jenkinsci/ux-widget-framework.git",
   "author": "Josh McDonald <josh@joshmcdonald.info>",
   "license": "MIT",
   "private": false,
   "scripts": {
+      "dist": "gulp dist",
+      "test": "jest",
       "prepublishOnly": "echo \"not yet\" && exit 1"
   },
   "devDependencies": {

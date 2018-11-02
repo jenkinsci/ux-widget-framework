@@ -2,7 +2,7 @@
 import * as fs from '../../src/fsPromises';
 import * as assert from 'assert';
 import { typedocReflector } from '../../src/reflector/tsdoc/TSDocReflector';
-import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror } from '../../src/reflector/Reflector';
+import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror, InterfaceLike } from '../../src/reflector/Reflector';
 
 describe('TSDoc Reflector, PoC types', () => {
 
@@ -111,11 +111,11 @@ describe('TSDoc Reflector, PoC types', () => {
 
     describe('describe type of PipelineGraph.props', () => {
         let reflector: Reflector;
-        let interfaceMirror;
+        let interfaceMirror:InterfaceLike;
 
         beforeAll(() => {
             reflector = typedocReflector(jsonObj);
-            interfaceMirror = reflector.findClassesByName('PipelineGraph')[0].describeProperty('props').type;
+            interfaceMirror = reflector.findClassesByName('PipelineGraph')[0].describeProperty('props').type as any;
         });
 
         test('Props type mirror', () => {
@@ -134,7 +134,7 @@ describe('TSDoc Reflector, PoC types', () => {
                 'propertyNames');
         });
 
-        function testProp(name: string, f?: (PropertyMirror, TypeMirror) => void) {
+        function testProp(name: string, f?: (p:PropertyMirror, t:TypeMirror) => void) {
             test(name, () => {
                 const propMirror: PropertyMirror = interfaceMirror.describeProperty(name);
                 assert(propMirror, 'must get typeMirror');
@@ -432,10 +432,17 @@ describe('TSDoc Reflector, PoC types', () => {
                 assert.equal(members.length, 6, 'all members count');
 
                 members.sort((a, b) => {
-                    if (a.name < b.name) {
-                        return -1;
-                    }
-                    if (a.name > b.name) {
+                    if (a.name && b.name) {
+                        if (a.name < b.name) {
+                            return -1;
+                        }
+                        if (a.name > b.name) {
+                            return 1;
+                        }
+                    } else {
+                        if (a.name) {
+                            return -1;
+                        }
                         return 1;
                     }
                     return 0;

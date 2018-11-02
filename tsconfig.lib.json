@@ -1,3 +1,4 @@
+// Constructs the runtime lib for widgets (run in-browser)
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
@@ -9,5 +10,6 @@
         "src/reflector",
         "src/DocGenerator.ts",
         "src/index.build.ts",
+        "test/**/*"
     ]
 }

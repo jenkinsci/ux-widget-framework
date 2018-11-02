@@ -56,7 +56,7 @@ function assertNever(x: never, sender: string): never {
     throw new Error(`${sender} - Unexpected object: ${obj.constructor.name}`);
 }
 
-function assertDepth(depth) {
+function assertDepth(depth:number) {
     if (depth > MAX_DEPTH) {
         throw new Error(`Abandoning tree walk due to reaching depth ${depth}`);
     }

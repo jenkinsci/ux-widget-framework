@@ -1,3 +1,4 @@
+// Constructs the build-time lib to build widgets (run on node)
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
@@ -8,5 +9,6 @@
     "exclude": [
         "src/HostEvents.ts",
         "src/index.ts",
+        "test/**/*"
     ]
 }

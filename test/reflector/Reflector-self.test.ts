@@ -3,8 +3,9 @@ import * as fs from '../../src/fsPromises';
 import * as assert from 'assert';
 import { typedocReflector } from '../../src/reflector/tsdoc/TSDocReflector';
 import { InterfaceMirror, ClassMirror, TypeMirror, PropertyMirror, Reflector, ModuleMirror, MirrorKind, IntersectionMirror } from '../../src/reflector/Reflector';
+import { any } from 'prop-types';
 
-const nameComparator = (a, b) => {
+const nameComparator = (a:any, b:any) => {
     if (a.name < b.name) {
         return -1;
     }
@@ -28,7 +29,7 @@ describe('TSDoc Reflector, Test types', () => {
     beforeEach(() => {
         jsonObj = JSON.parse(jsonSource);
         reflector = typedocReflector(jsonObj);
-        thisModule = reflector.modules.find(member => member.originalName.indexOf(__filename) >= 0);
+        thisModule = reflector.modules.find(member => member.originalName.indexOf(__filename) >= 0) as any;
     });
 
     test('thismodule member names', () => {
@@ -189,10 +190,10 @@ describe('TSDoc Reflector, Test types', () => {
 
     describe('Index Signatures', () => {
 
-        let sig1;
-        let sig2;
-        let sig3;
-        let sig4;
+        let sig1:any;
+        let sig2:any;
+        let sig3:any;
+        let sig4:any;
 
         beforeEach(() => {
             const members = thisModule.members;
@@ -214,8 +215,8 @@ describe('TSDoc Reflector, Test types', () => {
             const indexSig = sig1.indexSignature;
             assert(indexSig, 'should have index signature');
 
-            const indexType = indexSig.indexType;
-            const valueType = indexSig.valueType;
+            const indexType = indexSig!.indexType;
+            const valueType = indexSig!.valueType;
 
             assert(indexType, 'should have index type');
             assert(valueType, 'should have value type');
@@ -244,8 +245,8 @@ describe('TSDoc Reflector, Test types', () => {
             const indexSig = sig2.indexSignature;
             assert(indexSig, 'should have index signature');
 
-            const indexType = indexSig.indexType;
-            const valueType = indexSig.valueType;
+            const indexType = indexSig!.indexType;
+            const valueType = indexSig!.valueType;
 
             assert(indexType, 'should have index type');
             assert(valueType, 'should have value type');
@@ -295,7 +296,7 @@ describe('TSDoc Reflector, Test types', () => {
 
     describe('objectLiteralProp', () => {
 
-        let mirror;
+        let mirror:any;
 
         beforeEach(() => {
             const members = thisModule.members;
@@ -345,7 +346,7 @@ class TestClass1 {
         console.log('set prop4', aNewValue);
     }
 
-    prop5: TestIntersection;
+    prop5!: TestIntersection;
 
     static prop6: string = 'nuts';
 
