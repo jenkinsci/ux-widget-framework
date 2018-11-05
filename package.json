@@ -9,7 +9,7 @@
   "scripts": {
       "dist": "gulp dist",
       "test": "jest",
-      "prepublishOnly": "echo \"not yet\" && exit 1"
+      "prepublishOnly": "echo \"Publish from /dist\" && exit 1"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
