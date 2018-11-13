@@ -1,0 +1,189 @@
+// From blueocean/blueocean-dashboard/src/main/less/pipeline-run-graph.less
+
+.PipelineGraph-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: auto;
+    margin-bottom: 16px;
+
+    .PipelineGraph {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+// From blueocean/jenkins-design-language/less/components/result-status.less
+
+.result-status-glyph {
+    stroke: none;
+    fill: #fff;
+}
+
+.svgResultStatus {
+    transform: translateZ(0);
+
+    > circle {
+        stroke: white;
+        stroke-width: 2px;
+
+        &.success {
+            fill: $brand-success-lite;
+        }
+        &.failure {
+            fill: $brand-danger-lite;
+        }
+        &.unstable {
+            fill: $brand-warning-lite;
+        }
+        &.aborted {
+            fill: $brand-grey-lite;
+        }
+        &.paused {
+            fill: $brand-paused-lite;
+        }
+        &.unknown {
+            fill: $brand-unknown-lite;
+        }
+
+        .pipeline-node-selected & {
+            stroke: none;
+        }
+    }
+}
+
+
+.progress-spinner.running circle {
+    fill: none;
+    stroke: $progress-bg;
+}
+
+.progress-spinner.running path {
+    fill: none;
+    stroke: $progress-bar-color;
+}
+
+.progress-spinner.pc-over-100 circle {
+    fill: none;
+    stroke: $progress-bar-color;
+}
+
+.progress-spinner.pc-over-100 path {
+    fill: none;
+    stroke: $brand-warning-lite;
+}
+
+.inverse .progress-spinner.running {
+    circle {
+        fill: none;
+        stroke: $brand-info-lite;
+    }
+
+    path {
+        fill: none;
+        stroke: white;
+    }
+
+    circle.inner {
+        fill: $brand-info-lite;
+        stroke: $brand-info-lite;
+    }
+}
+
+.progress-spinner.running.spin {
+    animation: progress-spinner-rotate 4s linear;
+    animation-iteration-count: infinite;
+}
+
+@keyframes progress-spinner-rotate {
+    0% { transform: rotate(0deg) }
+    100% { transform: rotate(360deg) }
+}
+
+.progress-spinner circle.inner,
+.progress-spinner.running.spin circle.inner {
+  display: none;
+  animation: progress-spinner-pulsate 1.2s ease-out;
+  animation-iteration-count: infinite;
+  opacity: 0;
+}
+
+.progress-spinner.running circle.inner {
+    display: block;
+    fill: $brand-info-lite;
+    stroke: $brand-info-lite;
+}
+
+@keyframes progress-spinner-pulsate {
+    0% { transform: scale(0.1, 0.1); opacity: 0.0; }
+    50% { opacity: 1; }
+    100% { transform: scale(1.2, 1.2); opacity: 0.0; }
+}
+
+.progress-spinner.queued circle {
+    fill: none;
+    stroke: $brand-grey-lite;
+}
+
+.progress-spinner.queued circle.inner {
+    display: block;
+    fill: $brand-grey-lite;
+    stroke: $brand-grey-lite;
+}
+
+.empty-state-content svg {
+    vertical-align: middle;
+}
+
+.empty-state-content > span {
+    padding-left: 15px;
+}
+.progress-spinner.queued path {
+    fill: none;
+    stroke: none;
+}
+
+.progress-spinner.not_built,
+.progress-spinner.skipped {
+
+    circle {
+        fill: none;
+        stroke: $brand-grey-lite;
+    }
+
+    path {
+        fill: none;
+        stroke: none;
+    }
+}
+
+.pipeline-connector {
+    stroke: $brand-grey-lite;
+}
+
+.pipeline-node-terminal {
+    fill: $brand-grey-lite;
+}
+
+.pipeline-connector-skipped {
+    stroke: $brand-grey-lite;
+    stroke-opacity: 0.25;
+}
+
+.pipeline-small-label {
+    font-size: 80%;
+}
+
+.pipeline-big-label.selected,
+.pipeline-small-label.selected {
+    font-weight:bold;
+}
+
+.pipeline-selection-highlight circle {
+    fill: none;
+    stroke: $brand-primary;
+
+    &.white-highlight {
+        stroke: white;
+    }
+}

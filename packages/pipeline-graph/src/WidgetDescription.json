@@ -1,0 +1,6 @@
+{
+    "widgetClass": "PipelineGraph",
+    "widgetEvents": ["onNodeClick"],
+    "hostEvents": ["trafficStateChanged"],
+    "models": ["stages", "selectedStage"]
+}

@@ -1,28 +1,31 @@
 {
-  "name": "@jenkins-cd/ux-widget-framework",
-  "version": "0.0.1",
-  "main": "dist/lib/index.js",
-  "repository": "https://github.com/jenkinsci/ux-widget-framework.git",
-  "author": "Josh McDonald <josh@joshmcdonald.info>",
-  "license": "MIT",
-  "private": false,
-  "scripts": {
-      "dist": "gulp dist",
-      "test": "jest",
-      "prepublishOnly": "echo \"Publish from /dist\" && exit 1"
-  },
-  "devDependencies": {
-    "@types/jest": "^23.3.1",
-    "@types/node": "^10.7.1",
-    "@types/react": "^16.4.11",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-cli": "^2.0.1",
-    "gulp-typescript": "^5.0.0-alpha.3",
-    "jest": "^23.5.0",
-    "run-sequence": "^2.2.1",
-    "ts-jest": "^23.1.3",
-    "typedoc": "^0.12.0",
-    "typescript": "^3.0.1"
-  }
+    "name": "@jenkins-cd/ux-widget-framework",
+    "version": "0.1.0-alpha.6f49ad8d",
+    "main": "dist/lib/index.js",
+    "repository": "https://github.com/jenkinsci/ux-widget-framework.git",
+    "author": "Josh McDonald <josh@joshmcdonald.info>",
+    "license": "MIT",
+    "private": false,
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "dist": "gulp dist",
+        "clean": "gulp clean",
+        "test": "jest"
+    },
+    "devDependencies": {
+        "@types/jest": "^23.3.1",
+        "@types/node": "^10.7.1",
+        "@types/react": "^16.4.11",
+        "del": "^3.0.0",
+        "gulp": "^3.9.1",
+        "gulp-cli": "^2.0.1",
+        "gulp-typescript": "^5.0.0-alpha.3",
+        "jest": "^23.5.0",
+        "run-sequence": "^2.2.1",
+        "ts-jest": "^23.1.3",
+        "typedoc": "^0.12.0",
+        "typescript": "^3.0.1"
+    }
 }
