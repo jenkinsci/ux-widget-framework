@@ -1,5 +1,10 @@
 {
-	"devDependencies": {
-		"lerna": "^3.4.0"
-	}
+  "scripts": {
+    "bootstrap": "lerna bootstrap",
+    "clean": "lerna run clean",
+    "dist": "lerna run dist"
+  },
+  "devDependencies": {
+    "lerna": "^3.4.0"
+  }
 }
