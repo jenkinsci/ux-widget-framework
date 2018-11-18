@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "es6",
+        "declaration": true,
+        "preserveConstEnums": true,
+        "forceConsistentCasingInFileNames": true,
+        "jsx": "react",
+        "experimentalDecorators": true,
+        "strict": true,
+        "sourceMap": true,
+    },
+    "exclude": [
+        "node_modules"
+    ]
+}

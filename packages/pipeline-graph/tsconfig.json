@@ -1,0 +1,15 @@
+{
+    // This config is the default found by editor / language server / storybook, includes tests and stories
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "./build",
+    },
+    "include": [
+        "src/main/**/*.ts",
+        "src/main/**/*.tsx",
+        "src/test/**/*.ts",
+        "src/test/**/*.tsx",
+        "src/stories/**/*.ts",
+        "src/stories/**/*.tsx",
+    ]
+}

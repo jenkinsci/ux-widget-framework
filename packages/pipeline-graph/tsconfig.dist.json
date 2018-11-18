@@ -1,0 +1,18 @@
+{
+    // This config is for building the dist package
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "./dist/lib",
+        "baseUrl": "src/main",
+        "rootDir": "src/main"
+    },
+    "include": [
+        "src/main/**/*.ts",
+        "src/main/**/*.tsx"
+    ],
+    "exclude": [
+        "node_modules",
+        "src/test/**/*",
+        "src/stories/**/*",
+    ]
+}
