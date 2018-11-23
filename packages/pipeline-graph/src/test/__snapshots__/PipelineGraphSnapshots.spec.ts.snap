@@ -216,6 +216,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -235,6 +236,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -254,6 +256,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -273,6 +276,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Charlie"
       >
         Charlie
       </div>
@@ -292,6 +296,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -685,6 +690,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -704,6 +710,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -723,6 +730,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -742,6 +750,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Charlie"
       >
         Charlie
       </div>
@@ -761,6 +770,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -974,6 +984,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -993,6 +1004,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -1012,6 +1024,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -1031,6 +1044,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Charlie"
       >
         Charlie
       </div>
@@ -1050,6 +1064,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -1644,6 +1659,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -1663,6 +1679,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -1682,6 +1699,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -1701,6 +1719,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Charlie"
       >
         Charlie
       </div>
@@ -1720,6 +1739,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -2310,6 +2330,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -2329,6 +2350,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -2348,6 +2370,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -2367,6 +2390,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Charlie"
       >
         Charlie
       </div>
@@ -2386,6 +2410,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -2847,6 +2872,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -2866,6 +2892,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Success"
       >
         Success
       </div>
@@ -2885,6 +2912,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Failure"
       >
         Failure
       </div>
@@ -2904,6 +2932,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Running"
       >
         Running
       </div>
@@ -2923,6 +2952,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Slow"
       >
         Slow
       </div>
@@ -2942,6 +2972,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Queued"
       >
         Queued
       </div>
@@ -2961,6 +2992,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Unstable"
       >
         Unstable
       </div>
@@ -2980,6 +3012,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Aborted"
       >
         Aborted
       </div>
@@ -2999,6 +3032,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Not Built"
       >
         Not Built
       </div>
@@ -3018,6 +3052,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Bad data"
       >
         Bad data
       </div>
@@ -3037,6 +3072,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -3655,6 +3691,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -3674,6 +3711,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Success"
       >
         Success
       </div>
@@ -3693,6 +3731,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Failure"
       >
         Failure
       </div>
@@ -3712,6 +3751,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Running"
       >
         Running
       </div>
@@ -3731,6 +3771,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Queued"
       >
         Queued
       </div>
@@ -3750,6 +3791,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Not Built"
       >
         Not Built
       </div>
@@ -3769,6 +3811,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Bad data"
       >
         Bad data
       </div>
@@ -3788,6 +3831,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -4392,6 +4436,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -4411,6 +4456,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Success"
       >
         Success
       </div>
@@ -4430,6 +4476,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Failure"
       >
         Failure
       </div>
@@ -4449,6 +4496,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Running"
       >
         Running
       </div>
@@ -4468,6 +4516,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Queued"
       >
         Queued
       </div>
@@ -4487,6 +4536,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Not Built"
       >
         Not Built
       </div>
@@ -4506,6 +4556,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="Bad data"
       >
         Bad data
       </div>
@@ -4525,6 +4576,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -4932,6 +4984,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -4951,6 +5004,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Build"
       >
         Build
       </div>
@@ -4970,6 +5024,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Test"
       >
         Test
       </div>
@@ -4989,6 +5044,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Browser Tests"
       >
         Browser Tests
       </div>
@@ -5008,6 +5064,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Dev"
       >
         Dev
       </div>
@@ -5027,6 +5084,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Dev"
       >
         Dev
       </div>
@@ -5046,6 +5104,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Staging"
       >
         Staging
       </div>
@@ -5065,6 +5124,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Production"
       >
         Production
       </div>
@@ -5084,6 +5144,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -5657,6 +5718,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -5676,6 +5738,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Build something with a long and descriptive name that takes up a shitload of space"
       >
         Build something with a long and descriptive name that takes up a shitload of space
       </div>
@@ -5695,6 +5758,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Test"
       >
         Test
       </div>
@@ -5714,6 +5778,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Browser Tests"
       >
         Browser Tests
       </div>
@@ -5733,6 +5798,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Dev"
       >
         Dev
       </div>
@@ -5752,6 +5818,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Staging"
       >
         Staging
       </div>
@@ -5771,6 +5838,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Production"
       >
         Production
       </div>
@@ -5790,6 +5858,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -6366,6 +6435,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -6385,6 +6455,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -6404,6 +6475,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -6423,6 +6495,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Charlie"
       >
         Charlie
       </div>
@@ -6442,6 +6515,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -7192,6 +7266,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -7211,6 +7286,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Build"
       >
         Build
       </div>
@@ -7230,6 +7306,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Test"
       >
         Test
       </div>
@@ -7249,6 +7326,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Browser Tests"
       >
         Browser Tests
       </div>
@@ -7268,6 +7346,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Skizzled"
       >
         Skizzled
       </div>
@@ -7287,6 +7366,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Foshizzle"
       >
         Foshizzle
       </div>
@@ -7306,6 +7386,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Dev"
       >
         Dev
       </div>
@@ -7325,6 +7406,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Staging"
       >
         Staging
       </div>
@@ -7344,6 +7426,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="Production"
       >
         Production
       </div>
@@ -7363,6 +7446,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -8108,6 +8192,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -8127,6 +8212,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -8146,6 +8232,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -8165,6 +8252,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Charlie"
       >
         Charlie
       </div>
@@ -8184,6 +8272,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Delta"
       >
         Delta
       </div>
@@ -8203,6 +8292,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -8745,6 +8835,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -8764,6 +8855,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -8783,6 +8875,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Blue"
       >
         Blue
       </div>
@@ -8802,6 +8895,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -8821,6 +8915,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -9352,6 +9447,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -9371,6 +9467,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -9390,6 +9487,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Blue"
       >
         Blue
       </div>
@@ -9409,6 +9507,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -9428,6 +9527,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -9959,6 +10059,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -9978,6 +10079,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Alpha"
       >
         Alpha
       </div>
@@ -9997,6 +10099,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Blue"
       >
         Blue
       </div>
@@ -10016,6 +10119,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="Bravo"
       >
         Bravo
       </div>
@@ -10035,6 +10139,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -10400,6 +10505,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -10419,6 +10525,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
             "wordWrap": "break-word",
           }
         }
+        title="Build"
       >
         Build
       </div>
@@ -10438,6 +10545,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
             "wordWrap": "break-word",
           }
         }
+        title="Test"
       >
         Test
       </div>
@@ -10457,6 +10565,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
             "wordWrap": "break-word",
           }
         }
+        title="Browser Tests"
       >
         Browser Tests
       </div>
@@ -10476,6 +10585,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
             "wordWrap": "break-word",
           }
         }
+        title="Dev but with long label"
       >
         Dev but with long label
       </div>
@@ -10495,6 +10605,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
             "wordWrap": "break-word",
           }
         }
+        title="Staging"
       >
         Staging
       </div>
@@ -10514,6 +10625,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
             "wordWrap": "break-word",
           }
         }
+        title="Production"
       >
         Production
       </div>
@@ -10533,6 +10645,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -11090,6 +11203,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -11109,6 +11223,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             "wordWrap": "break-word",
           }
         }
+        title="Build"
       >
         Build
       </div>
@@ -11128,6 +11243,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             "wordWrap": "break-word",
           }
         }
+        title="Test"
       >
         Test
       </div>
@@ -11147,6 +11263,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             "wordWrap": "break-word",
           }
         }
+        title="Browser Tests"
       >
         Browser Tests
       </div>
@@ -11166,6 +11283,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             "wordWrap": "break-word",
           }
         }
+        title="Dev"
       >
         Dev
       </div>
@@ -11185,6 +11303,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             "wordWrap": "break-word",
           }
         }
+        title="Staging"
       >
         Staging
       </div>
@@ -11204,6 +11323,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             "wordWrap": "break-word",
           }
         }
+        title="Production"
       >
         Production
       </div>
@@ -11223,6 +11343,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
@@ -11588,6 +11709,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Start"
       >
         Start
       </div>
@@ -11607,6 +11729,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Build"
       >
         Build
       </div>
@@ -11626,6 +11749,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Test"
       >
         Test
       </div>
@@ -11645,6 +11769,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Browser Tests"
       >
         Browser Tests
       </div>
@@ -11664,6 +11789,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Test"
       >
         Test
       </div>
@@ -11683,6 +11809,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Staging"
       >
         Staging
       </div>
@@ -11702,6 +11829,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
             "wordWrap": "break-word",
           }
         }
+        title="Production"
       >
         Production
       </div>
@@ -11721,6 +11849,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
             "wordWrap": "break-word",
           }
         }
+        title="End"
       >
         End
       </div>
