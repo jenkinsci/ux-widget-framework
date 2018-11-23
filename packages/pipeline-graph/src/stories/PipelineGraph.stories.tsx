@@ -1,20 +1,20 @@
-import { storiesOf } from "@storybook/react";
+import { storiesOf } from '@storybook/react';
 
 import {
-  renderFlatPipeline,
-  renderMultiParallelPipeline,
-  renderMultiStageParallel,
-  renderMultiStageSpacing,
-  renderEdgeCases1,
-  renderLongNames,
-  renderWithDuplicateNames,
-  renderFlatPipelineFat,
-  renderListenersPipeline,
-  renderParallelPipeline,
-  renderParallelPipelineDeep
-} from "./PipelineGraphStoriesImpl";
+    renderFlatPipeline,
+    renderMultiParallelPipeline,
+    renderMultiStageParallel,
+    renderMultiStageSpacing,
+    renderEdgeCases1,
+    renderLongNames,
+    renderWithDuplicateNames,
+    renderFlatPipelineFat,
+    renderListenersPipeline,
+    renderParallelPipeline,
+    renderParallelPipelineDeep,
+} from './PipelineGraphStoriesImpl';
 
-import "../styles/main.scss";
+import '../styles/main.scss';
 
 /* NB:
  *
@@ -26,15 +26,15 @@ import "../styles/main.scss";
  *  
  */
 
-storiesOf("PipelineGraph", module)
-  .add("Legend", renderFlatPipeline)
-  .add("Mixed", renderMultiParallelPipeline)
-  .add("Multi-stage Parallel", renderMultiStageParallel)
-  .add("Multi-stage Spacing", renderMultiStageSpacing)
-  .add("Edge cases 1", renderEdgeCases1)
-  .add("Long names", renderLongNames)
-  .add("Duplicate Names", renderWithDuplicateNames)
-  .add("Fat", renderFlatPipelineFat)
-  .add("Listeners", renderListenersPipeline)
-  .add("Parallel", renderParallelPipeline)
-  .add("Parallel (Deep)", renderParallelPipelineDeep);
+storiesOf('PipelineGraph', module)
+    .add('Legend', renderFlatPipeline)
+    .add('Mixed', renderMultiParallelPipeline)
+    .add('Multi-stage Parallel', renderMultiStageParallel)
+    .add('Multi-stage Spacing', renderMultiStageSpacing)
+    .add('Edge cases 1', renderEdgeCases1)
+    .add('Long names', renderLongNames)
+    .add('Duplicate Names', renderWithDuplicateNames)
+    .add('Fat', renderFlatPipelineFat)
+    .add('Listeners', renderListenersPipeline)
+    .add('Parallel', renderParallelPipeline)
+    .add('Parallel (Deep)', renderParallelPipelineDeep);
