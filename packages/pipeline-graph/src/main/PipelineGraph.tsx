@@ -13,9 +13,10 @@ import {
     NodeColumn,
     NodeInfo,
     StageInfo,
+    StageNodeInfo,
 } from './PipelineGraphModel';
 
-import { layoutGraph } from './PipelineGraphLayout';
+import { layoutGraph, sequentialStagesLabelOffset } from './PipelineGraphLayout';
 
 type SVGChildren = Array<any>; // Fixme: Maybe refine this?
 
@@ -42,6 +43,7 @@ interface State {
     selectedStage?: StageInfo;
 }
 
+// TODO: add private annotations to internal methods
 export class PipelineGraph extends React.Component {
     props!: Props;
     state: State;
@@ -122,7 +124,15 @@ export class PipelineGraph extends React.Component {
             marginLeft: labelOffsetH,
         };
 
-        const x = details.x;
+        let hasSequentialParallelStages = false;
+        if (details.stage) {
+            for (const stageChild of details.stage.children) {
+                if (stageChild.seqContainerName) {
+                    hasSequentialParallelStages = true;
+                }
+            }
+        }
+        const x = hasSequentialParallelStages ? details.x + sequentialStagesLabelOffset / 2 : details.x;
         const bottom = this.state.measuredHeight - details.y + labelOffsetV;
 
         // These are about layout more than appearance, so they're inline
@@ -180,19 +190,47 @@ export class PipelineGraph extends React.Component {
     }
 
     /**
+     * Generate the Component for a small label denoting the name of the container of a group of sequential parallel stages
+     */
+    renderSequentialContainerLabel(destNode: StageNodeInfo, connectorStrokeWidth: number, midPointX: number, sequentialBranchesNames: Array<React.ReactChild>) {
+        // TODO: this should return the node rather than push to the list
+        const seqContainerName = destNode.stage.seqContainerName;
+        const containerStyle = {
+            top: Math.ceil(destNode.y - connectorStrokeWidth * 2),
+            left: midPointX + 30,
+            position: 'absolute' as 'absolute',
+            maxWidth: sequentialStagesLabelOffset,
+            textAlign: 'center' as 'center',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            background: 'white',
+            padding: '0 7px',
+            lineHeight: '1',
+            whiteSpace: 'nowrap' as 'nowrap',
+        };
+        sequentialBranchesNames.push(
+            <div style={containerStyle} key={destNode.key + 'container'} title={seqContainerName}>
+                {seqContainerName}
+            </div>
+        );
+    }
+
+    /**
      * Generate SVG for a composite connection, which may be to/from many nodes.
      *
      * Farms work out to other methods on self depending on the complexity of the line required. Adds all the SVG
      * components to the elements list.
      */
-    renderCompositeConnection(connection: CompositeConnection, elements: SVGChildren) {
+    renderCompositeConnection(connection: CompositeConnection, elements: SVGChildren, sequentialBranchesNames: Array<React.ReactChild>) {
         const { sourceNodes, destinationNodes, skippedNodes } = connection;
 
         if (skippedNodes.length === 0) {
             // Nothing too complicated, use the original connection drawing code
-            this.renderBasicConnections(sourceNodes, destinationNodes, elements);
+            this.renderBasicConnections(sourceNodes, destinationNodes, elements, sequentialBranchesNames);
         } else {
             this.renderSkippingConnections(sourceNodes, destinationNodes, skippedNodes, elements);
+            // TODO: Can we have skipping connections and sequentialBranchesNames at the same time? If so, kaboom!
+            // TODO: Specifically check skipped stage before sequential branches with labels
         }
     }
 
@@ -201,7 +239,14 @@ export class PipelineGraph extends React.Component {
      *
      * Adds all the SVG components to the elements list.
      */
-    renderBasicConnections(sourceNodes: Array<NodeInfo>, destinationNodes: Array<NodeInfo>, elements: SVGChildren) {
+    renderBasicConnections(
+        sourceNodes: Array<NodeInfo>,
+        destinationNodes: Array<NodeInfo>,
+        elements: SVGChildren,
+        sequentialBranchesNames: Array<React.ReactChild>
+    ) {
+        // TODO: Rename elements and sequentialBranchesNames to better reflect their purposes
+
         const { connectorStrokeWidth, nodeSpacingH } = this.state.layout;
         const halfSpacingH = nodeSpacingH / 2;
 
@@ -229,23 +274,30 @@ export class PipelineGraph extends React.Component {
             leftmostDestination = Math.min(leftmostDestination, destinationNodes[i].x);
         }
 
-        // console.log(''); // TODO: RM
-        // console.log('sourceNodes', sourceNodes.map(node => `${node.name} (${node.x})`).join(', ')); // TODO: RM
-        // console.log('rightmostSource',rightmostSource); // TODO: RM
-        // console.log('destNodes', destinationNodes.map(node => `${node.name} (${node.x})`).join(', ')); // TODO: RM
-        // console.log('leftmostDestination',leftmostDestination); // TODO: RM
-
         // Collapse from previous node(s) to top column node
         for (const previousNode of sourceNodes.slice(1)) {
             const midPointX = Math.round((MATRIOSKA_PATHS ? previousNode.x : rightmostSource) + halfSpacingH);
-            // console.log('collapse from',previousNode.name,'to',destinationNodes[0].name, 'mpx', midPointX); // TODO: RM
             this.renderBasicCurvedConnection(previousNode, destinationNodes[0], midPointX, elements);
+        }
+
+        // Add text labels along horizontal branches
+        for (const destNode of destinationNodes) {
+            // TODO: confirm behaviour of single parallel via stories
+            // TODO: confirm behaviour when not all parallels are nested sequentials and some are original single stages
+            // TODO: factor out all these checks looking for seqContainerName to functions on stage and/or node
+            if (!MATRIOSKA_PATHS && !destNode.isPlaceholder && destNode.stage && destNode.stage.seqContainerName) {
+                const midPointX = Math.round(leftmostDestination - sequentialStagesLabelOffset - halfSpacingH);
+                this.renderSequentialContainerLabel(destNode, connectorStrokeWidth, midPointX, sequentialBranchesNames);
+            }
         }
 
         // Expand from top previous node to column node(s)
         for (const destNode of destinationNodes.slice(1)) {
-            const midPointX = Math.round((MATRIOSKA_PATHS ? destNode.x : leftmostDestination) - halfSpacingH);
-            // console.log('expand from',sourceNodes[0].name,'to',destNode.name, 'mpx', midPointX); // TODO: RM
+            const computedLeftmostDestination =
+                !destNode.isPlaceholder && destNode.stage && destNode.stage.seqContainerName
+                    ? leftmostDestination - sequentialStagesLabelOffset
+                    : leftmostDestination;
+            const midPointX = Math.round((MATRIOSKA_PATHS ? destNode.x : computedLeftmostDestination) - halfSpacingH);
             this.renderBasicCurvedConnection(sourceNodes[0], destNode, midPointX, elements);
         }
     }
@@ -630,9 +682,10 @@ export class PipelineGraph extends React.Component {
         };
 
         const visualElements: SVGChildren = []; // Buffer for children of the SVG
+        const sequentialBranchesNames: Array<React.ReactChild> = []; // TODO: rename this, it's for label children, not names
 
         connections.forEach(connection => {
-            this.renderCompositeConnection(connection, visualElements);
+            this.renderCompositeConnection(connection, visualElements, sequentialBranchesNames);
         });
 
         this.renderSelectionHighlight(visualElements);
@@ -653,6 +706,7 @@ export class PipelineGraph extends React.Component {
                     </svg>
                     {bigLabels.map(label => this.renderBigLabel(label))}
                     {smallLabels.map(label => this.renderSmallLabel(label))}
+                    {sequentialBranchesNames}
                 </div>
             </div>
         );
