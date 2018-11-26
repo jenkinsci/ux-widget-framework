@@ -9,7 +9,6 @@ import {
     defaultLayout,
     LabelInfo,
     LayoutInfo,
-    MATRIOSKA_PATHS,
     NodeColumn,
     NodeInfo,
     StageInfo,
@@ -274,7 +273,7 @@ export class PipelineGraph extends React.Component {
 
         // Collapse from previous node(s) to top column node
         for (const previousNode of sourceNodes.slice(1)) {
-            const midPointX = Math.round((MATRIOSKA_PATHS ? previousNode.x : rightmostSource) + halfSpacingH);
+            const midPointX = Math.round(rightmostSource + halfSpacingH);
             this.renderBasicCurvedConnection(previousNode, destinationNodes[0], midPointX, svgElements);
         }
 
@@ -283,7 +282,7 @@ export class PipelineGraph extends React.Component {
             // TODO: confirm behaviour of single parallel via stories
             // TODO: confirm behaviour when not all parallels are nested sequentials and some are original single stages
             // TODO: factor out all these checks looking for seqContainerName to functions on stage and/or node
-            if (!MATRIOSKA_PATHS && !destNode.isPlaceholder && destNode.stage && destNode.stage.seqContainerName) {
+            if (!destNode.isPlaceholder && destNode.stage && destNode.stage.seqContainerName) {
                 const midPointX = Math.round(leftmostDestination - sequentialStagesLabelOffset - halfSpacingH);
                 this.renderSequentialContainerLabel(destNode, connectorStrokeWidth, midPointX, sequentialBranchLabels);
             }
@@ -295,7 +294,7 @@ export class PipelineGraph extends React.Component {
                 !destNode.isPlaceholder && destNode.stage && destNode.stage.seqContainerName
                     ? leftmostDestination - sequentialStagesLabelOffset
                     : leftmostDestination;
-            const midPointX = Math.round((MATRIOSKA_PATHS ? destNode.x : computedLeftmostDestination) - halfSpacingH);
+            const midPointX = Math.round(computedLeftmostDestination - halfSpacingH);
             this.renderBasicCurvedConnection(sourceNodes[0], destNode, midPointX, svgElements);
         }
     }
@@ -355,7 +354,7 @@ export class PipelineGraph extends React.Component {
         rightNode = skippedNodes[0];
 
         for (leftNode of sourceNodes.slice(1)) {
-            const midPointX = Math.round((MATRIOSKA_PATHS ? leftNode.x : rightmostSource) + halfSpacingH);
+            const midPointX = Math.round(rightmostSource + halfSpacingH);
             const leftNodeRadius = leftNode.isPlaceholder ? terminalRadius : nodeRadius;
             const key = connectorKey(leftNode, rightNode);
 
@@ -376,7 +375,7 @@ export class PipelineGraph extends React.Component {
         rightNode = destinationNodes[0];
 
         for (rightNode of destinationNodes.slice(1)) {
-            const midPointX = Math.round((MATRIOSKA_PATHS ? rightNode.x : leftmostDestination) - halfSpacingH);
+            const midPointX = Math.round(leftmostDestination - halfSpacingH);
             const rightNodeRadius = rightNode.isPlaceholder ? terminalRadius : nodeRadius;
             const key = connectorKey(leftNode, rightNode);
 

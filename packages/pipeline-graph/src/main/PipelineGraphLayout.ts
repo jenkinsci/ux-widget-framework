@@ -1,4 +1,4 @@
-import { CompositeConnection, MATRIOSKA_PATHS } from './PipelineGraphModel';
+import { CompositeConnection } from './PipelineGraphModel';
 
 import { NodeColumn, LabelInfo, LayoutInfo, StageInfo, NodeInfo } from './PipelineGraphModel';
 
@@ -108,20 +108,6 @@ function createNodeColumns(topLevelStages: Array<StageInfo> = []): Array<NodeCol
                 }
                 column.rows.push(rowNodes);
             }
-        }
-
-        if (MATRIOSKA_PATHS) {
-            // Sort by row length for visual appeal when connectors don't all line up vertically
-            const originalOrder = column.rows.concat();
-            column.rows.sort((left: Array<NodeInfo>, right: Array<NodeInfo>) => {
-                if (left.length < right.length) {
-                    return -1;
-                }
-                if (left.length > right.length) {
-                    return 1;
-                }
-                return originalOrder.indexOf(left) < originalOrder.indexOf(right) ? -1 : 1; // For stability
-            });
         }
 
         nodeColumns.push(column);

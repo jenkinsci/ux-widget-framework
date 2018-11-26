@@ -23,8 +23,6 @@ export function decodeResultValue(resultMaybe: any): Result {
     return Result.unknown;
 }
 
-export const MATRIOSKA_PATHS = false; // TODO: remove this, nobody likes :)
-
 // Dimensions used for layout, px
 export const defaultLayout = {
     nodeSpacingH: 120,
