@@ -98,7 +98,7 @@ export interface CompositeConnection {
     skippedNodes: Array<NodeInfo>;
 }
 
-export interface LabelInfo {
+export interface NodeLabelInfo {
     x: number;
     y: number;
     text: string;
@@ -108,3 +108,15 @@ export interface LabelInfo {
 }
 
 export type LayoutInfo = typeof defaultLayout;
+
+/**
+ * The result of the graph layout algorithm
+ */
+export interface PositionedGraph {
+    nodeColumns: Array<NodeColumn>;
+    connections: Array<CompositeConnection>;
+    bigLabels: Array<NodeLabelInfo>;
+    smallLabels: Array<NodeLabelInfo>;
+    measuredWidth: number;
+    measuredHeight: number;
+}

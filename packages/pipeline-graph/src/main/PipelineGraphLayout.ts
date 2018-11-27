@@ -1,7 +1,6 @@
-import { CompositeConnection } from './PipelineGraphModel';
+import { CompositeConnection, PositionedGraph } from './PipelineGraphModel';
 
-import { NodeColumn, LabelInfo, LayoutInfo, StageInfo, NodeInfo } from './PipelineGraphModel';
-import { node } from 'prop-types';
+import { NodeColumn, NodeLabelInfo, LayoutInfo, StageInfo, NodeInfo } from './PipelineGraphModel';
 
 export const sequentialStagesLabelOffset = 70;
 
@@ -14,7 +13,7 @@ export const sequentialStagesLabelOffset = 70;
  *  4. Create a bigLabel per column, and a smallLabel for any child nodes
  *  5. Measure the extents of the graph
  */
-export function layoutGraph(newStages: Array<StageInfo>, layout: LayoutInfo) {
+export function layoutGraph(newStages: Array<StageInfo>, layout: LayoutInfo): PositionedGraph {
     const stageNodeColumns = createNodeColumns(newStages);
     const { nodeSpacingH, ypStart } = layout;
 
@@ -63,6 +62,7 @@ export function layoutGraph(newStages: Array<StageInfo>, layout: LayoutInfo) {
         }
     }
 
+    // TODO: move the positioning of branch labels into this method instead of in renderer
     return {
         nodeColumns: allNodeColumns,
         connections,
@@ -174,8 +174,8 @@ function positionNodes(nodeColumns: Array<NodeColumn>, { nodeSpacingH, parallelS
 /**
  * Generate label descriptions for big labels at the top of each column
  */
-function createBigLabels(columns: Array<NodeColumn>): Array<LabelInfo> {
-    const labels: Array<LabelInfo> = [];
+function createBigLabels(columns: Array<NodeColumn>): Array<NodeLabelInfo> {
+    const labels: Array<NodeLabelInfo> = [];
 
     for (const column of columns) {
         const node = column.rows[0][0];
@@ -199,17 +199,17 @@ function createBigLabels(columns: Array<NodeColumn>): Array<LabelInfo> {
 /**
  * Generate label descriptions for small labels under the nodes
  */
-function createSmallLabels(columns: Array<NodeColumn>): Array<LabelInfo> {
-    const labels: Array<LabelInfo> = [];
+function createSmallLabels(columns: Array<NodeColumn>): Array<NodeLabelInfo> {
+    const labels: Array<NodeLabelInfo> = [];
 
     for (const column of columns) {
         for (const row of column.rows) {
             for (const node of row) {
                 // We add small labels to parallel nodes only so skip others
-                if (node.isPlaceholder || !node.stage || (node.stage.type !== 'PARALLEL' && node.stage.isSequential !== true)) {
+                if (node.isPlaceholder || node.stage === column.topStage) {
                     continue;
                 }
-                const label: LabelInfo = {
+                const label: NodeLabelInfo = {
                     x: node.x,
                     y: node.y,
                     text: node.name,

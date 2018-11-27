@@ -318,6 +318,10 @@ export function renderParallelPipelineDeep() {
     );
 }
 
+// export function renderBranchLabels() {
+//     __id = 111;
+// }
+
 let __id = 1;
 
 /// Simple helper for data generation
@@ -328,14 +332,23 @@ function makeNode(name: string, children: Array<StageInfo> = [], state: Result =
         completePercent = state == Result.running ? 20 + ((id * 47) % 60) : 50;
     }
 
-    const type = 'STAGE'; // TODO: move this to params if we need it
+    const type = 'STAGE';
     return { name, children, state, completePercent, id, type, title: name };
 }
 
 function makeSequence(...stages: Array<StageInfo>): StageInfo {
-    for (let i = 0; i < stages.length - 1; i++) {
-        stages[i].nextSibling = stages[i + 1];
+    for (let i = 0; i < stages.length; i++) {
+        if (i + 1 < stages.length) {
+            stages[i].nextSibling = stages[i + 1];
+        }
+        stages[i].isSequential = true;
     }
 
     return stages[0]; // The model only needs the first in a sequence
+}
+
+function makeNamedSequence(name: string, ...stages: Array<StageInfo>): StageInfo {
+    const firstStage = makeSequence(...stages);
+    firstStage.seqContainerName = name;
+    return firstStage;
 }

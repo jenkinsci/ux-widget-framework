@@ -7,7 +7,7 @@ import {
     CompositeConnection,
     decodeResultValue,
     defaultLayout,
-    LabelInfo,
+    NodeLabelInfo,
     LayoutInfo,
     NodeColumn,
     NodeInfo,
@@ -34,8 +34,8 @@ interface Props {
 interface State {
     nodeColumns: Array<NodeColumn>;
     connections: Array<CompositeConnection>;
-    bigLabels: Array<LabelInfo>;
-    smallLabels: Array<LabelInfo>;
+    bigLabels: Array<NodeLabelInfo>;
+    smallLabels: Array<NodeLabelInfo>;
     measuredWidth: number;
     measuredHeight: number;
     layout: LayoutInfo;
@@ -106,7 +106,7 @@ export class PipelineGraph extends React.Component {
     /**
      * Generate the Component for a big label
      */
-    private renderBigLabel(details: LabelInfo) {
+    private renderBigLabel(details: NodeLabelInfo) {
         const { nodeSpacingH, labelOffsetV, connectorStrokeWidth, ypStart } = this.state.layout;
 
         const labelWidth = nodeSpacingH - connectorStrokeWidth * 2;
@@ -155,7 +155,7 @@ export class PipelineGraph extends React.Component {
     /**
      * Generate the Component for a small label
      */
-    private renderSmallLabel(details: LabelInfo) {
+    private renderSmallLabel(details: NodeLabelInfo) {
         const { nodeSpacingH, nodeSpacingV, curveRadius, connectorStrokeWidth, nodeRadius, smallLabelOffsetV } = this.state.layout;
 
         const smallLabelWidth = Math.floor(nodeSpacingH - 2 * curveRadius - 2 * connectorStrokeWidth); // Fit between lines

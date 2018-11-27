@@ -1,4 +1,4 @@
-import { Result, defaultLayout, NodeInfo, StageInfo, LabelInfo, CompositeConnection, NodeColumn, StageType } from '../main/PipelineGraphModel';
+import { Result, defaultLayout, NodeInfo, StageInfo, NodeLabelInfo, CompositeConnection, NodeColumn, StageType } from '../main/PipelineGraphModel';
 import { layoutGraph } from '../main/PipelineGraphLayout';
 import * as assert from 'assert';
 
@@ -24,6 +24,8 @@ function makeSequence(...stages: Array<StageInfo>) {
 
     return stages[0]; // The model only needs the first in a sequence
 }
+
+// TODO: Use same obj generator as stories!!!!
 
 // Assertion helpers
 function assertNode(node: any, text: string, x: number, y: number) {
@@ -52,7 +54,7 @@ function assertRow(row: RowType, ...nodesParams: Array<[string, number, number]>
     }
 }
 
-function assertLabel(labels: Array<LabelInfo>, text: string, x: number, y: number) {
+function assertLabel(labels: Array<NodeLabelInfo>, text: string, x: number, y: number) {
     const label = labels.find(label => label.text === text);
 
     if (!label) {

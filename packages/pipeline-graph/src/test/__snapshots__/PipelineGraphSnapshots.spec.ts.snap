@@ -774,6 +774,120 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Delta"
+      >
+        Delta
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Echo"
+      >
+        Echo
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Foxtrot"
+      >
+        Foxtrot
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Golf"
+      >
+        Golf
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Hotel"
+      >
+        Hotel
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Indigo"
+      >
+        Indigo
+      </div>
     </div>
   </div>
   <div
@@ -1743,6 +1857,215 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 3"
+      >
+        Multi 1 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 3"
+      >
+        Multi 2 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label selected"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 3 of 3"
+      >
+        Multi 3 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 159,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 2"
+      >
+        Multi 1 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 279,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 2"
+      >
+        Multi 2 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 2"
+      >
+        Single 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 639,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 579,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 2"
+      >
+        Multi 1 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 699,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 2"
+      >
+        Multi 2 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 639,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 2"
+      >
+        Single 2
+      </div>
     </div>
   </div>
   <div
@@ -2413,6 +2736,215 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         title="End"
       >
         End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 3"
+      >
+        Multi 1 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 3"
+      >
+        Multi 2 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 3 of 3"
+      >
+        Multi 3 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label selected"
+        style={
+          Object {
+            "left": 159,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 2"
+      >
+        Multi 1 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 279,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 2"
+      >
+        Multi 2 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 2"
+      >
+        Single 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 639,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 579,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 2"
+      >
+        Multi 1 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 699,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 2"
+      >
+        Multi 2 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 639,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 2"
+      >
+        Single 2
       </div>
     </div>
   </div>
@@ -3835,6 +4367,158 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 1"
+      >
+        Job 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 2"
+      >
+        Job 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 3"
+      >
+        Job 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 459,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 4"
+      >
+        Job 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 459,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 5"
+      >
+        Job 5
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 459,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 6"
+      >
+        Job 6
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 459,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 7"
+      >
+        Job 7
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 459,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 350,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 8"
+      >
+        Job 8
+      </div>
     </div>
   </div>
   <h3>
@@ -4580,6 +5264,158 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 344,
+            "maxHeight": 31,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 80,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 1"
+      >
+        Job 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 344,
+            "maxHeight": 31,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 80,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 2"
+      >
+        Job 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 344,
+            "maxHeight": 31,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 80,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 3"
+      >
+        Job 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 464,
+            "maxHeight": 31,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 80,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 4"
+      >
+        Job 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 464,
+            "maxHeight": 31,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 80,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 5"
+      >
+        Job 5
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 464,
+            "maxHeight": 31,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 80,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 6"
+      >
+        Job 6
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 464,
+            "maxHeight": 31,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 80,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 7"
+      >
+        Job 7
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 464,
+            "maxHeight": 31,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 350,
+            "width": 80,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Job 8"
+      >
+        Job 8
+      </div>
     </div>
   </div>
 </div>
@@ -5147,6 +5983,44 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
         title="End"
       >
         End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Internet Explorer"
+      >
+        Internet Explorer
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Chrome"
+      >
+        Chrome
       </div>
     </div>
   </div>
@@ -5862,6 +6736,139 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="JUnit"
+      >
+        JUnit
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="DBUnit"
+      >
+        DBUnit
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Jasmine"
+      >
+        Jasmine
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Firefox"
+      >
+        Firefox
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights."
+      >
+        Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat"
+      >
+        RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Chrome"
+      >
+        Chrome
+      </div>
     </div>
   </div>
   <div
@@ -6518,6 +7525,215 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         title="End"
       >
         End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat"
+      >
+        RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="............................................................................................."
+      >
+        .............................................................................................
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights."
+      >
+        Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 159,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 2"
+      >
+        Multi 1 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 279,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 2"
+      >
+        Multi 2 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 2"
+      >
+        Single 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 639,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 579,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 2"
+      >
+        Multi 1 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 699,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 2"
+      >
+        Multi 2 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 639,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 2"
+      >
+        Single 2
       </div>
     </div>
   </div>
@@ -7450,6 +8666,196 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="JUnit"
+      >
+        JUnit
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="DBUnit"
+      >
+        DBUnit
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Jasmine"
+      >
+        Jasmine
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Firefox"
+      >
+        Firefox
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Edge"
+      >
+        Edge
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Safari"
+      >
+        Safari
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Chrome"
+      >
+        Chrome
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 699,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="US-East"
+      >
+        US-East
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 699,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="US-West"
+      >
+        US-West
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 699,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="APAC"
+      >
+        APAC
+      </div>
     </div>
   </div>
 </div>
@@ -8296,6 +9702,253 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 399,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 399,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 2"
+      >
+        Single 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 399,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 3"
+      >
+        Single 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 279,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 3"
+      >
+        Multi 1 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 399,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 3"
+      >
+        Multi 2 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 519,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 3 of 3"
+      >
+        Multi 3 of 3
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 350,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 2"
+      >
+        Multi 1 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 459,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 350,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 2"
+      >
+        Multi 2 of 2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 420,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 4"
+      >
+        Multi 1 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 420,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 4"
+      >
+        Multi 2 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 459,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 420,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 3 of 4"
+      >
+        Multi 3 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 579,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 420,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 4 of 4"
+      >
+        Multi 4 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 399,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 490,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 4"
+      >
+        Single 4
+      </div>
     </div>
   </div>
 </div>
@@ -8919,6 +10572,196 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Homer"
+      >
+        Homer
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Marge"
+      >
+        Marge
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 519,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 399,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 519,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 639,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 4"
+      >
+        Multi 1 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 459,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 4"
+      >
+        Multi 2 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 579,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 3 of 4"
+      >
+        Multi 3 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 699,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 4 of 4"
+      >
+        Multi 4 of 4
+      </div>
     </div>
   </div>
   <h3>
@@ -9530,6 +11373,196 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         title="End"
       >
         End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Homer"
+      >
+        Homer
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Marge"
+      >
+        Marge
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 489,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 389,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 489,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 589,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 4"
+      >
+        Multi 1 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 439,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 4"
+      >
+        Multi 2 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 539,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 3 of 4"
+      >
+        Multi 3 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 639,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 4 of 4"
+      >
+        Multi 4 of 4
       </div>
     </div>
   </div>
@@ -10143,6 +12176,196 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Homer"
+      >
+        Homer
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 99,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Marge"
+      >
+        Marge
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 482,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single 1"
+      >
+        Single 1
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 387,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 482,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 577,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="xxxxxxxxxxxxxxxxxxxxxxxxxx"
+      >
+        xxxxxxxxxxxxxxxxxxxxxxxxxx
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 1 of 4"
+      >
+        Multi 1 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 434,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 2 of 4"
+      >
+        Multi 2 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 529,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 3 of 4"
+      >
+        Multi 3 of 4
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 624,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Multi 4 of 4"
+      >
+        Multi 4 of 4
+      </div>
     </div>
   </div>
 </div>
@@ -10648,6 +12871,44 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
         title="End"
       >
         End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Internet Explorer"
+      >
+        Internet Explorer
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Chrome"
+      >
+        Chrome
       </div>
     </div>
   </div>
@@ -11347,6 +13608,120 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
       >
         End
       </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Internet Explorer"
+      >
+        Internet Explorer
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Firefox"
+      >
+        Firefox
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 210,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Edge"
+      >
+        Edge
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 280,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Safari"
+      >
+        Safari
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 350,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="LOLpera"
+      >
+        LOLpera
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 420,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Chrome"
+      >
+        Chrome
+      </div>
     </div>
   </div>
 </div>
@@ -11852,6 +14227,44 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
         title="End"
       >
         End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Internet Explorer"
+      >
+        Internet Explorer
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 339,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Chrome"
+      >
+        Chrome
       </div>
     </div>
   </div>
