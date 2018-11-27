@@ -14,6 +14,7 @@
         "clean": "gulp clean",
         "dist": "gulp dist",
         "test": "jest",
+        "test-watch": "jest --watch",
         "ts-check": "tsc --noEmit",
         "prettier": "prettier --write \"src/**/*.{ts,js,tsx,jsx}\"",
         "updateSnapshot": "jest --updateSnapshot",
