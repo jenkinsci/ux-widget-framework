@@ -15,18 +15,18 @@ import { Result, StageInfo } from '../main/PipelineGraphModel';
  */
 
 export function renderFlatPipeline() {
-    __id = 111;
+    const m = new MockGraphGenerator();
 
     const stages = [
-        makeNode('Success', [], Result.success),
-        makeNode('Failure', [], Result.failure),
-        makeNode('Running', [], Result.running),
-        makeNode('Slow', [], Result.running, 150),
-        makeNode('Queued', [], Result.queued),
-        makeNode('Unstable', [], Result.unstable),
-        makeNode('Aborted', [], Result.aborted),
-        makeNode('Not Built', [], Result.not_built),
-        makeNode('Bad data', [], 'this is not my office' as any),
+        m.basicStage('Success', [], Result.success),
+        m.basicStage('Failure', [], Result.failure),
+        m.basicStage('Running', [], Result.running),
+        m.basicStage('Slow', [], Result.running, 150),
+        m.basicStage('Queued', [], Result.queued),
+        m.basicStage('Unstable', [], Result.unstable),
+        m.basicStage('Aborted', [], Result.aborted),
+        m.basicStage('Not Built', [], Result.not_built),
+        m.basicStage('Bad data', [], 'this is not my office' as any),
     ];
 
     // Reduce spacing just to make this graph smaller
@@ -40,14 +40,15 @@ export function renderFlatPipeline() {
 }
 
 export function renderWithDuplicateNames() {
-    __id = 111;
+    const m = new MockGraphGenerator();
+
     const stages = [
-        makeNode('Build'),
-        makeNode('Test'),
-        makeNode('Browser Tests', [makeNode('Internet Explorer'), makeNode('Chrome')]),
-        makeNode('Test'),
-        makeNode('Staging'),
-        makeNode('Production'),
+        m.basicStage('Build'),
+        m.basicStage('Test'),
+        m.basicStage('Browser Tests', [m.basicStage('Internet Explorer'), m.basicStage('Chrome')]),
+        m.basicStage('Test'),
+        m.basicStage('Staging'),
+        m.basicStage('Production'),
     ];
 
     return (
@@ -58,20 +59,24 @@ export function renderWithDuplicateNames() {
 }
 
 export function renderFlatPipelineFat() {
-    __id = 111;
+    const m = new MockGraphGenerator();
     const stages = [
-        makeNode('Success', [], Result.success),
-        makeNode('Failure', [], Result.failure),
-        makeNode('Running', [makeNode('Job 1', [], Result.running), makeNode('Job 2', [], Result.running), makeNode('Job 3', [], Result.running)]),
-        makeNode('Queued', [
-            makeNode('Job 4', [], Result.queued),
-            makeNode('Job 5', [], Result.queued),
-            makeNode('Job 6', [], Result.queued),
-            makeNode('Job 7', [], Result.queued),
-            makeNode('Job 8', [], Result.queued),
+        m.basicStage('Success', [], Result.success),
+        m.basicStage('Failure', [], Result.failure),
+        m.basicStage('Running', [
+            m.basicStage('Job 1', [], Result.running),
+            m.basicStage('Job 2', [], Result.running),
+            m.basicStage('Job 3', [], Result.running),
         ]),
-        makeNode('Not Built', [], Result.not_built),
-        makeNode('Bad data', [], 'this is not my office' as any),
+        m.basicStage('Queued', [
+            m.basicStage('Job 4', [], Result.queued),
+            m.basicStage('Job 5', [], Result.queued),
+            m.basicStage('Job 6', [], Result.queued),
+            m.basicStage('Job 7', [], Result.queued),
+            m.basicStage('Job 8', [], Result.queued),
+        ]),
+        m.basicStage('Not Built', [], Result.not_built),
+        m.basicStage('Bad data', [], 'this is not my office' as any),
     ];
 
     const layout = {
@@ -92,15 +97,15 @@ export function renderFlatPipelineFat() {
 }
 
 export function renderListenersPipeline() {
-    __id = 111;
+    const m = new MockGraphGenerator();
     const stages = [
-        makeNode('Build', [], Result.success),
-        makeNode('Test', [], Result.success),
-        makeNode('Browser Tests', [makeNode('Internet Explorer', [], Result.queued), makeNode('Chrome', [], Result.queued)]),
-        makeNode('Dev'),
-        makeNode('Dev'), // Make sure it works with dupe names
-        makeNode('Staging'),
-        makeNode('Production'),
+        m.basicStage('Build', [], Result.success),
+        m.basicStage('Test', [], Result.success),
+        m.basicStage('Browser Tests', [m.basicStage('Internet Explorer', [], Result.queued), m.basicStage('Chrome', [], Result.queued)]),
+        m.basicStage('Dev'),
+        m.basicStage('Dev'), // Make sure it works with dupe names
+        m.basicStage('Staging'),
+        m.basicStage('Production'),
     ];
 
     function nodeClicked(...values: Array<any>) {
@@ -115,14 +120,14 @@ export function renderListenersPipeline() {
 }
 
 export function renderParallelPipeline() {
-    __id = 111;
+    const m = new MockGraphGenerator();
     const stages = [
-        makeNode('Build'),
-        makeNode('Test'),
-        makeNode('Browser Tests', [makeNode('Internet Explorer'), makeNode('Chrome')]),
-        makeNode('Dev but with long label'),
-        makeNode('Staging'),
-        makeNode('Production'),
+        m.basicStage('Build'),
+        m.basicStage('Test'),
+        m.basicStage('Browser Tests', [m.basicStage('Internet Explorer'), m.basicStage('Chrome')]),
+        m.basicStage('Dev but with long label'),
+        m.basicStage('Staging'),
+        m.basicStage('Production'),
     ];
 
     return (
@@ -133,20 +138,20 @@ export function renderParallelPipeline() {
 }
 
 export function renderMultiStageParallel() {
-    __id = 111;
+    const m = new MockGraphGenerator();
     const stages = [
-        makeNode('Alpha'),
-        makeNode('Bravo', [
-            makeNode('Single 1'),
-            makeNode('Single 2'),
-            makeNode('Single 3'),
-            makeSequence(makeNode('Multi 1 of 3'), makeNode('Multi 2 of 3'), makeNode('Multi 3 of 3')),
-            makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')),
-            makeSequence(makeNode('Multi 1 of 4'), makeNode('Multi 2 of 4'), makeNode('Multi 3 of 4'), makeNode('Multi 4 of 4')),
-            makeNode('Single 4'),
+        m.basicStage('Alpha'),
+        m.basicStage('Bravo', [
+            m.basicStage('Single 1'),
+            m.basicStage('Single 2'),
+            m.makeSequence('seq0', m.basicStage('Single 3')),
+            m.makeSequence('seq1', m.basicStage('Multi 1 of 3'), m.basicStage('Multi 2 of 3'), m.basicStage('Multi 3 of 3')),
+            m.makeSequence('seq2', m.basicStage('Multi 1 of 2'), m.basicStage('Multi 2 of 2')),
+            m.makeSequence('seq3', m.basicStage('Multi 1 of 4'), m.basicStage('Multi 2 of 4'), m.basicStage('Multi 3 of 4'), m.basicStage('Multi 4 of 4')),
+            m.basicStage('Single 4'),
         ]),
-        makeNode('Charlie'),
-        makeNode('Delta'),
+        m.basicStage('Charlie'),
+        m.basicStage('Delta'),
     ];
 
     return (
@@ -157,14 +162,19 @@ export function renderMultiStageParallel() {
 }
 
 export function renderMultiStageSpacing() {
-    __id = 111;
+    const m = new MockGraphGenerator();
     const stages = [
-        makeNode('Alpha', [makeNode('Homer'), makeNode('Marge')]),
-        makeNode('Blue'),
-        makeNode('Bravo', [
-            makeNode('Single 1'),
-            makeSequence(makeNode('xxxxxxxxxxxxxxxxxxxxxxxxxx'), makeNode('xxxxxxxxxxxxxxxxxxxxxxxxxx'), makeNode('xxxxxxxxxxxxxxxxxxxxxxxxxx')),
-            makeSequence(makeNode('Multi 1 of 4'), makeNode('Multi 2 of 4'), makeNode('Multi 3 of 4'), makeNode('Multi 4 of 4')),
+        m.basicStage('Alpha', [m.basicStage('Homer'), m.basicStage('Marge')]),
+        m.basicStage('Blue'),
+        m.basicStage('Bravo', [
+            m.basicStage('Single 1'),
+            m.makeSequence(
+                'seq1',
+                m.basicStage('xxxxxxxxxxxxxxxxxxxxxxxxxx'),
+                m.basicStage('xxxxxxxxxxxxxxxxxxxxxxxxxx'),
+                m.basicStage('xxxxxxxxxxxxxxxxxxxxxxxxxx')
+            ),
+            m.makeSequence('seq2', m.basicStage('Multi 1 of 4'), m.basicStage('Multi 2 of 4'), m.basicStage('Multi 3 of 4'), m.basicStage('Multi 4 of 4')),
         ]),
     ];
 
@@ -181,37 +191,53 @@ export function renderMultiStageSpacing() {
 }
 
 export function renderEdgeCases1() {
-    __id = 111;
-    const stages1 = [makeNode('Alpha', [], Result.skipped), makeNode('Bravo', [], Result.success), makeNode('Charlie', [], Result.skipped)];
+    const m = new MockGraphGenerator();
+    const stages1 = [m.basicStage('Alpha', [], Result.skipped), m.basicStage('Bravo', [], Result.success), m.basicStage('Charlie', [], Result.skipped)];
 
     const stages2 = [
-        makeNode('Alpha', [makeNode('Delta', [], Result.success), makeNode('Echo', [], Result.success), makeNode('Foxtrot', [], Result.success)]),
-        makeNode('Bravo', [], Result.success),
-        makeNode('Charlie', [makeNode('Golf', [], Result.success), makeNode('Hotel', [], Result.success), makeNode('Indigo', [], Result.success)]),
+        m.basicStage('Alpha', [
+            m.basicStage('Delta', [], Result.success),
+            m.basicStage('Echo', [], Result.success),
+            m.basicStage('Foxtrot', [], Result.success),
+        ]),
+        m.basicStage('Bravo', [], Result.success),
+        m.basicStage('Charlie', [
+            m.basicStage('Golf', [], Result.success),
+            m.basicStage('Hotel', [], Result.success),
+            m.basicStage('Indigo', [], Result.success),
+        ]),
     ];
 
-    const stages3 = [makeNode('Alpha', [], Result.success), makeNode('Bravo', [], Result.skipped), makeNode('Charlie', [], Result.skipped)];
+    const stages3 = [m.basicStage('Alpha', [], Result.success), m.basicStage('Bravo', [], Result.skipped), m.basicStage('Charlie', [], Result.skipped)];
 
     const stages4 = [
-        makeNode('Alpha', [
-            makeNode('Single 1'),
-            makeSequence(makeNode('Multi 1 of 3'), makeNode('Multi 2 of 3'), makeNode('Multi 3 of 3')),
-            makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')),
-            makeNode('Single 2'),
+        m.basicStage('Alpha', [
+            m.basicStage('Single 1'),
+            m.makeSequence('seq1', m.basicStage('Multi 1 of 3'), m.basicStage('Multi 2 of 3'), m.basicStage('Multi 3 of 3')),
+            m.makeSequence('seq2', m.basicStage('Multi 1 of 2'), m.basicStage('Multi 2 of 2')),
+            m.basicStage('Single 2'),
         ]),
-        makeNode('Bravo', [], Result.skipped),
-        makeNode('Charlie', [makeNode('Single 1'), makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')), makeNode('Single 2')]),
+        m.basicStage('Bravo', [], Result.skipped),
+        m.basicStage('Charlie', [
+            m.basicStage('Single 1'),
+            m.makeSequence('seq1', m.basicStage('Multi 1 of 2'), m.basicStage('Multi 2 of 2')),
+            m.basicStage('Single 2'),
+        ]),
     ];
 
     const stages5 = [
-        makeNode('Alpha', [
-            makeNode('Single 1'),
-            makeSequence(makeNode('Multi 1 of 3'), makeNode('Multi 2 of 3'), makeNode('Multi 3 of 3')),
-            makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')),
-            makeNode('Single 2'),
+        m.basicStage('Alpha', [
+            m.basicStage('Single 1'),
+            m.makeSequence('seq1', m.basicStage('Multi 1 of 3'), m.basicStage('Multi 2 of 3'), m.basicStage('Multi 3 of 3')),
+            m.makeSequence('seq2', m.basicStage('Multi 1 of 2'), m.basicStage('Multi 2 of 2')),
+            m.basicStage('Single 2'),
         ]),
-        makeNode('Bravo'),
-        makeNode('Charlie', [makeNode('Single 1'), makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')), makeNode('Single 2')]),
+        m.basicStage('Bravo'),
+        m.basicStage('Charlie', [
+            m.basicStage('Single 1'),
+            m.makeSequence('seq1', m.basicStage('Multi 1 of 2'), m.basicStage('Multi 2 of 2')),
+            m.basicStage('Single 2'),
+        ]),
     ];
 
     return (
@@ -226,25 +252,29 @@ export function renderEdgeCases1() {
 }
 
 export function renderMultiParallelPipeline() {
-    __id = 111;
+    const m = new MockGraphGenerator();
     const stages = [
-        makeNode('Build', [], Result.success),
-        makeNode('Test', [makeNode('JUnit', [], Result.success), makeNode('DBUnit', [], Result.success), makeNode('Jasmine', [], Result.success)]),
-        makeNode('Browser Tests', [
-            makeNode('Firefox', [], Result.success),
-            makeNode('Edge', [], Result.failure),
-            makeNode('Safari', [], Result.running, 60),
-            makeNode('Chrome', [], Result.running, 120),
+        m.basicStage('Build', [], Result.success),
+        m.basicStage('Test', [
+            m.basicStage('JUnit', [], Result.success),
+            m.basicStage('DBUnit', [], Result.success),
+            m.basicStage('Jasmine', [], Result.success),
         ]),
-        makeNode('Skizzled', [], Result.skipped),
-        makeNode('Foshizzle', [], Result.skipped),
-        makeNode(
+        m.basicStage('Browser Tests', [
+            m.basicStage('Firefox', [], Result.success),
+            m.basicStage('Edge', [], Result.failure),
+            m.basicStage('Safari', [], Result.running, 60),
+            m.basicStage('Chrome', [], Result.running, 120),
+        ]),
+        m.basicStage('Skizzled', [], Result.skipped),
+        m.basicStage('Foshizzle', [], Result.skipped),
+        m.basicStage(
             'Dev',
-            [makeNode('US-East', [], Result.success), makeNode('US-West', [], Result.success), makeNode('APAC', [], Result.success)],
+            [m.basicStage('US-East', [], Result.success), m.basicStage('US-West', [], Result.success), m.basicStage('APAC', [], Result.success)],
             Result.success
         ),
-        makeNode('Staging', [], Result.skipped),
-        makeNode('Production'),
+        m.basicStage('Staging', [], Result.skipped),
+        m.basicStage('Production'),
     ];
 
     return (
@@ -255,34 +285,43 @@ export function renderMultiParallelPipeline() {
 }
 
 export function renderLongNames() {
-    __id = 111;
+    const m = new MockGraphGenerator();
     const stages = [
-        makeNode('Build something with a long and descriptive name that takes up a shitload of space', [], Result.success),
-        makeNode('Test', [makeNode('JUnit', [], Result.success), makeNode('DBUnit', [], Result.success), makeNode('Jasmine', [], Result.success)]),
-        makeNode('Browser Tests', [
-            makeNode('Firefox', [], Result.success),
-            makeNode('Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.', [], Result.failure),
-            makeNode('RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat', [], Result.running, 60),
-            makeNode('Chrome', [], Result.running, 120),
+        m.basicStage('Build something with a long and descriptive name that takes up a shitload of space', [], Result.success),
+        m.basicStage('Test', [
+            m.basicStage('JUnit', [], Result.success),
+            m.basicStage('DBUnit', [], Result.success),
+            m.basicStage('Jasmine', [], Result.success),
         ]),
-        makeNode('Dev'),
-        makeNode('Staging'),
-        makeNode('Production'),
+        m.basicStage('Browser Tests', [
+            m.basicStage('Firefox', [], Result.success),
+            m.basicStage('Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.', [], Result.failure),
+            m.basicStage('RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat', [], Result.running, 60),
+            m.basicStage('Chrome', [], Result.running, 120),
+        ]),
+        m.basicStage('Dev'),
+        m.basicStage('Staging'),
+        m.basicStage('Production'),
     ];
 
     const stages2 = [
-        makeNode('Alpha', [
-            makeNode('Single 1'),
-            makeSequence(
-                makeNode('RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat'),
-                makeNode('.............................................................................................'),
-                makeNode('Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.')
+        m.basicStage('Alpha', [
+            m.basicStage('Single 1'),
+            m.makeSequence(
+                'seq1',
+                m.basicStage('RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat'),
+                m.basicStage('.............................................................................................'),
+                m.basicStage('Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.')
             ),
-            makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')),
-            makeNode('Single 2'),
+            m.makeSequence('seq2', m.basicStage('Multi 1 of 2'), m.basicStage('Multi 2 of 2')),
+            m.basicStage('Single 2'),
         ]),
-        makeNode('Bravo'),
-        makeNode('Charlie', [makeNode('Single 1'), makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')), makeNode('Single 2')]),
+        m.basicStage('Bravo'),
+        m.basicStage('Charlie', [
+            m.basicStage('Single 1'),
+            m.makeSequence('seq1', m.basicStage('Multi 1 of 2'), m.basicStage('Multi 2 of 2')),
+            m.basicStage('Single 2'),
+        ]),
     ];
 
     return (
@@ -294,21 +333,21 @@ export function renderLongNames() {
 }
 
 export function renderParallelPipelineDeep() {
-    __id = 111;
+    const m = new MockGraphGenerator();
     const stages = [
-        makeNode('Build', [], Result.success),
-        makeNode('Test', [], Result.success),
-        makeNode('Browser Tests', [
-            makeNode('Internet Explorer', [], Result.success),
-            makeNode('Firefox', [], Result.running),
-            makeNode('Edge', [], Result.failure),
-            makeNode('Safari', [], Result.running),
-            makeNode('LOLpera', [], Result.queued),
-            makeNode('Chrome', [], Result.queued),
+        m.basicStage('Build', [], Result.success),
+        m.basicStage('Test', [], Result.success),
+        m.basicStage('Browser Tests', [
+            m.basicStage('Internet Explorer', [], Result.success),
+            m.basicStage('Firefox', [], Result.running),
+            m.basicStage('Edge', [], Result.failure),
+            m.basicStage('Safari', [], Result.running),
+            m.basicStage('LOLpera', [], Result.queued),
+            m.basicStage('Chrome', [], Result.queued),
         ]),
-        makeNode('Dev', [], Result.not_built),
-        makeNode('Staging', [], Result.not_built),
-        makeNode('Production', [], Result.not_built),
+        m.basicStage('Dev', [], Result.not_built),
+        m.basicStage('Staging', [], Result.not_built),
+        m.basicStage('Production', [], Result.not_built),
     ];
 
     return (
@@ -318,37 +357,34 @@ export function renderParallelPipelineDeep() {
     );
 }
 
-// export function renderBranchLabels() {
-//     __id = 111;
-// }
+export class MockGraphGenerator {
+    __id = 111;
 
-let __id = 1;
+    basicStage(name: string, parallels: Array<StageInfo> = [], state: Result = Result.not_built, completePercent?: number): StageInfo {
+        const id = this.__id++;
 
-/// Simple helper for data generation
-function makeNode(name: string, children: Array<StageInfo> = [], state: Result = Result.not_built, completePercent?: number): StageInfo {
-    const id = __id++;
-
-    if (typeof completePercent !== 'number') {
-        completePercent = state == Result.running ? 20 + ((id * 47) % 60) : 50;
-    }
-
-    const type = 'STAGE';
-    return { name, children, state, completePercent, id, type, title: name };
-}
-
-function makeSequence(...stages: Array<StageInfo>): StageInfo {
-    for (let i = 0; i < stages.length; i++) {
-        if (i + 1 < stages.length) {
-            stages[i].nextSibling = stages[i + 1];
+        if (typeof completePercent !== 'number') {
+            completePercent = state == Result.running ? 20 + ((id * 47) % 60) : 50;
         }
-        stages[i].isSequential = true;
+
+        for (const parallel of parallels) {
+            if (!parallel.isSequential) {
+                parallel.type = 'PARALLEL';
+            }
+        }
+
+        return { name, children: parallels, state, completePercent, id, type: 'STAGE', title: name };
     }
 
-    return stages[0]; // The model only needs the first in a sequence
-}
+    makeSequence(name: string, ...stages: Array<StageInfo>): StageInfo {
+        for (let i = 0; i < stages.length; i++) {
+            if (i + 1 < stages.length) {
+                stages[i].nextSibling = stages[i + 1];
+            }
+            stages[i].isSequential = true;
+            stages[i].seqContainerName = name;
+        }
 
-function makeNamedSequence(name: string, ...stages: Array<StageInfo>): StageInfo {
-    const firstStage = makeSequence(...stages);
-    firstStage.seqContainerName = name;
-    return firstStage;
+        return stages[0]; // The model only needs the first in a sequence
+    }
 }
