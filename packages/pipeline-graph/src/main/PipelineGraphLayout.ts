@@ -1,6 +1,7 @@
 import { CompositeConnection } from './PipelineGraphModel';
 
 import { NodeColumn, LabelInfo, LayoutInfo, StageInfo, NodeInfo } from './PipelineGraphModel';
+import { node } from 'prop-types';
 
 export const sequentialStagesLabelOffset = 70;
 
