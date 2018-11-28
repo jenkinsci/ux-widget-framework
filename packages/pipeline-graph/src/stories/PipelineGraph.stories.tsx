@@ -12,6 +12,7 @@ import {
     renderListenersPipeline,
     renderParallelPipeline,
     renderParallelPipelineDeep,
+    renderEdgeCases2,
 } from './PipelineGraphStoriesImpl';
 
 import '../styles/main.scss';
@@ -32,6 +33,7 @@ storiesOf('PipelineGraph', module)
     .add('Multi-stage Parallel', renderMultiStageParallel)
     .add('Multi-stage Spacing', renderMultiStageSpacing)
     .add('Edge cases 1', renderEdgeCases1)
+    .add('Edge cases 2', renderEdgeCases2)
     .add('Long names', renderLongNames)
     .add('Duplicate Names', renderWithDuplicateNames)
     .add('Fat', renderFlatPipelineFat)

@@ -257,6 +257,31 @@ export function renderEdgeCases1() {
     );
 }
 
+export function renderEdgeCases2() {
+    const m = new MockGraphGenerator();
+
+    const stages1 = [m.basicStage('Normal'), m.basicStage('Single Parallel', [m.basicStage('Alone')]), m.basicStage('Normal2')];
+
+    const stages2 = [m.basicStage('Normal'), m.basicStage('Single Parallel Seq', [m.makeSequence('Seq', m.basicStage('Alone'))]), m.basicStage('Normal2')];
+
+    const stages3 = [
+        m.basicStage('Skipped', [], Result.skipped),
+        m.basicStage('Branches', [
+            m.makeSequence('Seq 1', m.basicStage('Ichi'), m.basicStage('Ni'), m.basicStage('San')),
+            m.makeSequence('Seq 2', m.basicStage('Ichi'), m.basicStage('Ni'), m.basicStage('San')),
+        ]),
+        m.basicStage('Normal'),
+    ];
+
+    return (
+        <div>
+            <PipelineGraph stages={stages1} />
+            <PipelineGraph stages={stages2} />
+            <PipelineGraph stages={stages3} />
+        </div>
+    );
+}
+
 export function renderMultiParallelPipeline() {
     const m = new MockGraphGenerator();
     const stages = [

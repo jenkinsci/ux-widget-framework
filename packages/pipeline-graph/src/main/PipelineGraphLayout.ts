@@ -63,7 +63,6 @@ export function layoutGraph(newStages: Array<StageInfo>, layout: LayoutInfo): Po
         }
     }
 
-    // TODO: move the positioning of branch labels into this method instead of in renderer
     return {
         nodeColumns: allNodeColumns,
         connections,

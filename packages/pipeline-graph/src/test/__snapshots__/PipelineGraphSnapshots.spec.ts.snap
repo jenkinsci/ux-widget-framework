@@ -1286,13 +1286,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         />
         <path
           className="pipeline-connector"
-          d="M 704 55 l 0 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 25.75 0"
+          d="M 634 55 l 0 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 95.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 704 55 l 0 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 85.75 0"
+          d="M 634 55 l 0 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 155.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -3065,6 +3065,1262 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         title="seq1"
       >
         seq1
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
+<div>
+  <div
+    className="PipelineGraph-container"
+  >
+    <div
+      className="PipelineGraph"
+      style={
+        Object {
+          "overflow": "visible",
+          "position": "relative",
+        }
+      }
+    >
+      <svg
+        height={200}
+        width={528}
+      >
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={65.25}
+          x2={133.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={154.25}
+          x2={253.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={274.25}
+          x2={373.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={394.25}
+          x2={462.75}
+          y1={55}
+          y2={55}
+        />
+        <g
+          className="pipeline-node"
+          transform="translate(60,55)"
+        >
+          <circle
+            className="pipeline-node-terminal"
+            r={7}
+          />
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(144,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Normal
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(264,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Alone
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(384,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Normal2
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(468,55)"
+        >
+          <circle
+            className="pipeline-node-terminal"
+            r={7}
+          />
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+      </svg>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "60px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Start"
+      >
+        Start
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "144px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Normal"
+      >
+        Normal
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "264px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single Parallel"
+      >
+        Single Parallel
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "384px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Normal2"
+      >
+        Normal2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "468px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="End"
+      >
+        End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 219,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Alone"
+      >
+        Alone
+      </div>
+    </div>
+  </div>
+  <div
+    className="PipelineGraph-container"
+  >
+    <div
+      className="PipelineGraph"
+      style={
+        Object {
+          "overflow": "visible",
+          "position": "relative",
+        }
+      }
+    >
+      <svg
+        height={200}
+        width={598}
+      >
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={65.25}
+          x2={133.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={154.25}
+          x2={323.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={344.25}
+          x2={443.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={464.25}
+          x2={532.75}
+          y1={55}
+          y2={55}
+        />
+        <g
+          className="pipeline-node"
+          transform="translate(60,55)"
+        >
+          <circle
+            className="pipeline-node-terminal"
+            r={7}
+          />
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(144,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Normal
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(334,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Alone
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(454,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Normal2
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(538,55)"
+        >
+          <circle
+            className="pipeline-node-terminal"
+            r={7}
+          />
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+      </svg>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "60px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Start"
+      >
+        Start
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "144px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Normal"
+      >
+        Normal
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "334px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Single Parallel Seq"
+      >
+        Single Parallel Seq
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "454px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Normal2"
+      >
+        Normal2
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "538px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="End"
+      >
+        End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 289,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Alone"
+      >
+        Alone
+      </div>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "left": 240,
+            "lineHeight": "1",
+            "marginTop": "-0.5em",
+            "maxWidth": 70,
+            "overflow": "hidden",
+            "padding": "0 7px",
+            "position": "absolute",
+            "textOverflow": "ellipsis",
+            "top": 55,
+            "whiteSpace": "nowrap",
+          }
+        }
+        title="Seq"
+      >
+        Seq
+      </div>
+    </div>
+  </div>
+  <div
+    className="PipelineGraph-container"
+  >
+    <div
+      className="PipelineGraph"
+      style={
+        Object {
+          "overflow": "visible",
+          "position": "relative",
+        }
+      }
+    >
+      <svg
+        height={200}
+        width={838}
+      >
+        <line
+          className="pipeline-connector-skipped"
+          strokeWidth={3.5}
+          x1={65.25}
+          x2={133.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector-skipped"
+          strokeWidth={3.5}
+          x1={154.25}
+          x2={323.75}
+          y1={55}
+          y2={55}
+        />
+        <path
+          className="pipeline-connector"
+          d="M 204 55 l 0 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 95.75 0"
+          fill="none"
+          strokeWidth={3.5}
+        />
+        <path
+          className="pipeline-connector"
+          d="M 65.25 55L 84 55C 102.48 55 112 73 119 80C 126 87 135.005 90 144 90L 144 90C 152.995 90 162 87 169 80C 176 73 185.52 55 204 55L 323.75 55"
+          fill="none"
+          strokeWidth={3.5}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={344.25}
+          x2={443.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={464.25}
+          x2={563.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={344.25}
+          x2={443.75}
+          y1={125}
+          y2={125}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={464.25}
+          x2={563.75}
+          y1={125}
+          y2={125}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={584.25}
+          x2={683.75}
+          y1={55}
+          y2={55}
+        />
+        <path
+          className="pipeline-connector"
+          d="M 584.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 49.75 0"
+          fill="none"
+          strokeWidth={3.5}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={704.25}
+          x2={772.75}
+          y1={55}
+          y2={55}
+        />
+        <g
+          className="pipeline-node"
+          transform="translate(60,55)"
+        >
+          <circle
+            className="pipeline-node-terminal"
+            r={7}
+          />
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(144,55)"
+        >
+          <g
+            className="progress-spinner skipped"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Skipped
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(334,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Ichi
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(454,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Ni
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(574,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            San
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(334,125)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Ichi
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(454,125)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Ni
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(574,125)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            San
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(694,55)"
+        >
+          <g
+            className="progress-spinner not_built"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Normal
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(778,55)"
+        >
+          <circle
+            className="pipeline-node-terminal"
+            r={7}
+          />
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+      </svg>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "60px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Start"
+      >
+        Start
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "144px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Skipped"
+      >
+        Skipped
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "454px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Branches"
+      >
+        Branches
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "694px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Normal"
+      >
+        Normal
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "778px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="End"
+      >
+        End
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 289,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Ichi"
+      >
+        Ichi
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 409,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Ni"
+      >
+        Ni
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 529,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 70,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="San"
+      >
+        San
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 289,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Ichi"
+      >
+        Ichi
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 409,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Ni"
+      >
+        Ni
+      </div>
+      <div
+        className="TruncatingLabel pipeline-small-label"
+        style={
+          Object {
+            "left": 529,
+            "maxHeight": 39,
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "top": 140,
+            "width": 89,
+            "wordWrap": "break-word",
+          }
+        }
+        title="San"
+      >
+        San
+      </div>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "left": 240,
+            "lineHeight": "1",
+            "marginTop": "-0.5em",
+            "maxWidth": 70,
+            "overflow": "hidden",
+            "padding": "0 7px",
+            "position": "absolute",
+            "textOverflow": "ellipsis",
+            "top": 55,
+            "whiteSpace": "nowrap",
+          }
+        }
+        title="Seq 1"
+      >
+        Seq 1
+      </div>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "left": 240,
+            "lineHeight": "1",
+            "marginTop": "-0.5em",
+            "maxWidth": 70,
+            "overflow": "hidden",
+            "padding": "0 7px",
+            "position": "absolute",
+            "textOverflow": "ellipsis",
+            "top": 125,
+            "whiteSpace": "nowrap",
+          }
+        }
+        title="Seq 2"
+      >
+        Seq 2
       </div>
     </div>
   </div>
