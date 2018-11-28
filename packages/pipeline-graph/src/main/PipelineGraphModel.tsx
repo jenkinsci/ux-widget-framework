@@ -89,13 +89,16 @@ export type NodeInfo = StageNodeInfo | PlaceholderNodeInfo;
 export interface NodeColumn {
     topStage?: StageInfo; // Top-most stage for this column, which will have no rendered nodes if it's parallel
     rows: Array<Array<NodeInfo>>;
-    x: number; // Center X position, for positioning top bigLabel
+    centerX: number; // Center X position, for positioning top bigLabel
+    hasBranchLabels: boolean;
+    startX: number; // Where to put the branch labels, or if none, the center of the left-most node(s)
 }
 
 export interface CompositeConnection {
     sourceNodes: Array<NodeInfo>;
     destinationNodes: Array<NodeInfo>;
     skippedNodes: Array<NodeInfo>;
+    hasBranchLabels: boolean;
 }
 
 export interface NodeLabelInfo {
@@ -117,6 +120,7 @@ export interface PositionedGraph {
     connections: Array<CompositeConnection>;
     bigLabels: Array<NodeLabelInfo>;
     smallLabels: Array<NodeLabelInfo>;
+    branchLabels: Array<NodeLabelInfo>;
     measuredWidth: number;
     measuredHeight: number;
 }

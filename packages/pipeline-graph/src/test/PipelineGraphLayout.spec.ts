@@ -270,7 +270,7 @@ describe('PipelineGraph', () => {
             // Basic stuff
 
             assert.equal(nodeColumns.length, 5, 'column count');
-            assert.equal(measuredWidth, 978, 'measuredWidth');
+            assert.equal(measuredWidth, 838, 'measuredWidth');
             assert.equal(measuredHeight, 250, 'measuredHeight');
             assert.equal(smallLabels.length, 6, 'small label count');
             assert.equal(bigLabels.length, 5, 'big label count');
@@ -285,7 +285,7 @@ describe('PipelineGraph', () => {
             col = nodeColumns[4];
             assert.equal(undefined, col.topStage, 'topStage');
             assert.equal(1, col.rows.length);
-            assertSingleNodeRow(col.rows[0], 'End', 918, 55);
+            assertSingleNodeRow(col.rows[0], 'End', 778, 55);
 
             // Col 1
             col = nodeColumns[1];
@@ -299,31 +299,31 @@ describe('PipelineGraph', () => {
             assert.ok(col.topStage, 'topStage');
             assert.equal(col.topStage!.name, 'Bravo', 'top stage name');
             assert.equal(3, col.rows.length);
-            assertSingleNodeRow(col.rows[0], 'Echo', 384, 55);
-            assertRow(col.rows[1], ['Foxtrot', 334, 125], ['Golf', 524, 125], ['Hotel', 714, 125]);
-            assertRow(col.rows[2], ['India', 394, 195], ['Juliet', 584, 195]);
+            assertSingleNodeRow(col.rows[0], 'Echo', 454, 55);
+            assertRow(col.rows[1], ['Foxtrot', 334, 125], ['Golf', 454, 125], ['Hotel', 574, 125]);
+            assertRow(col.rows[2], ['India', 394, 195], ['Juliet', 514, 195]);
 
             // Col 3
             col = nodeColumns[3];
             assert.ok(col.topStage, 'topStage');
             assert.equal(col.topStage!.name, 'Charlie', 'top stage name');
             assert.equal(1, col.rows.length);
-            assertSingleNodeRow(col.rows[0], 'Charlie', 834, 55);
+            assertSingleNodeRow(col.rows[0], 'Charlie', 694, 55);
 
             // Big Labels
             assertLabel(bigLabels, 'Start', 60, 55);
             assertLabel(bigLabels, 'Alpha', 144, 55);
-            assertLabel(bigLabels, 'Bravo', 489, 55);
-            assertLabel(bigLabels, 'Charlie', 834, 55);
-            assertLabel(bigLabels, 'End', 918, 55);
+            assertLabel(bigLabels, 'Bravo', 454, 55);
+            assertLabel(bigLabels, 'Charlie', 694, 55);
+            assertLabel(bigLabels, 'End', 778, 55);
 
             // Small Labels
-            assertLabel(smallLabels, 'Echo', 384, 55);
+            assertLabel(smallLabels, 'Echo', 454, 55);
             assertLabel(smallLabels, 'Foxtrot', 334, 125);
-            assertLabel(smallLabels, 'Golf', 524, 125);
-            assertLabel(smallLabels, 'Hotel', 714, 125);
+            assertLabel(smallLabels, 'Golf', 454, 125);
+            assertLabel(smallLabels, 'Hotel', 574, 125);
             assertLabel(smallLabels, 'India', 394, 195);
-            assertLabel(smallLabels, 'Juliet', 584, 195);
+            assertLabel(smallLabels, 'Juliet', 514, 195);
 
             // Connections
             assertConnection(connections, 'Start', 'Alpha');

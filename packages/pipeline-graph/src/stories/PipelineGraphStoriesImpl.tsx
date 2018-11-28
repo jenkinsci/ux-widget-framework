@@ -147,7 +147,13 @@ export function renderMultiStageParallel() {
             m.makeSequence('seq0', m.basicStage('Single 3')),
             m.makeSequence('seq1', m.basicStage('Multi 1 of 3'), m.basicStage('Multi 2 of 3'), m.basicStage('Multi 3 of 3')),
             m.makeSequence('seq2', m.basicStage('Multi 1 of 2'), m.basicStage('Multi 2 of 2')),
-            m.makeSequence('seq3', m.basicStage('Multi 1 of 4'), m.basicStage('Multi 2 of 4'), m.basicStage('Multi 3 of 4'), m.basicStage('Multi 4 of 4')),
+            m.makeSequence(
+                'longer sequence name',
+                m.basicStage('Multi 1 of 4'),
+                m.basicStage('Multi 2 of 4'),
+                m.basicStage('Multi 3 of 4'),
+                m.basicStage('Multi 4 of 4')
+            ),
             m.basicStage('Single 4'),
         ]),
         m.basicStage('Charlie'),

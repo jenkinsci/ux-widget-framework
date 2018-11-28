@@ -1198,13 +1198,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
     >
       <svg
         height={320}
-        width={1238}
+        width={1028}
       >
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={65.25}
-          x2={253.75}
+          x2={323.75}
           y1={55}
           y2={55}
         />
@@ -1222,7 +1222,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         />
         <path
           className="pipeline-connector"
-          d="M 65.25 55 l 88.75 0 c 12 0 12 12 12 12 l 0 186 c 0 12 12 12 12 12 l 75.75 0"
+          d="M 65.25 55 l 18.75 0 c 12 0 12 12 12 12 l 0 186 c 0 12 12 12 12 12 l 215.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -1230,15 +1230,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={224.25}
-          x2={393.75}
+          x2={323.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={414.25}
-          x2={583.75}
+          x1={344.25}
+          x2={443.75}
           y1={125}
           y2={125}
         />
@@ -1246,93 +1246,93 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={284.25}
-          x2={453.75}
+          x2={383.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector-skipped"
           strokeWidth={3.5}
-          x1={274.25}
-          x2={703.75}
+          x1={344.25}
+          x2={563.75}
           y1={55}
           y2={55}
         />
         <line
           className="pipeline-connector-skipped"
           strokeWidth={3.5}
-          x1={724.25}
-          x2={883.75}
+          x1={584.25}
+          x2={813.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 604.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 0 0"
+          d="M 464.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 0 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 474.25 195 l 155.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 0 0"
+          d="M 404.25 195 l 85.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 0 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 274.25 265 l 355.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 0 0"
+          d="M 344.25 265 l 145.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 0 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 834 55 l 0 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 35.75 0"
+          d="M 704 55 l 0 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 25.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 834 55 l 0 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 25.75 0"
+          d="M 704 55 l 0 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 85.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 274.25 55L 654 55C 672.48 55 682 73 689 80C 696 87 705.005 90 714 90L 714 90C 722.995 90 732 87 739 80C 746 73 755.52 55 774 55L 883.75 55"
+          d="M 344.25 55L 514 55C 532.48 55 542 73 549 80C 556 87 565.005 90 574 90L 574 90C 582.995 90 592 87 599 80C 606 73 615.52 55 634 55L 813.75 55"
           fill="none"
           strokeWidth={3.5}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={914.25}
-          x2={1083.75}
+          x1={774.25}
+          x2={873.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={904.25}
-          x2={1172.75}
+          x1={834.25}
+          x2={962.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 1104.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 894.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 904.25 195 l 225.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 834.25 195 l 85.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <g
           className="pipeline-selection-highlight"
-          transform="translate(594 125)"
+          transform="translate(454 125)"
         >
           <circle
             className="white-highlight"
@@ -1361,7 +1361,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(264,55)"
+          transform="translate(334,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -1425,7 +1425,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(404,125)"
+          transform="translate(334,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -1457,7 +1457,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node-selected"
-          transform="translate(594,125)"
+          transform="translate(454,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -1521,7 +1521,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(464,195)"
+          transform="translate(394,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -1553,7 +1553,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(264,265)"
+          transform="translate(334,265)"
         >
           <g
             className="progress-spinner not_built"
@@ -1585,7 +1585,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(714,55)"
+          transform="translate(574,55)"
         >
           <g
             className="progress-spinner skipped"
@@ -1615,7 +1615,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(894,55)"
+          transform="translate(824,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -1647,7 +1647,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(904,125)"
+          transform="translate(764,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -1679,7 +1679,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1094,125)"
+          transform="translate(884,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -1711,7 +1711,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(894,195)"
+          transform="translate(824,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -1743,7 +1743,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1178,55)"
+          transform="translate(968,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -1782,7 +1782,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "404px",
+            "left": "334px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -1802,7 +1802,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "714px",
+            "left": "574px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -1822,7 +1822,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "999px",
+            "left": "824px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -1842,7 +1842,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "1178px",
+            "left": "968px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -1861,7 +1861,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 219,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -1899,7 +1899,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 359,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -1918,7 +1918,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label selected"
         style={
           Object {
-            "left": 549,
+            "left": 409,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -1956,7 +1956,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 419,
+            "left": 349,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -1975,7 +1975,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 219,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -1994,7 +1994,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 849,
+            "left": 779,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2013,7 +2013,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 859,
+            "left": 719,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2032,7 +2032,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 1049,
+            "left": 839,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2051,7 +2051,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 849,
+            "left": 779,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2070,15 +2070,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "background": "white",
-            "left": 114,
+            "left": 120,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 118,
+            "top": 125,
             "whiteSpace": "nowrap",
           }
         }
@@ -2090,21 +2090,41 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "background": "white",
-            "left": 114,
+            "left": 120,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 188,
+            "top": 195,
             "whiteSpace": "nowrap",
           }
         }
         title="seq2"
       >
         seq2
+      </div>
+      <div
+        style={
+          Object {
+            "background": "white",
+            "left": 670,
+            "lineHeight": "1",
+            "marginTop": "-0.5em",
+            "maxWidth": 70,
+            "overflow": "hidden",
+            "padding": "0 7px",
+            "position": "absolute",
+            "textOverflow": "ellipsis",
+            "top": 125,
+            "whiteSpace": "nowrap",
+          }
+        }
+        title="seq1"
+      >
+        seq1
       </div>
     </div>
   </div>
@@ -2122,13 +2142,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
     >
       <svg
         height={320}
-        width={1238}
+        width={1028}
       >
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={65.25}
-          x2={253.75}
+          x2={323.75}
           y1={55}
           y2={55}
         />
@@ -2146,7 +2166,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         />
         <path
           className="pipeline-connector"
-          d="M 65.25 55 l 88.75 0 c 12 0 12 12 12 12 l 0 186 c 0 12 12 12 12 12 l 75.75 0"
+          d="M 65.25 55 l 18.75 0 c 12 0 12 12 12 12 l 0 186 c 0 12 12 12 12 12 l 215.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -2154,15 +2174,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={224.25}
-          x2={393.75}
+          x2={323.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={414.25}
-          x2={583.75}
+          x1={344.25}
+          x2={443.75}
           y1={125}
           y2={125}
         />
@@ -2170,81 +2190,81 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={284.25}
-          x2={453.75}
+          x2={383.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={274.25}
-          x2={703.75}
+          x1={344.25}
+          x2={563.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 604.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 464.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 474.25 195 l 155.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 404.25 195 l 85.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 274.25 265 l 355.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 344.25 265 l 145.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={724.25}
-          x2={883.75}
+          x1={584.25}
+          x2={813.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 724.25 55 l 39.75 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 105.75 0"
+          d="M 584.25 55 l 49.75 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 95.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 724.25 55 l 109.75 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 25.75 0"
+          d="M 584.25 55 l 49.75 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 155.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={914.25}
-          x2={1083.75}
+          x1={774.25}
+          x2={873.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={904.25}
-          x2={1172.75}
+          x1={834.25}
+          x2={962.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 1104.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 894.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 904.25 195 l 225.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 834.25 195 l 85.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -2279,7 +2299,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(264,55)"
+          transform="translate(334,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -2343,7 +2363,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(404,125)"
+          transform="translate(334,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -2375,7 +2395,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(594,125)"
+          transform="translate(454,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -2439,7 +2459,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(464,195)"
+          transform="translate(394,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -2471,7 +2491,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(264,265)"
+          transform="translate(334,265)"
         >
           <g
             className="progress-spinner not_built"
@@ -2503,7 +2523,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(714,55)"
+          transform="translate(574,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -2535,7 +2555,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(894,55)"
+          transform="translate(824,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -2567,7 +2587,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(904,125)"
+          transform="translate(764,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -2599,7 +2619,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1094,125)"
+          transform="translate(884,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -2631,7 +2651,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(894,195)"
+          transform="translate(824,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -2663,7 +2683,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1178,55)"
+          transform="translate(968,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -2702,7 +2722,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "404px",
+            "left": "334px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -2722,7 +2742,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "714px",
+            "left": "574px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -2742,7 +2762,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "999px",
+            "left": "824px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -2762,7 +2782,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "1178px",
+            "left": "968px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -2781,7 +2801,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 219,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2819,7 +2839,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 359,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2838,7 +2858,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 549,
+            "left": 409,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2876,7 +2896,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 419,
+            "left": 349,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2895,7 +2915,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 219,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2914,7 +2934,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 849,
+            "left": 779,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2933,7 +2953,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 859,
+            "left": 719,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2952,7 +2972,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 1049,
+            "left": 839,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2971,7 +2991,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 849,
+            "left": 779,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -2990,15 +3010,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "background": "white",
-            "left": 114,
+            "left": 120,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 118,
+            "top": 125,
             "whiteSpace": "nowrap",
           }
         }
@@ -3010,15 +3030,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "background": "white",
-            "left": 114,
+            "left": 120,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 188,
+            "top": 195,
             "whiteSpace": "nowrap",
           }
         }
@@ -3030,15 +3050,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         style={
           Object {
             "background": "white",
-            "left": 794,
+            "left": 670,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 118,
+            "top": 125,
             "whiteSpace": "nowrap",
           }
         }
@@ -6985,13 +7005,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
     >
       <svg
         height={320}
-        width={1238}
+        width={1028}
       >
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={65.25}
-          x2={253.75}
+          x2={323.75}
           y1={55}
           y2={55}
         />
@@ -7009,7 +7029,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         />
         <path
           className="pipeline-connector"
-          d="M 65.25 55 l 88.75 0 c 12 0 12 12 12 12 l 0 186 c 0 12 12 12 12 12 l 75.75 0"
+          d="M 65.25 55 l 18.75 0 c 12 0 12 12 12 12 l 0 186 c 0 12 12 12 12 12 l 215.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -7017,15 +7037,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={224.25}
-          x2={393.75}
+          x2={323.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={414.25}
-          x2={583.75}
+          x1={344.25}
+          x2={443.75}
           y1={125}
           y2={125}
         />
@@ -7033,81 +7053,81 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={284.25}
-          x2={453.75}
+          x2={383.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={274.25}
-          x2={703.75}
+          x1={344.25}
+          x2={563.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 604.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 464.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 474.25 195 l 155.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 404.25 195 l 85.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 274.25 265 l 355.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 344.25 265 l 145.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={724.25}
-          x2={883.75}
+          x1={584.25}
+          x2={813.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 724.25 55 l 39.75 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 105.75 0"
+          d="M 584.25 55 l 49.75 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 95.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 724.25 55 l 109.75 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 25.75 0"
+          d="M 584.25 55 l 49.75 0 c 12 0 12 12 12 12 l 0 116 c 0 12 12 12 12 12 l 155.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={914.25}
-          x2={1083.75}
+          x1={774.25}
+          x2={873.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={904.25}
-          x2={1172.75}
+          x1={834.25}
+          x2={962.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 1104.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 894.25 125 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 904.25 195 l 225.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 834.25 195 l 85.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -7128,7 +7148,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(264,55)"
+          transform="translate(334,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -7192,7 +7212,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(404,125)"
+          transform="translate(334,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -7224,7 +7244,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(594,125)"
+          transform="translate(454,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -7288,7 +7308,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(464,195)"
+          transform="translate(394,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -7320,7 +7340,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(264,265)"
+          transform="translate(334,265)"
         >
           <g
             className="progress-spinner not_built"
@@ -7352,7 +7372,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(714,55)"
+          transform="translate(574,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -7384,7 +7404,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(894,55)"
+          transform="translate(824,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -7416,7 +7436,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(904,125)"
+          transform="translate(764,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -7448,7 +7468,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1094,125)"
+          transform="translate(884,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -7480,7 +7500,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(894,195)"
+          transform="translate(824,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -7512,7 +7532,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1178,55)"
+          transform="translate(968,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -7551,7 +7571,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "404px",
+            "left": "334px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -7571,7 +7591,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "714px",
+            "left": "574px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -7591,7 +7611,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "999px",
+            "left": "824px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -7611,7 +7631,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         style={
           Object {
             "bottom": "285px",
-            "left": "1178px",
+            "left": "968px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -7630,7 +7650,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 219,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7668,7 +7688,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 359,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7687,7 +7707,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 549,
+            "left": 409,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7725,7 +7745,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 419,
+            "left": 349,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7744,7 +7764,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 219,
+            "left": 289,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7763,7 +7783,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 849,
+            "left": 779,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7782,7 +7802,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 859,
+            "left": 719,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7801,7 +7821,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 1049,
+            "left": 839,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7820,7 +7840,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 849,
+            "left": 779,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -7839,15 +7859,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         style={
           Object {
             "background": "white",
-            "left": 114,
+            "left": 120,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 118,
+            "top": 125,
             "whiteSpace": "nowrap",
           }
         }
@@ -7859,15 +7879,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         style={
           Object {
             "background": "white",
-            "left": 114,
+            "left": 120,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 188,
+            "top": 195,
             "whiteSpace": "nowrap",
           }
         }
@@ -7879,15 +7899,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         style={
           Object {
             "background": "white",
-            "left": 794,
+            "left": 670,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 118,
+            "top": 125,
             "whiteSpace": "nowrap",
           }
         }
@@ -9037,7 +9057,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
     >
       <svg
         height={530}
-        width={1288}
+        width={1078}
       >
         <line
           className="pipeline-connector"
@@ -9051,13 +9071,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={154.25}
-          x2={433.75}
+          x2={503.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 154.25 55 l 119.75 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 135.75 0"
+          d="M 154.25 55 l 49.75 0 c 12 0 12 12 12 12 l 0 46 c 0 12 12 12 12 12 l 275.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -9087,7 +9107,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         />
         <path
           className="pipeline-connector"
-          d="M 154.25 55 l 119.75 0 c 12 0 12 12 12 12 l 0 396 c 0 12 12 12 12 12 l 135.75 0"
+          d="M 154.25 55 l 49.75 0 c 12 0 12 12 12 12 l 0 396 c 0 12 12 12 12 12 l 275.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -9095,15 +9115,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={404.25}
-          x2={573.75}
+          x2={503.75}
           y1={265}
           y2={265}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={594.25}
-          x2={763.75}
+          x1={524.25}
+          x2={623.75}
           y1={265}
           y2={265}
         />
@@ -9111,7 +9131,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={464.25}
-          x2={633.75}
+          x2={563.75}
           y1={335}
           y2={335}
         />
@@ -9119,83 +9139,83 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={344.25}
-          x2={513.75}
+          x2={443.75}
           y1={405}
           y2={405}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={534.25}
-          x2={703.75}
+          x1={464.25}
+          x2={563.75}
           y1={405}
           y2={405}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={724.25}
-          x2={893.75}
+          x1={584.25}
+          x2={683.75}
           y1={405}
           y2={405}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={454.25}
-          x2={1013.75}
+          x1={524.25}
+          x2={803.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 454.25 125 l 485.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 524.25 125 l 205.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 524.25 195 l 415.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 524.25 195 l 205.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 784.25 265 l 155.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 644.25 265 l 85.75 0 c 12 0 12 -12 12 -12 l 0 -186 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 654.25 335 l 285.75 0 c 12 0 12 -12 12 -12 l 0 -256 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 584.25 335 l 145.75 0 c 12 0 12 -12 12 -12 l 0 -256 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 914.25 405 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -326 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 704.25 405 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -326 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 454.25 475 l 485.75 0 c 12 0 12 -12 12 -12 l 0 -396 c 0 -12 12 -12 12 -12 l 49.75 0"
+          d="M 524.25 475 l 205.75 0 c 12 0 12 -12 12 -12 l 0 -396 c 0 -12 12 -12 12 -12 l 49.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={1034.25}
-          x2={1133.75}
+          x1={824.25}
+          x2={923.75}
           y1={55}
           y2={55}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={1154.25}
-          x2={1222.75}
+          x1={944.25}
+          x2={1012.75}
           y1={55}
           y2={55}
         />
@@ -9248,7 +9268,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(444,55)"
+          transform="translate(514,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -9280,7 +9300,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(444,125)"
+          transform="translate(514,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -9376,7 +9396,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(584,265)"
+          transform="translate(514,265)"
         >
           <g
             className="progress-spinner not_built"
@@ -9408,7 +9428,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(774,265)"
+          transform="translate(634,265)"
         >
           <g
             className="progress-spinner not_built"
@@ -9472,7 +9492,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(644,335)"
+          transform="translate(574,335)"
         >
           <g
             className="progress-spinner not_built"
@@ -9536,7 +9556,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(524,405)"
+          transform="translate(454,405)"
         >
           <g
             className="progress-spinner not_built"
@@ -9568,7 +9588,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(714,405)"
+          transform="translate(574,405)"
         >
           <g
             className="progress-spinner not_built"
@@ -9600,7 +9620,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(904,405)"
+          transform="translate(694,405)"
         >
           <g
             className="progress-spinner not_built"
@@ -9632,7 +9652,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(444,475)"
+          transform="translate(514,475)"
         >
           <g
             className="progress-spinner not_built"
@@ -9664,7 +9684,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1024,55)"
+          transform="translate(814,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -9696,7 +9716,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1144,55)"
+          transform="translate(934,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -9728,7 +9748,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1228,55)"
+          transform="translate(1018,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -9787,7 +9807,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         style={
           Object {
             "bottom": "495px",
-            "left": "619px",
+            "left": "514px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -9807,7 +9827,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         style={
           Object {
             "bottom": "495px",
-            "left": "1024px",
+            "left": "814px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -9827,7 +9847,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         style={
           Object {
             "bottom": "495px",
-            "left": "1144px",
+            "left": "934px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -9847,7 +9867,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         style={
           Object {
             "bottom": "495px",
-            "left": "1228px",
+            "left": "1018px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -9866,7 +9886,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 399,
+            "left": 469,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -9885,7 +9905,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 399,
+            "left": 469,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -9942,7 +9962,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 539,
+            "left": 469,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -9961,7 +9981,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 729,
+            "left": 589,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -9999,7 +10019,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 599,
+            "left": 529,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10037,7 +10057,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 479,
+            "left": 409,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10056,7 +10076,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 669,
+            "left": 529,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10075,7 +10095,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 859,
+            "left": 649,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10094,7 +10114,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 399,
+            "left": 469,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10113,15 +10133,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         style={
           Object {
             "background": "white",
-            "left": 234,
+            "left": 240,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 188,
+            "top": 195,
             "whiteSpace": "nowrap",
           }
         }
@@ -10133,15 +10153,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         style={
           Object {
             "background": "white",
-            "left": 234,
+            "left": 240,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 258,
+            "top": 265,
             "whiteSpace": "nowrap",
           }
         }
@@ -10153,15 +10173,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         style={
           Object {
             "background": "white",
-            "left": 234,
+            "left": 240,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 328,
+            "top": 335,
             "whiteSpace": "nowrap",
           }
         }
@@ -10173,21 +10193,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         style={
           Object {
             "background": "white",
-            "left": 234,
+            "left": 240,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 398,
+            "top": 405,
             "whiteSpace": "nowrap",
           }
         }
-        title="seq3"
+        title="longer sequence name"
       >
-        seq3
+        longer sequence name
       </div>
     </div>
   </div>
@@ -10219,7 +10239,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
     >
       <svg
         height={250}
-        width={1168}
+        width={958}
       >
         <line
           className="pipeline-connector"
@@ -10253,7 +10273,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={274.25}
-          x2={553.75}
+          x2={623.75}
           y1={55}
           y2={55}
         />
@@ -10273,15 +10293,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={524.25}
-          x2={693.75}
+          x2={623.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={714.25}
-          x2={883.75}
+          x1={644.25}
+          x2={743.75}
           y1={125}
           y2={125}
         />
@@ -10289,43 +10309,43 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={464.25}
-          x2={633.75}
+          x2={563.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={654.25}
-          x2={823.75}
+          x1={584.25}
+          x2={683.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={844.25}
-          x2={1013.75}
+          x1={704.25}
+          x2={803.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={574.25}
-          x2={1102.75}
+          x1={644.25}
+          x2={892.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 904.25 125 l 155.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 764.25 125 l 85.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 1034.25 195 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 824.25 195 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -10442,7 +10462,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(564,55)"
+          transform="translate(634,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -10506,7 +10526,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(704,125)"
+          transform="translate(634,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -10538,7 +10558,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(894,125)"
+          transform="translate(754,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -10602,7 +10622,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(644,195)"
+          transform="translate(574,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -10634,7 +10654,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(834,195)"
+          transform="translate(694,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -10666,7 +10686,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1024,195)"
+          transform="translate(814,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -10698,7 +10718,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1108,55)"
+          transform="translate(898,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -10777,7 +10797,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "bottom": "215px",
-            "left": "739px",
+            "left": "634px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -10797,7 +10817,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "bottom": "215px",
-            "left": "1108px",
+            "left": "898px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -10854,7 +10874,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 519,
+            "left": 589,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10892,7 +10912,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 659,
+            "left": 589,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10911,7 +10931,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 849,
+            "left": 709,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10949,7 +10969,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 599,
+            "left": 529,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10968,7 +10988,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 789,
+            "left": 649,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -10987,7 +11007,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 979,
+            "left": 769,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -11006,15 +11026,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "background": "white",
-            "left": 354,
+            "left": 360,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 118,
+            "top": 125,
             "whiteSpace": "nowrap",
           }
         }
@@ -11026,15 +11046,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "background": "white",
-            "left": 354,
+            "left": 360,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 188,
+            "top": 195,
             "whiteSpace": "nowrap",
           }
         }
@@ -11061,7 +11081,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
     >
       <svg
         height={250}
-        width={1108}
+        width={898}
       >
         <line
           className="pipeline-connector"
@@ -11095,7 +11115,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={274.25}
-          x2={523.75}
+          x2={593.75}
           y1={55}
           y2={55}
         />
@@ -11115,15 +11135,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={514.25}
-          x2={663.75}
+          x2={593.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={684.25}
-          x2={833.75}
+          x1={614.25}
+          x2={693.75}
           y1={125}
           y2={125}
         />
@@ -11131,43 +11151,43 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={464.25}
-          x2={613.75}
+          x2={543.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={634.25}
-          x2={783.75}
+          x1={564.25}
+          x2={643.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={804.25}
-          x2={953.75}
+          x1={664.25}
+          x2={743.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={544.25}
-          x2={1042.75}
+          x1={614.25}
+          x2={832.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 854.25 125 l 145.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 714.25 125 l 75.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 974.25 195 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 764.25 195 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -11284,7 +11304,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(534,55)"
+          transform="translate(604,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -11348,7 +11368,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(674,125)"
+          transform="translate(604,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -11380,7 +11400,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(844,125)"
+          transform="translate(704,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -11444,7 +11464,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(624,195)"
+          transform="translate(554,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -11476,7 +11496,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(794,195)"
+          transform="translate(654,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -11508,7 +11528,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(964,195)"
+          transform="translate(754,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -11540,7 +11560,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1048,55)"
+          transform="translate(838,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -11619,7 +11639,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "bottom": "215px",
-            "left": "709px",
+            "left": "604px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -11639,7 +11659,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "bottom": "215px",
-            "left": "1048px",
+            "left": "838px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -11696,7 +11716,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 489,
+            "left": 559,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -11734,7 +11754,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 629,
+            "left": 559,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -11753,7 +11773,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 799,
+            "left": 659,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -11791,7 +11811,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 579,
+            "left": 509,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -11810,7 +11830,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 749,
+            "left": 609,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -11829,7 +11849,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 919,
+            "left": 709,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -11848,15 +11868,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "background": "white",
-            "left": 354,
+            "left": 360,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 118,
+            "top": 125,
             "whiteSpace": "nowrap",
           }
         }
@@ -11868,15 +11888,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "background": "white",
-            "left": 354,
+            "left": 360,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 188,
+            "top": 195,
             "whiteSpace": "nowrap",
           }
         }
@@ -11903,7 +11923,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
     >
       <svg
         height={250}
-        width={1093}
+        width={883}
       >
         <line
           className="pipeline-connector"
@@ -11937,7 +11957,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={274.25}
-          x2={516.75}
+          x2={586.75}
           y1={55}
           y2={55}
         />
@@ -11957,15 +11977,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={512.25}
-          x2={656.75}
+          x2={586.75}
           y1={125}
           y2={125}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={677.25}
-          x2={821.75}
+          x1={607.25}
+          x2={681.75}
           y1={125}
           y2={125}
         />
@@ -11973,43 +11993,43 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="pipeline-connector"
           strokeWidth={3.5}
           x1={464.25}
-          x2={608.75}
+          x2={538.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={629.25}
-          x2={773.75}
+          x1={559.25}
+          x2={633.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={794.25}
-          x2={938.75}
+          x1={654.25}
+          x2={728.75}
           y1={195}
           y2={195}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={537.25}
-          x2={1027.75}
+          x1={607.25}
+          x2={817.75}
           y1={55}
           y2={55}
         />
         <path
           className="pipeline-connector"
-          d="M 842.25 125 l 142.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 702.25 125 l 72.75 0 c 12 0 12 -12 12 -12 l 0 -46 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
         <path
           className="pipeline-connector"
-          d="M 959.25 195 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
+          d="M 749.25 195 l 25.75 0 c 12 0 12 -12 12 -12 l 0 -116 c 0 -12 12 -12 12 -12 l 18.75 0"
           fill="none"
           strokeWidth={3.5}
         />
@@ -12126,7 +12146,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(527,55)"
+          transform="translate(597,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -12190,7 +12210,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(667,125)"
+          transform="translate(597,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -12222,7 +12242,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(832,125)"
+          transform="translate(692,125)"
         >
           <g
             className="progress-spinner not_built"
@@ -12286,7 +12306,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(619,195)"
+          transform="translate(549,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -12318,7 +12338,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(784,195)"
+          transform="translate(644,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -12350,7 +12370,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(949,195)"
+          transform="translate(739,195)"
         >
           <g
             className="progress-spinner not_built"
@@ -12382,7 +12402,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         </g>
         <g
           className="pipeline-node"
-          transform="translate(1033,55)"
+          transform="translate(823,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -12461,7 +12481,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "bottom": "215px",
-            "left": "702px",
+            "left": "597px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -12481,7 +12501,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "bottom": "215px",
-            "left": "1033px",
+            "left": "823px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
@@ -12538,7 +12558,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 482,
+            "left": 552,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -12576,7 +12596,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 622,
+            "left": 552,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -12595,7 +12615,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 787,
+            "left": 647,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -12633,7 +12653,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 574,
+            "left": 504,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -12652,7 +12672,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 739,
+            "left": 599,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -12671,7 +12691,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         className="TruncatingLabel pipeline-small-label"
         style={
           Object {
-            "left": 904,
+            "left": 694,
             "maxHeight": 39,
             "opacity": 0,
             "overflow": "hidden",
@@ -12690,15 +12710,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "background": "white",
-            "left": 354,
+            "left": 360,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 118,
+            "top": 125,
             "whiteSpace": "nowrap",
           }
         }
@@ -12710,15 +12730,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         style={
           Object {
             "background": "white",
-            "left": 354,
+            "left": 360,
             "lineHeight": "1",
+            "marginTop": "-0.5em",
             "maxWidth": 70,
             "overflow": "hidden",
             "padding": "0 7px",
             "position": "absolute",
-            "textAlign": "center",
             "textOverflow": "ellipsis",
-            "top": 188,
+            "top": 195,
             "whiteSpace": "nowrap",
           }
         }
