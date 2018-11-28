@@ -1,10 +1,31 @@
-import * as React from 'react';
-
 import { storiesOf } from '@storybook/react';
-import { PipelineGraph } from '../main/PipelineGraph';
-import { Result, StageInfo } from '../main/PipelineGraphModel';
+
+import {
+    renderFlatPipeline,
+    renderMultiParallelPipeline,
+    renderMultiStageParallel,
+    renderMultiStageSpacing,
+    renderEdgeCases1,
+    renderLongNames,
+    renderWithDuplicateNames,
+    renderFlatPipelineFat,
+    renderListenersPipeline,
+    renderParallelPipeline,
+    renderParallelPipelineDeep,
+    renderEdgeCases2,
+} from './PipelineGraphStoriesImpl';
 
 import '../styles/main.scss';
+
+/* NB:
+ *
+ * We've split the stories up into the impl and the storybook-specific 'glue' code (this file)
+ * in order to re-use them for Jest snapshot testing, without needing yet another dependency.
+ * 
+ * This way we can import styles here for use in storybook, without having to set up CSS 
+ * loaders in our jest config, which we'd have to do if we just exported the funcs from here.
+ *  
+ */
 
 storiesOf('PipelineGraph', module)
     .add('Legend', renderFlatPipeline)
@@ -12,319 +33,10 @@ storiesOf('PipelineGraph', module)
     .add('Multi-stage Parallel', renderMultiStageParallel)
     .add('Multi-stage Spacing', renderMultiStageSpacing)
     .add('Edge cases 1', renderEdgeCases1)
+    .add('Edge cases 2', renderEdgeCases2)
     .add('Long names', renderLongNames)
     .add('Duplicate Names', renderWithDuplicateNames)
     .add('Fat', renderFlatPipelineFat)
     .add('Listeners', renderListenersPipeline)
     .add('Parallel', renderParallelPipeline)
     .add('Parallel (Deep)', renderParallelPipelineDeep);
-
-function renderFlatPipeline() {
-    const stages = [
-        makeNode('Success', [], Result.success),
-        makeNode('Failure', [], Result.failure),
-        makeNode('Running', [], Result.running),
-        makeNode('Slow', [], Result.running, 150),
-        makeNode('Queued', [], Result.queued),
-        makeNode('Unstable', [], Result.unstable),
-        makeNode('Aborted', [], Result.aborted),
-        makeNode('Not Built', [], Result.not_built),
-        makeNode('Bad data', [], 'this is not my office' as any),
-    ];
-
-    // Reduce spacing just to make this graph smaller
-    const layout = { nodeSpacingH: 90 };
-
-    return (
-        <div>
-            <PipelineGraph stages={stages} layout={layout} />
-        </div>
-    );
-}
-
-function renderWithDuplicateNames() {
-    const stages = [
-        makeNode('Build'),
-        makeNode('Test'),
-        makeNode('Browser Tests', [makeNode('Internet Explorer'), makeNode('Chrome')]),
-        makeNode('Test'),
-        makeNode('Staging'),
-        makeNode('Production'),
-    ];
-
-    return (
-        <div>
-            <PipelineGraph stages={stages} />
-        </div>
-    );
-}
-
-function renderFlatPipelineFat() {
-    const stages = [
-        makeNode('Success', [], Result.success),
-        makeNode('Failure', [], Result.failure),
-        makeNode('Running', [makeNode('Job 1', [], Result.running), makeNode('Job 2', [], Result.running), makeNode('Job 3', [], Result.running)]),
-        makeNode('Queued', [
-            makeNode('Job 4', [], Result.queued),
-            makeNode('Job 5', [], Result.queued),
-            makeNode('Job 6', [], Result.queued),
-            makeNode('Job 7', [], Result.queued),
-            makeNode('Job 8', [], Result.queued),
-        ]),
-        makeNode('Not Built', [], Result.not_built),
-        makeNode('Bad data', [], 'this is not my office' as any),
-    ];
-
-    const layout = {
-        connectorStrokeWidth: 10,
-        nodeRadius: 20,
-        curveRadius: 10,
-    };
-
-    return (
-        <div style={{ padding: 10 }}>
-            <h1>Same data, different layout</h1>
-            <h3>Normal</h3>
-            <PipelineGraph stages={stages} />
-            <h3>Fat</h3>
-            <PipelineGraph stages={stages} layout={layout} />
-        </div>
-    );
-}
-
-function renderListenersPipeline() {
-    const stages = [
-        makeNode('Build', [], Result.success),
-        makeNode('Test', [], Result.success),
-        makeNode('Browser Tests', [makeNode('Internet Explorer', [], Result.queued), makeNode('Chrome', [], Result.queued)]),
-        makeNode('Dev'),
-        makeNode('Dev'), // Make sure it works with dupe names
-        makeNode('Staging'),
-        makeNode('Production'),
-    ];
-
-    function nodeClicked(...values: Array<any>) {
-        console.log('Node clicked', values);
-    }
-
-    return (
-        <div>
-            <PipelineGraph stages={stages} onNodeClick={nodeClicked} />
-        </div>
-    );
-}
-
-function renderParallelPipeline() {
-    const stages = [
-        makeNode('Build'),
-        makeNode('Test'),
-        makeNode('Browser Tests', [makeNode('Internet Explorer'), makeNode('Chrome')]),
-        makeNode('Dev but with long label'),
-        makeNode('Staging'),
-        makeNode('Production'),
-    ];
-
-    return (
-        <div>
-            <PipelineGraph stages={stages} />
-        </div>
-    );
-}
-
-function renderMultiStageParallel() {
-    const stages = [
-        makeNode('Alpha'),
-        makeNode('Bravo', [
-            makeNode('Single 1'),
-            makeNode('Single 2'),
-            makeNode('Single 3'),
-            makeSequence(makeNode('Multi 1 of 3'), makeNode('Multi 2 of 3'), makeNode('Multi 3 of 3')),
-            makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')),
-            makeSequence(makeNode('Multi 1 of 4'), makeNode('Multi 2 of 4'), makeNode('Multi 3 of 4'), makeNode('Multi 4 of 4')),
-            makeNode('Single 4'),
-        ]),
-        makeNode('Charlie'),
-        makeNode('Delta'),
-    ];
-
-    return (
-        <div>
-            <PipelineGraph stages={stages} />
-        </div>
-    );
-}
-
-function renderMultiStageSpacing() {
-    const stages = [
-        makeNode('Alpha', [makeNode('Homer'), makeNode('Marge')]),
-        makeNode('Blue'),
-        makeNode('Bravo', [
-            makeNode('Single 1'),
-            makeSequence(makeNode('xxxxxxxxxxxxxxxxxxxxxxxxxx'), makeNode('xxxxxxxxxxxxxxxxxxxxxxxxxx'), makeNode('xxxxxxxxxxxxxxxxxxxxxxxxxx')),
-            makeSequence(makeNode('Multi 1 of 4'), makeNode('Multi 2 of 4'), makeNode('Multi 3 of 4'), makeNode('Multi 4 of 4')),
-        ]),
-    ];
-
-    return (
-        <div style={{ padding: '2em' }}>
-            <h3>120px (normal)</h3>
-            <PipelineGraph stages={stages} layout={{ parallelSpacingH: 120 }} />
-            <h3>100px</h3>
-            <PipelineGraph stages={stages} layout={{ parallelSpacingH: 100 }} />
-            <h3>95px</h3>
-            <PipelineGraph stages={stages} layout={{ parallelSpacingH: 95 }} />
-        </div>
-    );
-}
-
-function renderEdgeCases1() {
-    const stages1 = [makeNode('Alpha', [], Result.skipped), makeNode('Bravo', [], Result.success), makeNode('Charlie', [], Result.skipped)];
-
-    const stages2 = [
-        makeNode('Alpha', [makeNode('Delta', [], Result.success), makeNode('Echo', [], Result.success), makeNode('Foxtrot', [], Result.success)]),
-        makeNode('Bravo', [], Result.success),
-        makeNode('Charlie', [makeNode('Golf', [], Result.success), makeNode('Hotel', [], Result.success), makeNode('Indigo', [], Result.success)]),
-    ];
-
-    const stages3 = [makeNode('Alpha', [], Result.success), makeNode('Bravo', [], Result.skipped), makeNode('Charlie', [], Result.skipped)];
-
-    const stages4 = [
-        makeNode('Alpha', [
-            makeNode('Single 1'),
-            makeSequence(makeNode('Multi 1 of 3'), makeNode('Multi 2 of 3'), makeNode('Multi 3 of 3')),
-            makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')),
-            makeNode('Single 2'),
-        ]),
-        makeNode('Bravo', [], Result.skipped),
-        makeNode('Charlie', [makeNode('Single 1'), makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')), makeNode('Single 2')]),
-    ];
-
-    const stages5 = [
-        makeNode('Alpha', [
-            makeNode('Single 1'),
-            makeSequence(makeNode('Multi 1 of 3'), makeNode('Multi 2 of 3'), makeNode('Multi 3 of 3')),
-            makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')),
-            makeNode('Single 2'),
-        ]),
-        makeNode('Bravo'),
-        makeNode('Charlie', [makeNode('Single 1'), makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')), makeNode('Single 2')]),
-    ];
-
-    return (
-        <div>
-            <PipelineGraph stages={stages1} selectedStage={stages1[1]} />
-            <PipelineGraph stages={stages2} selectedStage={stages2[1]} />
-            <PipelineGraph stages={stages3} selectedStage={stages3[0]} />
-            <PipelineGraph stages={stages4} selectedStage={stages4[0].children[1].nextSibling!.nextSibling} />
-            <PipelineGraph stages={stages5} selectedStage={stages5[0].children[2]} />
-        </div>
-    );
-}
-
-function renderMultiParallelPipeline() {
-    const stages = [
-        makeNode('Build', [], Result.success),
-        makeNode('Test', [makeNode('JUnit', [], Result.success), makeNode('DBUnit', [], Result.success), makeNode('Jasmine', [], Result.success)]),
-        makeNode('Browser Tests', [
-            makeNode('Firefox', [], Result.success),
-            makeNode('Edge', [], Result.failure),
-            makeNode('Safari', [], Result.running, 60),
-            makeNode('Chrome', [], Result.running, 120),
-        ]),
-        makeNode('Skizzled', [], Result.skipped),
-        makeNode('Foshizzle', [], Result.skipped),
-        makeNode(
-            'Dev',
-            [makeNode('US-East', [], Result.success), makeNode('US-West', [], Result.success), makeNode('APAC', [], Result.success)],
-            Result.success
-        ),
-        makeNode('Staging', [], Result.skipped),
-        makeNode('Production'),
-    ];
-
-    return (
-        <div>
-            <PipelineGraph stages={stages} selectedStage={stages[0]} />
-        </div>
-    );
-}
-
-function renderLongNames() {
-    const stages = [
-        makeNode('Build something with a long and descriptive name that takes up a shitload of space', [], Result.success),
-        makeNode('Test', [makeNode('JUnit', [], Result.success), makeNode('DBUnit', [], Result.success), makeNode('Jasmine', [], Result.success)]),
-        makeNode('Browser Tests', [
-            makeNode('Firefox', [], Result.success),
-            makeNode('Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.', [], Result.failure),
-            makeNode('RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat', [], Result.running, 60),
-            makeNode('Chrome', [], Result.running, 120),
-        ]),
-        makeNode('Dev'),
-        makeNode('Staging'),
-        makeNode('Production'),
-    ];
-
-    const stages2 = [
-        makeNode('Alpha', [
-            makeNode('Single 1'),
-            makeSequence(
-                makeNode('RubberbabybuggybumpersbetyoudidntknowIwasgoingtodothat'),
-                makeNode('.............................................................................................'),
-                makeNode('Das komputermaschine ist nicht auf mittengraben unt die gerfingerpoken. Watchen das blinkenlights.')
-            ),
-            makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')),
-            makeNode('Single 2'),
-        ]),
-        makeNode('Bravo'),
-        makeNode('Charlie', [makeNode('Single 1'), makeSequence(makeNode('Multi 1 of 2'), makeNode('Multi 2 of 2')), makeNode('Single 2')]),
-    ];
-
-    return (
-        <div>
-            <PipelineGraph stages={stages} selectedStage={stages[0]} />
-            <PipelineGraph stages={stages2} selectedStage={stages2[0]} />
-        </div>
-    );
-}
-
-function renderParallelPipelineDeep() {
-    const stages = [
-        makeNode('Build', [], Result.success),
-        makeNode('Test', [], Result.success),
-        makeNode('Browser Tests', [
-            makeNode('Internet Explorer', [], Result.success),
-            makeNode('Firefox', [], Result.running),
-            makeNode('Edge', [], Result.failure),
-            makeNode('Safari', [], Result.running),
-            makeNode('LOLpera', [], Result.queued),
-            makeNode('Chrome', [], Result.queued),
-        ]),
-        makeNode('Dev', [], Result.not_built),
-        makeNode('Staging', [], Result.not_built),
-        makeNode('Production', [], Result.not_built),
-    ];
-
-    return (
-        <div>
-            <PipelineGraph stages={stages} />
-        </div>
-    );
-}
-
-let __id = 1;
-
-/// Simple helper for data generation
-function makeNode(name: string, children: Array<StageInfo> = [], state: Result = Result.not_built, completePercent?: number): StageInfo {
-    completePercent = completePercent || (state == Result.running ? Math.floor(Math.random() * 60 + 20) : 50);
-    const id = __id++;
-    const type = 'STAGE'; // TODO: move this to params if we need it
-    return { name, children, state, completePercent, id, type, title: name };
-}
-
-function makeSequence(...stages: Array<StageInfo>): StageInfo {
-    for (let i = 0; i < stages.length - 1; i++) {
-        stages[i].nextSibling = stages[i + 1];
-    }
-
-    return stages[0]; // The model only needs the first in a sequence
-}

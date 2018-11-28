@@ -7,17 +7,17 @@ import {
     CompositeConnection,
     decodeResultValue,
     defaultLayout,
-    LabelInfo,
+    NodeLabelInfo,
     LayoutInfo,
-    MATRIOSKA_PATHS,
     NodeColumn,
     NodeInfo,
     StageInfo,
+    StageNodeInfo,
 } from './PipelineGraphModel';
 
-import { layoutGraph } from './PipelineGraphLayout';
+import { layoutGraph, sequentialStagesLabelOffset } from './PipelineGraphLayout';
 
-type SVGChildren = Array<any>; // Fixme: Maybe refine this?
+type SVGChildren = Array<any>; // Fixme: Maybe refine this? Not sure what should go here, we have working code I can't make typecheck
 
 // Generate a react key for a connection
 function connectorKey(leftNode: NodeInfo, rightNode: NodeInfo) {
@@ -34,8 +34,9 @@ interface Props {
 interface State {
     nodeColumns: Array<NodeColumn>;
     connections: Array<CompositeConnection>;
-    bigLabels: Array<LabelInfo>;
-    smallLabels: Array<LabelInfo>;
+    bigLabels: Array<NodeLabelInfo>;
+    smallLabels: Array<NodeLabelInfo>;
+    branchLabels: Array<NodeLabelInfo>;
     measuredWidth: number;
     measuredHeight: number;
     layout: LayoutInfo;
@@ -53,6 +54,7 @@ export class PipelineGraph extends React.Component {
             connections: [],
             bigLabels: [],
             smallLabels: [],
+            branchLabels: [],
             measuredWidth: 0,
             measuredHeight: 0,
             layout: { ...defaultLayout, ...props.layout },
@@ -99,14 +101,14 @@ export class PipelineGraph extends React.Component {
     /**
      * Main process for laying out the graph. Calls out to PipelineGraphLayout module.
      */
-    stagesUpdated(newStages: Array<StageInfo> = []) {
+    private stagesUpdated(newStages: Array<StageInfo> = []) {
         this.setState(layoutGraph(newStages, this.state.layout));
     }
 
     /**
      * Generate the Component for a big label
      */
-    renderBigLabel(details: LabelInfo) {
+    private renderBigLabel(details: NodeLabelInfo) {
         const { nodeSpacingH, labelOffsetV, connectorStrokeWidth, ypStart } = this.state.layout;
 
         const labelWidth = nodeSpacingH - connectorStrokeWidth * 2;
@@ -147,7 +149,7 @@ export class PipelineGraph extends React.Component {
     /**
      * Generate the Component for a small label
      */
-    renderSmallLabel(details: LabelInfo) {
+    private renderSmallLabel(details: NodeLabelInfo) {
         const { nodeSpacingH, nodeSpacingV, curveRadius, connectorStrokeWidth, nodeRadius, smallLabelOffsetV } = this.state.layout;
 
         const smallLabelWidth = Math.floor(nodeSpacingH - 2 * curveRadius - 2 * connectorStrokeWidth); // Fit between lines
@@ -180,19 +182,50 @@ export class PipelineGraph extends React.Component {
     }
 
     /**
+     * Generate the Component for a small label denoting the name of the container of a group of sequential parallel stages
+     */
+    private renderSequentialContainerLabel(details: NodeLabelInfo): React.ReactChild {
+        const { nodeRadius } = this.state.layout;
+
+        const seqContainerName = details.text;
+        const y = details.y;
+        const x = details.x - Math.floor(nodeRadius * 2); // Because label X is a "node center"-relative position
+
+        const containerStyle: any = {
+            top: y,
+            left: x,
+            marginTop: '-0.5em',
+            position: 'absolute',
+            maxWidth: sequentialStagesLabelOffset,
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            background: 'white',
+            padding: '0 7px',
+            lineHeight: '1',
+            whiteSpace: 'nowrap',
+        };
+
+        return (
+            <div style={containerStyle} key={details.key} title={seqContainerName}>
+                {seqContainerName}
+            </div>
+        );
+    }
+
+    /**
      * Generate SVG for a composite connection, which may be to/from many nodes.
      *
      * Farms work out to other methods on self depending on the complexity of the line required. Adds all the SVG
      * components to the elements list.
      */
-    renderCompositeConnection(connection: CompositeConnection, elements: SVGChildren) {
-        const { sourceNodes, destinationNodes, skippedNodes } = connection;
+    private renderCompositeConnection(connection: CompositeConnection, svgElements: SVGChildren) {
+        const { sourceNodes, destinationNodes, skippedNodes, hasBranchLabels } = connection;
 
         if (skippedNodes.length === 0) {
             // Nothing too complicated, use the original connection drawing code
-            this.renderBasicConnections(sourceNodes, destinationNodes, elements);
+            this.renderBasicConnections(sourceNodes, destinationNodes, svgElements, hasBranchLabels);
         } else {
-            this.renderSkippingConnections(sourceNodes, destinationNodes, skippedNodes, elements);
+            this.renderSkippingConnections(sourceNodes, destinationNodes, skippedNodes, svgElements, hasBranchLabels);
         }
     }
 
@@ -201,7 +234,7 @@ export class PipelineGraph extends React.Component {
      *
      * Adds all the SVG components to the elements list.
      */
-    renderBasicConnections(sourceNodes: Array<NodeInfo>, destinationNodes: Array<NodeInfo>, elements: SVGChildren) {
+    private renderBasicConnections(sourceNodes: Array<NodeInfo>, destinationNodes: Array<NodeInfo>, svgElements: SVGChildren, hasBranchLabels: boolean) {
         const { connectorStrokeWidth, nodeSpacingH } = this.state.layout;
         const halfSpacingH = nodeSpacingH / 2;
 
@@ -211,7 +244,7 @@ export class PipelineGraph extends React.Component {
             strokeWidth: connectorStrokeWidth,
         };
 
-        this.renderHorizontalConnection(sourceNodes[0], destinationNodes[0], connectorStroke, elements);
+        this.renderHorizontalConnection(sourceNodes[0], destinationNodes[0], connectorStroke, svgElements);
 
         if (sourceNodes.length === 1 && destinationNodes.length === 1) {
             return; // No curves needed.
@@ -229,24 +262,22 @@ export class PipelineGraph extends React.Component {
             leftmostDestination = Math.min(leftmostDestination, destinationNodes[i].x);
         }
 
-        // console.log(''); // TODO: RM
-        // console.log('sourceNodes', sourceNodes.map(node => `${node.name} (${node.x})`).join(', ')); // TODO: RM
-        // console.log('rightmostSource',rightmostSource); // TODO: RM
-        // console.log('destNodes', destinationNodes.map(node => `${node.name} (${node.x})`).join(', ')); // TODO: RM
-        // console.log('leftmostDestination',leftmostDestination); // TODO: RM
-
         // Collapse from previous node(s) to top column node
+        const collapseMidPointX = Math.round(rightmostSource + halfSpacingH);
         for (const previousNode of sourceNodes.slice(1)) {
-            const midPointX = Math.round((MATRIOSKA_PATHS ? previousNode.x : rightmostSource) + halfSpacingH);
-            // console.log('collapse from',previousNode.name,'to',destinationNodes[0].name, 'mpx', midPointX); // TODO: RM
-            this.renderBasicCurvedConnection(previousNode, destinationNodes[0], midPointX, elements);
+            this.renderBasicCurvedConnection(previousNode, destinationNodes[0], collapseMidPointX, svgElements);
         }
 
         // Expand from top previous node to column node(s)
+        let expandMidPointX = Math.round(leftmostDestination - halfSpacingH);
+
+        if (hasBranchLabels) {
+            // Shift curve midpoint so that there's room for the labels
+            expandMidPointX -= sequentialStagesLabelOffset;
+        }
+
         for (const destNode of destinationNodes.slice(1)) {
-            const midPointX = Math.round((MATRIOSKA_PATHS ? destNode.x : leftmostDestination) - halfSpacingH);
-            // console.log('expand from',sourceNodes[0].name,'to',destNode.name, 'mpx', midPointX); // TODO: RM
-            this.renderBasicCurvedConnection(sourceNodes[0], destNode, midPointX, elements);
+            this.renderBasicCurvedConnection(sourceNodes[0], destNode, expandMidPointX, svgElements);
         }
     }
 
@@ -255,7 +286,13 @@ export class PipelineGraph extends React.Component {
      *
      * Adds all the SVG components to the elements list.
      */
-    renderSkippingConnections(sourceNodes: Array<NodeInfo>, destinationNodes: Array<NodeInfo>, skippedNodes: Array<NodeInfo>, elements: SVGChildren) {
+    private renderSkippingConnections(
+        sourceNodes: Array<NodeInfo>,
+        destinationNodes: Array<NodeInfo>,
+        skippedNodes: Array<NodeInfo>,
+        svgElements: SVGChildren,
+        hasBranchLabels: boolean
+    ) {
         const { connectorStrokeWidth, nodeRadius, terminalRadius, curveRadius, nodeSpacingV, nodeSpacingH } = this.state.layout;
 
         const halfSpacingH = nodeSpacingH / 2;
@@ -279,10 +316,10 @@ export class PipelineGraph extends React.Component {
 
         leftNode = sourceNodes[0];
         for (rightNode of skippedNodes) {
-            this.renderHorizontalConnection(leftNode, rightNode, skipConnectorStroke, elements);
+            this.renderHorizontalConnection(leftNode, rightNode, skipConnectorStroke, svgElements);
             leftNode = rightNode;
         }
-        this.renderHorizontalConnection(leftNode, destinationNodes[0], skipConnectorStroke, elements);
+        this.renderHorizontalConnection(leftNode, destinationNodes[0], skipConnectorStroke, svgElements);
 
         //--------------------------------------------------------------------------
         //  Work out the extents of source and dest space
@@ -305,7 +342,7 @@ export class PipelineGraph extends React.Component {
         rightNode = skippedNodes[0];
 
         for (leftNode of sourceNodes.slice(1)) {
-            const midPointX = Math.round((MATRIOSKA_PATHS ? leftNode.x : rightmostSource) + halfSpacingH);
+            const midPointX = Math.round(rightmostSource + halfSpacingH);
             const leftNodeRadius = leftNode.isPlaceholder ? terminalRadius : nodeRadius;
             const key = connectorKey(leftNode, rightNode);
 
@@ -314,30 +351,35 @@ export class PipelineGraph extends React.Component {
             const x2 = midPointX;
             const y2 = rightNode.y;
 
-            const pathData = `M ${x1} ${y1}` + this.svgCurve(x1, y1, x2, y2, midPointX, curveRadius);
+            const pathData = `M ${x1} ${y1}` + this.svgBranchCurve(x1, y1, x2, y2, midPointX, curveRadius);
 
-            elements.push(<path {...connectorStroke} key={key} d={pathData} fill="none" />);
+            svgElements.push(<path {...connectorStroke} key={key} d={pathData} fill="none" />);
         }
 
         //--------------------------------------------------------------------------
         //  "Expand" from the last skipped node toward the destination nodes
 
         leftNode = lastSkippedNode;
-        rightNode = destinationNodes[0];
+
+        let expandMidPointX = Math.round(leftmostDestination - halfSpacingH);
+
+        if (hasBranchLabels) {
+            // Shift curve midpoint so that there's room for the labels
+            expandMidPointX -= sequentialStagesLabelOffset;
+        }
 
         for (rightNode of destinationNodes.slice(1)) {
-            const midPointX = Math.round((MATRIOSKA_PATHS ? rightNode.x : leftmostDestination) - halfSpacingH);
             const rightNodeRadius = rightNode.isPlaceholder ? terminalRadius : nodeRadius;
             const key = connectorKey(leftNode, rightNode);
 
-            const x1 = midPointX;
+            const x1 = expandMidPointX;
             const y1 = leftNode.y;
             const x2 = rightNode.x - rightNodeRadius + nodeStrokeWidth / 2;
             const y2 = rightNode.y;
 
-            const pathData = `M ${x1} ${y1}` + this.svgCurve(x1, y1, x2, y2, midPointX, curveRadius);
+            const pathData = `M ${x1} ${y1}` + this.svgBranchCurve(x1, y1, x2, y2, expandMidPointX, curveRadius);
 
-            elements.push(<path {...connectorStroke} key={key} d={pathData} fill="none" />);
+            svgElements.push(<path {...connectorStroke} key={key} d={pathData} fill="none" />);
         }
 
         //--------------------------------------------------------------------------
@@ -415,7 +457,7 @@ export class PipelineGraph extends React.Component {
             `L ${p8x} ${p8y}` + // Last horizontal
             '';
 
-        elements.push(<path {...connectorStroke} key={key} d={pathData} fill="none" />);
+        svgElements.push(<path {...connectorStroke} key={key} d={pathData} fill="none" />);
     }
 
     /**
@@ -423,7 +465,7 @@ export class PipelineGraph extends React.Component {
      *
      * Adds all the SVG components to the elements list.
      */
-    renderHorizontalConnection(leftNode: NodeInfo, rightNode: NodeInfo, connectorStroke: Object, elements: SVGChildren) {
+    private renderHorizontalConnection(leftNode: NodeInfo, rightNode: NodeInfo, connectorStroke: Object, svgElements: SVGChildren) {
         const { nodeRadius, terminalRadius } = this.state.layout;
         const leftNodeRadius = leftNode.isPlaceholder ? terminalRadius : nodeRadius;
         const rightNodeRadius = rightNode.isPlaceholder ? terminalRadius : nodeRadius;
@@ -434,7 +476,7 @@ export class PipelineGraph extends React.Component {
         const x2 = rightNode.x - rightNodeRadius + nodeStrokeWidth / 2;
         const y = leftNode.y;
 
-        elements.push(<line {...connectorStroke} key={key} x1={x1} y1={y} x2={x2} y2={y} />);
+        svgElements.push(<line {...connectorStroke} key={key} x1={x1} y1={y} x2={x2} y2={y} />);
     }
 
     /**
@@ -442,7 +484,7 @@ export class PipelineGraph extends React.Component {
      *
      * Adds all the SVG components to the elements list.
      */
-    renderBasicCurvedConnection(leftNode: NodeInfo, rightNode: NodeInfo, midPointX: number, elements: SVGChildren) {
+    private renderBasicCurvedConnection(leftNode: NodeInfo, rightNode: NodeInfo, midPointX: number, svgElements: SVGChildren) {
         const { nodeRadius, terminalRadius, curveRadius, connectorStrokeWidth } = this.state.layout;
         const leftNodeRadius = leftNode.isPlaceholder ? terminalRadius : nodeRadius;
         const rightNodeRadius = rightNode.isPlaceholder ? terminalRadius : nodeRadius;
@@ -465,15 +507,15 @@ export class PipelineGraph extends React.Component {
             strokeWidth: connectorStrokeWidth,
         };
 
-        const pathData = `M ${leftPos.x} ${leftPos.y}` + this.svgCurve(leftPos.x, leftPos.y, rightPos.x, rightPos.y, midPointX, curveRadius);
+        const pathData = `M ${leftPos.x} ${leftPos.y}` + this.svgBranchCurve(leftPos.x, leftPos.y, rightPos.x, rightPos.y, midPointX, curveRadius);
 
-        elements.push(<path {...connectorStroke} key={key} d={pathData} fill="none" />);
+        svgElements.push(<path {...connectorStroke} key={key} d={pathData} fill="none" />);
     }
 
     /**
      * Generates an SVG path string for the "vertical" S curve used to connect nodes in adjacent columns.
      */
-    svgCurve(x1: number, y1: number, x2: number, y2: number, midPointX: number, curveRadius: number) {
+    private svgBranchCurve(x1: number, y1: number, x2: number, y2: number, midPointX: number, curveRadius: number) {
         const verticalDirection = Math.sign(y2 - y1); // 1 == curve down, -1 == curve up
         const w1 = midPointX - curveRadius - x1 + curveRadius * verticalDirection;
         const w2 = x2 - curveRadius - midPointX - curveRadius * verticalDirection;
@@ -494,7 +536,7 @@ export class PipelineGraph extends React.Component {
      *
      * Adds all the SVG components to the elements list.
      */
-    renderNode(node: NodeInfo, elements: SVGChildren) {
+    private renderNode(node: NodeInfo, svgElements: SVGChildren) {
         let nodeIsSelected = false;
         const { nodeRadius, connectorStrokeWidth, terminalRadius } = this.state.layout;
         const key = node.key;
@@ -537,7 +579,7 @@ export class PipelineGraph extends React.Component {
             className: nodeIsSelected ? 'pipeline-node-selected' : 'pipeline-node',
         };
 
-        elements.push(React.createElement('g', groupProps, ...groupChildren));
+        svgElements.push(React.createElement('g', groupProps, ...groupChildren));
     }
 
     /**
@@ -545,7 +587,7 @@ export class PipelineGraph extends React.Component {
      *
      * Adds all the SVG components to the elements list.
      */
-    renderSelectionHighlight(elements: SVGChildren) {
+    private renderSelectionHighlight(svgElements: SVGChildren) {
         const { nodeRadius, connectorStrokeWidth } = this.state.layout;
         const highlightRadius = Math.ceil(nodeRadius + 0.5 * connectorStrokeWidth + 1);
         let selectedNode: NodeInfo | undefined;
@@ -564,7 +606,7 @@ export class PipelineGraph extends React.Component {
         if (selectedNode) {
             const transform = `translate(${selectedNode.x} ${selectedNode.y})`;
 
-            elements.push(
+            svgElements.push(
                 <g className="pipeline-selection-highlight" transform={transform} key="selection-highlight">
                     <circle className="white-highlight" r={highlightRadius - 2} strokeWidth={10} />
                     <circle r={highlightRadius} strokeWidth={2} />
@@ -576,7 +618,7 @@ export class PipelineGraph extends React.Component {
     /**
      * Is this stage currently selected?
      */
-    stageIsSelected(stage?: StageInfo): boolean {
+    private stageIsSelected(stage?: StageInfo): boolean {
         const { selectedStage } = this.state;
         return (selectedStage && stage && selectedStage.id === stage.id) || false;
     }
@@ -584,7 +626,7 @@ export class PipelineGraph extends React.Component {
     /**
      * Is this any child of this stage currently selected?
      */
-    stageChildIsSelected(stage?: StageInfo) {
+    private stageChildIsSelected(stage?: StageInfo) {
         if (stage) {
             const { children } = stage;
             const { selectedStage } = this.state;
@@ -606,7 +648,7 @@ export class PipelineGraph extends React.Component {
         return false;
     }
 
-    nodeClicked(node: NodeInfo) {
+    private nodeClicked(node: NodeInfo) {
         if (node.isPlaceholder === false && node.stage.state !== 'skipped') {
             const stage = node.stage;
             const listener = this.props.onNodeClick;
@@ -621,7 +663,7 @@ export class PipelineGraph extends React.Component {
     }
 
     render() {
-        const { nodeColumns = [], connections = [], bigLabels = [], smallLabels = [], measuredWidth, measuredHeight } = this.state;
+        const { nodeColumns, connections, bigLabels, smallLabels, branchLabels, measuredWidth, measuredHeight } = this.state;
 
         // Without these we get fire, so they're hardcoded
         const outerDivStyle = {
@@ -629,18 +671,18 @@ export class PipelineGraph extends React.Component {
             overflow: 'visible', // So long labels can escape this component in layout
         };
 
-        const visualElements: SVGChildren = []; // Buffer for children of the SVG
+        const svgElements: SVGChildren = []; // Buffer for children of the SVG
 
         connections.forEach(connection => {
-            this.renderCompositeConnection(connection, visualElements);
+            this.renderCompositeConnection(connection, svgElements);
         });
 
-        this.renderSelectionHighlight(visualElements);
+        this.renderSelectionHighlight(svgElements);
 
         for (const column of nodeColumns) {
             for (const row of column.rows) {
                 for (const node of row) {
-                    this.renderNode(node, visualElements);
+                    this.renderNode(node, svgElements);
                 }
             }
         }
@@ -649,10 +691,11 @@ export class PipelineGraph extends React.Component {
             <div className="PipelineGraph-container">
                 <div style={outerDivStyle as any} className="PipelineGraph">
                     <svg width={measuredWidth} height={measuredHeight}>
-                        {visualElements}
+                        {svgElements}
                     </svg>
                     {bigLabels.map(label => this.renderBigLabel(label))}
                     {smallLabels.map(label => this.renderSmallLabel(label))}
+                    {branchLabels.map(label => this.renderSequentialContainerLabel(label))}
                 </div>
             </div>
         );

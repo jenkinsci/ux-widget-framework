@@ -23,8 +23,6 @@ export function decodeResultValue(resultMaybe: any): Result {
     return Result.unknown;
 }
 
-export const MATRIOSKA_PATHS = false;
-
 // Dimensions used for layout, px
 export const defaultLayout = {
     nodeSpacingH: 120,
@@ -41,9 +39,7 @@ export const defaultLayout = {
 
 // Typedefs
 
-// TODO: Change "export type Foo = {}" to "export interface Foo {}"
-
-export type StageType = string; // TODO: STAGE, PARALLEL, STEP
+export type StageType = 'STAGE' | 'PARALLEL' | 'STEP';
 
 /**
  * StageInfo is the input, in the form of an Array<StageInfo> of the top-level stages of a pipeline
@@ -58,11 +54,10 @@ export interface StageInfo {
     children: Array<StageInfo>; // Used by the top-most stages with parallel branches
     nextSibling?: StageInfo; // Used within a parallel branch to denote sequential stages
     isSequential?: boolean;
+    seqContainerName?: string; //used within a parallel branch to denote the name of the container of the parallel sequential stages
 }
 
-// TODO: Refactor these into a common base, and some discerning "typeof" funcs
-
-export interface BaseNodeInfo {
+interface BaseNodeInfo {
     key: string;
     x: number;
     y: number;
@@ -94,16 +89,19 @@ export type NodeInfo = StageNodeInfo | PlaceholderNodeInfo;
 export interface NodeColumn {
     topStage?: StageInfo; // Top-most stage for this column, which will have no rendered nodes if it's parallel
     rows: Array<Array<NodeInfo>>;
-    x: number; // Center X position, for positioning top bigLabel
+    centerX: number; // Center X position, for positioning top bigLabel
+    hasBranchLabels: boolean;
+    startX: number; // Where to put the branch labels, or if none, the center of the left-most node(s)
 }
 
 export interface CompositeConnection {
     sourceNodes: Array<NodeInfo>;
     destinationNodes: Array<NodeInfo>;
     skippedNodes: Array<NodeInfo>;
+    hasBranchLabels: boolean;
 }
 
-export interface LabelInfo {
+export interface NodeLabelInfo {
     x: number;
     y: number;
     text: string;
@@ -113,3 +111,16 @@ export interface LabelInfo {
 }
 
 export type LayoutInfo = typeof defaultLayout;
+
+/**
+ * The result of the graph layout algorithm
+ */
+export interface PositionedGraph {
+    nodeColumns: Array<NodeColumn>;
+    connections: Array<CompositeConnection>;
+    bigLabels: Array<NodeLabelInfo>;
+    smallLabels: Array<NodeLabelInfo>;
+    branchLabels: Array<NodeLabelInfo>;
+    measuredWidth: number;
+    measuredHeight: number;
+}

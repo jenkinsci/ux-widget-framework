@@ -1,0 +1,5 @@
+# .prettierrc
+printWidth: 160
+tabWidth: 4
+trailingComma: es5
+singleQuote: true

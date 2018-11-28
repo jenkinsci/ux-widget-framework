@@ -1,29 +1,9 @@
-import { Result, defaultLayout, NodeInfo, StageInfo, LabelInfo, CompositeConnection, NodeColumn } from '../main/PipelineGraphModel';
+import { Result, defaultLayout, NodeInfo, StageInfo, NodeLabelInfo, CompositeConnection, NodeColumn, StageType } from '../main/PipelineGraphModel';
 import { layoutGraph } from '../main/PipelineGraphLayout';
 import * as assert from 'assert';
+import { MockGraphGenerator } from '../stories/PipelineGraphStoriesImpl';
 
 const stagesNullChildren = require('./stages-with-null-children.json');
-
-let __id = 1111;
-
-function makeNode(name: string, children: Array<StageInfo> = [], state = Result.not_built, type = 'STAGE', completePercent?: number): StageInfo {
-    completePercent = completePercent || (state == Result.running ? Math.floor(Math.random() * 60 + 20) : 50);
-    const id = __id++;
-    const title = name;
-    return { name, children, state, completePercent, id, type, title };
-}
-
-function makeSequence(...stages: Array<StageInfo>) {
-    for (let i = 0; i < stages.length - 1; i++) {
-        stages[i].nextSibling = stages[i + 1];
-        stages[i].isSequential = true;
-    }
-
-    //also mark the last node in the sequence as sequential
-    stages[stages.length - 1].isSequential = true;
-
-    return stages[0]; // The model only needs the first in a sequence
-}
 
 // Assertion helpers
 function assertNode(node: any, text: string, x: number, y: number) {
@@ -52,7 +32,7 @@ function assertRow(row: RowType, ...nodesParams: Array<[string, number, number]>
     }
 }
 
-function assertLabel(labels: Array<LabelInfo>, text: string, x: number, y: number) {
+function assertLabel(labels: Array<NodeLabelInfo>, text: string, x: number, y: number) {
     const label = labels.find(label => label.text === text);
 
     if (!label) {
@@ -76,6 +56,12 @@ function assertConnection(connections: Array<CompositeConnection>, sourceName: s
 }
 
 describe('PipelineGraph', () => {
+    let m: MockGraphGenerator;
+
+    beforeEach(() => {
+        m = new MockGraphGenerator();
+    });
+
     describe('layoutGraph', () => {
         it('gracefully handles a Stage with null children', () => {
             const { nodeColumns } = layoutGraph(stagesNullChildren, defaultLayout);
@@ -85,31 +71,27 @@ describe('PipelineGraph', () => {
 
         it('lays out a mixed graph', () => {
             const stages = [
-                makeNode('Build', [], Result.success),
-                makeNode('Test', [
-                    makeNode('JUnit', [], Result.success, 'PARALLEL'),
-                    makeNode('DBUnit', [], Result.success, 'PARALLEL'),
-                    makeNode('Jasmine', [], Result.success, 'PARALLEL'),
+                m.basicStage('Build', [], Result.success),
+                m.basicStage('Test', [
+                    m.basicStage('JUnit', [], Result.success),
+                    m.basicStage('DBUnit', [], Result.success),
+                    m.basicStage('Jasmine', [], Result.success),
                 ]),
-                makeNode('Browser Tests', [
-                    makeNode('Firefox', [], Result.success, 'PARALLEL'),
-                    makeNode('Edge', [], Result.failure, 'PARALLEL'),
-                    makeNode('Safari', [], Result.running, 'PARALLEL', 60),
-                    makeNode('Chrome', [], Result.running, 'PARALLEL', 120),
+                m.basicStage('Browser Tests', [
+                    m.basicStage('Firefox', [], Result.success),
+                    m.basicStage('Edge', [], Result.failure),
+                    m.basicStage('Safari', [], Result.running, 60),
+                    m.basicStage('Chrome', [], Result.running, 120),
                 ]),
-                makeNode('Skizzled', [], Result.skipped),
-                makeNode('Foshizzle', [], Result.skipped),
-                makeNode(
+                m.basicStage('Skizzled', [], Result.skipped),
+                m.basicStage('Foshizzle', [], Result.skipped),
+                m.basicStage(
                     'Dev',
-                    [
-                        makeNode('US-East', [], Result.success, 'PARALLEL'),
-                        makeNode('US-West', [], Result.success, 'PARALLEL'),
-                        makeNode('APAC', [], Result.success, 'PARALLEL'),
-                    ],
+                    [m.basicStage('US-East', [], Result.success), m.basicStage('US-West', [], Result.success), m.basicStage('APAC', [], Result.success)],
                     Result.success
                 ),
-                makeNode('Staging', [], Result.skipped),
-                makeNode('Production'),
+                m.basicStage('Staging', [], Result.skipped),
+                m.basicStage('Production'),
             ];
 
             const { nodeColumns, connections, bigLabels, smallLabels, measuredWidth, measuredHeight } = layoutGraph(stages, defaultLayout);
@@ -269,17 +251,18 @@ describe('PipelineGraph', () => {
 
         it('lays out a multi-stage parallel graph', () => {
             const stages = [
-                makeNode('Alpha'),
-                makeNode('Bravo', [
-                    makeNode('Echo', [], Result.not_built, 'PARALLEL'),
-                    makeSequence(
-                        makeNode('Foxtrot', [], Result.not_built, 'STAGE'),
-                        makeNode('Golf', [], Result.not_built, 'STAGE'),
-                        makeNode('Hotel', [], Result.not_built, 'STAGE')
+                m.basicStage('Alpha'),
+                m.basicStage('Bravo', [
+                    m.basicStage('Echo', [], Result.not_built),
+                    m.makeSequence(
+                        'seq1',
+                        m.basicStage('Foxtrot', [], Result.not_built),
+                        m.basicStage('Golf', [], Result.not_built),
+                        m.basicStage('Hotel', [], Result.not_built)
                     ),
-                    makeSequence(makeNode('India', [], Result.not_built, 'STAGE'), makeNode('Juliet', [], Result.not_built, 'STAGE')),
+                    m.makeSequence('seq1', m.basicStage('India', [], Result.not_built), m.basicStage('Juliet', [], Result.not_built)),
                 ]),
-                makeNode('Charlie'),
+                m.basicStage('Charlie'),
             ];
 
             const { nodeColumns, connections, bigLabels, smallLabels, measuredWidth, measuredHeight } = layoutGraph(stages, defaultLayout);
@@ -287,7 +270,7 @@ describe('PipelineGraph', () => {
             // Basic stuff
 
             assert.equal(nodeColumns.length, 5, 'column count');
-            assert.equal(measuredWidth, 768, 'measuredWidth');
+            assert.equal(measuredWidth, 838, 'measuredWidth');
             assert.equal(measuredHeight, 250, 'measuredHeight');
             assert.equal(smallLabels.length, 6, 'small label count');
             assert.equal(bigLabels.length, 5, 'big label count');
@@ -302,7 +285,7 @@ describe('PipelineGraph', () => {
             col = nodeColumns[4];
             assert.equal(undefined, col.topStage, 'topStage');
             assert.equal(1, col.rows.length);
-            assertSingleNodeRow(col.rows[0], 'End', 708, 55);
+            assertSingleNodeRow(col.rows[0], 'End', 778, 55);
 
             // Col 1
             col = nodeColumns[1];
@@ -316,31 +299,31 @@ describe('PipelineGraph', () => {
             assert.ok(col.topStage, 'topStage');
             assert.equal(col.topStage!.name, 'Bravo', 'top stage name');
             assert.equal(3, col.rows.length);
-            assertSingleNodeRow(col.rows[0], 'Echo', 384, 55);
-            assertRow(col.rows[1], ['Foxtrot', 264, 125], ['Golf', 384, 125], ['Hotel', 504, 125]);
-            assertRow(col.rows[2], ['India', 324, 195], ['Juliet', 444, 195]);
+            assertSingleNodeRow(col.rows[0], 'Echo', 454, 55);
+            assertRow(col.rows[1], ['Foxtrot', 334, 125], ['Golf', 454, 125], ['Hotel', 574, 125]);
+            assertRow(col.rows[2], ['India', 394, 195], ['Juliet', 514, 195]);
 
             // Col 3
             col = nodeColumns[3];
             assert.ok(col.topStage, 'topStage');
             assert.equal(col.topStage!.name, 'Charlie', 'top stage name');
             assert.equal(1, col.rows.length);
-            assertSingleNodeRow(col.rows[0], 'Charlie', 624, 55);
+            assertSingleNodeRow(col.rows[0], 'Charlie', 694, 55);
 
             // Big Labels
             assertLabel(bigLabels, 'Start', 60, 55);
             assertLabel(bigLabels, 'Alpha', 144, 55);
-            assertLabel(bigLabels, 'Bravo', 384, 55);
-            assertLabel(bigLabels, 'Charlie', 624, 55);
-            assertLabel(bigLabels, 'End', 708, 55);
+            assertLabel(bigLabels, 'Bravo', 454, 55);
+            assertLabel(bigLabels, 'Charlie', 694, 55);
+            assertLabel(bigLabels, 'End', 778, 55);
 
             // Small Labels
-            assertLabel(smallLabels, 'Echo', 384, 55);
-            assertLabel(smallLabels, 'Foxtrot', 264, 125);
-            assertLabel(smallLabels, 'Golf', 384, 125);
-            assertLabel(smallLabels, 'Hotel', 504, 125);
-            assertLabel(smallLabels, 'India', 324, 195);
-            assertLabel(smallLabels, 'Juliet', 444, 195);
+            assertLabel(smallLabels, 'Echo', 454, 55);
+            assertLabel(smallLabels, 'Foxtrot', 334, 125);
+            assertLabel(smallLabels, 'Golf', 454, 125);
+            assertLabel(smallLabels, 'Hotel', 574, 125);
+            assertLabel(smallLabels, 'India', 394, 195);
+            assertLabel(smallLabels, 'Juliet', 514, 195);
 
             // Connections
             assertConnection(connections, 'Start', 'Alpha');
@@ -362,7 +345,11 @@ describe('PipelineGraph', () => {
         });
 
         it('lays out a single node parallel graph', () => {
-            const stages = [makeNode('Build', [], Result.success), makeNode('Test', [makeNode('JUnit', [], Result.success, 'PARALLEL')]), makeNode('Deploy')];
+            const stages = [
+                m.basicStage('Build', [], Result.success),
+                m.basicStage('Test', [m.basicStage('JUnit', [], Result.success)]),
+                m.basicStage('Deploy'),
+            ];
 
             const { nodeColumns, connections, bigLabels, smallLabels, measuredWidth, measuredHeight } = layoutGraph(stages, defaultLayout);
 
