@@ -22,10 +22,14 @@ const checkMarkPoints = '-2.00 2.80 -4.80 0.00 -5.73 0.933 -2.00 4.67 6.00 -3.33
 
 const crossPoints = '4.67 -3.73 3.73 -4.67 0 -0.94 -3.73 -4.67 -4.67 -3.73 -0.94 0 -4.67 3.73 -3.73 4.67 0 0.94 ' + '3.73 4.67 4.67 3.73 0.94 0';
 
+function assertNever(x: never): never {
+    throw new Error('Unexpected object: ' + x);
+}
+
 /**
     Returns a glyph (as <g>) for specified result type. Centered at 0,0, scaled for 24px icons.
  */
-export function getGlyphFor(result: Result) {
+function getGlyphFor(result: Result) {
     // NB: If we start resizing these things, we'll need to use radius/12 to
     // generate a "scale" transform for the group
 
@@ -85,6 +89,9 @@ export function getGlyphFor(result: Result) {
                     <path transform="scale(0.9)" d={hollowCirclePath} />
                 </g>
             );
+
+        // default:
+        //     assertNever(result);
     }
     // "?" for unknown / invalid
     return (
