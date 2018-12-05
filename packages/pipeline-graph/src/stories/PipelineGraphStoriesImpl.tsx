@@ -17,24 +17,28 @@ import { Result, StageInfo } from '../main/PipelineGraphModel';
 export function renderFlatPipeline() {
     const m = new MockGraphGenerator();
 
-    const stages = [
+    const stages1 = [
         m.basicStage('Success', [], Result.success),
         m.basicStage('Failure', [], Result.failure),
         m.basicStage('Running', [], Result.running),
         m.basicStage('Slow', [], Result.running, 150),
         m.basicStage('Queued', [], Result.queued),
+    ];
+
+    const stages2 = [
         m.basicStage('Unstable', [], Result.unstable),
+        m.basicStage('Skipped', [], Result.skipped),
         m.basicStage('Aborted', [], Result.aborted),
         m.basicStage('Not Built', [], Result.not_built),
         m.basicStage('Bad data', [], 'this is not my office' as any),
     ];
 
-    // Reduce spacing just to make this graph smaller
-    const layout = { nodeSpacingH: 90 };
-
     return (
         <div>
-            <PipelineGraph stages={stages} layout={layout} />
+            <h3>Part 1</h3>
+            <PipelineGraph stages={stages1} />
+            <h3>Part 2</h3>
+            <PipelineGraph stages={stages2} />
         </div>
     );
 }

@@ -4329,6 +4329,9 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
 
 exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
 <div>
+  <h3>
+    Part 1
+  </h3>
   <div
     className="PipelineGraph-container"
   >
@@ -4343,91 +4346,59 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
     >
       <svg
         height={200}
-        width={934}
+        width={768}
       >
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={50.25}
-          x2={96.75}
+          x1={65.25}
+          x2={133.75}
           y1={55}
           y2={55}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={117.25}
-          x2={186.75}
+          x1={154.25}
+          x2={253.75}
           y1={55}
           y2={55}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={207.25}
-          x2={276.75}
+          x1={274.25}
+          x2={373.75}
           y1={55}
           y2={55}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={297.25}
-          x2={366.75}
+          x1={394.25}
+          x2={493.75}
           y1={55}
           y2={55}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={387.25}
-          x2={456.75}
+          x1={514.25}
+          x2={613.75}
           y1={55}
           y2={55}
         />
         <line
           className="pipeline-connector"
           strokeWidth={3.5}
-          x1={477.25}
-          x2={546.75}
-          y1={55}
-          y2={55}
-        />
-        <line
-          className="pipeline-connector"
-          strokeWidth={3.5}
-          x1={567.25}
-          x2={636.75}
-          y1={55}
-          y2={55}
-        />
-        <line
-          className="pipeline-connector"
-          strokeWidth={3.5}
-          x1={657.25}
-          x2={726.75}
-          y1={55}
-          y2={55}
-        />
-        <line
-          className="pipeline-connector"
-          strokeWidth={3.5}
-          x1={747.25}
-          x2={816.75}
-          y1={55}
-          y2={55}
-        />
-        <line
-          className="pipeline-connector"
-          strokeWidth={3.5}
-          x1={837.25}
-          x2={883.75}
+          x1={634.25}
+          x2={702.75}
           y1={55}
           y2={55}
         />
         <g
           className="pipeline-node"
-          transform="translate(45,55)"
+          transform="translate(60,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -4442,7 +4413,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(107,55)"
+          transform="translate(144,55)"
         >
           <g
             className="svgResultStatus"
@@ -4475,7 +4446,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(197,55)"
+          transform="translate(264,55)"
         >
           <g
             className="svgResultStatus"
@@ -4508,7 +4479,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(287,55)"
+          transform="translate(384,55)"
         >
           <g
             className="progress-spinner running"
@@ -4546,7 +4517,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(377,55)"
+          transform="translate(504,55)"
         >
           <g
             className="progress-spinner running spin"
@@ -4584,7 +4555,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(467,55)"
+          transform="translate(624,55)"
         >
           <g
             className="progress-spinner queued"
@@ -4616,7 +4587,253 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(557,55)"
+          transform="translate(708,55)"
+        >
+          <circle
+            className="pipeline-node-terminal"
+            r={7}
+          />
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+      </svg>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "60px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Start"
+      >
+        Start
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "144px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Success"
+      >
+        Success
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "264px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Failure"
+      >
+        Failure
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "384px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Running"
+      >
+        Running
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "504px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Slow"
+      >
+        Slow
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "624px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Queued"
+      >
+        Queued
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "708px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="End"
+      >
+        End
+      </div>
+    </div>
+  </div>
+  <h3>
+    Part 2
+  </h3>
+  <div
+    className="PipelineGraph-container"
+  >
+    <div
+      className="PipelineGraph"
+      style={
+        Object {
+          "overflow": "visible",
+          "position": "relative",
+        }
+      }
+    >
+      <svg
+        height={200}
+        width={768}
+      >
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={65.25}
+          x2={133.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector-skipped"
+          strokeWidth={3.5}
+          x1={154.25}
+          x2={253.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector-skipped"
+          strokeWidth={3.5}
+          x1={274.25}
+          x2={373.75}
+          y1={55}
+          y2={55}
+        />
+        <path
+          className="pipeline-connector"
+          d="M 154.25 55L 204 55C 222.48 55 232 73 239 80C 246 87 255.005 90 264 90L 264 90C 272.995 90 282 87 289 80C 296 73 305.52 55 324 55L 373.75 55"
+          fill="none"
+          strokeWidth={3.5}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={394.25}
+          x2={493.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={514.25}
+          x2={613.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="pipeline-connector"
+          strokeWidth={3.5}
+          x1={634.25}
+          x2={702.75}
+          y1={55}
+          y2={55}
+        />
+        <g
+          className="pipeline-node"
+          transform="translate(60,55)"
+        >
+          <circle
+            className="pipeline-node-terminal"
+            r={7}
+          />
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(144,55)"
         >
           <g
             className="svgResultStatus"
@@ -4652,7 +4869,37 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(647,55)"
+          transform="translate(264,55)"
+        >
+          <g
+            className="progress-spinner skipped"
+          >
+            <circle
+              cx="0"
+              cy="0"
+              r={10.25}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="inner"
+              cx="0"
+              cy="0"
+              r={3.4166666666666665}
+            />
+          </g>
+          <title>
+            Skipped
+          </title>
+          <circle
+            className="pipeline-node-hittarget"
+            fillOpacity="0"
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="pipeline-node"
+          transform="translate(384,55)"
         >
           <g
             className="svgResultStatus"
@@ -4685,7 +4932,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(737,55)"
+          transform="translate(504,55)"
         >
           <g
             className="progress-spinner not_built"
@@ -4717,7 +4964,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(827,55)"
+          transform="translate(624,55)"
         >
           <g
             className="svgResultStatus"
@@ -4750,7 +4997,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="pipeline-node"
-          transform="translate(889,55)"
+          transform="translate(708,55)"
         >
           <circle
             className="pipeline-node-terminal"
@@ -4769,14 +5016,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         style={
           Object {
             "bottom": "165px",
-            "left": "45px",
-            "marginLeft": -42,
+            "left": "60px",
+            "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
             "overflow": "hidden",
             "position": "absolute",
             "textAlign": "center",
-            "width": 83,
+            "width": 113,
             "wordWrap": "break-word",
           }
         }
@@ -4789,114 +5036,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         style={
           Object {
             "bottom": "165px",
-            "left": "107px",
-            "marginLeft": -42,
+            "left": "144px",
+            "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
             "overflow": "hidden",
             "position": "absolute",
             "textAlign": "center",
-            "width": 83,
-            "wordWrap": "break-word",
-          }
-        }
-        title="Success"
-      >
-        Success
-      </div>
-      <div
-        className="TruncatingLabel pipeline-big-label"
-        style={
-          Object {
-            "bottom": "165px",
-            "left": "197px",
-            "marginLeft": -42,
-            "maxHeight": "35px",
-            "opacity": 0,
-            "overflow": "hidden",
-            "position": "absolute",
-            "textAlign": "center",
-            "width": 83,
-            "wordWrap": "break-word",
-          }
-        }
-        title="Failure"
-      >
-        Failure
-      </div>
-      <div
-        className="TruncatingLabel pipeline-big-label"
-        style={
-          Object {
-            "bottom": "165px",
-            "left": "287px",
-            "marginLeft": -42,
-            "maxHeight": "35px",
-            "opacity": 0,
-            "overflow": "hidden",
-            "position": "absolute",
-            "textAlign": "center",
-            "width": 83,
-            "wordWrap": "break-word",
-          }
-        }
-        title="Running"
-      >
-        Running
-      </div>
-      <div
-        className="TruncatingLabel pipeline-big-label"
-        style={
-          Object {
-            "bottom": "165px",
-            "left": "377px",
-            "marginLeft": -42,
-            "maxHeight": "35px",
-            "opacity": 0,
-            "overflow": "hidden",
-            "position": "absolute",
-            "textAlign": "center",
-            "width": 83,
-            "wordWrap": "break-word",
-          }
-        }
-        title="Slow"
-      >
-        Slow
-      </div>
-      <div
-        className="TruncatingLabel pipeline-big-label"
-        style={
-          Object {
-            "bottom": "165px",
-            "left": "467px",
-            "marginLeft": -42,
-            "maxHeight": "35px",
-            "opacity": 0,
-            "overflow": "hidden",
-            "position": "absolute",
-            "textAlign": "center",
-            "width": 83,
-            "wordWrap": "break-word",
-          }
-        }
-        title="Queued"
-      >
-        Queued
-      </div>
-      <div
-        className="TruncatingLabel pipeline-big-label"
-        style={
-          Object {
-            "bottom": "165px",
-            "left": "557px",
-            "marginLeft": -42,
-            "maxHeight": "35px",
-            "opacity": 0,
-            "overflow": "hidden",
-            "position": "absolute",
-            "textAlign": "center",
-            "width": 83,
+            "width": 113,
             "wordWrap": "break-word",
           }
         }
@@ -4909,14 +5056,34 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         style={
           Object {
             "bottom": "165px",
-            "left": "647px",
-            "marginLeft": -42,
+            "left": "264px",
+            "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
             "overflow": "hidden",
             "position": "absolute",
             "textAlign": "center",
-            "width": 83,
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
+        title="Skipped"
+      >
+        Skipped
+      </div>
+      <div
+        className="TruncatingLabel pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "384px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
             "wordWrap": "break-word",
           }
         }
@@ -4929,14 +5096,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         style={
           Object {
             "bottom": "165px",
-            "left": "737px",
-            "marginLeft": -42,
+            "left": "504px",
+            "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
             "overflow": "hidden",
             "position": "absolute",
             "textAlign": "center",
-            "width": 83,
+            "width": 113,
             "wordWrap": "break-word",
           }
         }
@@ -4949,14 +5116,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         style={
           Object {
             "bottom": "165px",
-            "left": "827px",
-            "marginLeft": -42,
+            "left": "624px",
+            "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
             "overflow": "hidden",
             "position": "absolute",
             "textAlign": "center",
-            "width": 83,
+            "width": 113,
             "wordWrap": "break-word",
           }
         }
@@ -4969,14 +5136,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         style={
           Object {
             "bottom": "165px",
-            "left": "889px",
-            "marginLeft": -42,
+            "left": "708px",
+            "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,
             "overflow": "hidden",
             "position": "absolute",
             "textAlign": "center",
-            "width": 83,
+            "width": 113,
             "wordWrap": "break-word",
           }
         }
