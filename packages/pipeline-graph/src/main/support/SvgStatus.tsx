@@ -2,7 +2,6 @@ import * as React from 'react';
 
 import { Result } from '../PipelineGraphModel';
 
-import { describeArcAsPath } from './SVG';
 import { nodeStrokeWidth } from './StatusIcons';
 
 // These were mostly taken from SVG and pre-translated
@@ -72,23 +71,11 @@ function getGlyphFor(result: Result) {
                 </g>
             );
         case 'running':
-            // hollow circle
-            const radius = 12 - 0.5 * nodeStrokeWidth;
-            const d = describeArcAsPath(0, 0, radius, 0, 120);
-            return (
-                <g className="result-status-glyph" transform="scale(0.5)">
-                    <circle stroke="#a7c7f2" fill="none" cx="0" cy="0" r={radius} strokeWidth={nodeStrokeWidth} />
-                    <path stroke="white" className="spin" fill="none" strokeWidth={nodeStrokeWidth} d={d} />
-                </g>
-            );
-        case 'not_built':
+        // Handled by spinner
         case 'queued':
-            // hollow circle
-            return (
-                <g className="result-status-glyph">
-                    <path transform="scale(0.9)" d={hollowCirclePath} />
-                </g>
-            );
+        // TODO: Currently handled by spinner, needs to be here
+        case 'not_built':
+        // TODO: Currently handled by spinner, needs to be here
 
         // default:
         //     assertNever(result);
