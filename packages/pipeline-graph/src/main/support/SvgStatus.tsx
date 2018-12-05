@@ -2,8 +2,8 @@ import * as React from 'react';
 
 import { Result } from '../PipelineGraphModel';
 
-import { strokeWidth } from './SvgSpinner';
 import { describeArcAsPath } from './SVG';
+import { nodeStrokeWidth } from './StatusIcons';
 
 // These were mostly taken from SVG and pre-translated
 const questionMarkPath =
@@ -69,12 +69,12 @@ export function getGlyphFor(result: Result) {
             );
         case 'running':
             // hollow circle
-            const radius = 12 - 0.5 * strokeWidth;
+            const radius = 12 - 0.5 * nodeStrokeWidth;
             const d = describeArcAsPath(0, 0, radius, 0, 120);
             return (
                 <g className="result-status-glyph" transform="scale(0.5)">
-                    <circle stroke="#a7c7f2" fill="none" cx="0" cy="0" r={radius} strokeWidth={strokeWidth} />
-                    <path stroke="white" className="spin" fill="none" strokeWidth={strokeWidth} d={d} />
+                    <circle stroke="#a7c7f2" fill="none" cx="0" cy="0" r={radius} strokeWidth={nodeStrokeWidth} />
+                    <path stroke="white" className="spin" fill="none" strokeWidth={nodeStrokeWidth} d={d} />
                 </g>
             );
         case 'not_built':

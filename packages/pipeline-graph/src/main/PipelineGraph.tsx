@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { getGroupForResult } from './support/StatusIndicator';
-import { strokeWidth as nodeStrokeWidth } from './support/SvgSpinner';
+import { nodeStrokeWidth } from './support/StatusIcons';
 import { TruncatingLabel } from './support/TruncatingLabel';
 
 import {

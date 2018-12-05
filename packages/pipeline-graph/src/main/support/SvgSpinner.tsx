@@ -1,8 +1,7 @@
 import * as React from 'react';
 
 import { describeArcAsPath } from './SVG';
-
-export const strokeWidth = 3.5; // px. Maybe we can fetch this from CSS at runtime in the future
+import { nodeStrokeWidth } from './StatusIcons';
 
 interface Props {
     percentage: number;
@@ -39,7 +38,7 @@ export class SvgSpinner extends React.Component<Props> {
 
     render() {
         const { result } = this.props;
-        const radius = (this.props.radius || 12) - 0.5 * strokeWidth; // No "inside" stroking in SVG`
+        const radius = (this.props.radius || 12) - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG`
 
         let percentage = this.props.percentage;
         const groupClasses = ['progress-spinner', result];
@@ -71,9 +70,9 @@ export class SvgSpinner extends React.Component<Props> {
 
         return (
             <g className={groupClasses.join(' ')} ref={c => (this.animatedElement = c!)}>
-                <circle cx="0" cy="0" r={radius} strokeWidth={strokeWidth} />
+                <circle cx="0" cy="0" r={radius} strokeWidth={nodeStrokeWidth} />
                 <circle className="inner" cx="0" cy="0" r={innerRadius} />
-                {percentage ? <path className={result} fill="none" strokeWidth={strokeWidth} d={d} /> : null}
+                {percentage ? <path className={result} fill="none" strokeWidth={nodeStrokeWidth} d={d} /> : null}
             </g>
         );
     }
