@@ -31,7 +31,7 @@ export class SvgStatus extends React.PureComponent<Props> {
         const { result, radius = 12 } = this.props;
 
         return (
-            <g className="svgResultStatus">
+            <g className="PWGx-svgResultStatus">
                 <circle cx="0" cy="0" r={radius} className={`circle-bg ${result}`} />
                 {getGlyphFor(result)}
             </g>
@@ -49,7 +49,7 @@ function getGlyphFor(result: Result) {
     switch (result) {
         case Result.aborted:
             return (
-                <g className="result-status-glyph">
+                <g className="PWGx-result-status-glyph">
                     <polygon points="-5 -1 5 -1 5 1 -5 1" />
                 </g>
             );
@@ -57,7 +57,7 @@ function getGlyphFor(result: Result) {
             // "||"
             // 8px 9.3px
             return (
-                <g className="result-status-glyph">
+                <g className="PWGx-result-status-glyph">
                     <polygon points="-4,-4.65 -4,4.65 -4,4.65 -1.5,4.65 -1.5,-4.65" />
                     <polygon points="4,-4.65 1.5,-4.65 1.5,-4.65 1.5,4.65 4,4.65" />
                 </g>
@@ -65,7 +65,7 @@ function getGlyphFor(result: Result) {
         case Result.unstable:
             // "!"
             return (
-                <g className="result-status-glyph">
+                <g className="PWGx-result-status-glyph">
                     <polygon points="-1 -5 1 -5 1 1 -1 1" />
                     <polygon points="-1 3 1 3 1 5 -1 5" />
                 </g>
@@ -73,14 +73,14 @@ function getGlyphFor(result: Result) {
         case Result.success:
             // check-mark
             return (
-                <g className="result-status-glyph">
+                <g className="PWGx-result-status-glyph">
                     <polygon points={checkMarkPoints} />
                 </g>
             );
         case Result.failure:
             // "X"
             return (
-                <g className="result-status-glyph">
+                <g className="PWGx-result-status-glyph">
                     <polygon points={crossPoints} />
                 </g>
             );
@@ -93,11 +93,11 @@ function getGlyphFor(result: Result) {
             break; // Continue on to the "unknown render"
 
         default:
-            badResult(result); // Compile-time check as well as runtime error logging, then continue to "unknown" icon
+            badResult(result); // Compile-time exhaustiveness check as well as runtime error logging, then continue to "unknown" icon
     }
     // "?" for Result.unknown or for bad input
     return (
-        <g className="result-status-glyph">
+        <g className="PWGx-result-status-glyph">
             <path d={questionMarkPath} />
         </g>
     );

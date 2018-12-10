@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { nodeStrokeWidth } from './StatusIcons';
+import { Result } from '../PipelineGraphModel';
 
 function polarToCartesian(centerX: number, centerY: number, radius: number, angleInDegrees: number) {
     const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
@@ -60,12 +61,12 @@ export class SvgSpinner extends React.Component<Props> {
         const radius = (this.props.radius || 12) - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG`
 
         let percentage = this.props.percentage;
-        const groupClasses = ['progress-spinner', result];
+        const groupClasses = ['PWGx-progress-spinner', result];
 
-        if (result === 'queued') {
+        if (result === Result.queued) {
             percentage = 0;
-        } else if (result === 'not_built' || result === 'skipped') {
-            percentage = 0;
+        } else if (result === Result.not_built || result === Result.skipped) {
+            percentage = 0; // TODO: ^^ these should be done by SvgStatus renderer
         } else if (typeof percentage !== 'number' || isNaN(percentage) || percentage < 0) {
             percentage = 0;
         } else if (percentage === 100) {

@@ -1,6 +1,8 @@
 // From blueocean/blueocean-dashboard/src/main/less/pipeline-run-graph.less
 
-.PipelineGraph-container {
+// TODO: Remove manual PWGx- namespacing, replace with tooling
+
+.PWGx-PipelineGraph-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,7 +13,7 @@
         box-sizing: border-box;
     }
 
-    .PipelineGraph {
+    .PWGx-PipelineGraph {
         margin-left: auto;
         margin-right: auto;
     }
@@ -19,12 +21,12 @@
 
 // From blueocean/jenkins-design-language/less/components/result-status.less
 
-.result-status-glyph {
+.PWGx-result-status-glyph {
     stroke: none;
     fill: #fff;
 }
 
-.svgResultStatus {
+.PWGx-svgResultStatus {
     transform: translateZ(0);
 
     > circle {
@@ -56,27 +58,28 @@
     }
 }
 
-.progress-spinner.running circle {
+.PWGx-progress-spinner.running circle {
     fill: none;
     stroke: $progress-bg;
 }
 
-.progress-spinner.running path {
+.PWGx-progress-spinner.running path {
     fill: none;
     stroke: $progress-bar-color;
 }
 
-.progress-spinner.pc-over-100 circle {
+.PWGx-progress-spinner.pc-over-100 circle {
     fill: none;
     stroke: $progress-bar-color;
 }
 
-.progress-spinner.pc-over-100 path {
+.PWGx-progress-spinner.pc-over-100 path {
     fill: none;
     stroke: $brand-warning-lite;
 }
 
-.inverse .progress-spinner.running {
+// TODO: Do we need inverse / are we even testing or using it for the graph?
+.inverse .PWGx-progress-spinner.running {
     circle {
         fill: none;
         stroke: $brand-info-lite;
@@ -93,7 +96,7 @@
     }
 }
 
-.progress-spinner.running.spin {
+.PWGx-progress-spinner.running.spin {
     animation: progress-spinner-rotate 4s linear;
     animation-iteration-count: infinite;
 }
@@ -107,15 +110,15 @@
     }
 }
 
-.progress-spinner circle.inner,
-.progress-spinner.running.spin circle.inner {
+.PWGx-progress-spinner circle.inner,
+.PWGx-progress-spinner.running.spin circle.inner {
     display: none;
     animation: progress-spinner-pulsate 1.2s ease-out;
     animation-iteration-count: infinite;
     opacity: 0;
 }
 
-.progress-spinner.running circle.inner {
+.PWGx-progress-spinner.running circle.inner {
     display: block;
     fill: $brand-info-lite;
     stroke: $brand-info-lite;
@@ -135,31 +138,24 @@
     }
 }
 
-.progress-spinner.queued circle {
+.PWGx-progress-spinner.queued circle {
     fill: none;
     stroke: $brand-grey-lite;
 }
 
-.progress-spinner.queued circle.inner {
+.PWGx-progress-spinner.queued circle.inner {
     display: block;
     fill: $brand-grey-lite;
     stroke: $brand-grey-lite;
 }
 
-.empty-state-content svg {
-    vertical-align: middle;
-}
-
-.empty-state-content > span {
-    padding-left: 15px;
-}
-.progress-spinner.queued path {
+.PWGx-progress-spinner.queued path {
     fill: none;
     stroke: none;
 }
 
-.progress-spinner.not_built,
-.progress-spinner.skipped {
+.PWGx-progress-spinner.not_built,
+.PWGx-progress-spinner.skipped {
     circle {
         fill: none;
         stroke: $brand-grey-lite;
@@ -171,29 +167,29 @@
     }
 }
 
-.pipeline-connector {
+.PWGx-pipeline-connector {
     stroke: $brand-grey-lite;
 }
 
-.pipeline-node-terminal {
+.PWGx-pipeline-node-terminal {
     fill: $brand-grey-lite;
 }
 
-.pipeline-connector-skipped {
+.PWGx-pipeline-connector-skipped {
     stroke: $brand-grey-lite;
     stroke-opacity: 0.25;
 }
 
-.pipeline-small-label {
+.PWGx-pipeline-small-label {
     font-size: 80%;
 }
 
-.pipeline-big-label.selected,
-.pipeline-small-label.selected {
+.PWGx-pipeline-big-label.selected,
+.PWGx-pipeline-small-label.selected {
     font-weight: bold;
 }
 
-.pipeline-selection-highlight circle {
+.PWGx-pipeline-selection-highlight circle {
     fill: none;
     stroke: $brand-primary;
 
