@@ -21,73 +21,6 @@ const checkMarkPoints = '-2.00 2.80 -4.80 0.00 -5.73 0.933 -2.00 4.67 6.00 -3.33
 
 const crossPoints = '4.67 -3.73 3.73 -4.67 0 -0.94 -3.73 -4.67 -4.67 -3.73 -0.94 0 -4.67 3.73 -3.73 4.67 0 0.94 ' + '3.73 4.67 4.67 3.73 0.94 0';
 
-function assertNever(x: never): never {
-    throw new Error('Unexpected object: ' + x);
-}
-
-/**
-    Returns a glyph (as <g>) for specified result type. Centered at 0,0, scaled for 24px icons.
- */
-function getGlyphFor(result: Result) {
-    // NB: If we start resizing these things, we'll need to use radius/12 to
-    // generate a "scale" transform for the group
-
-    switch (result) {
-        case 'aborted':
-            return (
-                <g className="result-status-glyph">
-                    <polygon points="-5 -1 5 -1 5 1 -5 1" />
-                </g>
-            );
-        case 'paused':
-            // "||"
-            // 8px 9.3px
-            return (
-                <g className="result-status-glyph">
-                    <polygon points="-4,-4.65 -4,4.65 -4,4.65 -1.5,4.65 -1.5,-4.65" />
-                    <polygon points="4,-4.65 1.5,-4.65 1.5,-4.65 1.5,4.65 4,4.65" />
-                </g>
-            );
-        case 'unstable':
-            // "!"
-            return (
-                <g className="result-status-glyph">
-                    <polygon points="-1 -5 1 -5 1 1 -1 1" />
-                    <polygon points="-1 3 1 3 1 5 -1 5" />
-                </g>
-            );
-        case 'success':
-            // check-mark
-            return (
-                <g className="result-status-glyph">
-                    <polygon points={checkMarkPoints} />
-                </g>
-            );
-        case 'failure':
-            // "X"
-            return (
-                <g className="result-status-glyph">
-                    <polygon points={crossPoints} />
-                </g>
-            );
-        case 'running':
-        // Handled by spinner
-        case 'queued':
-        // TODO: Currently handled by spinner, needs to be here
-        case 'not_built':
-        // TODO: Currently handled by spinner, needs to be here
-
-        // default:
-        //     assertNever(result);
-    }
-    // "?" for unknown / invalid
-    return (
-        <g className="result-status-glyph">
-            <path d={questionMarkPath} />
-        </g>
-    );
-}
-
 interface Props {
     result: Result;
     radius: number;
@@ -104,4 +37,72 @@ export class SvgStatus extends React.PureComponent<Props> {
             </g>
         );
     }
+}
+
+/**
+    Returns a glyph (as <g>) for specified result type. Centered at 0,0, scaled for 24px icons.
+ */
+function getGlyphFor(result: Result) {
+    // NB: If we start resizing these things, we'll need to use radius/12 to
+    // generate a "scale" transform for the group
+
+    switch (result) {
+        case Result.aborted:
+            return (
+                <g className="result-status-glyph">
+                    <polygon points="-5 -1 5 -1 5 1 -5 1" />
+                </g>
+            );
+        case Result.paused:
+            // "||"
+            // 8px 9.3px
+            return (
+                <g className="result-status-glyph">
+                    <polygon points="-4,-4.65 -4,4.65 -4,4.65 -1.5,4.65 -1.5,-4.65" />
+                    <polygon points="4,-4.65 1.5,-4.65 1.5,-4.65 1.5,4.65 4,4.65" />
+                </g>
+            );
+        case Result.unstable:
+            // "!"
+            return (
+                <g className="result-status-glyph">
+                    <polygon points="-1 -5 1 -5 1 1 -1 1" />
+                    <polygon points="-1 3 1 3 1 5 -1 5" />
+                </g>
+            );
+        case Result.success:
+            // check-mark
+            return (
+                <g className="result-status-glyph">
+                    <polygon points={checkMarkPoints} />
+                </g>
+            );
+        case Result.failure:
+            // "X"
+            return (
+                <g className="result-status-glyph">
+                    <polygon points={crossPoints} />
+                </g>
+            );
+        case Result.not_built:
+        case Result.skipped:
+        // TODO: These two ^^^ Currently handled by spinner, should be here because they're static
+        case Result.queued: // Handled by spinner
+        case Result.running: // Handled by spinner
+        case Result.unknown:
+            break; // Continue on to the "unknown render"
+
+        default:
+            badResult(result); // Compile-time check as well as runtime error logging, then continue to "unknown" icon
+    }
+    // "?" for Result.unknown or for bad input
+    return (
+        <g className="result-status-glyph">
+            <path d={questionMarkPath} />
+        </g>
+    );
+}
+
+function badResult(x: never) {
+    console.error('Unexpected Result value', x);
 }
