@@ -10,9 +10,9 @@ export function getGroupForResult(result: Result, percentage: number, radius: nu
     switch (result) {
         case Result.running:
         case Result.queued:
-        case Result.not_built: // TODO: Should not be spinner
-        case Result.skipped: // TODO: Should not be spinner
             return <SvgSpinner radius={radius} result={result} percentage={percentage} />;
+        case Result.not_built:
+        case Result.skipped:
         case Result.success:
         case Result.failure:
         case Result.paused:

@@ -58,15 +58,13 @@ export class SvgSpinner extends React.Component<Props> {
 
     render() {
         const { result } = this.props;
-        const radius = (this.props.radius || 12) - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG`
+        const radius = (this.props.radius || 12) - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG
 
         let percentage = this.props.percentage;
         const groupClasses = ['PWGx-progress-spinner', result];
 
         if (result === Result.queued) {
             percentage = 0;
-        } else if (result === Result.not_built || result === Result.skipped) {
-            percentage = 0; // TODO: ^^ these should be done by SvgStatus renderer
         } else if (typeof percentage !== 'number' || isNaN(percentage) || percentage < 0) {
             percentage = 0;
         } else if (percentage === 100) {

@@ -30,12 +30,26 @@ export class SvgStatus extends React.PureComponent<Props> {
     render() {
         const { result, radius = 12 } = this.props;
 
-        return (
-            <g className="PWGx-svgResultStatus">
-                <circle cx="0" cy="0" r={radius} className={`circle-bg ${result}`} />
-                {getGlyphFor(result)}
-            </g>
-        );
+        if (result === Result.not_built || result === Result.skipped) {
+            // Basic grey circle
+
+            const innerRadius = radius - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG
+
+            return (
+                <g>
+                    <circle cx="0" cy="0" r={innerRadius} strokeWidth={nodeStrokeWidth} className="PWGx-svgResultStatusOutline" />
+                </g>
+            );
+        } else {
+            // Otherwise solid-bg circle with a glyph on it
+
+            return (
+                <g className="PWGx-svgResultStatusSolid">
+                    <circle cx="0" cy="0" r={radius} className={`circle-bg ${result}`} />
+                    {getGlyphFor(result)}
+                </g>
+            );
+        }
     }
 }
 
@@ -84,9 +98,8 @@ function getGlyphFor(result: Result) {
                     <polygon points={crossPoints} />
                 </g>
             );
-        case Result.not_built:
-        case Result.skipped:
-        // TODO: These two ^^^ Currently handled by spinner, should be here because they're static
+        case Result.not_built: // Handled directly by SvgStatus component above
+        case Result.skipped: // Handled directly by SvgStatus component above
         case Result.queued: // Handled by spinner
         case Result.running: // Handled by spinner
         case Result.unknown:

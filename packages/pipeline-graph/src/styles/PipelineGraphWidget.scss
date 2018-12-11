@@ -1,5 +1,3 @@
-// From blueocean/blueocean-dashboard/src/main/less/pipeline-run-graph.less
-
 // TODO: Remove manual PWGx- namespacing, replace with tooling
 
 .PWGx-PipelineGraph-container {
@@ -19,14 +17,17 @@
     }
 }
 
-// From blueocean/jenkins-design-language/less/components/result-status.less
+.PWGx-svgResultStatusOutline {
+    stroke: $brand-grey-lite;
+    fill: none;
+}
 
 .PWGx-result-status-glyph {
     stroke: none;
     fill: #fff;
 }
 
-.PWGx-svgResultStatus {
+.PWGx-svgResultStatusSolid {
     transform: translateZ(0);
 
     > circle {
@@ -76,24 +77,6 @@
 .PWGx-progress-spinner.pc-over-100 path {
     fill: none;
     stroke: $brand-warning-lite;
-}
-
-// TODO: Do we need inverse / are we even testing or using it for the graph?
-.inverse .PWGx-progress-spinner.running {
-    circle {
-        fill: none;
-        stroke: $brand-info-lite;
-    }
-
-    path {
-        fill: none;
-        stroke: white;
-    }
-
-    circle.inner {
-        fill: $brand-info-lite;
-        stroke: $brand-info-lite;
-    }
 }
 
 .PWGx-progress-spinner.running.spin {
@@ -152,19 +135,6 @@
 .PWGx-progress-spinner.queued path {
     fill: none;
     stroke: none;
-}
-
-.PWGx-progress-spinner.not_built,
-.PWGx-progress-spinner.skipped {
-    circle {
-        fill: none;
-        stroke: $brand-grey-lite;
-    }
-
-    path {
-        fill: none;
-        stroke: none;
-    }
 }
 
 .PWGx-pipeline-connector {

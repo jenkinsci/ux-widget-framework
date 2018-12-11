@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { PipelineGraph } from '../main/PipelineGraph';
-import { Result, StageInfo } from '../main/PipelineGraphModel';
+import { Result, StageInfo, defaultLayout } from '../main/PipelineGraphModel';
+import { SvgSpinner } from '../main/support/SvgSpinner';
+import { SvgStatus } from '../main/support/SvgStatus';
 
 /* NB:
  *
