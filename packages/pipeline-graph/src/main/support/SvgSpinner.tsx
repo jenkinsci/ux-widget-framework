@@ -58,7 +58,8 @@ export class SvgSpinner extends React.Component<Props> {
 
     render() {
         const { result } = this.props;
-        const radius = (this.props.radius || 12) - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG
+        const radius = this.props.radius || 12;
+        const insideRadius = radius - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG
 
         let percentage = this.props.percentage;
         const groupClasses = ['PWGx-progress-spinner', result];
@@ -82,14 +83,15 @@ export class SvgSpinner extends React.Component<Props> {
         }
 
         const rotate = (percentage / 100) * 360;
-        const d = describeArcAsPath(0, 0, radius, 0, rotate);
+        const d = describeArcAsPath(0, 0, insideRadius, 0, rotate);
 
-        const innerRadius = radius / 3;
+        const innerRadius = insideRadius / 3;
 
         return (
             <g className={groupClasses.join(' ')} ref={c => (this.animatedElement = c!)}>
-                <circle cx="0" cy="0" r={radius} strokeWidth={nodeStrokeWidth} />
-                <circle className="inner" cx="0" cy="0" r={innerRadius} />
+                <circle cx="0" cy="0" r={radius} className="halo" strokeWidth={nodeStrokeWidth} />
+                <circle cx="0" cy="0" r={insideRadius} className="statusColor" strokeWidth={nodeStrokeWidth} />
+                <circle cx="0" cy="0" r={innerRadius} className="inner statusColor" />
                 {percentage ? <path className={result} fill="none" strokeWidth={nodeStrokeWidth} d={d} /> : null}
             </g>
         );

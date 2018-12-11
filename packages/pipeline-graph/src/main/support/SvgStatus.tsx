@@ -37,6 +37,7 @@ export class SvgStatus extends React.PureComponent<Props> {
 
             return (
                 <g>
+                    <circle cx="0" cy="0" r={radius} className="halo" strokeWidth={nodeStrokeWidth} />
                     <circle cx="0" cy="0" r={innerRadius} strokeWidth={nodeStrokeWidth} className="PWGx-svgResultStatusOutline" />
                 </g>
             );
@@ -45,7 +46,8 @@ export class SvgStatus extends React.PureComponent<Props> {
 
             return (
                 <g className="PWGx-svgResultStatusSolid">
-                    <circle cx="0" cy="0" r={radius} className={`circle-bg ${result}`} />
+                    <circle cx="0" cy="0" r={radius} className="halo" strokeWidth={nodeStrokeWidth} />
+                    <circle cx="0" cy="0" r={radius} className={`statusColor circle-bg ${result}`} />
                     {getGlyphFor(result)}
                 </g>
             );

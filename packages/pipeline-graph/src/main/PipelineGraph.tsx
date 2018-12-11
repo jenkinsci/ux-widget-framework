@@ -608,8 +608,7 @@ export class PipelineGraph extends React.Component {
 
             svgElements.push(
                 <g className="PWGx-pipeline-selection-highlight" transform={transform} key="selection-highlight">
-                    <circle className="PWGx-white-highlight" r={highlightRadius - 2} strokeWidth={10} />
-                    <circle r={highlightRadius} strokeWidth={2} />
+                    <circle r={highlightRadius} strokeWidth={connectorStrokeWidth} />
                 </g>
             );
         }

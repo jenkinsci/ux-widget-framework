@@ -67,13 +67,8 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(264 55)"
         >
           <circle
-            className="PWGx-white-highlight"
-            r={13}
-            strokeWidth={10}
-          />
-          <circle
             r={15}
-            strokeWidth={2}
+            strokeWidth={3.5}
           />
         </g>
         <g
@@ -96,6 +91,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(144,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -122,7 +124,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -152,6 +161,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(384,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -389,13 +405,8 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(264 55)"
         >
           <circle
-            className="PWGx-white-highlight"
-            r={13}
-            strokeWidth={10}
-          />
-          <circle
             r={15}
-            strokeWidth={2}
+            strokeWidth={3.5}
           />
         </g>
         <g
@@ -421,7 +432,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -454,7 +472,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -487,7 +512,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -520,7 +552,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -553,7 +592,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -586,7 +632,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -619,7 +672,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -935,13 +995,8 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(144 55)"
         >
           <circle
-            className="PWGx-white-highlight"
-            r={13}
-            strokeWidth={10}
-          />
-          <circle
             r={15}
-            strokeWidth={2}
+            strokeWidth={3.5}
           />
         </g>
         <g
@@ -967,7 +1022,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -998,6 +1060,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -1020,6 +1089,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(384,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -1307,13 +1383,8 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(454 125)"
         >
           <circle
-            className="PWGx-white-highlight"
-            r={13}
-            strokeWidth={10}
-          />
-          <circle
             r={15}
-            strokeWidth={2}
+            strokeWidth={3.5}
           />
         </g>
         <g
@@ -1336,6 +1407,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(334,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -1362,6 +1440,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -1386,6 +1471,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(334,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -1412,6 +1504,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -1436,6 +1535,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(274,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -1462,6 +1568,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -1486,6 +1599,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(334,265)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -1512,6 +1632,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -1534,6 +1661,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(824,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -1560,6 +1694,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -1585,6 +1726,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -1609,6 +1757,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(824,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -2161,13 +2316,8 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(274 195)"
         >
           <circle
-            className="PWGx-white-highlight"
-            r={13}
-            strokeWidth={10}
-          />
-          <circle
             r={15}
-            strokeWidth={2}
+            strokeWidth={3.5}
           />
         </g>
         <g
@@ -2190,6 +2340,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(334,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -2216,6 +2373,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -2240,6 +2404,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(334,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -2266,6 +2437,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -2290,6 +2468,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(274,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -2316,6 +2501,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -2340,6 +2532,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(334,265)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -2366,6 +2565,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -2390,6 +2596,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(824,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -2416,6 +2629,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -2441,6 +2661,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -2465,6 +2692,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(824,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -2946,6 +3180,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -2971,6 +3212,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -2995,6 +3243,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           transform="translate(384,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -3221,6 +3476,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -3246,6 +3508,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -3270,6 +3539,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           transform="translate(454,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -3566,6 +3842,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -3588,6 +3871,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           transform="translate(334,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -3614,6 +3904,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -3638,6 +3935,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           transform="translate(574,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -3664,6 +3968,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -3688,6 +3999,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           transform="translate(454,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -3714,6 +4032,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -3738,6 +4063,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           transform="translate(694,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -4125,7 +4457,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -4158,7 +4497,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg failure"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg failure"
               cx="0"
               cy="0"
               r={12}
@@ -4191,13 +4537,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -4229,13 +4583,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             className="PWGx-progress-spinner running spin"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -4267,13 +4629,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -4545,7 +4915,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg unstable"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg unstable"
               cx="0"
               cy="0"
               r={12}
@@ -4579,6 +4956,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -4604,7 +4988,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg aborted"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg aborted"
               cx="0"
               cy="0"
               r={12}
@@ -4635,6 +5026,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -4662,7 +5060,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg unknown"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg unknown"
               cx="0"
               cy="0"
               r={12}
@@ -5029,7 +5434,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -5062,7 +5474,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg failure"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg failure"
               cx="0"
               cy="0"
               r={12}
@@ -5095,13 +5514,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -5133,13 +5560,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -5171,13 +5606,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -5209,13 +5652,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -5241,13 +5692,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -5273,13 +5732,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -5305,13 +5772,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -5337,13 +5812,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -5366,6 +5849,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           transform="translate(624,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -5394,7 +5884,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg unknown"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg unknown"
               cx="0"
               cy="0"
               r={12}
@@ -5919,7 +6416,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={20}
@@ -5952,7 +6456,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg failure"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg failure"
               cx="0"
               cy="0"
               r={20}
@@ -5985,13 +6496,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={6.083333333333333}
@@ -6023,13 +6542,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={6.083333333333333}
@@ -6061,13 +6588,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={6.083333333333333}
@@ -6099,13 +6634,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={6.083333333333333}
@@ -6131,13 +6674,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={6.083333333333333}
@@ -6163,13 +6714,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={6.083333333333333}
@@ -6195,13 +6754,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={6.083333333333333}
@@ -6227,13 +6794,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={6.083333333333333}
@@ -6256,6 +6831,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           transform="translate(624,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -6284,7 +6866,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg unknown"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={20}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg unknown"
               cx="0"
               cy="0"
               r={20}
@@ -6759,7 +7348,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -6792,7 +7388,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -6825,13 +7428,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -6857,13 +7468,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -6886,6 +7505,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
           transform="translate(504,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -6912,6 +7538,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -6937,6 +7570,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -6961,6 +7601,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
           transform="translate(864,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -7359,13 +8006,8 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(144 55)"
         >
           <circle
-            className="PWGx-white-highlight"
-            r={13}
-            strokeWidth={10}
-          />
-          <circle
             r={15}
-            strokeWidth={2}
+            strokeWidth={3.5}
           />
         </g>
         <g
@@ -7391,7 +8033,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -7424,7 +8073,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -7457,7 +8113,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -7490,7 +8153,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -7523,7 +8193,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -7556,7 +8233,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg failure"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg failure"
               cx="0"
               cy="0"
               r={12}
@@ -7589,13 +8273,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -7627,13 +8319,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
             className="PWGx-progress-spinner running spin"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -7663,6 +8363,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -7688,6 +8395,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -7712,6 +8426,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(744,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -8204,6 +8925,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -8228,6 +8956,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(214,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -8254,6 +8989,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -8278,6 +9020,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(454,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -8304,6 +9053,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -8328,6 +9084,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(394,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -8354,6 +9117,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -8378,6 +9148,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(574,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -8404,6 +9181,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -8428,6 +9212,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(764,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -8454,6 +9245,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -8478,6 +9276,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(824,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -9079,13 +9884,8 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(144 55)"
         >
           <circle
-            className="PWGx-white-highlight"
-            r={13}
-            strokeWidth={10}
-          />
-          <circle
             r={15}
-            strokeWidth={2}
+            strokeWidth={3.5}
           />
         </g>
         <g
@@ -9111,7 +9911,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -9144,7 +9951,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -9177,7 +9991,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -9210,7 +10031,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -9243,7 +10071,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -9276,7 +10111,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg failure"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg failure"
               cx="0"
               cy="0"
               r={12}
@@ -9309,13 +10151,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -9347,13 +10197,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-progress-spinner running spin"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -9383,6 +10241,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -9405,6 +10270,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(624,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -9431,7 +10303,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -9464,7 +10343,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -9497,7 +10383,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -9528,6 +10421,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -9550,6 +10450,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(984,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -10180,6 +11087,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -10204,6 +11118,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           transform="translate(514,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -10230,6 +11151,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -10254,6 +11182,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           transform="translate(514,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -10280,6 +11215,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -10304,6 +11246,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           transform="translate(514,265)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -10330,6 +11279,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -10354,6 +11310,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           transform="translate(454,335)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -10380,6 +11343,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -10404,6 +11374,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           transform="translate(334,405)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -10430,6 +11407,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -10454,6 +11438,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           transform="translate(574,405)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -10480,6 +11471,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -10504,6 +11502,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           transform="translate(514,475)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -10530,6 +11535,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -10554,6 +11566,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           transform="translate(934,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -11198,6 +12217,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -11222,6 +12248,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(144,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -11248,6 +12281,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -11272,6 +12312,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(634,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -11298,6 +12345,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -11322,6 +12376,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(634,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -11348,6 +12409,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -11372,6 +12440,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(454,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -11398,6 +12473,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -11423,6 +12505,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -11447,6 +12536,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(814,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -11963,6 +13059,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -11987,6 +13090,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(144,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12013,6 +13123,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12037,6 +13154,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(604,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12063,6 +13187,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12087,6 +13218,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(604,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12113,6 +13251,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12137,6 +13282,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(454,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12163,6 +13315,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12188,6 +13347,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12212,6 +13378,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(754,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12728,6 +13901,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12752,6 +13932,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(144,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12778,6 +13965,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12802,6 +13996,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(597,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12828,6 +14029,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12852,6 +14060,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(597,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12878,6 +14093,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12902,6 +14124,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(454,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -12928,6 +14157,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12953,6 +14189,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -12977,6 +14220,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           transform="translate(739,195)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -13455,6 +14705,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -13479,6 +14736,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           transform="translate(264,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -13505,6 +14769,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -13529,6 +14800,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           transform="translate(384,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -13555,6 +14833,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -13580,6 +14865,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -13604,6 +14896,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           transform="translate(744,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -14000,7 +15299,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -14033,7 +15339,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -14066,7 +15379,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg success"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg success"
               cx="0"
               cy="0"
               r={12}
@@ -14099,13 +15419,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -14137,7 +15465,14 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             className="PWGx-svgResultStatusSolid"
           >
             <circle
-              className="circle-bg failure"
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg failure"
               cx="0"
               cy="0"
               r={12}
@@ -14170,13 +15505,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             className="PWGx-progress-spinner running"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -14208,13 +15551,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -14240,13 +15591,21 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
             className="PWGx-progress-spinner queued"
           >
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
             />
             <circle
-              className="inner"
+              className="inner statusColor"
               cx="0"
               cy="0"
               r={3.4166666666666665}
@@ -14269,6 +15628,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           transform="translate(504,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -14295,6 +15661,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -14319,6 +15692,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           transform="translate(744,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -14741,6 +16121,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -14765,6 +16152,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           transform="translate(264,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -14791,6 +16185,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -14815,6 +16216,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           transform="translate(384,125)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
@@ -14841,6 +16249,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -14866,6 +16281,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
         >
           <g>
             <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
@@ -14890,6 +16312,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           transform="translate(744,55)"
         >
           <g>
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
             <circle
               className="PWGx-svgResultStatusOutline"
               cx="0"
