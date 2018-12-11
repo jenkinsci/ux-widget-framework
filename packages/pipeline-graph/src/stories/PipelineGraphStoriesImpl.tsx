@@ -24,6 +24,7 @@ export function renderFlatPipeline() {
         m.basicStage('Failure', [], Result.failure),
         m.basicStage('Running', [], Result.running),
         m.basicStage('Slow', [], Result.running, 150),
+        m.basicStage('Paused', [], Result.paused, 30),
         m.basicStage('Queued', [], Result.queued),
     ];
 

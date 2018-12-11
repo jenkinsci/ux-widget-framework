@@ -4384,7 +4384,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
     >
       <svg
         height={200}
-        width={768}
+        width={888}
       >
         <line
           className="PWGx-pipeline-connector"
@@ -4430,7 +4430,15 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           className="PWGx-pipeline-connector"
           strokeWidth={3.5}
           x1={634.25}
-          x2={702.75}
+          x2={733.75}
+          y1={55}
+          y2={55}
+        />
+        <line
+          className="PWGx-pipeline-connector"
+          strokeWidth={3.5}
+          x1={754.25}
+          x2={822.75}
           y1={55}
           y2={55}
         />
@@ -4626,6 +4634,49 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           transform="translate(624,55)"
         >
           <g
+            className="PWGx-svgResultStatusSolid"
+          >
+            <circle
+              className="halo"
+              cx="0"
+              cy="0"
+              r={12}
+              strokeWidth={3.5}
+            />
+            <circle
+              className="statusColor circle-bg paused"
+              cx="0"
+              cy="0"
+              r={12}
+            />
+            <g
+              className="PWGx-result-status-glyph"
+            >
+              <polygon
+                points="-4,-4.65 -4,4.65 -4,4.65 -1.5,4.65 -1.5,-4.65"
+              />
+              <polygon
+                points="4,-4.65 1.5,-4.65 1.5,-4.65 1.5,4.65 4,4.65"
+              />
+            </g>
+          </g>
+          <title>
+            Paused
+          </title>
+          <circle
+            className="PWGx-pipeline-node-hittarget"
+            cursor="pointer"
+            fillOpacity="0"
+            onClick={[Function]}
+            r={19}
+            stroke="none"
+          />
+        </g>
+        <g
+          className="PWGx-pipeline-node"
+          transform="translate(744,55)"
+        >
+          <g
             className="PWGx-progress-spinner queued"
           >
             <circle
@@ -4663,7 +4714,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         </g>
         <g
           className="PWGx-pipeline-node"
-          transform="translate(708,55)"
+          transform="translate(828,55)"
         >
           <circle
             className="PWGx-pipeline-node-terminal"
@@ -4793,6 +4844,26 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
             "wordWrap": "break-word",
           }
         }
+        title="Paused"
+      >
+        Paused
+      </div>
+      <div
+        className="TruncatingLabel PWGx-pipeline-big-label"
+        style={
+          Object {
+            "bottom": "165px",
+            "left": "744px",
+            "marginLeft": -57,
+            "maxHeight": "35px",
+            "opacity": 0,
+            "overflow": "hidden",
+            "position": "absolute",
+            "textAlign": "center",
+            "width": 113,
+            "wordWrap": "break-word",
+          }
+        }
         title="Queued"
       >
         Queued
@@ -4802,7 +4873,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
         style={
           Object {
             "bottom": "165px",
-            "left": "708px",
+            "left": "828px",
             "marginLeft": -57,
             "maxHeight": "35px",
             "opacity": 0,

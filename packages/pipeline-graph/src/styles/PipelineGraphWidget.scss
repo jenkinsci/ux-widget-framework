@@ -23,7 +23,7 @@ circle.halo {
 }
 
 .PWGx-svgResultStatusOutline {
-    stroke: $brand-grey-lite;
+    stroke: $graph-connector-grey;
     fill: none;
 }
 
@@ -37,22 +37,22 @@ circle.halo {
 
     > circle.statusColor {
         &.success {
-            fill: $brand-success-lite;
+            fill: $status-success;
         }
         &.failure {
-            fill: $brand-danger-lite;
+            fill: $status-failure;
         }
         &.unstable {
-            fill: $brand-warning-lite;
+            fill: $status-unstable;
         }
         &.aborted {
-            fill: $brand-grey-lite;
+            fill: $graph-connector-grey;
         }
         &.paused {
-            fill: $brand-paused-lite;
+            fill: $status-paused;
         }
         &.unknown {
-            fill: $brand-unknown-lite;
+            fill: $status-unknown;
         }
 
         .pipeline-node-selected & {
@@ -78,7 +78,7 @@ circle.halo {
 
 .PWGx-progress-spinner.pc-over-100 path {
     fill: none;
-    stroke: $brand-warning-lite;
+    stroke: $status-unstable;
 }
 
 .PWGx-progress-spinner.running.spin {
@@ -105,8 +105,8 @@ circle.halo {
 
 .PWGx-progress-spinner.running circle.inner {
     display: block;
-    fill: $brand-info-lite;
-    stroke: $brand-info-lite;
+    fill: $progress-bar-color;
+    stroke: $progress-bar-color;
 }
 
 @keyframes progress-spinner-pulsate {
@@ -125,13 +125,13 @@ circle.halo {
 
 .PWGx-progress-spinner.queued circle.statusColor {
     fill: none;
-    stroke: $brand-grey-lite;
+    stroke: $graph-connector-grey;
 }
 
 .PWGx-progress-spinner.queued circle.statusColor.inner {
     display: block;
-    fill: $brand-grey-lite;
-    stroke: $brand-grey-lite;
+    fill: $graph-connector-grey;
+    stroke: $graph-connector-grey;
 }
 
 .PWGx-progress-spinner.queued path {
@@ -140,15 +140,15 @@ circle.halo {
 }
 
 .PWGx-pipeline-connector {
-    stroke: $brand-grey-lite;
+    stroke: $graph-connector-grey;
 }
 
 .PWGx-pipeline-node-terminal {
-    fill: $brand-grey-lite;
+    fill: $graph-connector-grey;
 }
 
 .PWGx-pipeline-connector-skipped {
-    stroke: $brand-grey-lite;
+    stroke: $graph-connector-grey;
     stroke-opacity: 0.25;
 }
 
@@ -167,5 +167,5 @@ circle.halo {
 
 .PWGx-pipeline-selection-highlight circle {
     fill: none;
-    stroke: $brand-primary;
+    stroke: $selection-highlight;
 }
