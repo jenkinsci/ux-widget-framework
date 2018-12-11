@@ -2,8 +2,7 @@ import * as React from 'react';
 
 import { Result } from '../PipelineGraphModel';
 
-import { strokeWidth } from './SvgSpinner';
-import { describeArcAsPath } from './SVG';
+import { nodeStrokeWidth } from './StatusIcons';
 
 // These were mostly taken from SVG and pre-translated
 const questionMarkPath =
@@ -22,78 +21,6 @@ const checkMarkPoints = '-2.00 2.80 -4.80 0.00 -5.73 0.933 -2.00 4.67 6.00 -3.33
 
 const crossPoints = '4.67 -3.73 3.73 -4.67 0 -0.94 -3.73 -4.67 -4.67 -3.73 -0.94 0 -4.67 3.73 -3.73 4.67 0 0.94 ' + '3.73 4.67 4.67 3.73 0.94 0';
 
-/**
-    Returns a glyph (as <g>) for specified result type. Centered at 0,0, scaled for 24px icons.
- */
-export function getGlyphFor(result: Result) {
-    // NB: If we start resizing these things, we'll need to use radius/12 to
-    // generate a "scale" transform for the group
-
-    switch (result) {
-        case 'aborted':
-            return (
-                <g className="result-status-glyph">
-                    <polygon points="-5 -1 5 -1 5 1 -5 1" />
-                </g>
-            );
-        case 'paused':
-            // "||"
-            // 8px 9.3px
-            return (
-                <g className="result-status-glyph">
-                    <polygon points="-4,-4.65 -4,4.65 -4,4.65 -1.5,4.65 -1.5,-4.65" />
-                    <polygon points="4,-4.65 1.5,-4.65 1.5,-4.65 1.5,4.65 4,4.65" />
-                </g>
-            );
-        case 'unstable':
-            // "!"
-            return (
-                <g className="result-status-glyph">
-                    <polygon points="-1 -5 1 -5 1 1 -1 1" />
-                    <polygon points="-1 3 1 3 1 5 -1 5" />
-                </g>
-            );
-        case 'success':
-            // check-mark
-            return (
-                <g className="result-status-glyph">
-                    <polygon points={checkMarkPoints} />
-                </g>
-            );
-        case 'failure':
-            // "X"
-            return (
-                <g className="result-status-glyph">
-                    <polygon points={crossPoints} />
-                </g>
-            );
-        case 'running':
-            // hollow circle
-            const radius = 12 - 0.5 * strokeWidth;
-            const d = describeArcAsPath(0, 0, radius, 0, 120);
-            return (
-                <g className="result-status-glyph" transform="scale(0.5)">
-                    <circle stroke="#a7c7f2" fill="none" cx="0" cy="0" r={radius} strokeWidth={strokeWidth} />
-                    <path stroke="white" className="spin" fill="none" strokeWidth={strokeWidth} d={d} />
-                </g>
-            );
-        case 'not_built':
-        case 'queued':
-            // hollow circle
-            return (
-                <g className="result-status-glyph">
-                    <path transform="scale(0.9)" d={hollowCirclePath} />
-                </g>
-            );
-    }
-    // "?" for unknown / invalid
-    return (
-        <g className="result-status-glyph">
-            <path d={questionMarkPath} />
-        </g>
-    );
-}
-
 interface Props {
     result: Result;
     radius: number;
@@ -103,11 +30,94 @@ export class SvgStatus extends React.PureComponent<Props> {
     render() {
         const { result, radius = 12 } = this.props;
 
-        return (
-            <g className="svgResultStatus">
-                <circle cx="0" cy="0" r={radius} className={`circle-bg ${result}`} />
-                {getGlyphFor(result)}
-            </g>
-        );
+        if (result === Result.not_built || result === Result.skipped) {
+            // Basic grey circle
+
+            const innerRadius = radius - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG
+
+            return (
+                <g>
+                    <circle cx="0" cy="0" r={radius} className="halo" strokeWidth={nodeStrokeWidth} />
+                    <circle cx="0" cy="0" r={innerRadius} strokeWidth={nodeStrokeWidth} className="PWGx-svgResultStatusOutline" />
+                </g>
+            );
+        } else {
+            // Otherwise solid-bg circle with a glyph on it
+
+            return (
+                <g className="PWGx-svgResultStatusSolid">
+                    <circle cx="0" cy="0" r={radius} className="halo" strokeWidth={nodeStrokeWidth} />
+                    <circle cx="0" cy="0" r={radius} className={`statusColor circle-bg ${result}`} />
+                    {getGlyphFor(result)}
+                </g>
+            );
+        }
     }
+}
+
+/**
+    Returns a glyph (as <g>) for specified result type. Centered at 0,0, scaled for 24px icons.
+ */
+function getGlyphFor(result: Result) {
+    // NB: If we start resizing these things, we'll need to use radius/12 to
+    // generate a "scale" transform for the group
+
+    switch (result) {
+        case Result.aborted:
+            return (
+                <g className="PWGx-result-status-glyph">
+                    <polygon points="-5 -1 5 -1 5 1 -5 1" />
+                </g>
+            );
+        case Result.paused:
+            // "||"
+            // 8px 9.3px
+            return (
+                <g className="PWGx-result-status-glyph">
+                    <polygon points="-4,-4.65 -4,4.65 -4,4.65 -1.5,4.65 -1.5,-4.65" />
+                    <polygon points="4,-4.65 1.5,-4.65 1.5,-4.65 1.5,4.65 4,4.65" />
+                </g>
+            );
+        case Result.unstable:
+            // "!"
+            return (
+                <g className="PWGx-result-status-glyph">
+                    <polygon points="-1 -5 1 -5 1 1 -1 1" />
+                    <polygon points="-1 3 1 3 1 5 -1 5" />
+                </g>
+            );
+        case Result.success:
+            // check-mark
+            return (
+                <g className="PWGx-result-status-glyph">
+                    <polygon points={checkMarkPoints} />
+                </g>
+            );
+        case Result.failure:
+            // "X"
+            return (
+                <g className="PWGx-result-status-glyph">
+                    <polygon points={crossPoints} />
+                </g>
+            );
+        case Result.not_built: // Handled directly by SvgStatus component above
+        case Result.skipped: // Handled directly by SvgStatus component above
+        case Result.queued: // Handled by spinner
+        case Result.running: // Handled by spinner
+        case Result.unknown:
+            break; // Continue on to the "unknown render"
+
+        default:
+            badResult(result); // Compile-time exhaustiveness check as well as runtime error logging, then continue to "unknown" icon
+    }
+    // "?" for Result.unknown or for bad input
+    return (
+        <g className="PWGx-result-status-glyph">
+            <path d={questionMarkPath} />
+        </g>
+    );
+}
+
+function badResult(x: never) {
+    console.error('Unexpected Result value', x);
 }

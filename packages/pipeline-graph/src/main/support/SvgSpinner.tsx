@@ -1,8 +1,27 @@
 import * as React from 'react';
 
-import { describeArcAsPath } from './SVG';
+import { nodeStrokeWidth } from './StatusIcons';
+import { Result } from '../PipelineGraphModel';
 
-export const strokeWidth = 3.5; // px. Maybe we can fetch this from CSS at runtime in the future
+function polarToCartesian(centerX: number, centerY: number, radius: number, angleInDegrees: number) {
+    const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
+
+    return {
+        x: centerX + radius * Math.cos(angleInRadians),
+        y: centerY + radius * Math.sin(angleInRadians),
+    };
+}
+
+function describeArcAsPath(x: number, y: number, radius: number, startAngle: number, endAngle: number) {
+    const start = polarToCartesian(x, y, radius, endAngle);
+    const end = polarToCartesian(x, y, radius, startAngle);
+
+    const arcSweep = endAngle - startAngle <= 180 ? '0' : '1';
+
+    const d = ['M', start.x, start.y, 'A', radius, radius, 0, arcSweep, 0, end.x, end.y].join(' ');
+
+    return d;
+}
 
 interface Props {
     percentage: number;
@@ -39,14 +58,13 @@ export class SvgSpinner extends React.Component<Props> {
 
     render() {
         const { result } = this.props;
-        const radius = (this.props.radius || 12) - 0.5 * strokeWidth; // No "inside" stroking in SVG`
+        const radius = this.props.radius || 12;
+        const insideRadius = radius - 0.5 * nodeStrokeWidth; // No "inside" stroking in SVG
 
         let percentage = this.props.percentage;
-        const groupClasses = ['progress-spinner', result];
+        const groupClasses = ['PWGx-progress-spinner', result];
 
-        if (result === 'queued') {
-            percentage = 0;
-        } else if (result === 'not_built' || result === 'skipped') {
+        if (result === Result.queued) {
             percentage = 0;
         } else if (typeof percentage !== 'number' || isNaN(percentage) || percentage < 0) {
             percentage = 0;
@@ -65,15 +83,16 @@ export class SvgSpinner extends React.Component<Props> {
         }
 
         const rotate = (percentage / 100) * 360;
-        const d = describeArcAsPath(0, 0, radius, 0, rotate);
+        const d = describeArcAsPath(0, 0, insideRadius, 0, rotate);
 
-        const innerRadius = radius / 3;
+        const innerRadius = insideRadius / 3;
 
         return (
             <g className={groupClasses.join(' ')} ref={c => (this.animatedElement = c!)}>
-                <circle cx="0" cy="0" r={radius} strokeWidth={strokeWidth} />
-                <circle className="inner" cx="0" cy="0" r={innerRadius} />
-                {percentage ? <path className={result} fill="none" strokeWidth={strokeWidth} d={d} /> : null}
+                <circle cx="0" cy="0" r={radius} className="halo" strokeWidth={nodeStrokeWidth} />
+                <circle cx="0" cy="0" r={insideRadius} className="statusColor" strokeWidth={nodeStrokeWidth} />
+                <circle cx="0" cy="0" r={innerRadius} className="inner statusColor" />
+                {percentage ? <path className={result} fill="none" strokeWidth={nodeStrokeWidth} d={d} /> : null}
             </g>
         );
     }

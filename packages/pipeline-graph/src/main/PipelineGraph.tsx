@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { getGroupForResult } from './support/StatusIndicator';
-import { strokeWidth as nodeStrokeWidth } from './support/SvgSpinner';
+
+import { nodeStrokeWidth, getGroupForResult } from './support/StatusIcons';
 import { TruncatingLabel } from './support/TruncatingLabel';
 
 import {
@@ -134,7 +134,7 @@ export class PipelineGraph extends React.Component {
             left: x + 'px',
         };
 
-        const classNames = ['pipeline-big-label'];
+        const classNames = ['PWGx-pipeline-big-label'];
         if (this.stageIsSelected(details.stage) || this.stageChildIsSelected(details.stage)) {
             classNames.push('selected');
         }
@@ -169,7 +169,7 @@ export class PipelineGraph extends React.Component {
             textAlign: 'center',
         };
 
-        const classNames = ['pipeline-small-label'];
+        const classNames = ['PWGx-pipeline-small-label'];
         if (details.stage && this.stageIsSelected(details.stage)) {
             classNames.push('selected');
         }
@@ -240,7 +240,7 @@ export class PipelineGraph extends React.Component {
 
         // Stroke props common to straight / curved connections
         const connectorStroke = {
-            className: 'pipeline-connector',
+            className: 'PWGx-pipeline-connector',
             strokeWidth: connectorStrokeWidth,
         };
 
@@ -299,12 +299,12 @@ export class PipelineGraph extends React.Component {
 
         // Stroke props common to straight / curved connections
         const connectorStroke = {
-            className: 'pipeline-connector',
+            className: 'PWGx-pipeline-connector',
             strokeWidth: connectorStrokeWidth,
         };
 
         const skipConnectorStroke = {
-            className: 'pipeline-connector-skipped',
+            className: 'PWGx-pipeline-connector-skipped',
             strokeWidth: connectorStrokeWidth,
         };
 
@@ -503,7 +503,7 @@ export class PipelineGraph extends React.Component {
 
         // Stroke props common to straight / curved connections
         const connectorStroke = {
-            className: 'pipeline-connector',
+            className: 'PWGx-pipeline-connector',
             strokeWidth: connectorStrokeWidth,
         };
 
@@ -544,7 +544,7 @@ export class PipelineGraph extends React.Component {
         const groupChildren: SVGChildren = [];
 
         if (node.isPlaceholder === true) {
-            groupChildren.push(<circle r={terminalRadius} className="pipeline-node-terminal" />);
+            groupChildren.push(<circle r={terminalRadius} className="PWGx-pipeline-node-terminal" />);
         } else {
             const { completePercent = 0, title, state } = node.stage;
             const resultClean = decodeResultValue(state);
@@ -569,14 +569,14 @@ export class PipelineGraph extends React.Component {
         // Add an invisible click/touch/mouseover target, coz the nodes are small and (more importantly)
         // many are hollow.
         groupChildren.push(
-            <circle r={nodeRadius + 2 * connectorStrokeWidth} className="pipeline-node-hittarget" fillOpacity="0" stroke="none" {...clickableProps} />
+            <circle r={nodeRadius + 2 * connectorStrokeWidth} className="PWGx-pipeline-node-hittarget" fillOpacity="0" stroke="none" {...clickableProps} />
         );
 
         // Most of the nodes are in shared code, so they're rendered at 0,0. We transform with a <g> to position them
         const groupProps = {
             key,
             transform: `translate(${node.x},${node.y})`,
-            className: nodeIsSelected ? 'pipeline-node-selected' : 'pipeline-node',
+            className: nodeIsSelected ? 'PWGx-pipeline-node-selected' : 'PWGx-pipeline-node',
         };
 
         svgElements.push(React.createElement('g', groupProps, ...groupChildren));
@@ -607,9 +607,8 @@ export class PipelineGraph extends React.Component {
             const transform = `translate(${selectedNode.x} ${selectedNode.y})`;
 
             svgElements.push(
-                <g className="pipeline-selection-highlight" transform={transform} key="selection-highlight">
-                    <circle className="white-highlight" r={highlightRadius - 2} strokeWidth={10} />
-                    <circle r={highlightRadius} strokeWidth={2} />
+                <g className="PWGx-pipeline-selection-highlight" transform={transform} key="selection-highlight">
+                    <circle r={highlightRadius} strokeWidth={connectorStrokeWidth} />
                 </g>
             );
         }
@@ -688,8 +687,8 @@ export class PipelineGraph extends React.Component {
         }
 
         return (
-            <div className="PipelineGraph-container">
-                <div style={outerDivStyle as any} className="PipelineGraph">
+            <div className="PWGx-PipelineGraph-container">
+                <div style={outerDivStyle as any} className="PWGx-PipelineGraph">
                     <svg width={measuredWidth} height={measuredHeight}>
                         {svgElements}
                     </svg>
