@@ -95,20 +95,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -126,7 +119,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -158,20 +151,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(384,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -432,7 +418,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -465,7 +451,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(144,125)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -498,7 +484,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(144,195)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -531,7 +517,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -564,7 +550,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(384,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -597,7 +583,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(384,125)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -630,7 +616,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(384,195)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -978,7 +964,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -1010,20 +996,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(264,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1040,20 +1019,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(384,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1363,20 +1335,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1395,20 +1360,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(214,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1427,20 +1385,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1459,20 +1410,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node-selected"
           transform="translate(454,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1491,20 +1435,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(274,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1523,20 +1460,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(394,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1555,20 +1485,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,265)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1587,20 +1510,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(574,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1617,20 +1533,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(824,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1649,20 +1558,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(764,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1681,20 +1583,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(884,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -1713,20 +1608,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(824,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2301,20 +2189,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2333,20 +2214,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(214,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2365,20 +2239,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2397,20 +2264,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(454,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2429,20 +2289,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node-selected"
           transform="translate(274,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2461,20 +2314,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(394,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2493,20 +2339,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,265)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2525,20 +2364,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(574,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2557,20 +2389,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(824,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2589,20 +2414,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(764,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2621,20 +2439,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(884,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -2653,20 +2464,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases1 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(824,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3140,20 +2944,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3172,20 +2969,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(264,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3204,20 +2994,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(384,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3436,20 +3219,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3468,20 +3244,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3500,20 +3269,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(454,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3802,20 +3564,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3832,20 +3587,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3864,20 +3612,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(454,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3896,20 +3637,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(574,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3928,20 +3662,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3960,20 +3687,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(454,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -3992,20 +3712,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(574,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -4024,20 +3737,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderEdgeCases2 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(694,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -4416,7 +4122,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -4449,7 +4155,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg failure"
@@ -4836,7 +4542,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg unstable"
@@ -4871,20 +4577,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(264,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -4902,7 +4601,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           transform="translate(384,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg aborted"
@@ -4934,20 +4633,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(504,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -4967,7 +4659,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipeline 1`] = `
           transform="translate(624,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg unknown"
@@ -5334,7 +5026,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -5367,7 +5059,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg failure"
@@ -5673,20 +5365,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           className="PWGx-pipeline-node"
           transform="translate(624,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -5706,7 +5391,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           transform="translate(744,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg unknown"
@@ -6231,7 +5916,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -6264,7 +5949,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg failure"
@@ -6570,20 +6255,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           className="PWGx-pipeline-node"
           transform="translate(624,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={18.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={6.083333333333333}
             />
           </g>
           <title>
@@ -6603,7 +6281,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderFlatPipelineFat 1`] = 
           transform="translate(744,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg unknown"
@@ -7078,7 +6756,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -7111,7 +6789,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -7207,20 +6885,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
           className="PWGx-pipeline-node"
           transform="translate(504,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -7239,20 +6910,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
           className="PWGx-pipeline-node"
           transform="translate(624,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -7271,20 +6935,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
           className="PWGx-pipeline-node"
           transform="translate(744,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -7303,20 +6960,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderListenersPipeline 1`] 
           className="PWGx-pipeline-node"
           transform="translate(864,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -7738,7 +7388,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -7771,7 +7421,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -7804,7 +7454,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(264,125)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -7837,7 +7487,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(264,195)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -7870,7 +7520,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(384,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -7903,7 +7553,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           transform="translate(384,125)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg failure"
@@ -8011,20 +7661,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(504,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8043,20 +7686,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(624,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8075,20 +7711,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(744,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8573,20 +8202,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8605,20 +8227,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(214,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8637,20 +8252,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8669,20 +8277,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(454,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8701,20 +8302,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(274,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8733,20 +8327,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(394,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8765,20 +8352,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(334,265)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8797,20 +8377,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(574,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8829,20 +8402,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(824,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8861,20 +8427,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(764,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8893,20 +8452,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(884,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -8925,20 +8477,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderLongNames 1`] = `
           className="PWGx-pipeline-node"
           transform="translate(824,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -9563,7 +9108,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -9596,7 +9141,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -9629,7 +9174,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(264,125)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -9662,7 +9207,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(264,195)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -9695,7 +9240,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(384,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -9728,7 +9273,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(384,125)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg failure"
@@ -9836,20 +9381,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           className="PWGx-pipeline-node"
           transform="translate(504,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -9866,20 +9404,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           className="PWGx-pipeline-node"
           transform="translate(624,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -9897,7 +9428,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(744,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -9930,7 +9461,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(744,125)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -9963,7 +9494,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           transform="translate(744,195)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -9995,20 +9526,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           className="PWGx-pipeline-node"
           transform="translate(864,55)"
         >
-          <g
-            className="PWGx-progress-spinner skipped"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10025,20 +9549,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiParallelPipeline 
           className="PWGx-pipeline-node"
           transform="translate(984,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10661,20 +10178,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10693,20 +10203,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(514,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10725,20 +10228,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(514,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10757,20 +10253,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(514,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10789,20 +10278,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(394,265)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10821,20 +10303,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(514,265)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10853,20 +10328,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(634,265)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10885,20 +10353,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(454,335)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10917,20 +10378,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(574,335)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10949,20 +10403,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(334,405)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -10981,20 +10428,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(454,405)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11013,20 +10453,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(574,405)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11045,20 +10478,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(694,405)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11077,20 +10503,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(514,475)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11109,20 +10528,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(814,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11141,20 +10553,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageParallel 1`]
           className="PWGx-pipeline-node"
           transform="translate(934,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11791,20 +11196,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11823,20 +11221,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(144,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11855,20 +11246,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(264,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11887,20 +11271,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(634,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11919,20 +11296,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(514,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11951,20 +11321,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(634,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -11983,20 +11346,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(754,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12015,20 +11371,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(454,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12047,20 +11396,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(574,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12079,20 +11421,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(694,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12111,20 +11446,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(814,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12633,20 +11961,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12665,20 +11986,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(144,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12697,20 +12011,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(264,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12729,20 +12036,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(604,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12761,20 +12061,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(504,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12793,20 +12086,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(604,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12825,20 +12111,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(704,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12857,20 +12136,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(454,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12889,20 +12161,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(554,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12921,20 +12186,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(654,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -12953,20 +12211,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(754,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13475,20 +12726,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13507,20 +12751,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(144,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13539,20 +12776,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(264,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13571,20 +12801,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(597,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13603,20 +12826,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(502,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13635,20 +12851,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(597,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13667,20 +12876,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(692,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13699,20 +12901,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(454,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13731,20 +12926,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(549,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13763,20 +12951,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(644,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -13795,20 +12976,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderMultiStageSpacing 1`] 
           className="PWGx-pipeline-node"
           transform="translate(739,195)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -14279,20 +13453,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -14311,20 +13478,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           className="PWGx-pipeline-node"
           transform="translate(264,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -14343,20 +13503,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           className="PWGx-pipeline-node"
           transform="translate(384,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -14375,20 +13528,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           className="PWGx-pipeline-node"
           transform="translate(384,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -14407,20 +13553,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           className="PWGx-pipeline-node"
           transform="translate(504,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -14439,20 +13578,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           className="PWGx-pipeline-node"
           transform="translate(624,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -14471,20 +13603,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipeline 1`] =
           className="PWGx-pipeline-node"
           transform="translate(744,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -14872,7 +13997,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           transform="translate(144,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -14905,7 +14030,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           transform="translate(264,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -14938,7 +14063,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           transform="translate(384,55)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg success"
@@ -15009,7 +14134,7 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           transform="translate(384,195)"
         >
           <g
-            className="PWGx-svgResultStatus"
+            className="PWGx-svgResultStatusSolid"
           >
             <circle
               className="circle-bg failure"
@@ -15143,20 +14268,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           className="PWGx-pipeline-node"
           transform="translate(504,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15175,20 +14293,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           className="PWGx-pipeline-node"
           transform="translate(624,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15207,20 +14318,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderParallelPipelineDeep 1
           className="PWGx-pipeline-node"
           transform="translate(744,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15635,20 +14739,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           className="PWGx-pipeline-node"
           transform="translate(144,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15667,20 +14764,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           className="PWGx-pipeline-node"
           transform="translate(264,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15699,20 +14789,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           className="PWGx-pipeline-node"
           transform="translate(384,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15731,20 +14814,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           className="PWGx-pipeline-node"
           transform="translate(384,125)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15763,20 +14839,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           className="PWGx-pipeline-node"
           transform="translate(504,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15795,20 +14864,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           className="PWGx-pipeline-node"
           transform="translate(624,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
@@ -15827,20 +14889,13 @@ exports[`PipelineGraph Renderer Storybook snapshots renderWithDuplicateNames 1`]
           className="PWGx-pipeline-node"
           transform="translate(744,55)"
         >
-          <g
-            className="PWGx-progress-spinner not_built"
-          >
+          <g>
             <circle
+              className="PWGx-svgResultStatusOutline"
               cx="0"
               cy="0"
               r={10.25}
               strokeWidth={3.5}
-            />
-            <circle
-              className="inner"
-              cx="0"
-              cy="0"
-              r={3.4166666666666665}
             />
           </g>
           <title>
