@@ -6,5 +6,6 @@
         "publish": {
             "npmClient": "npm"
         }
-    }
+    },
+    "npmClient": "yarn"
 }
