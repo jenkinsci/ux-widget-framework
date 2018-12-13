@@ -3,13 +3,12 @@
     "version": "0.1.0-alpha.6f49ad8d",
     "description": "Pipeline Graph Widget",
     "author": "Josh McDonald <josh@joshmcdonald.info>",
-    "homepage": "https://github.com/sophistifunk/blueocean-widgets#readme",
     "license": "MIT",
     "main": "dist/lib/index.js",
     "files": [
         "dist"
     ],
-    "repository": "git+https://github.com/sophistifunk/blueocean-widgets.git",
+    "repository": "git+https://github.com/jenkinsci/ux-widget-framework.git",
     "scripts": {
         "clean": "gulp clean",
         "dist": "gulp dist",
@@ -20,9 +19,6 @@
         "updateSnapshot": "jest --updateSnapshot",
         "storybook": "start-storybook -p 6006",
         "build-storybook": "build-storybook"
-    },
-    "bugs": {
-        "url": "https://github.com/sophistifunk/blueocean-widgets/issues"
     },
     "devDependencies": {
         "@babel/core": "^7.1.2",
@@ -66,5 +62,8 @@
         "hooks": {
             "pre-commit": "pretty-quick --staged"
         }
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }
