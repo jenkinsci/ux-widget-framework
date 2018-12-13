@@ -1,6 +1,6 @@
 {
     "name": "@jenkins-cd/pipeline-graph-widget",
-    "version": "0.1.0",
+    "version": "0.1.0-alpha",
     "description": "Pipeline Graph Widget",
     "author": "Josh McDonald <josh@joshmcdonald.info>",
     "license": "MIT",
@@ -22,7 +22,7 @@
     },
     "devDependencies": {
         "@babel/core": "^7.1.2",
-        "@jenkins-cd/ux-widget-framework": "^0.1.0-alpha.6f49ad8d",
+        "@jenkins-cd/ux-widget-framework": "0.1.0-alpha",
         "@storybook/addon-actions": "^4.0.0",
         "@storybook/addon-links": "^4.0.0",
         "@storybook/addons": "^4.0.0",
