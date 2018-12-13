@@ -30,5 +30,10 @@
     },
     "publishConfig": {
         "access": "public"
+    },
+    "browserify": {
+        "transform": [
+            "babelify"
+        ]
     }
 }
