@@ -1,6 +1,6 @@
 {
     "name": "@jenkins-cd/ux-widget-framework",
-    "version": "0.1.0-alpha.6f49ad8d",
+    "version": "0.1.0",
     "main": "dist/lib/index.js",
     "repository": "https://github.com/jenkinsci/ux-widget-framework.git",
     "author": "Josh McDonald <josh@joshmcdonald.info>",

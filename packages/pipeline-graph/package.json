@@ -1,6 +1,6 @@
 {
     "name": "@jenkins-cd/pipeline-graph-widget",
-    "version": "0.1.0-alpha.6f49ad8d",
+    "version": "0.1.0",
     "description": "Pipeline Graph Widget",
     "author": "Josh McDonald <josh@joshmcdonald.info>",
     "license": "MIT",
