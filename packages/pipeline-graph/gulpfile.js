@@ -1,7 +1,6 @@
 const gulp = require('gulp');
 const del = require('del');
 const ts = require('gulp-typescript');
-const runSequence = require('run-sequence');
 const sass = require('gulp-sass');
 const yaml = require('gulp-yaml');
 
@@ -40,7 +39,8 @@ gulp.task('i18n', () =>
 );
 
 // All the tasks we can do in parallel after clean
-gulp.task('build-all', ['ts', 'compile-sass', 'copy-sass', 'copy-assets', 'i18n']);
+gulp.task('build-all', gulp.parallel('ts', 'compile-sass', 'copy-sass', 'copy-assets', 'i18n'));
 
 // Main sequence for clean-building /dist ready for publish
-gulp.task('dist', done => runSequence('clean', 'build-all', done));
+gulp.task('dist', gulp.series('clean', 'build-all'));
+

@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "module": "es6",
+        "module": "commonjs",
         "moduleResolution": "node",
         "target": "es6",
         "declaration": true,
@@ -9,9 +9,7 @@
         "jsx": "react",
         "experimentalDecorators": true,
         "strict": true,
-        "sourceMap": true,
+        "sourceMap": true
     },
-    "exclude": [
-        "node_modules"
-    ]
+    "exclude": ["node_modules"]
 }
